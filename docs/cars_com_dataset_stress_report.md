@@ -1,6 +1,7 @@
 # Cars.com raw dataset stress report for price prediction
 
-CSV: `./cars_com_raw.csv`
+CSV: `data/raw/cars_com_raw.csv`
+_Point-in-time report generated on a ~1,000-row snapshot; regenerate with `python3 src/stress_test_cars_dataset.py`._
 Total rows: **1022**; unique listing keys: **1022**; duplicate keys: **0**
 Rows with detail URLs: **471**; rows without listing_url, likely older/card-only rows: **551**
 
