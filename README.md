@@ -9,6 +9,14 @@ with an honest evaluation of where the model works and where it doesn't.
 > in-line, or high **versus comparable listings** — not a claim about a car's true resale
 > value. (Same basis as Zillow's Zestimate.)
 
+## Portfolio highlights
+
+- **End-to-end ML pipeline:** listing-data intake → cleaning/feature engineering → LightGBM training → evaluation → single-listing scoring.
+- **Traceable dataset design:** raw listing URLs, listing keys, scrape timestamps, and detail-page enrichment timestamps are preserved in the raw CSV.
+- **Uncertainty-aware predictions:** quantile models estimate a q10/q50/q90 price band, so the system gives a range as well as a point estimate.
+- **Explainability:** model artifacts include feature importance, segment error analysis, calibration outputs, and SHAP summaries.
+- **Honest limitations:** the project models asking prices, documents weak segments, and avoids filling missing data with guesses.
+
 ## Results at a glance
 
 On a held-out test set (n = 184, ~900-listing snapshot):
@@ -28,6 +36,7 @@ Full breakdown: `model_artifacts/eval/`.
 ## Project timeline
 
 This repository was initialized in **late June 2026** to preserve and publish the current working state of a local automotive ML research project. The project itself began earlier as local experiments and scripts around **late 2025**, before there was a formal GitHub history. As a result, the first commit is a repository baseline rather than the true beginning of the research work.
+
 
 ## Setup
 
@@ -75,8 +84,20 @@ python3 -m pytest tests/ -q
 | `evaluate_model.py` | Baselines, segment error analysis, calibration, SHAP, KBB benchmark scaffold. |
 | `predict_listing.py` | Single-listing scoring: price band + verdict, with unseen-category warnings. |
 | `tests/` | Unit tests for the preprocessing normalizers. |
+| `docs/portfolio_summary.md` | Point-in-time portfolio summary from the initial repository setup. |
 | `model_artifacts/` | Trained models + metrics. `eval/` holds the evaluation report + plots. |
 | `benchmark_kbb.csv` | Hand-fill template to benchmark the model against KBB/Edmunds. |
+
+## Data collection principles
+
+The raw data collection policy is intentionally conservative:
+
+- only save values visible on loaded Cars.com pages;
+- leave unknown fields blank instead of inferring them;
+- deduplicate by Cars.com `listing_key`;
+- preserve timestamps and source URLs;
+- pause between page loads and stop rather than brute-force blocks or CAPTCHA.
+
 
 ## Model design notes
 
