@@ -11,7 +11,8 @@ with an honest evaluation of where the model works and where it doesn't.
 
 ## Portfolio highlights
 
-- **End-to-end ML pipeline:** listing-data intake → cleaning/feature engineering → LightGBM training → evaluation → single-listing scoring.
+- **End-to-end ML pipeline:** listing-data intake → raw cleaning → feature engineering → LightGBM training → evaluation → single-listing scoring.
+- **Defensive data cleaning:** a dedicated `raw → interim` stage catches scrape artifacts a naive price floor misses — e.g. captured *monthly-payment* amounts surfacing as a $1,892 "2027 Corvette" — using a market-plausibility rule, and logs every drop to an auditable report.
 - **Traceable dataset design:** raw listing URLs, listing keys, scrape timestamps, and detail-page enrichment timestamps are preserved in the raw CSV.
 - **Uncertainty-aware predictions:** quantile models estimate a q10/q50/q90 price band, so the system gives a range as well as a point estimate.
 - **Explainability:** model artifacts include feature importance, segment error analysis, calibration outputs, and SHAP summaries.
@@ -49,25 +50,36 @@ brew install libomp
 
 ## Pipeline
 
+Paths are resolved from the project root via `src/paths.py`. Run the commands
+below from the repository root.
+
 ```bash
 # 1. Provide appropriately obtained raw listing data
-#    -> writes cars_com_raw.csv
+#    -> writes data/raw/cars_com_raw.csv
 
-# 2. Clean + engineer features  (optional: pass input/output paths)
-python3 preprocess_cars_data.py cars_com_raw_1000.csv cars_com_processed.csv
-#    -> writes cars_com_processed.csv
+# 2. Clean the raw scrape (dedup, drop impossible values, kill payment-amount
+#    artifacts). Writes a per-reason report you can audit.
+python3 src/clean_raw_data.py
+#    -> writes data/interim/cars_com_clean.csv + data/interim/cleaning_report.md
 
-# 3. Train LightGBM (quantile q10/q50/q90 + L2 point model)
-python3 train_price_model.py
+# 3. Engineer features (normalization, feature columns, rare-category grouping)
+python3 src/preprocess_cars_data.py
+#    -> writes data/processed/cars_com_processed.csv
+
+# 4. Train LightGBM (quantile q10/q50/q90 + L2 point model)
+python3 src/train_price_model.py
 #    -> writes model_artifacts/
 
-# 4. Rigorous evaluation (baselines, segments, calibration, SHAP, KBB scaffold)
-python3 evaluate_model.py
+# 5. Rigorous evaluation (baselines, segments, calibration, SHAP, KBB scaffold)
+python3 src/evaluate_model.py
 #    -> writes model_artifacts/eval/
 
-# 5. Score a single listing
-python3 predict_listing.py     # edit EXAMPLE_LISTING inside the file
+# 6. Score a single listing
+python3 src/predict_listing.py     # edit EXAMPLE_LISTING inside the file
 ```
+
+Steps 2 and 3 accept optional `input.csv output.csv` overrides; with no arguments
+they use the `data/` layout above.
 
 Run the tests:
 
@@ -75,18 +87,37 @@ Run the tests:
 python3 -m pytest tests/ -q
 ```
 
-## What's in the repo
+## Repository layout
+
+```
+src/                          pipeline code (paths resolved via src/paths.py)
+  clean_raw_data.py           raw hygiene: dedup, impossible values, artifacts
+  preprocess_cars_data.py     normalization + feature engineering
+  train_price_model.py        LightGBM quantile + point training
+  evaluate_model.py           baselines, segments, calibration, SHAP
+  predict_listing.py          single-listing scoring
+  paths.py                    single source of truth for all data/artifact paths
+data/
+  raw/         immutable scraper output (cars_com_raw.csv)
+  interim/     cleaned raw + cleaning_report.md
+  processed/   model-ready table (cars_com_processed.csv)
+  snapshots/   frozen point-in-time CSVs
+  benchmarks/  KBB/Edmunds benchmark template
+model_artifacts/  trained models + metrics; eval/ holds report + plots
+docs/   tests/   dev/probes/ (throwaway debug scripts)
+```
 
 | Path | Purpose |
 |---|---|
-| `preprocess_cars_data.py` | Cleaning + feature engineering; normalizers are unit-tested. |
-| `train_price_model.py` | LightGBM training; writes models + `metrics.json` + `category_levels.json`. |
-| `evaluate_model.py` | Baselines, segment error analysis, calibration, SHAP, KBB benchmark scaffold. |
-| `predict_listing.py` | Single-listing scoring: price band + verdict, with unseen-category warnings. |
+| `src/clean_raw_data.py` | Raw hygiene: dedup, impossible-value + payment-artifact removal; writes a cleaning report. |
+| `src/preprocess_cars_data.py` | Normalization + feature engineering; normalizers are unit-tested. |
+| `src/train_price_model.py` | LightGBM training; writes models + `metrics.json` + `category_levels.json`. |
+| `src/evaluate_model.py` | Baselines, segment error analysis, calibration, SHAP, KBB benchmark scaffold. |
+| `src/predict_listing.py` | Single-listing scoring: price band + verdict, with unseen-category warnings. |
 | `tests/` | Unit tests for the preprocessing normalizers. |
 | `docs/portfolio_summary.md` | Point-in-time portfolio summary from the initial repository setup. |
 | `model_artifacts/` | Trained models + metrics. `eval/` holds the evaluation report + plots. |
-| `benchmark_kbb.csv` | Hand-fill template to benchmark the model against KBB/Edmunds. |
+| `data/benchmarks/benchmark_kbb.csv` | Hand-fill template to benchmark the model against KBB/Edmunds. |
 
 ## Data collection principles
 
