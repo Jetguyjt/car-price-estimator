@@ -32,8 +32,10 @@ from typing import Dict, List, Optional
 import numpy as np
 import pandas as pd
 
+import paths
 
-ARTIFACT_DIR = Path("model_artifacts")
+
+ARTIFACT_DIR = paths.ARTIFACT_DIR
 MODEL_FILES = {"q10": "lgbm_q10.pkl", "q50": "lgbm_q50.pkl", "q90": "lgbm_q90.pkl", "mean": "lgbm_mean.pkl"}
 
 # Categorical features for which an unseen value meaningfully degrades the estimate.

@@ -15,9 +15,10 @@ from sklearn.model_selection import GroupShuffleSplit, KFold, train_test_split
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.preprocessing import FunctionTransformer, OneHotEncoder, StandardScaler
 
+import paths
 warnings.filterwarnings('ignore')
-CSV_PATH = Path('./cars_com_raw.csv')
-OUT_PATH = CSV_PATH.with_name('cars_com_dataset_stress_report.md')
+CSV_PATH = paths.RAW_CSV
+OUT_PATH = paths.PROJECT_ROOT / 'docs' / 'cars_com_dataset_stress_report.md'
 
 def to_num(s):
     return pd.to_numeric(pd.Series(s).astype(str).str.replace(r'[^0-9.]+','', regex=True).replace('', np.nan), errors='coerce')

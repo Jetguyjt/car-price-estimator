@@ -28,8 +28,10 @@ from sklearn.model_selection import KFold, train_test_split
 
 import lightgbm as lgb
 
+import paths
 
-DATA_PATH = "cars_com_processed.csv"
+
+DATA_PATH = str(paths.PROCESSED_CSV)
 TARGET_COLUMN = "price"
 
 # Cols that aren't features (ids, leakage, raw helpers)
@@ -50,7 +52,7 @@ TEST_SIZE = 0.20
 RANDOM_SEED = 42
 CV_FOLDS = 5
 
-ARTIFACT_DIR = "model_artifacts"
+ARTIFACT_DIR = str(paths.ARTIFACT_DIR)
 
 
 def log(msg: str) -> None:

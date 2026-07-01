@@ -49,10 +49,11 @@ from train_price_model import (
     load_dataset,
     prepare_features,
 )
+import paths
 
-ARTIFACT_DIR = Path("model_artifacts")
-EVAL_DIR = ARTIFACT_DIR / "eval"
-BENCHMARK_CSV = Path("benchmark_kbb.csv")
+ARTIFACT_DIR = paths.ARTIFACT_DIR
+EVAL_DIR = paths.EVAL_DIR
+BENCHMARK_CSV = paths.BENCHMARK_CSV
 
 QUANTILE_MODELS = {"q10": "lgbm_q10.pkl", "q50": "lgbm_q50.pkl", "q90": "lgbm_q90.pkl"}
 POINT_MODEL = "lgbm_mean.pkl"

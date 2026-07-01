@@ -1,5 +1,6 @@
 import pandas as pd
-p='./cars_com_raw.csv'
+import paths
+p=str(paths.RAW_CSV)
 df=pd.read_csv(p,dtype=str,keep_default_na=False)
 for c in ['price','mileage','year']:
     df[c+'_num']=pd.to_numeric(df[c].str.replace(r'[^0-9.]','',regex=True).replace('',pd.NA),errors='coerce')

@@ -16,8 +16,8 @@ import sys
 import pandas as pd
 import pytest
 
-# Make the project root importable when pytest is run from anywhere.
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Make the src/ package importable when pytest is run from anywhere.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
 
 from preprocess_cars_data import (  # noqa: E402
     normalize_accident,

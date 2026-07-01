@@ -14,9 +14,13 @@ from typing import Optional
 
 import pandas as pd
 
+import paths
 
-RAW_INPUT_CSV_PATH = "cars_com_raw.csv"
-OUTPUT_CSV_PATH = "cars_com_processed.csv"
+
+# By default preprocess consumes the CLEANED table (output of clean_raw_data.py),
+# not the raw scrape. Pass an explicit input path to override.
+RAW_INPUT_CSV_PATH = str(paths.CLEAN_CSV)
+OUTPUT_CSV_PATH = str(paths.PROCESSED_CSV)
 VERBOSE = True
 
 # Price clipping is a tradeoff: too tight and you lose luxury, too loose and
