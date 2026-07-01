@@ -1,0 +1,1001 @@
+listing_id,title,year,make,model,trim,price,mileage,body_style,stock_type
+0,New 2026 Buick Envista Preferred FWD,2026,Buick,Envista,Preferred FWD,27247.0,7.0,SUV,New
+1,Used 2020 Honda Accord LX 1.5T,2020,Honda,Accord,LX 1.5T,20875.0,48776.0,Sedan,Used
+2,Used 2025 Honda Civic Sport,2025,Honda,Civic,Sport,23705.0,24474.0,Sedan,Used
+3,Used 2023 Chrysler 300 Touring,2023,Chrysler,300,Touring,26158.0,24731.0,Sedan,Used
+4,Used 2023 Chrysler 300 Touring L,2023,Chrysler,300,Touring L,25000.0,49206.0,Sedan,Used
+5,Used 2020 Alfa Romeo Stelvio Ti Sport,2020,Alfa Romeo,Stelvio,Ti Sport,23998.0,30191.0,SUV,Used
+6,Used 2009 Mercury Mariner I4,2009,Mercury,Mariner,I4,5999.0,109457.0,SUV,Used
+7,Used 2018 Mitsubishi Outlander Sport 2.0 ES,2018,Mitsubishi,Outlander Sport,2.0 ES,9995.0,98380.0,SUV,Used
+8,Used 2023 Chrysler 300 Touring,2023,Chrysler,300,Touring,29949.0,18479.0,Sedan,Used
+9,Used 2025 Hyundai PALISADE SEL,2025,Hyundai,PALISADE,SEL,31988.0,25765.0,SUV,Used
+10,Used 2024 Mazda Mazda3 AWD,2024,Mazda,Mazda3,AWD,25988.0,24890.0,Hatchback,Used
+11,Used 2025 Lincoln Aviator Reserve AWD,2025,Lincoln,Aviator,Reserve AWD,65999.0,8580.0,SUV,Used
+12,Used 2014 Maserati GranTurismo Sport,2014,Maserati,GranTurismo,Sport,26899.0,44090.0,Coupe,Used
+13,New 2026 Ford Bronco Big Bend,2026,Ford,Bronco,Big Bend,45534.0,1.0,SUV,New
+14,Used 2021 Tesla Model Y Long Range,2021,Tesla,Model Y,Long Range,27856.0,63709.0,SUV,Used
+15,Used 2024 Chevrolet Tahoe RST,2024,Chevrolet,Tahoe,RST,58520.0,32547.0,SUV,Used
+16,Used 2019 Buick Enclave Essence,2019,Buick,Enclave,Essence,17244.0,112523.0,SUV,Used
+17,Used 2022 RAM 1500 Big Horn,2022,RAM,1500,Big Horn,27962.0,26882.0,Truck,Used
+18,Used 2020 Lincoln Aviator Reserve AWD,2020,Lincoln,Aviator,Reserve AWD,30724.0,84625.0,SUV,Used
+19,New 2026 Hyundai PALISADE Calligraphy,2026,Hyundai,PALISADE,Calligraphy,55430.0,0.0,SUV,New
+20,New 2026 Hyundai PALISADE Limited,2026,Hyundai,PALISADE,Limited,52765.0,10.0,SUV,New
+21,New 2026 Acura Integra Base,2026,Acura,Integra,Base,35295.0,6.0,Hatchback,New
+22,New 2026 Dodge Charger R/T Scat Pack,2026,Dodge,Charger,R/T Scat Pack,54185.0,0.0,Coupe,New
+23,Used 2023 Lexus RX 350 Premium,2023,Lexus,RX 350,Premium,41752.0,47193.0,SUV,Used
+24,Used 2025 Chevrolet Silverado 1500 LT,2025,Chevrolet,Silverado 1500,LT,49725.0,14279.0,Truck,Used
+25,Used 2020 Chrysler Pacifica Touring L,2020,Chrysler,Pacifica,Touring L,22399.0,28529.0,Minivan,Used
+26,Used 2021 RAM 1500 Rebel,2021,RAM,1500,Rebel,38597.0,66541.0,Truck,Used
+27,Used 2015 Scion tC Base,2015,Scion,tC,Base,7995.0,146329.0,Coupe,Used
+28,New 2025 Mitsubishi Outlander PHEV SEL,2025,Mitsubishi,Outlander PHEV,SEL,51910.0,11.0,SUV,New
+29,Used 2025 GMC Yukon Denali,2025,GMC,Yukon,Denali,67441.0,24730.0,SUV,Used
+30,Used 2024 Volvo XC90 Plus Bright Theme,2024,Volvo,XC90,Plus Bright Theme,40994.0,29229.0,SUV,Used
+31,New 2025 Ford Bronco Outer Banks,2025,Ford,Bronco,Outer Banks,45589.0,8.0,SUV,New
+32,Used 2024 Kia Sorento S,2024,Kia,Sorento,S,25900.0,38713.0,SUV,Used
+33,New 2025 Jeep Grand Cherokee Laredo X,2025,Jeep,Grand Cherokee,Laredo X,38271.0,11.0,SUV,New
+34,Used 2024 Mazda CX-5 Preferred,2024,Mazda,CX-5,Preferred,24750.0,28562.0,SUV,Used
+35,Used 2021 GMC Sierra 1500 SLT,2021,GMC,Sierra 1500,SLT,36900.0,43159.0,Truck,Used
+36,Used 2024 Hyundai PALISADE XRT,2024,Hyundai,PALISADE,XRT,34950.0,33188.0,SUV,Used
+37,Used 2023 Lincoln Aviator Standard AWD,2023,Lincoln,Aviator,Standard AWD,33905.0,79095.0,SUV,Used
+38,Used 2019 Mitsubishi Outlander Sport 2.0 LE,2019,Mitsubishi,Outlander Sport,2.0 LE,7500.0,145657.0,SUV,Used
+39,Certified 2025 Kia K4 GT-Line Turbo,2025,Kia,K4,GT-Line Turbo,29900.0,2564.0,Sedan,Used
+40,New 2025 Jeep Grand Cherokee Limited,2025,Jeep,Grand Cherokee,Limited,40995.0,9.0,SUV,New
+41,Used 2025 Chrysler Pacifica Limited,2025,Chrysler,Pacifica,Limited,37696.0,24815.0,Passenger Van,Used
+42,Used 2017 Volvo XC60 T5 Inscription,2017,Volvo,XC60,T5 Inscription,7907.0,135937.0,SUV,Used
+43,Used 2024 Lamborghini Urus Performante,2024,Lamborghini,Urus,Performante,304998.0,7781.0,SUV,Used
+44,Used 2020 Subaru Outback Limited,2020,Subaru,Outback,Limited,22139.0,62511.0,SUV,Used
+45,Used 2025 Volkswagen Atlas 2.0T SE,2025,Volkswagen,Atlas,2.0T SE,33456.0,24890.0,SUV,Used
+46,Used 2021 Tesla Model Y Long Range Dual Motor All-Wheel Drive,2021,Tesla,Model Y,Long Range Dual Motor All-Wheel Drive,23786.0,82567.0,SUV,Used
+47,Used 2022 Audi Q7 55 Premium Plus,2022,Audi,Q7,55 Premium Plus,35998.0,19195.0,SUV,Used
+48,Used 2023 INFINITI QX55 LUXE,2023,INFINITI,QX55,LUXE,29650.0,18712.0,SUV,Used
+49,Used 2020 Porsche Cayenne S,2020,Porsche,Cayenne,S,38995.0,73247.0,SUV,Used
+50,Used 2022 Bentley Bentayga V8,2022,Bentley,Bentayga,V8,117995.0,25021.0,SUV,Used
+51,Used 2024 Mitsubishi Outlander SE 2.5 2WD,2024,Mitsubishi,Outlander,SE 2.5 2WD,22996.0,48052.0,SUV,Used
+52,Used 2020 Chevrolet Sonic LT,2020,Chevrolet,Sonic,LT,9995.0,69847.0,Hatchback,Used
+53,Used 2023 GMC Yukon 4WD AT4,2023,GMC,Yukon,4WD AT4,53339.0,66667.0,SUV,Used
+54,New 2026 BMW X5 xDrive40i,2026,BMW,X5,xDrive40i,78775.0,,SUV,New
+55,New 2025 Mercedes-Benz Sprinter 2500 170 WB High Roof Extended Cargo,2025,Mercedes-Benz,Sprinter 2500,170 WB High Roof Extended Cargo,70421.0,10.0,Cargo Van,New
+56,Used 2016 Honda Civic EX,2016,Honda,Civic,EX,13500.0,151801.0,Sedan,Used
+57,Used 2018 Mercedes-Benz E-Class E 300 4MATIC,2018,Mercedes-Benz,E-Class,E 300 4MATIC,21998.0,56374.0,Sedan,Used
+58,Used 2012 Honda Accord LX,2012,Honda,Accord,LX,9026.0,151034.0,Sedan,Used
+59,Used 2017 Volvo XC60 T6 Dynamic,2017,Volvo,XC60,T6 Dynamic,16906.0,35376.0,SUV,Used
+60,Used 2024 GMC Sierra 1500 SLT,2024,GMC,Sierra 1500,SLT,40197.0,61847.0,Truck,Used
+61,Used 2022 Chevrolet Tahoe 4WD High Country,2022,Chevrolet,Tahoe,4WD High Country,52989.0,64140.0,SUV,Used
+62,Used 2024 Lexus RX 350 F SPORT Handling,2024,Lexus,RX 350,F SPORT Handling,51990.0,25393.0,SUV,Used
+63,Used 2023 Volkswagen ID.4 Standard,2023,Volkswagen,ID.4,Standard,17599.0,31186.0,SUV,Used
+64,Used 2024 INFINITI QX80 Luxe,2024,INFINITI,QX80,Luxe,36853.0,47047.0,SUV,Used
+65,Used 2024 Jeep Wrangler Rubicon,2024,Jeep,Wrangler,Rubicon,40577.0,28885.0,SUV,Used
+66,Used 2024 RAM 1500 Limited,2024,RAM,1500,Limited,53183.0,15358.0,Truck,Used
+67,Used 2017 Mercedes-Benz E-Class E 300,2017,Mercedes-Benz,E-Class,E 300,21981.0,38738.0,Sedan,Used
+68,Used 2009 Toyota FJ Cruiser Base,2009,Toyota,FJ Cruiser,Base,8991.0,230265.0,SUV,Used
+69,New 2026 Kia Sorento EX,2026,Kia,Sorento,EX,37465.0,6589.0,SUV,New
+70,Used 2016 Lexus GX 460 Base,2016,Lexus,GX 460,Base,26500.0,137356.0,SUV,Used
+71,New 2025 Nissan Versa 1.6 SV,2025,Nissan,Versa,1.6 SV,18962.0,9.0,Sedan,New
+72,Used 2020 Nissan Pathfinder SL,2020,Nissan,Pathfinder,SL,15895.0,74281.0,SUV,Used
+73,New 2026 Hyundai TUCSON Hybrid Blue SE,2026,Hyundai,TUCSON Hybrid,Blue SE,29860.0,8.0,SUV,New
+74,New 2026 BMW X5 xDrive40i,2026,BMW,X5,xDrive40i,75600.0,5.0,SUV,New
+75,Used 2023 Jeep Wrangler Sport S,2023,Jeep,Wrangler,Sport S,21499.0,99148.0,SUV,Used
+76,Used 2020 Lincoln Navigator Reserve,2020,Lincoln,Navigator,Reserve,38805.0,72209.0,SUV,Used
+77,Used 2021 Kia Sorento S,2021,Kia,Sorento,S,26744.0,55133.0,SUV,Used
+78,Used 2026 BMW X5 sDrive40i,2026,BMW,X5,sDrive40i,77600.0,1941.0,SUV,Used
+79,Used 2021 Subaru Forester Touring,2021,Subaru,Forester,Touring,22897.0,78744.0,SUV,Used
+80,Used 2023 Acura RDX Technology Package,2023,Acura,RDX,Technology Package,28000.0,102949.0,SUV,Used
+81,Used 2017 FIAT 124 Spider Base,2017,FIAT,124 Spider,Base,18995.0,46692.0,Convertible,Used
+82,Used 2014 Dodge Durango Limited,2014,Dodge,Durango,Limited,9994.0,181793.0,SUV,Used
+83,Used 2022 Hyundai TUCSON Hybrid SEL Convenience,2022,Hyundai,TUCSON Hybrid,SEL Convenience,21789.0,52851.0,SUV,Used
+84,Used 2022 Audi A4 45 S line Premium Plus,2022,Audi,A4,45 S line Premium Plus,27731.0,29624.0,Sedan,Used
+85,Used 2025 Nissan Rogue SV,2025,Nissan,Rogue,SV,23238.0,22605.0,SUV,Used
+86,Used 2025 Genesis GV80 2.5T,2025,Genesis,GV80,2.5T,39500.0,24150.0,SUV,Used
+87,Used 2025 GMC Yukon 4WD AT4,2025,GMC,Yukon,4WD AT4,76984.0,13018.0,SUV,Used
+88,Used 2015 Volvo S80 T6,2015,Volvo,S80,T6,12995.0,86536.0,Sedan,Used
+89,Used 2023 GMC Yukon Denali,2023,GMC,Yukon,Denali,57994.0,42268.0,SUV,Used
+90,New 2026 BMW XM LABEL,2026,BMW,XM,LABEL,160775.0,24.0,SUV,New
+91,Used 2024 Subaru Outback Touring XT,2024,Subaru,Outback,Touring XT,31495.0,20033.0,SUV,Used
+92,New 2026 Buick Enclave Sport Touring,2026,Buick,Enclave,Sport Touring,50716.0,0.0,SUV,New
+93,Used 2013 BMW 650 xDrive,2013,BMW,650,xDrive,15999.0,80325.0,Coupe,Used
+94,Used 2023 INFINITI QX60 SENSORY,2023,INFINITI,QX60,SENSORY,39750.0,23084.0,SUV,Used
+95,Used 2024 Toyota Corolla Cross Hybrid SE,2024,Toyota,Corolla Cross Hybrid,SE,27555.0,28620.0,SUV,Used
+96,Used 2019 FIAT 500 Pop,2019,FIAT,500,Pop,10683.0,55067.0,Hatchback,Used
+97,Used 2022 Volkswagen Tiguan 2.0T S 4MOTION,2022,Volkswagen,Tiguan,2.0T S 4MOTION,20987.0,32743.0,SUV,Used
+98,Used 2021 MINI Hardtop Cooper S,2021,MINI,Hardtop,Cooper S,23791.0,25449.0,Hatchback,Used
+99,Used 2025 Acura MDX Advance Package,2025,Acura,MDX,Advance Package,58500.0,20681.0,SUV,Used
+100,Used 2001 Plymouth Prowler Base,2001,Plymouth,Prowler,Base,31980.0,35590.0,Convertible,Used
+101,Used 2002 Mercedes-Benz E-Class E 320 Sedan 4D,2002,Mercedes-Benz,E-Class,E 320 Sedan 4D,9990.0,89745.0,Sedan,Used
+102,Used 2021 Dodge Durango GT RWD,2021,Dodge,Durango,GT RWD,21900.0,79289.0,SUV,Used
+103,Used 2012 Hyundai ELANTRA GLS,2012,Hyundai,ELANTRA,GLS,6875.0,155490.0,Sedan,Used
+104,Used 2024 BMW X3 xDrive30i,2024,BMW,X3,xDrive30i,36599.0,30000.0,SUV,Used
+105,Used 2014 Chrysler Town & Country Touring-L,2014,Chrysler,Town & Country,Touring-L,11385.0,66401.0,Passenger Van,Used
+106,Used 2014 Buick Enclave Leather,2014,Buick,Enclave,Leather,9440.0,114647.0,SUV,Used
+107,Certified 2025 Hyundai PALISADE SEL,2025,Hyundai,PALISADE,SEL,31489.0,37512.0,SUV,Used
+108,Used 2012 Mazda Mazda3 i Touring,2012,Mazda,Mazda3,i Touring,8950.0,117736.0,Hatchback,Used
+109,Used 2024 RAM 2500 Laramie Crew Cab 4x4 6'4' Box,2024,RAM,2500,Laramie Crew Cab 4x4 6'4' Box,58995.0,39102.0,Truck,Used
+110,Used 2017 Jeep Grand Cherokee Limited,2017,Jeep,Grand Cherokee,Limited,18000.0,95655.0,SUV,Used
+111,Used 2024 Ford F-150 XLT,2024,Ford,F-150,XLT,39999.0,34665.0,Truck,Used
+112,Used 2018 Hyundai ELANTRA Value Edition,2018,Hyundai,ELANTRA,Value Edition,9099.0,134909.0,Sedan,Used
+113,Used 2010 Lexus RX 350 Base,2010,Lexus,RX 350,Base,10491.0,144869.0,SUV,Used
+114,Used 2024 MINI Hardtop Cooper S,2024,MINI,Hardtop,Cooper S,24710.0,33678.0,Hatchback,Used
+115,New 2026 Volkswagen Jetta GLI 2.0T Autobahn,2026,Volkswagen,Jetta GLI,2.0T Autobahn,37162.0,13.0,Sedan,New
+116,Used 2021 Audi A6 45 Sport Premium Plus,2021,Audi,A6,45 Sport Premium Plus,29995.0,29268.0,Sedan,Used
+117,Used 2021 Tesla Model Y Standard Range Rear-Wheel Drive,2021,Tesla,Model Y,Standard Range Rear-Wheel Drive,26998.0,81095.0,SUV,Used
+118,Used 2019 Bentley Bentayga V8,2019,Bentley,Bentayga,V8,78156.0,27385.0,SUV,Used
+119,Used 2024 GMC Canyon AT4,2024,GMC,Canyon,AT4,41664.0,7419.0,Truck,Used
+120,Used 2024 Jeep Wrangler Sport,2024,Jeep,Wrangler,Sport,27988.0,23542.0,SUV,Used
+121,New 2026 BMW X5 PHEV xDrive50e,2026,BMW,X5 PHEV,xDrive50e,83800.0,,SUV,New
+122,New 2026 BMW X7 xDrive40i,2026,BMW,X7,xDrive40i,96440.0,,SUV,New
+123,Used 2023 Hyundai PALISADE Calligraphy,2023,Hyundai,PALISADE,Calligraphy,35499.0,57902.0,SUV,Used
+124,Used 2019 Ford Fiesta SE,2019,Ford,Fiesta,SE,6995.0,119989.0,Hatchback,Used
+125,Used 2018 Toyota 4Runner Sport,2018,Toyota,4Runner,Sport,28809.0,123467.0,SUV,Used
+126,Used 2025 Mazda CX-5 2.5 S Preferred Package,2025,Mazda,CX-5,2.5 S Preferred Package,25944.0,25777.0,SUV,Used
+127,Used 2017 Cadillac XT5 Luxury,2017,Cadillac,XT5,Luxury,9999.0,115164.0,SUV,Used
+128,Used 2023 Dodge Challenger R/T,2023,Dodge,Challenger,R/T,37989.0,11491.0,Coupe,Used
+129,Used 2019 Acura RDX Base,2019,Acura,RDX,Base,20991.0,66397.0,SUV,Used
+130,Used 2023 Dodge Durango R/T Premium AWD,2023,Dodge,Durango,R/T Premium AWD,43988.0,22416.0,SUV,Used
+131,Used 2024 Jeep Wagoneer Series III,2024,Jeep,Wagoneer,Series III,45995.0,70567.0,SUV,Used
+132,Used 2017 Cadillac XT5 Premium Luxury,2017,Cadillac,XT5,Premium Luxury,22498.0,59607.0,SUV,Used
+133,Used 2020 Acura MDX 3.5L w/Technology Package,2020,Acura,MDX,3.5L w/Technology Package,19865.0,134922.0,SUV,Used
+134,Used 2023 Lamborghini Urus S,2023,Lamborghini,Urus,S,259995.0,5277.0,SUV,Used
+135,Used 2025 Subaru Outback Premium,2025,Subaru,Outback,Premium,29990.0,27300.0,SUV,Used
+136,Used 2022 Nissan Maxima SV Xtronic CVT,2022,Nissan,Maxima,SV Xtronic CVT,16995.0,88160.0,Sedan,Used
+137,New 2026 Honda Pilot Touring 8-Passenger,2026,Honda,Pilot,Touring 8-Passenger,53045.0,5.0,SUV,New
+138,Used 2023 Buick Envision Essence AWD,2023,Buick,Envision,Essence AWD,23590.0,50460.0,SUV,Used
+139,Used 2024 Chrysler Pacifica Touring L,2024,Chrysler,Pacifica,Touring L,28885.0,34767.0,Minivan,Used
+140,Used 2018 Toyota Avalon,2018,Toyota,Avalon,,11717.0,162755.0,Sedan,Used
+141,Used 2024 INFINITI QX60 SENSORY,2024,INFINITI,QX60,SENSORY,43935.0,21705.0,SUV,Used
+142,Used 2025 Mazda CX-5 Preferred,2025,Mazda,CX-5,Preferred,34452.0,6843.0,SUV,Used
+143,Used 2019 Dodge Journey Crossroad,2019,Dodge,Journey,Crossroad,6490.0,145202.0,SUV,Used
+144,Used 2023 Cadillac Escalade Premium Luxury,2023,Cadillac,Escalade,Premium Luxury,63195.0,47302.0,SUV,Used
+145,New 2025 BMW 230 i xDrive,2025,BMW,230,i xDrive,45805.0,10.0,Coupe,New
+146,New 2026 Mitsubishi Outlander SE 1.5T S-AWC,2026,Mitsubishi,Outlander,SE 1.5T S-AWC,39040.0,4.0,SUV,New
+147,Used 2020 Jaguar F-TYPE Base,2020,Jaguar,F-TYPE,Base,29999.0,42029.0,Convertible,Used
+148,Used 2017 Cadillac XT5 Luxury,2017,Cadillac,XT5,Luxury,11380.0,127923.0,SUV,Used
+149,Used 2023 Chrysler 300 Touring,2023,Chrysler,300,Touring,27345.0,9957.0,Sedan,Used
+150,Used 2021 Ford F-150 Platinum,2021,Ford,F-150,Platinum,34950.0,97302.0,Truck,Used
+151,Used 2023 Kia Telluride SX Prestige X-Line,2023,Kia,Telluride,SX Prestige X-Line,31500.0,63086.0,SUV,Used
+152,Used 2019 Alfa Romeo Giulia Base,2019,Alfa Romeo,Giulia,Base,15499.0,61205.0,Sedan,Used
+153,Used 2024 Buick Enclave Premium AWD,2024,Buick,Enclave,Premium AWD,29250.0,53831.0,SUV,Used
+154,Used 2019 Acura MDX 3.5L,2019,Acura,MDX,3.5L,21777.0,66079.0,SUV,Used
+155,Used 2025 Mercedes-Benz CLA 250 Base 4MATIC,2025,Mercedes-Benz,CLA 250,Base 4MATIC,44799.0,2779.0,Sedan,Used
+156,Used 2024 Porsche Cayenne Base,2024,Porsche,Cayenne,Base,77690.0,8016.0,SUV,Used
+157,Used 2017 Mazda MX-5 Miata RF Club,2017,Mazda,MX-5 Miata RF,Club,17995.0,78041.0,Coupe,Used
+158,Used 2019 Nissan Pathfinder SL,2019,Nissan,Pathfinder,SL,13998.0,146230.0,SUV,Used
+159,Used 2021 GMC Sierra 1500 Elevation,2021,GMC,Sierra 1500,Elevation,29495.0,88882.0,Truck,Used
+160,Used 2019 BMW X1 xDrive28i,2019,BMW,X1,xDrive28i,19999.0,63809.0,SUV,Used
+161,Used 2020 Ford Explorer XLT,2020,Ford,Explorer,XLT,19634.0,100887.0,SUV,Used
+162,Used 2021 RAM 1500 Big Horn/Lone Star,2021,RAM,1500,Big Horn/Lone Star,32013.0,56129.0,Truck,Used
+163,Used 2012 Dodge Durango SXT,2012,Dodge,Durango,SXT,9995.0,145708.0,SUV,Used
+164,Used 2021 Nissan Rogue SV,2021,Nissan,Rogue,SV,16701.0,81865.0,SUV,Used
+165,Used 2019 Volvo XC60 T6 Momentum,2019,Volvo,XC60,T6 Momentum,21459.0,43982.0,SUV,Used
+166,Used 2022 Kia Telluride EX,2022,Kia,Telluride,EX,24633.0,102267.0,SUV,Used
+167,Used 2022 Jeep Wrangler Unlimited Sahara,2022,Jeep,Wrangler Unlimited,Sahara,35900.0,21570.0,SUV,Used
+168,Used 2022 Dodge Durango R/T AWD,2022,Dodge,Durango,R/T AWD,35625.0,55181.0,SUV,Used
+169,Used 2025 Mercedes-Benz C-Class C 300 4MATIC,2025,Mercedes-Benz,C-Class,C 300 4MATIC,49799.0,4364.0,Sedan,Used
+170,Used 2018 INFINITI QX80 Base,2018,INFINITI,QX80,Base,22988.0,78970.0,SUV,Used
+171,Used 2025 Ford Explorer ST-Line,2025,Ford,Explorer,ST-Line,35987.0,33909.0,SUV,Used
+172,Used 2024 Mazda CX-5 2.5 Turbo Signature,2024,Mazda,CX-5,2.5 Turbo Signature,34990.0,9882.0,SUV,Used
+173,Used 2023 Tesla Model Y Long Range,2023,Tesla,Model Y,Long Range,29300.0,41961.0,SUV,Used
+174,Used 2020 Chrysler Pacifica Touring-L Plus,2020,Chrysler,Pacifica,Touring-L Plus,20995.0,53372.0,Minivan,Used
+175,Used 2022 Lincoln Aviator Standard AWD,2022,Lincoln,Aviator,Standard AWD,39989.0,51574.0,SUV,Used
+176,New 2026 Mercedes-Benz AMG CLE 53 Base,2026,Mercedes-Benz,AMG CLE 53,Base,100445.0,,Convertible,New
+177,Used 2015 Chevrolet Equinox 1LT,2015,Chevrolet,Equinox,1LT,6490.0,116809.0,SUV,Used
+178,Used 2016 Chevrolet Cruze Limited LTZ,2016,Chevrolet,Cruze Limited,LTZ,9495.0,81599.0,Sedan,Used
+179,Used 2026 Porsche Cayenne Base,2026,Porsche,Cayenne,Base,92900.0,3067.0,SUV,Used
+180,Used 2021 Buick Enclave Essence,2021,Buick,Enclave,Essence,20250.0,75917.0,SUV,Used
+181,New 2026 Chrysler Voyager LX,2026,Chrysler,Voyager,LX,40935.0,6.0,Passenger Van,New
+182,New 2026 Toyota Prius LE,2026,Toyota,Prius,LE,30674.0,6.0,Hatchback,New
+183,New 2025 BMW M235 Gran Coupe Xdrive,2025,BMW,M235 Gran Coupe,Xdrive,54175.0,247.0,Sedan,New
+184,New 2026 Toyota bZ XLE PLUS,2026,Toyota,bZ,XLE PLUS,42987.0,5.0,SUV,New
+185,New 2025 Ford Bronco Badlands,2025,Ford,Bronco,Badlands,62999.0,3.0,SUV,New
+186,Used 2015 Audi Q5 2.0T Premium Plus,2015,Audi,Q5,2.0T Premium Plus,10219.0,106765.0,SUV,Used
+187,Used 2024 Mitsubishi Mirage G4,2024,Mitsubishi,Mirage G4,,14691.0,20295.0,Sedan,Used
+188,Used 2017 Nissan Rogue SV,2017,Nissan,Rogue,SV,12988.0,94354.0,SUV,Used
+189,New 2026 Kia K5 GT,2026,Kia,K5,GT,33360.0,11.0,Sedan,New
+190,Used 2025 Mazda CX-5 2.5 S Select Package,2025,Mazda,CX-5,2.5 S Select Package,24857.0,38678.0,SUV,Used
+191,New 2026 Audi A6 Prestige quattro S tronic,2026,Audi,A6,Prestige quattro S tronic,74670.0,6.0,Sedan,New
+192,Used 2023 Dodge Challenger R/T Scat Pack Widebody,2023,Dodge,Challenger,R/T Scat Pack Widebody,56695.0,9629.0,Coupe,Used
+193,Used 2024 Land Rover Range Rover Sport SE,2024,Land Rover,Range Rover Sport,SE,80991.0,10020.0,SUV,Used
+194,Used 2024 Buick Encore GX Sport Touring,2024,Buick,Encore GX,Sport Touring,23599.0,38536.0,SUV,Used
+195,Used 2024 Mitsubishi Outlander SE,2024,Mitsubishi,Outlander,SE,22988.0,40138.0,SUV,Used
+196,Used 2019 Subaru Outback 2.5i Limited,2019,Subaru,Outback,2.5i Limited,17995.0,88308.0,SUV,Used
+197,New 2026 Hyundai SANTA FE HEV SEL,2026,Hyundai,SANTA FE HEV,SEL,33810.0,12.0,SUV,New
+198,Used 2023 Alfa Romeo Giulia Veloce,2023,Alfa Romeo,Giulia,Veloce,28973.0,26015.0,Sedan,Used
+199,Used 2019 GMC Yukon Denali,2019,GMC,Yukon,Denali,31995.0,102424.0,SUV,Used
+200,Used 2022 Maserati Ghibli Modena Q4,2022,Maserati,Ghibli,Modena Q4,36900.0,37344.0,Sedan,Used
+201,New 2026 Chrysler Voyager LX,2026,Chrysler,Voyager,LX,36240.0,250.0,Passenger Van,New
+202,Used 2025 Kia Telluride EX X-Line,2025,Kia,Telluride,EX X-Line,42900.0,12434.0,SUV,Used
+203,Used 2025 Nissan Murano SV,2025,Nissan,Murano,SV,29900.0,8652.0,SUV,Used
+204,Used 2024 Chrysler Pacifica Touring-L,2024,Chrysler,Pacifica,Touring-L,25899.0,62586.0,Passenger Van,Used
+205,Used 2019 Ford Fiesta SE,2019,Ford,Fiesta,SE,9995.0,58477.0,Sedan,Used
+206,New 2026 GMC Sierra 1500 Elevation,2026,GMC,Sierra 1500,Elevation,54089.0,11.0,Truck,New
+207,Used 2019 Mercedes-Benz CLA 250 Base,2019,Mercedes-Benz,CLA 250,Base,18900.0,48119.0,Sedan,Used
+208,Used 2022 RAM 1500 Big Horn,2022,RAM,1500,Big Horn,24989.0,69089.0,Truck,Used
+209,Used 2015 Honda Accord EX-L,2015,Honda,Accord,EX-L,13700.0,118128.0,Sedan,Used
+210,Used 2019 RAM 1500 Laramie,2019,RAM,1500,Laramie,29900.0,82842.0,Truck,Used
+211,Used 2023 Ford Explorer XLT,2023,Ford,Explorer,XLT,26569.0,40897.0,SUV,Used
+212,New 2026 Mercedes-Benz AMG GLC 43 Base,2026,Mercedes-Benz,AMG GLC 43,Base,82110.0,,SUV,New
+213,Used 2020 Kia Optima LX,2020,Kia,Optima,LX,14995.0,49993.0,Sedan,Used
+214,New 2026 Mercedes-Benz GLC 300 Base 4MATIC,2026,Mercedes-Benz,GLC 300,Base 4MATIC,64655.0,,SUV,New
+215,Used 2014 GMC Sierra 1500 SLE,2014,GMC,Sierra 1500,SLE,22998.0,74324.0,Truck,Used
+216,New 2026 Chevrolet Colorado Trail Boss,2026,Chevrolet,Colorado,Trail Boss,45020.0,1.0,Truck,New
+217,Used 2022 Kia Sorento SX,2022,Kia,Sorento,SX,26141.0,77206.0,SUV,Used
+218,New 2026 BMW M235 Gran Coupe Xdrive,2026,BMW,M235 Gran Coupe,Xdrive,55950.0,,Sedan,New
+219,Used 2018 Mercedes-Benz E-Class E 400,2018,Mercedes-Benz,E-Class,E 400,38999.0,25397.0,Wagon,Used
+220,Used 2023 Mitsubishi Outlander Sport 2.0 S,2023,Mitsubishi,Outlander Sport,2.0 S,13997.0,49616.0,SUV,Used
+221,Used 2019 RAM 1500 Limited,2019,RAM,1500,Limited,34999.0,107586.0,Truck,Used
+222,Used 2017 MINI Countryman Cooper,2017,MINI,Countryman,Cooper,11490.0,89298.0,SUV,Used
+223,New 2026 Chevrolet Silverado 1500 RST,2026,Chevrolet,Silverado 1500,RST,58940.0,1.0,Truck,New
+224,Used 2025 Kia K4,2025,Kia,K4,,21999.0,19880.0,Sedan,Used
+225,Used 2021 Dodge Durango SXT Plus,2021,Dodge,Durango,SXT Plus,21478.0,55251.0,SUV,Used
+226,Used 2021 Honda Accord Sport SE,2021,Honda,Accord,Sport SE,22500.0,45000.0,Sedan,Used
+227,Used 2017 Bentley Continental GT V8 S,2017,Bentley,Continental GT,V8 S,107774.0,22804.0,Convertible,Used
+228,Used 2023 GMC Yukon SLT,2023,GMC,Yukon,SLT,57999.0,52585.0,SUV,Used
+229,New 2026 Mercedes-Benz CLA 250 Base 4MATIC,2026,Mercedes-Benz,CLA 250,Base 4MATIC,53145.0,,Coupe,New
+230,Used 2017 BMW X3 xDrive28i,2017,BMW,X3,xDrive28i,12891.0,92965.0,SUV,Used
+231,New 2026 Jeep Gladiator Sport,2026,Jeep,Gladiator,Sport,45795.0,,Truck,New
+232,Used 2024 Toyota Corolla Hatchback SE,2024,Toyota,Corolla Hatchback,SE,20970.0,46712.0,Hatchback,Used
+233,Used 2019 Acura RDX Base,2019,Acura,RDX,Base,18323.0,94455.0,SUV,Used
+234,New 2026 Nissan Rogue S,2026,Nissan,Rogue,S,26311.0,10.0,SUV,New
+235,Used 2021 GMC Yukon Denali,2021,GMC,Yukon,Denali,51272.0,67862.0,SUV,Used
+236,New 2024 Jaguar XF R-Dynamic SE,2024,Jaguar,XF,R-Dynamic SE,56603.0,20.0,Sedan,New
+237,Used 2025 Kia Sorento X-Line EX,2025,Kia,Sorento,X-Line EX,34500.0,8464.0,SUV,Used
+238,Used 2021 Alfa Romeo Stelvio Ti,2021,Alfa Romeo,Stelvio,Ti,18998.0,69367.0,SUV,Used
+239,New 2025 Nissan Kicks Play S,2025,Nissan,Kicks Play,S,20094.0,10.0,SUV,New
+240,Used 2016 Chrysler 300 S,2016,Chrysler,300,S,16975.0,56472.0,Sedan,Used
+241,Certified 2023 Hyundai ELANTRA SE,2023,Hyundai,ELANTRA,SE,16351.0,35835.0,Sedan,Used
+242,Used 2023 Volvo XC60 B5 Core,2023,Volvo,XC60,B5 Core,24580.0,81421.0,SUV,Used
+243,Used 2023 Ford Mustang GT Premium,2023,Ford,Mustang,GT Premium,41899.0,3714.0,Coupe,Used
+244,Used 2025 Genesis GV70 2.5T AWD,2025,Genesis,GV70,2.5T AWD,34191.0,25193.0,SUV,Used
+245,New 2026 Mercedes-Benz GLE 450 4MATIC,2026,Mercedes-Benz,GLE 450,4MATIC,81010.0,,SUV,New
+246,Used 2019 Mercedes-Benz GLS 550 Base 4MATIC,2019,Mercedes-Benz,GLS 550,Base 4MATIC,27999.0,82585.0,SUV,Used
+247,New 2026 Volkswagen Jetta GLI 2.0T Autobahn,2026,Volkswagen,Jetta GLI,2.0T Autobahn,36371.0,8.0,Sedan,New
+248,Used 2019 Nissan Versa 1.6 SV,2019,Nissan,Versa,1.6 SV,6995.0,100341.0,Sedan,Used
+249,Used 2020 Audi Q7 55 Premium Plus,2020,Audi,Q7,55 Premium Plus,32495.0,29451.0,SUV,Used
+250,Used 2018 Audi Q7 3.0T Prestige,2018,Audi,Q7,3.0T Prestige,18482.0,85772.0,SUV,Used
+251,Used 2019 GMC Sierra 1500 SLT,2019,GMC,Sierra 1500,SLT,27000.0,120695.0,Truck,Used
+252,New 2026 Jeep Cherokee LAREDO/LIMITED,2026,Jeep,Cherokee,LAREDO/LIMITED,40587.0,16.0,SUV,New
+253,Used 2023 Tesla Model 3 Performance,2023,Tesla,Model 3,Performance,27797.0,40370.0,Sedan,Used
+254,Used 2022 Hyundai PALISADE Calligraphy,2022,Hyundai,PALISADE,Calligraphy,26388.0,90075.0,SUV,Used
+255,New 2026 Jeep Compass Latitude,2026,Jeep,Compass,Latitude,29780.0,11.0,SUV,New
+256,New 2026 Nissan Kicks SR,2026,Nissan,Kicks,SR,28632.0,23.0,SUV,New
+257,Used 2025 Lincoln Aviator Reserve AWD,2025,Lincoln,Aviator,Reserve AWD,61989.0,12203.0,SUV,Used
+258,New 2026 Mitsubishi Outlander SE 2.5 S-AWC,2026,Mitsubishi,Outlander,SE 2.5 S-AWC,39115.0,5.0,SUV,New
+259,Used 2020 Chrysler Pacifica Touring-L,2020,Chrysler,Pacifica,Touring-L,16960.0,87578.0,Passenger Van,Used
+260,Used 2019 Ford Fiesta SE,2019,Ford,Fiesta,SE,8495.0,88661.0,Hatchback,Used
+261,Used 2025 Mazda CX-70 PF,2025,Mazda,CX-70,PF,29955.0,38130.0,SUV,Used
+262,Used 2020 Toyota 4Runner Limited,2020,Toyota,4Runner,Limited,38027.0,46227.0,SUV,Used
+263,New 2025 Nissan Versa 1.6 SV,2025,Nissan,Versa,1.6 SV,18739.0,12.0,Sedan,New
+264,Used 2025 Mercedes-Benz GLE 450e 4MATIC,2025,Mercedes-Benz,GLE 450e,4MATIC,66500.0,19055.0,SUV,Used
+265,Used 2017 Hyundai ELANTRA SE,2017,Hyundai,ELANTRA,SE,10768.0,90826.0,Sedan,Used
+266,Used 2025 Mercedes-Benz GLC 300 Base 4MATIC,2025,Mercedes-Benz,GLC 300,Base 4MATIC,53500.0,4078.0,SUV,Used
+267,New 2026 BMW 530 i xDrive,2026,BMW,530,i xDrive,70690.0,14.0,Sedan,New
+268,New 2026 Honda Passport TrailSport Elite,2026,Honda,Passport,TrailSport Elite,55350.0,,SUV,New
+269,Used 2022 Mercedes-Benz Sprinter 4500 High Roof,2022,Mercedes-Benz,Sprinter 4500,High Roof,85994.0,41999.0,Cargo Van,Used
+270,New 2026 Mercedes-Benz AMG GLE 53 Base,2026,Mercedes-Benz,AMG GLE 53,Base,105085.0,,SUV,New
+271,New 2026 Nissan Sentra S,2026,Nissan,Sentra,S,23022.0,12.0,Sedan,New
+272,Used 2016 Lexus RX 350 F Sport,2016,Lexus,RX 350,F Sport,23991.0,81131.0,SUV,Used
+273,Used 2024 INFINITI QX80 Luxe,2024,INFINITI,QX80,Luxe,41649.0,46734.0,SUV,Used
+274,Used 2025 Land Rover Range Rover SE,2025,Land Rover,Range Rover,SE,119000.0,13642.0,SUV,Used
+275,Used 2024 Volkswagen Tiguan 2.0T Wolfsburg Edition,2024,Volkswagen,Tiguan,2.0T Wolfsburg Edition,24995.0,33417.0,SUV,Used
+276,Used 2025 Hyundai ELANTRA HEV Limited,2025,Hyundai,ELANTRA HEV,Limited,22395.0,24942.0,Sedan,Used
+277,New 2026 Chevrolet Equinox EV RS,2026,Chevrolet,Equinox EV,RS,46090.0,5.0,SUV,New
+278,New 2026 Chrysler Voyager LX,2026,Chrysler,Voyager,LX,37472.0,0.0,Passenger Van,New
+279,Used 2022 Nissan Rogue SV,2022,Nissan,Rogue,SV,17988.0,49850.0,SUV,Used
+280,New 2026 Chevrolet Traverse LT,2026,Chevrolet,Traverse,LT,42795.0,1.0,SUV,New
+281,Used 2023 Subaru Outback Limited,2023,Subaru,Outback,Limited,27488.0,37741.0,SUV,Used
+282,Used 2020 Dodge Challenger SXT,2020,Dodge,Challenger,SXT,22984.0,67685.0,Coupe,Used
+283,New 2025 BMW 330 i xDrive,2025,BMW,330,i xDrive,50895.0,,Sedan,New
+284,Used 2025 Chevrolet Trailblazer LT,2025,Chevrolet,Trailblazer,LT,24430.0,32150.0,SUV,Used
+285,Used 2023 Mazda CX-5 2.5 S Premium Plus Package,2023,Mazda,CX-5,2.5 S Premium Plus Package,24582.0,45072.0,SUV,Used
+286,Used 2020 Mazda CX-5 Grand Touring,2020,Mazda,CX-5,Grand Touring,22650.0,48811.0,SUV,Used
+287,Used 2023 BMW X5 xDrive40i,2023,BMW,X5,xDrive40i,48000.0,36887.0,SUV,Used
+288,New 2026 RAM 1500 Express,2026,RAM,1500,Express,50819.0,5.0,Truck,New
+289,New 2027 Chevrolet Bolt LT,2027,Chevrolet,Bolt,LT,29990.0,1.0,SUV,New
+290,Used 2025 Chevrolet Silverado 1500 WT,2025,Chevrolet,Silverado 1500,WT,45428.0,6455.0,Truck,Used
+291,Used 2023 Chevrolet Tahoe LS,2023,Chevrolet,Tahoe,LS,40996.0,65525.0,SUV,Used
+292,New 2026 BMW X1 xDrive28i,2026,BMW,X1,xDrive28i,49030.0,,SUV,New
+293,New 2026 Hyundai PALISADE XRT Pro,2026,Hyundai,PALISADE,XRT Pro,50110.0,1.0,SUV,New
+294,Used 2017 Hyundai ELANTRA SE,2017,Hyundai,ELANTRA,SE,11032.0,77554.0,Sedan,Used
+295,Used 2019 Volvo XC60 T5 Inscription,2019,Volvo,XC60,T5 Inscription,18498.0,89833.0,SUV,Used
+296,Used 2024 Lexus RX 350 Premium Plus,2024,Lexus,RX 350,Premium Plus,48000.0,9583.0,SUV,Used
+297,New 2026 Lincoln Nautilus Premiere,2026,Lincoln,Nautilus,Premiere,55945.0,5.0,SUV,New
+298,Used 2016 Dodge Challenger SRT 392,2016,Dodge,Challenger,SRT 392,29782.0,69848.0,Coupe,Used
+299,New 2025 Kia K4 LXS,2025,Kia,K4,LXS,23080.0,11.0,Sedan,New
+300,Used 2022 Jeep Compass Latitude,2022,Jeep,Compass,Latitude,20995.0,23000.0,SUV,Used
+301,Certified 2025 Hyundai ELANTRA SEL Sport,2025,Hyundai,ELANTRA,SEL Sport,21000.0,14739.0,Sedan,Used
+302,Used 2025 Chevrolet Equinox ACTIV,2025,Chevrolet,Equinox,ACTIV,29995.0,22798.0,SUV,Used
+303,Used 2021 Ford Explorer Limited,2021,Ford,Explorer,Limited,22991.0,99317.0,SUV,Used
+304,Used 2020 Ford Explorer Limited,2020,Ford,Explorer,Limited,24550.0,66151.0,SUV,Used
+305,New 2026 Acura Integra FWD A-Spec,2026,Acura,Integra,FWD A-Spec,37845.0,10.0,Hatchback,New
+306,New 2026 BMW 228 Gran Coupe XDrive,2026,BMW,228 Gran Coupe,XDrive,47625.0,,Sedan,New
+307,Used 2020 Ford Explorer Limited,2020,Ford,Explorer,Limited,21780.0,109840.0,SUV,Used
+308,New 2026 BMW 740 i xDrive,2026,BMW,740,i xDrive,121465.0,,Sedan,New
+309,New 2025 Jeep Grand Cherokee L Limited,2025,Jeep,Grand Cherokee L,Limited,44185.0,,SUV,New
+310,Used 2021 BMW X2 sDrive28i,2021,BMW,X2,sDrive28i,22995.0,52409.0,SUV,Used
+311,Certified 2021 RAM 2500 Power Wagon,2021,RAM,2500,Power Wagon,49988.0,48976.0,Truck,Used
+312,Used 2017 Honda Civic EX,2017,Honda,Civic,EX,17999.0,56097.0,Sedan,Used
+313,Used 2018 Volkswagen Tiguan 2.0T S,2018,Volkswagen,Tiguan,2.0T S,10700.0,75198.0,SUV,Used
+314,Used 2025 BMW X3 30 xDrive,2025,BMW,X3,30 xDrive,52020.0,8996.0,SUV,Used
+315,Used 2021 RAM 1500 Laramie,2021,RAM,1500,Laramie,34988.0,90218.0,Truck,Used
+316,Used 2023 Buick Envision Essence,2023,Buick,Envision,Essence,29327.0,13956.0,SUV,Used
+317,Used 2023 Volvo XC60 B5 Plus Bright Theme,2023,Volvo,XC60,B5 Plus Bright Theme,27993.0,46729.0,SUV,Used
+318,Used 2016 Chevrolet Colorado Z71,2016,Chevrolet,Colorado,Z71,21914.0,95916.0,Truck,Used
+319,Used 2022 Lexus GX 460 Premium,2022,Lexus,GX 460,Premium,51196.0,37058.0,SUV,Used
+320,Used 2019 Subaru Outback 2.5i Premium,2019,Subaru,Outback,2.5i Premium,13690.0,86125.0,SUV,Used
+321,New 2026 Honda Civic Sport,2026,Honda,Civic,Sport,25835.0,2.0,Sedan,New
+322,Used 2018 Subaru Forester 2.5i,2018,Subaru,Forester,2.5i,19794.0,28686.0,SUV,Used
+323,Used 2024 Hyundai ELANTRA Limited,2024,Hyundai,ELANTRA,Limited,22167.0,53462.0,Sedan,Used
+324,Used 2020 BMW 530e xDrive iPerformance,2020,BMW,530e,xDrive iPerformance,24999.0,51628.0,Sedan,Used
+325,Used 2024 GMC Yukon AT4,2024,GMC,Yukon,AT4,66899.0,44007.0,SUV,Used
+326,Used 2021 Chevrolet Tahoe LT,2021,Chevrolet,Tahoe,LT,35060.0,87217.0,SUV,Used
+327,Used 2019 Ford Fusion SE,2019,Ford,Fusion,SE,9999.0,114375.0,Sedan,Used
+328,New 2026 Kia K4 LXS,2026,Kia,K4,LXS,22961.0,5.0,Sedan,New
+329,Used 2019 Porsche Cayenne Cayenne,2019,Porsche,Cayenne,Cayenne,18995.0,118975.0,SUV,Used
+330,New 2026 Kia Sorento EX,2026,Kia,Sorento,EX,37965.0,11.0,SUV,New
+331,Used 2022 Kia Telluride EX,2022,Kia,Telluride,EX,31990.0,39019.0,SUV,Used
+332,Used 2023 Alfa Romeo Giulia Veloce AWD,2023,Alfa Romeo,Giulia,Veloce AWD,29797.0,32145.0,Sedan,Used
+333,Used 2022 Honda Accord Sport SE 1.5T,2022,Honda,Accord,Sport SE 1.5T,25767.0,29540.0,Sedan,Used
+334,Used 2023 Kia K5 GT-Line,2023,Kia,K5,GT-Line,24891.0,30525.0,Sedan,Used
+335,Used 2022 Dodge Challenger SRT Hellcat,2022,Dodge,Challenger,SRT Hellcat,59500.0,24040.0,Coupe,Used
+336,Used 2022 Ford Escape Titanium,2022,Ford,Escape,Titanium,24695.0,38721.0,SUV,Used
+337,Used 2024 Tesla Model Y Performance,2024,Tesla,Model Y,Performance,35791.0,25073.0,SUV,Used
+338,Used 2019 BMW X3 xDrive30i,2019,BMW,X3,xDrive30i,20959.0,69338.0,SUV,Used
+339,Used 2024 Kia Telluride EX X-Line,2024,Kia,Telluride,EX X-Line,38487.0,17220.0,SUV,Used
+340,Used 2021 Lincoln Navigator Black Label,2021,Lincoln,Navigator,Black Label,43878.0,75629.0,SUV,Used
+341,New 2025 Hyundai ELANTRA HEV Blue,2025,Hyundai,ELANTRA HEV,Blue,24805.0,2690.0,Sedan,New
+342,Used 2021 Subaru Outback Limited XT,2021,Subaru,Outback,Limited XT,24580.0,51202.0,SUV,Used
+343,Used 2020 Jeep Grand Cherokee Limited,2020,Jeep,Grand Cherokee,Limited,18699.0,111599.0,SUV,Used
+344,Used 2017 Toyota Sienna XLE,2017,Toyota,Sienna,XLE,15386.0,174186.0,Passenger Van,Used
+345,Used 2023 GMC Sierra 1500 Denali,2023,GMC,Sierra 1500,Denali,49499.0,40610.0,Truck,Used
+346,Used 2020 Chevrolet Silverado 1500 Custom Trail Boss,2020,Chevrolet,Silverado 1500,Custom Trail Boss,31157.0,64509.0,Truck,Used
+347,New 2026 Mercedes-Benz GLS 450 4MATIC,2026,Mercedes-Benz,GLS 450,4MATIC,98600.0,5.0,SUV,New
+348,Used 2025 Mercedes-Benz Sprinter 2500 144 WB,2025,Mercedes-Benz,Sprinter 2500,144 WB,124999.0,2791.0,Cargo Van,Used
+349,New 2026 BMW X3 30 xDrive,2026,BMW,X3,30 xDrive,58125.0,,SUV,New
+350,New 2026 Subaru Forester Sport,2026,Subaru,Forester,Sport,38983.0,1.0,SUV,New
+351,New 2026 Chevrolet Trax LT,2026,Chevrolet,Trax,LT,23800.0,7.0,SUV,New
+352,New 2026 Nissan Murano SL,2026,Nissan,Murano,SL,43602.0,24.0,SUV,New
+353,Used 2020 Honda Accord Sport 1.5T,2020,Honda,Accord,Sport 1.5T,21491.0,59691.0,Sedan,Used
+354,Used 2018 Honda Civic EX,2018,Honda,Civic,EX,16694.0,107331.0,Hatchback,Used
+355,Used 2022 MINI Hardtop Cooper S,2022,MINI,Hardtop,Cooper S,22950.0,4529.0,Hatchback,Used
+356,New 2026 Ford Escape ST-Line,2026,Ford,Escape,ST-Line,36225.0,15.0,SUV,New
+357,Used 2021 Kia Sportage LX,2021,Kia,Sportage,LX,16495.0,31514.0,SUV,Used
+358,Used 2024 Jeep Wrangler Sport S,2024,Jeep,Wrangler,Sport S,30992.0,37303.0,SUV,Used
+359,Used 2021 Hyundai PALISADE SEL,2021,Hyundai,PALISADE,SEL,23964.0,76216.0,SUV,Used
+360,Used 2021 Chrysler 300 Touring L,2021,Chrysler,300,Touring L,20427.0,65470.0,Sedan,Used
+361,Used 2019 Ford Expedition XLT,2019,Ford,Expedition,XLT,19995.0,124364.0,SUV,Used
+362,Used 2025 Nissan Kicks SR,2025,Nissan,Kicks,SR,24995.0,26529.0,SUV,Used
+363,New 2026 Honda Pilot Touring 8-Passenger,2026,Honda,Pilot,Touring 8-Passenger,52590.0,6.0,SUV,New
+364,Used 2017 BMW X5 xDrive50i,2017,BMW,X5,xDrive50i,17528.0,101153.0,SUV,Used
+365,Used 2022 Lucid Air Grand Touring,2022,Lucid,Air,Grand Touring,51987.0,14224.0,Sedan,Used
+366,Used 2024 Genesis GV80 2.5T,2024,Genesis,GV80,2.5T,36903.0,39190.0,SUV,Used
+367,Used 2020 Volvo XC90 T6 Inscription,2020,Volvo,XC90,T6 Inscription,32990.0,8542.0,SUV,Used
+368,New 2026 Mercedes-Benz GLE 350 Base 4MATIC,2026,Mercedes-Benz,GLE 350,Base 4MATIC,77265.0,25.0,SUV,New
+369,Used 2025 Honda Civic Sport,2025,Honda,Civic,Sport,26895.0,7328.0,Sedan,Used
+370,Used 2020 Hyundai ELANTRA Limited,2020,Hyundai,ELANTRA,Limited,12366.0,95208.0,Sedan,Used
+371,Used 2019 GMC Acadia SLE-2,2019,GMC,Acadia,SLE-2,17999.0,78659.0,SUV,Used
+372,Used 2022 Tesla Model 3 Performance,2022,Tesla,Model 3,Performance,28650.0,44897.0,Sedan,Used
+373,Certified 2017 Dodge Durango Citadel,2017,Dodge,Durango,Citadel,15553.0,101120.0,SUV,Used
+374,Used 2020 Chevrolet Silverado 1500 LT,2020,Chevrolet,Silverado 1500,LT,25397.0,99994.0,Truck,Used
+375,New 2026 Chevrolet Silverado 2500 LT,2026,Chevrolet,Silverado 2500,LT,79225.0,1.0,Truck,New
+376,New 2025 Nissan Versa 1.6 SV,2025,Nissan,Versa,1.6 SV,20697.0,10.0,Sedan,New
+377,Used 2024 Nissan Sentra SV,2024,Nissan,Sentra,SV,17991.0,46281.0,Sedan,Used
+378,Used 2025 Audi Q7 55 Premium Plus,2025,Audi,Q7,55 Premium Plus,56990.0,2910.0,SUV,Used
+379,New 2026 Jeep Grand Wagoneer Base,2026,Jeep,Grand Wagoneer,Base,70325.0,,SUV,New
+380,Used 2023 Chrysler Pacifica Touring-L,2023,Chrysler,Pacifica,Touring-L,22770.0,77396.0,Passenger Van,Used
+381,Used 2020 Acura RDX Technology Package,2020,Acura,RDX,Technology Package,16736.0,127266.0,SUV,Used
+382,New 2025 Jeep Grand Cherokee Limited,2025,Jeep,Grand Cherokee,Limited,49500.0,,SUV,New
+383,Used 2020 Land Rover Range Rover Sport HSE,2020,Land Rover,Range Rover Sport,HSE,24970.0,79126.0,SUV,Used
+384,New 2026 BMW iX xDrive45,2026,BMW,iX,xDrive45,84670.0,,SUV,New
+385,New 2026 Ford Escape Active,2026,Ford,Escape,Active,34965.0,0.0,SUV,New
+386,Used 2024 Mercedes-Benz CLE 300 Base 4MATIC,2024,Mercedes-Benz,CLE 300,Base 4MATIC,52799.0,5758.0,Coupe,Used
+387,Used 2021 Mazda Mazda3 FWD w/Premium Package,2021,Mazda,Mazda3,FWD w/Premium Package,19741.0,36511.0,Hatchback,Used
+388,Used 2017 FIAT 500 Lounge,2017,FIAT,500,Lounge,9988.0,81244.0,Hatchback,Used
+389,New 2026 Nissan Sentra SV,2026,Nissan,Sentra,SV,22418.0,3.0,Sedan,New
+390,Used 2024 Hyundai PALISADE Limited,2024,Hyundai,PALISADE,Limited,36995.0,57956.0,SUV,Used
+391,Used 2026 Jeep Wrangler Sport,2026,Jeep,Wrangler,Sport,36999.0,263.0,SUV,Used
+392,Used 2022 Mercedes-Benz E-Class E 350,2022,Mercedes-Benz,E-Class,E 350,34598.0,32326.0,Sedan,Used
+393,Used 2025 Chevrolet Silverado 1500 LTZ,2025,Chevrolet,Silverado 1500,LTZ,51408.0,16382.0,Truck,Used
+394,Used 2021 Volkswagen Atlas 2.0T SE w/Technology,2021,Volkswagen,Atlas,2.0T SE w/Technology,23498.0,58872.0,SUV,Used
+395,Used 2015 RAM 1500 Longhorn,2015,RAM,1500,Longhorn,18995.0,134965.0,Truck,Used
+396,Used 2023 Kia Sorento SX,2023,Kia,Sorento,SX,32199.0,34325.0,SUV,Used
+397,New 2024 Jeep Grand Cherokee 4xe Base,2024,Jeep,Grand Cherokee 4xe,Base,39988.0,0.0,SUV,New
+398,New 2024 RAM 2500 Tradesman,2024,RAM,2500,Tradesman,59963.0,,Truck,New
+399,New 2025 Kia Soul S,2025,Kia,Soul,S,22405.0,3768.0,Hatchback,New
+400,Used 2024 RAM 1500 Longhorn,2024,RAM,1500,Longhorn,52870.0,20816.0,Truck,Used
+401,Used 2010 Lexus RX 350 Base,2010,Lexus,RX 350,Base,13998.0,139983.0,SUV,Used
+402,Used 2024 RAM 2500 Laramie Crew Cab 4x4 6'4' Box,2024,RAM,2500,Laramie Crew Cab 4x4 6'4' Box,53500.0,34140.0,Truck,Used
+403,New 2026 Jeep Grand Cherokee Laredo,2026,Jeep,Grand Cherokee,Laredo,43870.0,12.0,SUV,New
+404,New 2026 BMW i4 Gran Coupe eDrive40,2026,BMW,i4 Gran Coupe,eDrive40,62940.0,,Sedan,New
+405,New 2026 Mercedes-Benz E-Class E 350 4MATIC,2026,Mercedes-Benz,E-Class,E 350 4MATIC,74295.0,10.0,Sedan,New
+406,New 2026 Jeep Compass Latitude,2026,Jeep,Compass,Latitude,33342.0,0.0,SUV,New
+407,Used 2023 RAM 1500 Big Horn,2023,RAM,1500,Big Horn,36985.0,39061.0,Truck,Used
+408,Used 2017 Cadillac XT5 Luxury,2017,Cadillac,XT5,Luxury,22995.0,73618.0,SUV,Used
+409,Used 2022 Jeep Wrangler Willys,2022,Jeep,Wrangler,Willys,33701.0,14271.0,SUV,Used
+410,Used 2023 Hyundai ELANTRA SEL,2023,Hyundai,ELANTRA,SEL,16763.0,57488.0,Sedan,Used
+411,Used 2022 Hyundai PALISADE SEL,2022,Hyundai,PALISADE,SEL,26995.0,56578.0,SUV,Used
+412,Used 2024 Jeep Compass Trailhawk,2024,Jeep,Compass,Trailhawk,28988.0,7294.0,SUV,Used
+413,New 2026 Chevrolet Silverado 3500 LT,2026,Chevrolet,Silverado 3500,LT,74425.0,1.0,Truck,New
+414,Used 2023 Ford Explorer ST,2023,Ford,Explorer,ST,38701.0,43631.0,SUV,Used
+415,New 2026 Nissan Sentra SL,2026,Nissan,Sentra,SL,28951.0,9.0,Sedan,New
+416,Used 2022 Ford Mustang Mach-E Select,2022,Ford,Mustang Mach-E,Select,19569.0,48396.0,SUV,Used
+417,Used 2023 Subaru Outback Wilderness,2023,Subaru,Outback,Wilderness,31100.0,59227.0,SUV,Used
+418,Used 2022 Ford F-150 Lariat,2022,Ford,F-150,Lariat,36995.0,54646.0,Truck,Used
+419,Used 2024 RAM 2500 Big Horn,2024,RAM,2500,Big Horn,45337.0,43821.0,Truck,Used
+420,Used 2023 Jeep Grand Cherokee Altitude,2023,Jeep,Grand Cherokee,Altitude,29997.0,41635.0,SUV,Used
+421,Certified 2024 Mercedes-Benz S-Class S 580 4MATIC,2024,Mercedes-Benz,S-Class,S 580 4MATIC,93650.0,10488.0,Sedan,Used
+422,Used 2024 Acura RDX Base,2024,Acura,RDX,Base,39220.0,16158.0,SUV,Used
+423,Used 2006 Hummer H3 Base,2006,Hummer,H3,Base,12925.0,80804.0,SUV,Used
+424,New 2026 Chevrolet Trailblazer RS,2026,Chevrolet,Trailblazer,RS,30090.0,1.0,SUV,New
+425,Used 2023 Mazda CX-5 2.5 S Preferred Package,2023,Mazda,CX-5,2.5 S Preferred Package,26990.0,24398.0,SUV,Used
+426,New 2026 Kia Sorento X-Line EX,2026,Kia,Sorento,X-Line EX,41486.0,12.0,SUV,New
+427,Used 2014 Chevrolet Malibu 2LT,2014,Chevrolet,Malibu,2LT,4995.0,180000.0,Sedan,Used
+428,Used 2016 Hyundai SONATA SE,2016,Hyundai,SONATA,SE,7964.0,123305.0,Sedan,Used
+429,Used 2023 Tesla Model Y Performance Dual Motor All-Wheel Drive,2023,Tesla,Model Y,Performance Dual Motor All-Wheel Drive,32987.0,29129.0,SUV,Used
+430,New 2026 Nissan Kicks SR,2026,Nissan,Kicks,SR,31385.0,10.0,SUV,New
+431,Used 2018 RAM 1500 ST,2018,RAM,1500,ST,10994.0,127158.0,Truck,Used
+432,New 2026 RAM ProMaster 1500 Low Roof,2026,RAM,ProMaster 1500,Low Roof,40760.0,11.0,Cargo Van,New
+433,Used 2023 Mitsubishi Outlander PHEV SE S-AWC,2023,Mitsubishi,Outlander PHEV,SE S-AWC,26500.0,23050.0,SUV,Used
+434,Used 2017 Subaru Outback 2.5i Premium,2017,Subaru,Outback,2.5i Premium,14497.0,78322.0,SUV,Used
+435,Used 2022 Chevrolet Silverado 2500 High Country,2022,Chevrolet,Silverado 2500,High Country,55991.0,52212.0,Truck,Used
+436,New 2026 Lincoln Nautilus Reserve,2026,Lincoln,Nautilus,Reserve,64340.0,10.0,SUV,New
+437,Used 2018 Ford Escape SE,2018,Ford,Escape,SE,8495.0,123379.0,SUV,Used
+438,Used 2020 Kia Sportage LX,2020,Kia,Sportage,LX,13294.0,92240.0,SUV,Used
+439,Used 2020 Chevrolet Spark 1LT,2020,Chevrolet,Spark,1LT,13400.0,5512.0,Hatchback,Used
+440,Used 2022 Subaru Forester Premium,2022,Subaru,Forester,Premium,25538.0,43465.0,SUV,Used
+441,Used 2021 Volvo XC90 T6 Momentum,2021,Volvo,XC90,T6 Momentum,28188.0,68402.0,SUV,Used
+442,Used 2018 Ford F-150 Lariat,2018,Ford,F-150,Lariat,28932.0,86773.0,Truck,Used
+443,New 2026 Jeep Wrangler Sport,2026,Jeep,Wrangler,Sport,51566.0,,SUV,New
+444,Used 2022 Nissan Altima 2.5 S,2022,Nissan,Altima,2.5 S,13995.0,92504.0,Sedan,Used
+445,New 2025 Chevrolet Blazer EV LT,2025,Chevrolet,Blazer EV,LT,40499.0,100.0,SUV,New
+446,Used 2016 Ford Mustang EcoBoost Premium,2016,Ford,Mustang,EcoBoost Premium,12634.0,130244.0,Coupe,Used
+447,Used 2022 Chevrolet Traverse LS,2022,Chevrolet,Traverse,LS,19233.0,92743.0,SUV,Used
+448,Used 2022 Chrysler 300 S,2022,Chrysler,300,S,36998.0,30129.0,Sedan,Used
+449,New 2026 BMW 550e xDrive,2026,BMW,550e,xDrive,89585.0,,Sedan,New
+450,New 2025 BMW 750e xDrive,2025,BMW,750e,xDrive,116465.0,,Sedan,New
+451,Used 2020 Lincoln Aviator Grand Touring AWD,2020,Lincoln,Aviator,Grand Touring AWD,36995.0,34729.0,SUV,Used
+452,Used 2020 Dodge Challenger R/T,2020,Dodge,Challenger,R/T,20440.0,98999.0,Coupe,Used
+453,Used 2024 Toyota Tacoma Limited,2024,Toyota,Tacoma,Limited,40591.0,18405.0,Truck,Used
+454,Used 2020 Chevrolet Blazer 3LT,2020,Chevrolet,Blazer,3LT,15869.0,101698.0,SUV,Used
+455,Used 2024 Chevrolet Equinox 1LT,2024,Chevrolet,Equinox,1LT,20975.0,23983.0,SUV,Used
+456,New 2026 Chevrolet Tahoe Premier,2026,Chevrolet,Tahoe,Premier,86870.0,100.0,SUV,New
+457,Used 2025 Honda HR-V 2WD Sport,2025,Honda,HR-V,2WD Sport,25854.0,13684.0,SUV,Used
+458,New 2025 Volkswagen Tiguan 2.0T SE 4MOTION,2025,Volkswagen,Tiguan,2.0T SE 4MOTION,34293.0,5.0,SUV,New
+459,Used 2020 Kia Sorento EX V6,2020,Kia,Sorento,EX V6,13995.0,116911.0,SUV,Used
+460,Used 2023 GMC Sierra 1500 Denali Ultimate,2023,GMC,Sierra 1500,Denali Ultimate,56951.0,52737.0,Truck,Used
+461,Used 2017 Kia Sorento LX,2017,Kia,Sorento,LX,9995.0,110356.0,SUV,Used
+462,New 2026 Kia Seltos EX,2026,Kia,Seltos,EX,27170.0,11.0,SUV,New
+463,Used 2023 Jeep Grand Cherokee Limited,2023,Jeep,Grand Cherokee,Limited,30538.0,35964.0,SUV,Used
+464,Used 2020 Kia Soul EX,2020,Kia,Soul,EX,12995.0,85594.0,Hatchback,Used
+465,Used 2021 Jeep Gladiator Rubicon,2021,Jeep,Gladiator,Rubicon,29594.0,90390.0,Truck,Used
+466,Used 2022 Dodge Challenger R/T Scat Pack Widebody,2022,Dodge,Challenger,R/T Scat Pack Widebody,51987.0,8778.0,Coupe,Used
+467,Used 2018 Ford Explorer XLT,2018,Ford,Explorer,XLT,13999.0,113520.0,SUV,Used
+468,New 2026 Chevrolet Silverado 2500 LTZ,2026,Chevrolet,Silverado 2500,LTZ,85124.0,8.0,Truck,New
+469,New 2025 Jeep Grand Cherokee Limited,2025,Jeep,Grand Cherokee,Limited,43079.0,,SUV,New
+470,Used 2022 Chevrolet Silverado 1500 LT,2022,Chevrolet,Silverado 1500,LT,31995.0,20665.0,Truck,Used
+471,Used 2026 BMW X1 xDrive28i,2026,BMW,X1,xDrive28i,42750.0,13240.0,SUV,Used
+472,Used 2020 Land Rover Range Rover Evoque R-Dynamic HSE,2020,Land Rover,Range Rover Evoque,R-Dynamic HSE,26777.0,50483.0,SUV,Used
+473,Used 2024 Jeep Grand Wagoneer L Series II,2024,Jeep,Grand Wagoneer L,Series II,63995.0,22429.0,SUV,Used
+474,Used 2024 Subaru Crosstrek Limited,2024,Subaru,Crosstrek,Limited,25500.0,40564.0,SUV,Used
+475,New 2026 Lincoln Corsair Premiere,2026,Lincoln,Corsair,Premiere,41903.0,3.0,SUV,New
+476,Used 2023 RAM 1500 Classic SLT,2023,RAM,1500 Classic,SLT,30495.0,45783.0,Truck,Used
+477,Used 2019 Ford F-150 Lariat,2019,Ford,F-150,Lariat,25001.0,124065.0,Truck,Used
+478,Used 2019 INFINITI QX80 Luxe,2019,INFINITI,QX80,Luxe,20995.0,106666.0,SUV,Used
+479,Used 2024 GMC Sierra 1500 AT4X,2024,GMC,Sierra 1500,AT4X,62995.0,26850.0,Truck,Used
+480,Used 2022 GMC Yukon SLT,2022,GMC,Yukon,SLT,43403.0,74084.0,SUV,Used
+481,New 2026 Jeep Compass Limited,2026,Jeep,Compass,Limited,33885.0,1.0,SUV,New
+482,Used 2019 Chevrolet Tahoe LT,2019,Chevrolet,Tahoe,LT,25990.0,111494.0,SUV,Used
+483,New 2024 RAM ProMaster 2500 Tradesman,2024,RAM,ProMaster 2500,Tradesman,42988.0,0.0,Cargo Van,New
+484,Used 2024 Toyota Tacoma TRD Off-Road,2024,Toyota,Tacoma,TRD Off-Road,38386.0,41869.0,Truck,Used
+485,Used 2021 BMW X5 PHEV xDrive45e,2021,BMW,X5 PHEV,xDrive45e,39995.0,41563.0,SUV,Used
+486,Used 2023 Toyota Highlander Limited,2023,Toyota,Highlander,Limited,33995.0,41910.0,SUV,Used
+487,New 2025 Kia Sorento LX,2025,Kia,Sorento,LX,29827.0,16.0,SUV,New
+488,Used 2024 Mitsubishi Outlander ES 2.5 S-AWC,2024,Mitsubishi,Outlander,ES 2.5 S-AWC,29679.0,13490.0,SUV,Used
+489,Used 2019 Jeep Cherokee Limited,2019,Jeep,Cherokee,Limited,15995.0,85808.0,SUV,Used
+490,Used 2023 Chevrolet Silverado 1500 Custom,2023,Chevrolet,Silverado 1500,Custom,35870.0,23604.0,Truck,Used
+491,Used 2021 Buick Envision FWD Preferred,2021,Buick,Envision,FWD Preferred,20892.0,45367.0,SUV,Used
+492,Certified 2021 Buick Envision FWD Essence,2021,Buick,Envision,FWD Essence,20901.0,46251.0,SUV,Used
+493,New 2025 Lincoln Nautilus Premiere,2025,Lincoln,Nautilus,Premiere,51527.0,9.0,SUV,New
+494,Used 2018 Chevrolet Equinox LT,2018,Chevrolet,Equinox,LT,16995.0,106102.0,SUV,Used
+495,Used 2024 Subaru Outback Premium,2024,Subaru,Outback,Premium,25998.0,36141.0,SUV,Used
+496,Used 2014 Chevrolet Camaro 1LT,2014,Chevrolet,Camaro,1LT,11995.0,108310.0,Coupe,Used
+497,Used 2021 Jeep Grand Cherokee Laredo E,2021,Jeep,Grand Cherokee,Laredo E,23999.0,51021.0,SUV,Used
+498,Used 2024 Chevrolet Tahoe LT,2024,Chevrolet,Tahoe,LT,44994.0,56186.0,SUV,Used
+499,New 2026 Honda Civic Sport,2026,Honda,Civic,Sport,27168.0,6.0,Sedan,New
+500,Used 2018 Mazda CX-5 Grand Touring,2018,Mazda,CX-5,Grand Touring,17888.0,103045.0,SUV,Used
+501,New 2025 Ford F-150 STX,2025,Ford,F-150,STX,46517.0,32.0,Truck,New
+502,Used 2021 Jeep Wrangler Willys,2021,Jeep,Wrangler,Willys,26991.0,96168.0,SUV,Used
+503,Used 2020 Ford Transit-250 Base,2020,Ford,Transit-250,Base,20995.0,148886.0,Cargo Van,Used
+504,Used 2021 Volkswagen ID.4 Pro S,2021,Volkswagen,ID.4,Pro S,19450.0,42955.0,SUV,Used
+505,Used 2023 GMC Terrain AT4,2023,GMC,Terrain,AT4,18495.0,84364.0,SUV,Used
+506,New 2026 Hyundai TUCSON SEL Premium,2026,Hyundai,TUCSON,SEL Premium,34680.0,14.0,SUV,New
+507,Used 2025 Toyota Camry SE,2025,Toyota,Camry,SE,31012.0,12953.0,Sedan,Used
+508,Used 2022 Kia Telluride SX,2022,Kia,Telluride,SX,32951.0,52920.0,SUV,Used
+509,New 2026 Mazda CX-90 3.3 Turbo Premium Sport,2026,Mazda,CX-90,3.3 Turbo Premium Sport,45595.0,0.0,SUV,New
+510,New 2026 Nissan Rogue DA,2026,Nissan,Rogue,DA,36980.0,10.0,SUV,New
+511,Used 2025 Chevrolet Silverado 1500 RST,2025,Chevrolet,Silverado 1500,RST,50725.0,5258.0,Truck,Used
+512,Used 2017 Nissan Pathfinder SL,2017,Nissan,Pathfinder,SL,10498.0,106516.0,SUV,Used
+513,New 2026 Dodge Charger Scat Pack,2026,Dodge,Charger,Scat Pack,65895.0,10.0,Coupe,New
+514,Used 2024 RAM 2500 Big Horn,2024,RAM,2500,Big Horn,43941.0,23868.0,Truck,Used
+515,Used 2021 Subaru Ascent Touring 7-Passenger,2021,Subaru,Ascent,Touring 7-Passenger,23000.0,91231.0,SUV,Used
+516,Used 2018 Chevrolet Equinox 1LT,2018,Chevrolet,Equinox,1LT,18995.0,33911.0,SUV,Used
+517,Used 2018 Jeep Wrangler Sport S,2018,Jeep,Wrangler,Sport S,19999.0,82862.0,SUV,Used
+518,Used 2022 Chevrolet Silverado 1500 LT Trail Boss,2022,Chevrolet,Silverado 1500,LT Trail Boss,38941.0,74012.0,Truck,Used
+519,Used 2023 Audi Q7 45 Premium Plus,2023,Audi,Q7,45 Premium Plus,41479.0,11694.0,SUV,Used
+520,New 2026 Audi A6 Premium Plus quattro S tronic,2026,Audi,A6,Premium Plus quattro S tronic,72520.0,315.0,Sedan,New
+521,Used 2023 Honda Civic Sport,2023,Honda,Civic,Sport,20991.0,25360.0,Sedan,Used
+522,Used 2023 GMC Sierra 1500 Elevation,2023,GMC,Sierra 1500,Elevation,46991.0,27280.0,Truck,Used
+523,Used 2024 Hyundai ELANTRA SEL,2024,Hyundai,ELANTRA,SEL,22458.0,11030.0,Sedan,Used
+524,Used 2011 Ford F-150 Platinum,2011,Ford,F-150,Platinum,21998.0,78451.0,Truck,Used
+525,New 2026 Chrysler Pacifica Select,2026,Chrysler,Pacifica,Select,41241.0,,Passenger Van,New
+526,Used 2022 RAM 1500 Laramie,2022,RAM,1500,Laramie,41999.0,49224.0,Truck,Used
+527,Used 2019 Hyundai SONATA SE,2019,Hyundai,SONATA,SE,9990.0,120956.0,Sedan,Used
+528,Used 2022 Honda Civic Sport,2022,Honda,Civic,Sport,21261.0,39922.0,Hatchback,Used
+529,Used 2021 Dodge Charger Scat Pack,2021,Dodge,Charger,Scat Pack,39991.0,32518.0,Sedan,Used
+530,New 2026 Subaru Forester Wilderness,2026,Subaru,Forester,Wilderness,43087.0,6.0,SUV,New
+531,New 2026 Hyundai SONATA SE,2026,Hyundai,SONATA,SE,25390.0,8.0,Sedan,New
+532,Used 2025 Kia Sportage Hybrid LX,2025,Kia,Sportage Hybrid,LX,27526.0,3401.0,SUV,Used
+533,New 2026 Jeep Compass Limited,2026,Jeep,Compass,Limited,35608.0,,SUV,New
+534,New 2026 Jeep Wrangler Sport,2026,Jeep,Wrangler,Sport,43447.0,,SUV,New
+535,Used 2024 Honda Civic Sport,2024,Honda,Civic,Sport,21799.0,24114.0,Sedan,Used
+536,Used 2021 Kia Sportage SX Turbo,2021,Kia,Sportage,SX Turbo,27270.0,51300.0,SUV,Used
+537,Used 2025 RAM 1500 Laramie,2025,RAM,1500,Laramie,43343.0,42168.0,Truck,Used
+538,New 2026 Jeep Wrangler Sahara,2026,Jeep,Wrangler,Sahara,52778.0,16.0,SUV,New
+539,New 2026 Land Rover Range Rover P400 SE,2026,Land Rover,Range Rover,P400 SE,140164.0,11.0,SUV,New
+540,New 2026 Chrysler Voyager LX,2026,Chrysler,Voyager,LX,38486.0,10.0,Passenger Van,New
+541,Used 2024 Honda Civic EX-L,2024,Honda,Civic,EX-L,21895.0,63944.0,Hatchback,Used
+542,Used 2012 Jeep Grand Cherokee Laredo,2012,Jeep,Grand Cherokee,Laredo,12999.0,57454.0,SUV,Used
+543,Used 2025 Mazda Mazda3 2.5 S Select Sport,2025,Mazda,Mazda3,2.5 S Select Sport,22991.0,6401.0,Sedan,Used
+544,Used 2022 Chevrolet Equinox RS,2022,Chevrolet,Equinox,RS,19469.0,52700.0,SUV,Used
+545,Used 2022 Dodge Charger Scat Pack,2022,Dodge,Charger,Scat Pack,43495.0,19951.0,Sedan,Used
+546,New 2026 Hyundai SANTA CRUZ SEL,2026,Hyundai,SANTA CRUZ,SEL,32419.0,10.0,Truck,New
+547,Used 2022 Dodge Challenger R/T Scat Pack,2022,Dodge,Challenger,R/T Scat Pack,41157.0,40500.0,Coupe,Used
+548,Used 2019 GMC Yukon SLT Standard Edition,2019,GMC,Yukon,SLT Standard Edition,21834.0,115065.0,SUV,Used
+549,Used 2019 Acura MDX 3.5L w/Technology Package,2019,Acura,MDX,3.5L w/Technology Package,20991.0,100694.0,SUV,Used
+550,New 2026 Land Rover Defender P400 X-Dynamic SE,2026,Land Rover,Defender,P400 X-Dynamic SE,94753.0,5.0,SUV,New
+551,Used 2018 Tesla Model 3 RANGE BATTERY,2018,Tesla,Model 3,RANGE BATTERY,19495.0,56953.0,Sedan,Used
+552,Used 2024 Subaru Outback Limited XT,2024,Subaru,Outback,Limited XT,27991.0,62137.0,SUV,Used
+553,Used 2018 Honda Civic LX,2018,Honda,Civic,LX,11880.0,111071.0,Sedan,Used
+554,New 2026 BMW 840 Gran Coupe i xDrive,2026,BMW,840 Gran Coupe,i xDrive,99625.0,,Sedan,New
+555,Used 2021 Toyota Highlander XSE,2021,Toyota,Highlander,XSE,29991.0,81208.0,SUV,Used
+556,Used 2021 Jeep Grand Cherokee Limited,2021,Jeep,Grand Cherokee,Limited,24495.0,44865.0,SUV,Used
+557,New 2026 Honda Ridgeline RTL,2026,Honda,Ridgeline,RTL,42727.0,6.0,Truck,New
+558,Used 2021 Chevrolet Suburban LT,2021,Chevrolet,Suburban,LT,39991.0,74133.0,SUV,Used
+559,Used 2023 Honda Civic Touring,2023,Honda,Civic,Touring,23999.0,26665.0,Sedan,Used
+560,Used 2023 Subaru Outback 2.5i Limited,2023,Subaru,Outback,2.5i Limited,31995.0,44013.0,SUV,Used
+561,Used 2022 BMW X3 sDrive30i,2022,BMW,X3,sDrive30i,32788.0,15759.0,SUV,Used
+562,Used 2022 Ford Escape SE,2022,Ford,Escape,SE,17400.0,51434.0,SUV,Used
+563,Used 2021 RAM 1500 Limited,2021,RAM,1500,Limited,40774.0,58598.0,Truck,Used
+564,Used 2025 BMW X3 30 xDrive,2025,BMW,X3,30 xDrive,44985.0,18726.0,SUV,Used
+565,Used 2022 Lincoln Corsair Reserve,2022,Lincoln,Corsair,Reserve,26261.0,67450.0,SUV,Used
+566,Used 2019 MINI Countryman Cooper,2019,MINI,Countryman,Cooper,16535.0,35491.0,SUV,Used
+567,Used 2024 Nissan Kicks SR,2024,Nissan,Kicks,SR,18995.0,40892.0,SUV,Used
+568,Used 2022 Mercedes-Benz Sprinter 2500,2022,Mercedes-Benz,Sprinter 2500,,37999.0,53295.0,Cargo Van,Used
+569,Used 2025 Nissan Altima SV,2025,Nissan,Altima,SV,21995.0,52507.0,Sedan,Used
+570,Used 2014 Jeep Wrangler Unlimited Altitude,2014,Jeep,Wrangler Unlimited,Altitude,15987.0,121819.0,SUV,Used
+571,Used 2019 BMW 530 xDrive,2019,BMW,530,xDrive,16995.0,67049.0,Sedan,Used
+572,Used 2023 Chevrolet Silverado 1500 Custom,2023,Chevrolet,Silverado 1500,Custom,37800.0,24539.0,Truck,Used
+573,Used 2023 Kia Sorento SX,2023,Kia,Sorento,SX,31995.0,21034.0,SUV,Used
+574,Used 2025 Toyota Corolla LE,2025,Toyota,Corolla,LE,24595.0,4805.0,Sedan,Used
+575,Used 2016 Kia Sorento LX,2016,Kia,Sorento,LX,9968.0,112819.0,SUV,Used
+576,Used 2023 Jeep Wrangler Sport,2023,Jeep,Wrangler,Sport,23986.0,78273.0,SUV,Used
+577,Used 2020 Chevrolet Silverado 1500 RST,2020,Chevrolet,Silverado 1500,RST,18995.0,139675.0,Truck,Used
+578,Used 2023 Acura RDX Technology Package,2023,Acura,RDX,Technology Package,29995.0,66889.0,SUV,Used
+579,Used 2018 Tesla Model S 100D,2018,Tesla,Model S,100D,27995.0,33788.0,Hatchback,Used
+580,Used 2023 Nissan Rogue SV,2023,Nissan,Rogue,SV,22900.0,34379.0,SUV,Used
+581,Used 2010 Ford F-150 XLT,2010,Ford,F-150,XLT,12488.0,116722.0,Truck,Used
+582,Used 2021 Ford Escape SE,2021,Ford,Escape,SE,14342.0,99030.0,SUV,Used
+583,New 2026 Jeep Compass Latitude,2026,Jeep,Compass,Latitude,31825.0,,SUV,New
+584,Used 2019 Mercedes-Benz E-Class 4MATIC,2019,Mercedes-Benz,E-Class,4MATIC,23500.0,68366.0,Sedan,Used
+585,Used 2017 Dodge Challenger SXT,2017,Dodge,Challenger,SXT,17999.0,67731.0,Coupe,Used
+586,Used 2024 Toyota Highlander LE,2024,Toyota,Highlander,LE,34846.0,36010.0,SUV,Used
+587,Used 2015 Toyota Camry SE,2015,Toyota,Camry,SE,13995.0,85255.0,Sedan,Used
+588,Used 2025 Hyundai ELANTRA Limited,2025,Hyundai,ELANTRA,Limited,23264.0,12907.0,Sedan,Used
+589,New 2026 Chevrolet Trax 2RS,2026,Chevrolet,Trax,2RS,22490.0,4.0,SUV,New
+590,Used 2022 Nissan Murano Platinum FWD,2022,Nissan,Murano,Platinum FWD,22683.0,80883.0,SUV,Used
+591,Used 2017 Cadillac Escalade Platinum,2017,Cadillac,Escalade,Platinum,21995.0,133767.0,SUV,Used
+592,Used 2020 Ford F-150,2020,Ford,F-150,,28991.0,52149.0,Truck,Used
+593,Used 2023 Subaru Outback Onyx Edition,2023,Subaru,Outback,Onyx Edition,22500.0,83729.0,SUV,Used
+594,Used 2025 Mercedes-Benz GLC 350e Base 4MATIC,2025,Mercedes-Benz,GLC 350e,Base 4MATIC,60999.0,4011.0,SUV,Used
+595,Used 2012 Ford Taurus Limited,2012,Ford,Taurus,Limited,8284.0,129073.0,Sedan,Used
+596,Used 2006 Scion tC Base,2006,Scion,tC,Base,4999.0,162280.0,Coupe,Used
+597,New 2025 Kia Sorento S,2025,Kia,Sorento,S,32537.0,2729.0,SUV,New
+598,Used 2021 Jeep Grand Cherokee Laredo,2021,Jeep,Grand Cherokee,Laredo,20995.0,73128.0,SUV,Used
+599,Used 2020 Hyundai ELANTRA Value Edition,2020,Hyundai,ELANTRA,Value Edition,14642.0,40948.0,Sedan,Used
+600,Used 2022 Ford F-150 XLT,2022,Ford,F-150,XLT,33995.0,47300.0,Truck,Used
+601,Used 2025 Hyundai PALISADE SEL,2025,Hyundai,PALISADE,SEL,37477.0,31958.0,SUV,Used
+602,New 2026 Volkswagen Tiguan 2.0T S 4MOTION,2026,Volkswagen,Tiguan,2.0T S 4MOTION,32878.0,0.0,SUV,New
+603,Used 2022 Kia Telluride LX,2022,Kia,Telluride,LX,27949.0,51013.0,SUV,Used
+604,Used 2013 Chrysler 200 Touring,2013,Chrysler,200,Touring,4995.0,149446.0,Sedan,Used
+605,Used 2023 Ford F-150 Raptor,2023,Ford,F-150,Raptor,66697.0,46520.0,Truck,Used
+606,Used 2019 MINI Convertible Cooper S,2019,MINI,Convertible,Cooper S,17485.0,52965.0,Convertible,Used
+607,Used 2022 Nissan Rogue SV,2022,Nissan,Rogue,SV,16308.0,82399.0,SUV,Used
+608,Used 2025 Mazda Mazda3 2.5 S Carbon Edition,2025,Mazda,Mazda3,2.5 S Carbon Edition,26990.0,3624.0,Hatchback,Used
+609,New 2025 Ford Bronco Sport Big Bend,2025,Ford,Bronco Sport,Big Bend,35290.0,0.0,SUV,New
+610,Used 2015 Ford F-350 XLT,2015,Ford,F-350,XLT,17995.0,153647.0,Truck,Used
+611,Used 2023 Chevrolet Blazer 2LT,2023,Chevrolet,Blazer,2LT,20900.0,53501.0,SUV,Used
+612,New 2026 Chrysler Voyager LX,2026,Chrysler,Voyager,LX,35917.0,,Passenger Van,New
+613,Used 2023 Volvo XC60 B5 Core,2023,Volvo,XC60,B5 Core,22995.0,88264.0,SUV,Used
+614,Used 2024 Nissan Kicks SR,2024,Nissan,Kicks,SR,20996.0,8846.0,SUV,Used
+615,Used 2023 Volkswagen Tiguan 2.0T SEL R-Line 4MOTION,2023,Volkswagen,Tiguan,2.0T SEL R-Line 4MOTION,28489.0,42500.0,SUV,Used
+616,Used 2021 Subaru Forester Limited,2021,Subaru,Forester,Limited,17495.0,117464.0,SUV,Used
+617,Used 1983 Datsun 280ZX GL,1983,Datsun,280ZX,GL,19900.0,98693.0,Hatchback,Used
+618,New 2026 Ford Explorer,2026,Ford,Explorer,,42996.0,1.0,SUV,New
+619,Used 2016 Honda Civic LX,2016,Honda,Civic,LX,10998.0,127728.0,Sedan,Used
+620,Used 2022 GMC Sierra 1500 AT4,2022,GMC,Sierra 1500,AT4,42713.0,34593.0,Truck,Used
+621,Used 2022 Nissan Rogue SV,2022,Nissan,Rogue,SV,21295.0,31582.0,SUV,Used
+622,Used 2024 Honda Accord Hybrid Sport,2024,Honda,Accord Hybrid,Sport,26443.0,30297.0,Sedan,Used
+623,Used 2024 Chevrolet Trailblazer LS,2024,Chevrolet,Trailblazer,LS,22995.0,17222.0,SUV,Used
+624,Used 2024 Buick Enclave Premium,2024,Buick,Enclave,Premium,27989.0,80076.0,SUV,Used
+625,Used 2025 Toyota Camry LE,2025,Toyota,Camry,LE,24994.0,35339.0,Sedan,Used
+626,New 2025 Ford Bronco Outer Banks,2025,Ford,Bronco,Outer Banks,53576.0,8.0,SUV,New
+627,Used 2019 Jeep Grand Cherokee Limited,2019,Jeep,Grand Cherokee,Limited,18990.0,86990.0,SUV,Used
+628,New 2026 Jeep Compass Limited,2026,Jeep,Compass,Limited,31788.0,14.0,SUV,New
+629,New 2026 Nissan Kicks SV,2026,Nissan,Kicks,SV,26134.0,9.0,SUV,New
+630,Used 2025 Chevrolet Trax ACTIV,2025,Chevrolet,Trax,ACTIV,22995.0,18587.0,SUV,Used
+631,New 2026 Chrysler Voyager LX,2026,Chrysler,Voyager,LX,37485.0,11.0,Passenger Van,New
+632,New 2026 Chrysler Voyager LX,2026,Chrysler,Voyager,LX,40540.0,16.0,Passenger Van,New
+633,Used 2023 Dodge Challenger SRT Hellcat,2023,Dodge,Challenger,SRT Hellcat,69990.0,1505.0,Coupe,Used
+634,Used 2021 Buick Enclave Avenir,2021,Buick,Enclave,Avenir,19995.0,132910.0,SUV,Used
+635,New 2026 Buick Enclave Sport Touring,2026,Buick,Enclave,Sport Touring,46840.0,4670.0,SUV,New
+636,Used 2024 Toyota Corolla LE,2024,Toyota,Corolla,LE,17995.0,68040.0,Sedan,Used
+637,Used 2021 Nissan Rogue S,2021,Nissan,Rogue,S,17400.0,83909.0,SUV,Used
+638,Used 2022 Honda Pilot Special Edition,2022,Honda,Pilot,Special Edition,28995.0,31278.0,SUV,Used
+639,New 2026 Chevrolet Suburban LS,2026,Chevrolet,Suburban,LS,67595.0,1.0,SUV,New
+640,Used 2019 Chevrolet Suburban LT,2019,Chevrolet,Suburban,LT,24995.0,100815.0,SUV,Used
+641,Used 2024 Ford F-150 XLT,2024,Ford,F-150,XLT,37955.0,63799.0,Truck,Used
+642,Used 2026 GMC Terrain FWD Elevation,2026,GMC,Terrain,FWD Elevation,29532.0,10100.0,SUV,Used
+643,New 2026 Ford Bronco Sport Big Bend,2026,Ford,Bronco Sport,Big Bend,35920.0,35.0,SUV,New
+644,New 2026 RAM ProMaster 3500 High Roof,2026,RAM,ProMaster 3500,High Roof,50446.0,0.0,Cargo Van,New
+645,Used 2022 Chrysler 300 Touring L,2022,Chrysler,300,Touring L,22988.0,22758.0,Sedan,Used
+646,Used 2018 Ford Explorer XLT,2018,Ford,Explorer,XLT,16495.0,90100.0,SUV,Used
+647,New 2025 Cadillac Escalade IQ Sport 2,2025,Cadillac,Escalade IQ,Sport 2,126515.0,2285.0,SUV,New
+648,Used 2020 Jeep Wrangler Unlimited Rubicon,2020,Jeep,Wrangler Unlimited,Rubicon,27775.0,92533.0,SUV,Used
+649,Used 2012 Lincoln MKX Base,2012,Lincoln,MKX,Base,5995.0,186870.0,SUV,Used
+650,New 2026 Mazda CX-50 2.5 Turbo,2026,Mazda,CX-50,2.5 Turbo,40625.0,1.0,SUV,New
+651,Used 2019 Jeep Cherokee Latitude,2019,Jeep,Cherokee,Latitude,14999.0,74451.0,SUV,Used
+652,New 2026 Chrysler Voyager LX,2026,Chrysler,Voyager,LX,40140.0,0.0,Passenger Van,New
+653,Used 2020 Ford Expedition Platinum,2020,Ford,Expedition,Platinum,26942.0,103143.0,SUV,Used
+654,Used 2022 Ford Bronco Sport Big Bend,2022,Ford,Bronco Sport,Big Bend,20899.0,55110.0,SUV,Used
+655,New 2026 Ford Explorer Active,2026,Ford,Explorer,Active,38174.0,10.0,SUV,New
+656,Used 2020 Volkswagen Tiguan 2.0T S,2020,Volkswagen,Tiguan,2.0T S,14452.0,78776.0,SUV,Used
+657,Used 2013 Subaru Legacy 2.5i Premium,2013,Subaru,Legacy,2.5i Premium,8995.0,118969.0,Sedan,Used
+658,New 2026 Chevrolet Silverado 1500 WT,2026,Chevrolet,Silverado 1500,WT,36386.0,8.0,Truck,New
+659,Used 2025 Jeep Grand Cherokee Altitude,2025,Jeep,Grand Cherokee,Altitude,35500.0,7058.0,SUV,Used
+660,Used 2011 Honda Odyssey EX-L,2011,Honda,Odyssey,EX-L,8497.0,127163.0,Passenger Van,Used
+661,Used 2024 Toyota RAV4 XLE,2024,Toyota,RAV4,XLE,35777.0,1288.0,SUV,Used
+662,New 2026 Nissan Sentra SR,2026,Nissan,Sentra,SR,25537.0,7.0,Sedan,New
+663,New 2026 Chevrolet Silverado 1500 LT,2026,Chevrolet,Silverado 1500,LT,60885.0,1.0,Truck,New
+664,New 2026 Mazda CX-90 3.3 Turbo S Premium,2026,Mazda,CX-90,3.3 Turbo S Premium,53333.0,5.0,SUV,New
+665,New 2026 Jeep Wrangler Sport S,2026,Jeep,Wrangler,Sport S,46730.0,1.0,,New
+666,Used 2023 Toyota RAV4 Hybrid SE,2023,Toyota,RAV4 Hybrid,SE,33611.0,30716.0,SUV,Used
+667,Used 2017 Lexus RX 350 Base,2017,Lexus,RX 350,Base,21992.0,100026.0,SUV,Used
+668,New 2026 BMW X1 xDrive28i,2026,BMW,X1,xDrive28i,47465.0,10.0,SUV,New
+669,Used 2023 Chevrolet Malibu LT,2023,Chevrolet,Malibu,LT,19995.0,56988.0,Sedan,Used
+670,New 2025 Buick Encore GX Sport Touring,2025,Buick,Encore GX,Sport Touring,27276.0,4.0,SUV,New
+671,Used 2024 Chevrolet Malibu LT,2024,Chevrolet,Malibu,LT,17388.0,47520.0,Sedan,Used
+672,Used 2021 Chevrolet Malibu LT,2021,Chevrolet,Malibu,LT,12495.0,112371.0,Sedan,Used
+673,New 2025 Hyundai ELANTRA SEL Sport,2025,Hyundai,ELANTRA,SEL Sport,22165.0,5.0,Sedan,New
+674,Used 2023 Jeep Grand Cherokee Altitude,2023,Jeep,Grand Cherokee,Altitude,37777.0,35459.0,SUV,Used
+675,Used 2025 Hyundai TUCSON SEL Convenience,2025,Hyundai,TUCSON,SEL Convenience,26995.0,9949.0,SUV,Used
+676,Used 2025 Nissan Pathfinder SL,2025,Nissan,Pathfinder,SL,36989.0,32665.0,SUV,Used
+677,Used 2022 Lexus GX 460 Base,2022,Lexus,GX 460,Base,49295.0,47656.0,SUV,Used
+678,Used 2023 Subaru Outback Limited,2023,Subaru,Outback,Limited,29896.0,21610.0,SUV,Used
+679,Used 2023 Chrysler Pacifica L,2023,Chrysler,Pacifica,L,34500.0,44094.0,Minivan,Used
+680,Used 2021 Volvo XC90 T6 Inscription,2021,Volvo,XC90,T6 Inscription,29950.0,56555.0,SUV,Used
+681,Used 2024 Toyota Corolla Cross LE,2024,Toyota,Corolla Cross,LE,29995.0,9827.0,SUV,Used
+682,Used 2018 BMW X1 xDrive28i,2018,BMW,X1,xDrive28i,14991.0,69982.0,SUV,Used
+683,Used 2022 Ford Explorer King Ranch,2022,Ford,Explorer,King Ranch,33791.0,73807.0,SUV,Used
+684,Used 2018 Chevrolet Tahoe LT,2018,Chevrolet,Tahoe,LT,25851.0,121086.0,SUV,Used
+685,Used 2023 Subaru Forester Limited,2023,Subaru,Forester,Limited,26900.0,36369.0,SUV,Used
+686,Used 2019 Subaru Forester Limited,2019,Subaru,Forester,Limited,17550.0,101854.0,SUV,Used
+687,Used 2023 Mazda CX-5 2.5 S Preferred Package,2023,Mazda,CX-5,2.5 S Preferred Package,27995.0,11625.0,SUV,Used
+688,Used 2023 RAM 1500 Rebel,2023,RAM,1500,Rebel,48993.0,23756.0,Truck,Used
+689,Used 2025 Chevrolet Malibu LT,2025,Chevrolet,Malibu,LT,18995.0,33345.0,Sedan,Used
+690,Used 2026 Mazda Mazda3 2.5 S Select Sport,2026,Mazda,Mazda3,2.5 S Select Sport,25988.0,1542.0,Sedan,Used
+691,Used 2025 Chevrolet Malibu FWD 1LT,2025,Chevrolet,Malibu,FWD 1LT,18827.0,38146.0,Sedan,Used
+692,New 2025 Jeep Gladiator High Tide,2025,Jeep,Gladiator,High Tide,43753.0,9.0,Truck,New
+693,Used 2025 Toyota Camry LE,2025,Toyota,Camry,LE,23000.0,34822.0,Sedan,Used
+694,Used 2022 Ford F-150 Platinum,2022,Ford,F-150,Platinum,50011.0,48332.0,Truck,Used
+695,Used 2023 Toyota Highlander XLE,2023,Toyota,Highlander,XLE,36995.0,43707.0,SUV,Used
+696,Used 2021 Kia K5 EX,2021,Kia,K5,EX,26510.0,42631.0,Sedan,Used
+697,Used 2024 Mitsubishi Outlander SE 2.5 2WD,2024,Mitsubishi,Outlander,SE 2.5 2WD,22499.0,54926.0,SUV,Used
+698,Used 2023 BMW iX xDrive50,2023,BMW,iX,xDrive50,42000.0,29085.0,SUV,Used
+699,New 2026 Jeep Compass Limited,2026,Jeep,Compass,Limited,34584.0,,SUV,New
+700,Used 2018 Chevrolet Tahoe Premier,2018,Chevrolet,Tahoe,Premier,27599.0,111173.0,SUV,Used
+701,Used 2018 Toyota 4Runner Sport,2018,Toyota,4Runner,Sport,31725.0,108256.0,SUV,Used
+702,Used 2021 Buick Envision AWD Avenir,2021,Buick,Envision,AWD Avenir,17302.0,96634.0,SUV,Used
+703,Used 2022 Ford EcoSport SE,2022,Ford,EcoSport,SE,15830.0,81426.0,SUV,Used
+704,New 2026 RAM 1500 Big Horn/Lone Star,2026,RAM,1500,Big Horn/Lone Star,53963.0,0.0,Truck,New
+705,Used 2023 Nissan Rogue SV,2023,Nissan,Rogue,SV,21995.0,54793.0,SUV,Used
+706,Used 2021 RAM 2500 Big Horn Mega Cab 4x4 6'4'' Box,2021,RAM,2500,Big Horn Mega Cab 4x4 6'4'' Box,46998.0,60503.0,Truck,Used
+707,New 2026 Lincoln Aviator Premiere,2026,Lincoln,Aviator,Premiere,61153.0,307.0,SUV,New
+708,New 2025 Nissan Sentra SR,2025,Nissan,Sentra,SR,26814.0,4.0,Sedan,New
+709,Used 2018 Chevrolet Equinox 2LT,2018,Chevrolet,Equinox,2LT,12000.0,103202.0,SUV,Used
+710,Used 2019 Buick Enclave Essence,2019,Buick,Enclave,Essence,19995.0,154632.0,SUV,Used
+711,Used 2024 INFINITI QX80 Luxe,2024,INFINITI,QX80,Luxe,39995.0,53846.0,SUV,Used
+712,Used 2023 Kia Sportage X-Line,2023,Kia,Sportage,X-Line,25995.0,31201.0,SUV,Used
+713,Used 2024 Volkswagen Atlas 2.0T SE w/Technology,2024,Volkswagen,Atlas,2.0T SE w/Technology,29595.0,38048.0,SUV,Used
+714,Used 2019 Land Rover Range Rover Sport HSE Dynamic,2019,Land Rover,Range Rover Sport,HSE Dynamic,31000.0,61950.0,SUV,Used
+715,Used 2023 Genesis G80 2.5T,2023,Genesis,G80,2.5T,28495.0,52982.0,Sedan,Used
+716,Used 2023 Lincoln Aviator Reserve RWD,2023,Lincoln,Aviator,Reserve RWD,39748.0,39316.0,SUV,Used
+717,Used 2023 RAM 1500 Big Horn,2023,RAM,1500,Big Horn,29500.0,34277.0,Truck,Used
+718,Used 2020 Nissan Altima 2.5 SV,2020,Nissan,Altima,2.5 SV,15997.0,84983.0,Sedan,Used
+719,Used 2015 Ferrari California T,2015,Ferrari,California,T,138678.0,7293.0,Convertible,Used
+720,Used 2020 GMC Yukon SLT,2020,GMC,Yukon,SLT,28995.0,71467.0,SUV,Used
+721,Used 2023 Subaru Forester 2.5i Premium,2023,Subaru,Forester,2.5i Premium,26995.0,14785.0,SUV,Used
+722,Used 2021 Subaru Forester Limited,2021,Subaru,Forester,Limited,28500.0,24089.0,SUV,Used
+723,New 2026 Mazda CX-90 3.3 Turbo Preferred,2026,Mazda,CX-90,3.3 Turbo Preferred,44300.0,3.0,SUV,New
+724,New 2026 RAM 2500 Power Wagon,2026,RAM,2500,Power Wagon,84289.0,18.0,Truck,New
+725,New 2026 BMW M4 Competition xDrive,2026,BMW,M4,Competition xDrive,109505.0,,Convertible,New
+726,Used 2017 Nissan Sentra S,2017,Nissan,Sentra,S,8999.0,84614.0,Sedan,Used
+727,Used 2013 Lexus RX 350 Base,2013,Lexus,RX 350,Base,14495.0,101276.0,SUV,Used
+728,Used 2023 Mitsubishi Outlander SEL 2.5 2WD,2023,Mitsubishi,Outlander,SEL 2.5 2WD,23987.0,37302.0,SUV,Used
+729,New 2026 Chevrolet Colorado Z71,2026,Chevrolet,Colorado,Z71,40884.0,6.0,Truck,New
+730,New 2025 Nissan Frontier PRO-4X,2025,Nissan,Frontier,PRO-4X,40360.0,1.0,Truck,New
+731,Used 2022 GMC Acadia SLT,2022,GMC,Acadia,SLT,25997.0,40258.0,SUV,Used
+732,Used 2013 Mercedes-Benz E-Class E 350,2013,Mercedes-Benz,E-Class,E 350,13988.0,71377.0,Convertible,Used
+733,Used 2019 Jeep Cherokee Overland,2019,Jeep,Cherokee,Overland,17108.0,92318.0,SUV,Used
+734,Used 2015 Subaru Forester 2.5i,2015,Subaru,Forester,2.5i,10988.0,114311.0,SUV,Used
+735,Used 2019 RAM 1500 Rebel,2019,RAM,1500,Rebel,29900.0,72794.0,Truck,Used
+736,Used 2022 GMC Sierra 1500 AT4X,2022,GMC,Sierra 1500,AT4X,48415.0,47795.0,Truck,Used
+737,Used 2024 RAM 3500 Laramie,2024,RAM,3500,Laramie,51495.0,139430.0,Truck,Used
+738,Used 2022 Dodge Challenger R/T Scat Pack,2022,Dodge,Challenger,R/T Scat Pack,39195.0,22586.0,Coupe,Used
+739,New 2026 Kia Sportage EX,2026,Kia,Sportage,EX,29665.0,4.0,SUV,New
+740,Used 2019 Jeep Cherokee Limited,2019,Jeep,Cherokee,Limited,15991.0,65055.0,SUV,Used
+741,Used 2018 Ford F-150 XLT,2018,Ford,F-150,XLT,23969.0,77508.0,Truck,Used
+742,Used 2013 Jeep Wrangler Unlimited Sahara,2013,Jeep,Wrangler Unlimited,Sahara,16995.0,105359.0,SUV,Used
+743,New 2026 Chevrolet Traverse LT,2026,Chevrolet,Traverse,LT,48800.0,1.0,SUV,New
+744,Used 2015 Jeep Cherokee Limited 4WD,2015,Jeep,Cherokee,Limited 4WD,8995.0,106900.0,SUV,Used
+745,Used 2023 Hyundai PALISADE Calligraphy,2023,Hyundai,PALISADE,Calligraphy,35900.0,34465.0,SUV,Used
+746,Used 2025 Toyota 4Runner SR5,2025,Toyota,4Runner,SR5,46595.0,1947.0,SUV,Used
+747,Used 2014 RAM 1500 SLT,2014,RAM,1500,SLT,15495.0,125860.0,Truck,Used
+748,Used 2024 Chevrolet Trax ACTIV,2024,Chevrolet,Trax,ACTIV,22997.0,52527.0,SUV,Used
+749,New 2025 Nissan Versa 1.6 SV,2025,Nissan,Versa,1.6 SV,19694.0,3.0,Sedan,New
+750,Used 2022 Toyota Tacoma SR5,2022,Toyota,Tacoma,SR5,31757.0,16716.0,Truck,Used
+751,Used 2014 Mercedes-Benz M-Class ML 350,2014,Mercedes-Benz,M-Class,ML 350,14374.0,46089.0,SUV,Used
+752,Used 2014 Jeep Grand Cherokee Laredo,2014,Jeep,Grand Cherokee,Laredo,9990.0,120796.0,SUV,Used
+753,New 2026 Kia Sportage Hybrid S,2026,Kia,Sportage Hybrid,S,32660.0,11.0,SUV,New
+754,Used 2026 Chrysler Pacifica Limited,2026,Chrysler,Pacifica,Limited,41690.0,10356.0,Minivan,Used
+755,Used 2020 Subaru Outback Touring XT,2020,Subaru,Outback,Touring XT,15988.0,164052.0,SUV,Used
+756,Used 2024 INEOS Grenadier Trialmaster,2024,INEOS,Grenadier,Trialmaster,68208.0,16281.0,SUV,Used
+757,Used 2022 Hyundai ELANTRA SEL,2022,Hyundai,ELANTRA,SEL,16908.0,50103.0,Sedan,Used
+758,Used 2019 Dodge Journey Crossroad,2019,Dodge,Journey,Crossroad,14885.0,60583.0,SUV,Used
+759,New 2026 Honda HR-V LX,2026,Honda,HR-V,LX,26521.0,,SUV,New
+760,New 2026 Jeep Wrangler Sport S,2026,Jeep,Wrangler,Sport S,41660.0,10.0,SUV,New
+761,Used 2024 Kia Telluride SX X-Pro,2024,Kia,Telluride,SX X-Pro,41932.0,24558.0,SUV,Used
+762,Used 2019 BMW X5 xDrive50i,2019,BMW,X5,xDrive50i,24959.0,84544.0,SUV,Used
+763,Used 2019 Volvo XC60 T5 Momentum,2019,Volvo,XC60,T5 Momentum,17490.0,90523.0,SUV,Used
+764,New 2026 Lincoln Corsair Premiere,2026,Lincoln,Corsair,Premiere,46163.0,4.0,SUV,New
+765,Used 2023 Chrysler 300 Touring,2023,Chrysler,300,Touring,29995.0,15616.0,Sedan,Used
+766,Used 2022 Kia Telluride SX,2022,Kia,Telluride,SX,29999.0,74280.0,SUV,Used
+767,Used 2024 GMC Sierra 1500 AT4,2024,GMC,Sierra 1500,AT4,49985.0,26533.0,Truck,Used
+768,New 2025 Mitsubishi Outlander Sport 2.0 S,2025,Mitsubishi,Outlander Sport,2.0 S,26495.0,4.0,SUV,New
+769,Used 2018 Buick Cascada Premium,2018,Buick,Cascada,Premium,18997.0,44700.0,Convertible,Used
+770,Used 2019 Jeep Cherokee Latitude Plus,2019,Jeep,Cherokee,Latitude Plus,19392.0,38084.0,SUV,Used
+771,Used 2022 Chevrolet Silverado 1500 High Country,2022,Chevrolet,Silverado 1500,High Country,46900.0,13552.0,Truck,Used
+772,Used 2023 Chevrolet Trailblazer LT,2023,Chevrolet,Trailblazer,LT,19160.0,54609.0,SUV,Used
+773,New 2026 BMW 330 I XDrive NA,2026,BMW,330,I XDrive NA,54165.0,12.0,Sedan,New
+774,New 2026 Kia K5 GT-Line,2026,Kia,K5,GT-Line,29208.0,2.0,Sedan,New
+775,Used 2021 Dodge Durango GT,2021,Dodge,Durango,GT,25500.0,97886.0,SUV,Used
+776,Used 2018 Alfa Romeo Stelvio Quadrifoglio,2018,Alfa Romeo,Stelvio,Quadrifoglio,21000.0,101061.0,SUV,Used
+777,Used 2016 Chevrolet Tahoe LS,2016,Chevrolet,Tahoe,LS,17888.0,121172.0,SUV,Used
+778,Used 2023 Kia Forte LXS,2023,Kia,Forte,LXS,15264.0,57239.0,Sedan,Used
+779,New 2026 Chevrolet Traverse LT,2026,Chevrolet,Traverse,LT,42244.0,6.0,SUV,New
+780,Used 2020 Mitsubishi Outlander Sport 2.0 BE,2020,Mitsubishi,Outlander Sport,2.0 BE,18594.0,40794.0,SUV,Used
+781,New 2025 Ford Bronco Sport Outer Banks,2025,Ford,Bronco Sport,Outer Banks,37490.0,1178.0,SUV,New
+782,Used 2016 Ford Explorer XLT,2016,Ford,Explorer,XLT,10900.0,156107.0,SUV,Used
+783,Used 2014 Ford F-150 XLT,2014,Ford,F-150,XLT,14995.0,144301.0,Truck,Used
+784,Used 2025 Subaru Outback Premium,2025,Subaru,Outback,Premium,28265.0,28473.0,SUV,Used
+785,Used 2021 Ford Escape S,2021,Ford,Escape,S,14300.0,78747.0,SUV,Used
+786,New 2026 Cadillac XT5 Luxury,2026,Cadillac,XT5,Luxury,40644.0,2.0,SUV,New
+787,Used 2018 GMC Sierra 1500 Denali,2018,GMC,Sierra 1500,Denali,28195.0,99862.0,Truck,Used
+788,Used 2018 Jeep Wrangler Unlimited Sport,2018,Jeep,Wrangler Unlimited,Sport,16995.0,106376.0,SUV,Used
+789,Used 2021 Jeep Wrangler Sport S,2021,Jeep,Wrangler,Sport S,24685.0,22959.0,SUV,Used
+790,Used 2015 INFINITI QX60 Base,2015,INFINITI,QX60,Base,11556.0,114844.0,SUV,Used
+791,New 2025 Jeep Grand Cherokee Limited,2025,Jeep,Grand Cherokee,Limited,48991.0,5082.0,SUV,New
+792,Used 2025 Hyundai ELANTRA Limited,2025,Hyundai,ELANTRA,Limited,23992.0,17314.0,Sedan,Used
+793,Used 2018 Chevrolet Colorado Z71,2018,Chevrolet,Colorado,Z71,22995.0,57628.0,Truck,Used
+794,New 2026 Chrysler Pacifica L,2026,Chrysler,Pacifica,L,45446.0,5.0,Minivan,New
+795,Used 2024 Subaru Legacy,2024,Subaru,Legacy,,26500.0,34726.0,Sedan,Used
+796,Used 2020 Jeep Compass Altitude,2020,Jeep,Compass,Altitude,12899.0,126684.0,SUV,Used
+797,New 2026 Hyundai VENUE SEL,2026,Hyundai,VENUE,SEL,23500.0,12.0,SUV,New
+798,Used 2022 GMC Yukon 4WD AT4,2022,GMC,Yukon,4WD AT4,54777.0,55895.0,SUV,Used
+799,New 2026 Chevrolet Tahoe High Country,2026,Chevrolet,Tahoe,High Country,90175.0,3.0,SUV,New
+800,Used 2020 Jeep Wrangler Sport,2020,Jeep,Wrangler,Sport,24056.0,24624.0,SUV,Used
+801,New 2026 RAM 2500 Tradesman Crew Cab 4x4 6'4' Box,2026,RAM,2500,Tradesman Crew Cab 4x4 6'4' Box,67869.0,15.0,Truck,New
+802,Used 2025 Jeep Grand Cherokee L Laredo,2025,Jeep,Grand Cherokee L,Laredo,37900.0,15420.0,SUV,Used
+803,New 2026 Hyundai ELANTRA Sport,2026,Hyundai,ELANTRA,Sport,26109.0,17.0,Sedan,New
+804,New 2024 RAM 2500 Tradesman Regular Cab 4x2 8' Box,2024,RAM,2500,Tradesman Regular Cab 4x2 8' Box,54298.0,0.0,Truck,New
+805,Used 2015 Chevrolet Impala 1LT,2015,Chevrolet,Impala,1LT,9775.0,115923.0,Sedan,Used
+806,Used 2017 Chevrolet Malibu 1LS,2017,Chevrolet,Malibu,1LS,9995.0,132720.0,Sedan,Used
+807,Used 2020 Chevrolet Silverado 1500 LT,2020,Chevrolet,Silverado 1500,LT,28937.0,54964.0,Truck,Used
+808,Used 2024 Nissan Altima 2.5 S,2024,Nissan,Altima,2.5 S,20500.0,11985.0,Sedan,Used
+809,New 2026 Ford F-150 Lariat,2026,Ford,F-150,Lariat,72726.0,15.0,Truck,New
+810,New 2026 Chevrolet Traverse RS,2026,Chevrolet,Traverse,RS,54578.0,,SUV,New
+811,Used 2017 Honda Accord Sport SE,2017,Honda,Accord,Sport SE,13323.0,142133.0,Sedan,Used
+812,Used 2014 Ford F-150 XLT,2014,Ford,F-150,XLT,12985.0,123007.0,Truck,Used
+813,New 2026 Nissan Rogue SV,2026,Nissan,Rogue,SV,27072.0,7.0,SUV,New
+814,Used 2019 Nissan Titan XD PRO-4X,2019,Nissan,Titan XD,PRO-4X,21500.0,100005.0,Truck,Used
+815,Used 2025 Ford Escape Active,2025,Ford,Escape,Active,28702.0,2895.0,SUV,Used
+816,New 2026 Lincoln Aviator Reserve AWD,2026,Lincoln,Aviator,Reserve AWD,78784.0,1900.0,SUV,New
+817,Used 2017 Chevrolet Silverado 1500 LT,2017,Chevrolet,Silverado 1500,LT,20495.0,133596.0,Truck,Used
+818,Used 2020 Chevrolet Equinox 1LT,2020,Chevrolet,Equinox,1LT,18999.0,76118.0,SUV,Used
+819,New 2024 RAM 1500 Classic Tradesman,2024,RAM,1500 Classic,Tradesman,37010.0,10.0,Truck,New
+820,Used 2025 Buick Envista Sport Touring FWD,2025,Buick,Envista,Sport Touring FWD,25691.0,12496.0,SUV,Used
+821,Used 2018 Subaru Outback 2.5i Premium,2018,Subaru,Outback,2.5i Premium,19995.0,42131.0,SUV,Used
+822,Used 2016 Subaru Legacy 2.5i Limited,2016,Subaru,Legacy,2.5i Limited,14495.0,80568.0,Sedan,Used
+823,Used 2022 Chevrolet Tahoe 4WD Z71,2022,Chevrolet,Tahoe,4WD Z71,47977.0,68320.0,SUV,Used
+824,Used 2020 Nissan Murano SV Intelligent AWD,2020,Nissan,Murano,SV Intelligent AWD,18500.0,57999.0,SUV,Used
+825,New 2025 RAM 1500 Tradesman,2025,RAM,1500,Tradesman,34357.0,15.0,Truck,New
+826,Used 2025 Ford Maverick Lobo,2025,Ford,Maverick,Lobo,35990.0,4184.0,Truck,Used
+827,Used 2026 Jeep Wrangler Rubicon,2026,Jeep,Wrangler,Rubicon,59497.0,1570.0,SUV,Used
+828,Used 2025 Land Rover Range Rover Evoque Core S,2025,Land Rover,Range Rover Evoque,Core S,45995.0,6310.0,SUV,Used
+829,Used 2023 Toyota Camry Hybrid XSE,2023,Toyota,Camry Hybrid,XSE,25995.0,45796.0,Sedan,Used
+830,New 2026 RAM 1500 Big Horn/Lone Star,2026,RAM,1500,Big Horn/Lone Star,54833.0,,Truck,New
+831,Used 2019 Nissan Frontier SV,2019,Nissan,Frontier,SV,19000.0,117731.0,Truck,Used
+832,Used 2021 GMC Yukon SLT,2021,GMC,Yukon,SLT,42969.0,67488.0,SUV,Used
+833,Used 2022 Toyota Camry SE,2022,Toyota,Camry,SE,19775.0,109273.0,Sedan,Used
+834,Used 2011 Lexus RX 350 Base,2011,Lexus,RX 350,Base,9991.0,158959.0,SUV,Used
+835,Used 2024 Chevrolet Silverado 1500 LT Trail Boss,2024,Chevrolet,Silverado 1500,LT Trail Boss,40415.0,70470.0,Truck,Used
+836,Used 2022 Chevrolet Equinox 1LT,2022,Chevrolet,Equinox,1LT,21617.0,37702.0,SUV,Used
+837,Used 2022 RAM 1500 Big Horn,2022,RAM,1500,Big Horn,31495.0,38321.0,Truck,Used
+838,Used 2022 Subaru Ascent Limited 7-Passenger,2022,Subaru,Ascent,Limited 7-Passenger,27290.0,46636.0,SUV,Used
+839,Used 2017 Hyundai TUCSON Limited,2017,Hyundai,TUCSON,Limited,14757.0,77795.0,SUV,Used
+840,Used 2019 RAM 1500 Laramie,2019,RAM,1500,Laramie,34990.0,39788.0,Truck,Used
+841,New 2026 Chevrolet Blazer EV RS,2026,Chevrolet,Blazer EV,RS,56290.0,1.0,SUV,New
+842,Used 2024 Lincoln Navigator Premiere,2024,Lincoln,Navigator,Premiere,61000.0,36475.0,SUV,Used
+843,Used 2025 Jeep Wrangler Rubicon,2025,Jeep,Wrangler,Rubicon,53921.0,151.0,SUV,Used
+844,Used 2019 Jeep Compass Limited,2019,Jeep,Compass,Limited,20800.0,52127.0,SUV,Used
+845,Used 2020 Lexus RX 350 Base,2020,Lexus,RX 350,Base,35889.0,34590.0,SUV,Used
+846,Used 2024 GMC Sierra 1500 Denali,2024,GMC,Sierra 1500,Denali,54999.0,30426.0,Truck,Used
+847,Used 2023 Kia Forte GT,2023,Kia,Forte,GT,17807.0,57469.0,Sedan,Used
+848,Used 2019 Subaru Outback 2.5i Premium,2019,Subaru,Outback,2.5i Premium,17697.0,97823.0,SUV,Used
+849,Used 2022 Chrysler Pacifica Touring L,2022,Chrysler,Pacifica,Touring L,21989.0,77504.0,Minivan,Used
+850,Used 2019 RAM 1500 Sport,2019,RAM,1500,Sport,32295.0,64623.0,Truck,Used
+851,New 2026 Mazda Mazda3 FWD w/Select Package,2026,Mazda,Mazda3,FWD w/Select Package,27495.0,1.0,Sedan,New
+852,New 2026 Jeep Grand Cherokee Altitude,2026,Jeep,Grand Cherokee,Altitude,48025.0,1.0,SUV,New
+853,Used 2023 Kia Sorento SX,2023,Kia,Sorento,SX,31921.0,28351.0,SUV,Used
+854,Used 2011 Honda CR-V EX-L,2011,Honda,CR-V,EX-L,8488.0,191943.0,SUV,Used
+855,Used 2022 Kia K5 GT-Line,2022,Kia,K5,GT-Line,20986.0,97983.0,Sedan,Used
+856,Used 2024 Jeep Compass Trailhawk,2024,Jeep,Compass,Trailhawk,21694.0,44759.0,SUV,Used
+857,New 2026 BMW i7 EDrive50,2026,BMW,i7,EDrive50,116155.0,,Sedan,New
+858,Used 2023 Buick Envision Essence,2023,Buick,Envision,Essence,24999.0,56151.0,SUV,Used
+859,Used 2023 Nissan Frontier SV,2023,Nissan,Frontier,SV,32790.0,9338.0,Truck,Used
+860,Used 2025 BMW X2 xDrive28i,2025,BMW,X2,xDrive28i,40150.0,11100.0,SUV,Used
+861,Used 2019 Mercedes-Benz Sprinter 3500 170 IN. WB,2019,Mercedes-Benz,Sprinter 3500,170 IN. WB,92997.0,32205.0,Cargo Van,Used
+862,Used 2018 Mercedes-Benz S-Class S 560 4MATIC,2018,Mercedes-Benz,S-Class,S 560 4MATIC,29495.0,90931.0,Sedan,Used
+863,Used 2020 Volvo V60 Cross Country T5,2020,Volvo,V60 Cross Country,T5,20988.0,103955.0,Wagon,Used
+864,New 2026 Honda HR-V LX,2026,Honda,HR-V,LX,27084.0,6.0,SUV,New
+865,New 2026 Chevrolet Traverse LT,2026,Chevrolet,Traverse,LT,42488.0,,SUV,New
+866,New 2026 Jeep Cherokee Overland,2026,Jeep,Cherokee,Overland,45990.0,,SUV,New
+867,New 2026 GMC Sierra 1500 Pro,2026,GMC,Sierra 1500,Pro,50135.0,,Truck,New
+868,Used 2025 Toyota Camry,2025,Toyota,Camry,,24995.0,57895.0,Sedan,Used
+869,New 2026 Acura Integra FWD A-Spec,2026,Acura,Integra,FWD A-Spec,40840.0,6.0,Hatchback,New
+870,New 2025 Nissan Altima SV,2025,Nissan,Altima,SV,24086.0,12.0,Sedan,New
+871,Used 2025 Chevrolet Silverado 1500 LT,2025,Chevrolet,Silverado 1500,LT,42899.0,31918.0,Truck,Used
+872,Used 2022 Kia Carnival SX,2022,Kia,Carnival,SX,21999.0,108685.0,Minivan,Used
+873,New 2026 Ford F-150 Raptor,2026,Ford,F-150,Raptor,81800.0,9.0,Truck,New
+874,Used 2016 Mercedes-Benz C-Class C 300 4MATIC,2016,Mercedes-Benz,C-Class,C 300 4MATIC,14495.0,79773.0,Sedan,Used
+875,Used 2022 Mazda CX-30 Premium Package,2022,Mazda,CX-30,Premium Package,23500.0,23466.0,SUV,Used
+876,New 2026 Subaru Solterra Limited,2026,Subaru,Solterra,Limited,39820.0,1.0,SUV,New
+877,Used 2021 Mercedes-Benz GLE 450 4MATIC,2021,Mercedes-Benz,GLE 450,4MATIC,45999.0,46606.0,SUV,Used
+878,Used 2020 Buick Encore Preferred,2020,Buick,Encore,Preferred,14977.0,51423.0,SUV,Used
+879,Used 2019 Dodge Durango R/T,2019,Dodge,Durango,R/T,24975.0,72191.0,SUV,Used
+880,New 2026 Jeep Cherokee Laredo 4x4,2026,Jeep,Cherokee,Laredo 4x4,37023.0,19.0,SUV,New
+881,Used 2020 Toyota Highlander Hybrid XLE,2020,Toyota,Highlander Hybrid,XLE,25999.0,112984.0,SUV,Used
+882,Used 2014 GMC Sierra 1500 SLT,2014,GMC,Sierra 1500,SLT,26451.0,44543.0,Truck,Used
+883,Used 2010 Dodge Grand Caravan SE,2010,Dodge,Grand Caravan,SE,3995.0,192874.0,Passenger Van,Used
+884,Used 2019 Audi Q7 55 Premium Plus,2019,Audi,Q7,55 Premium Plus,22102.0,60222.0,SUV,Used
+885,Used 2025 GMC Sierra 1500 SLT,2025,GMC,Sierra 1500,SLT,44667.0,21854.0,Truck,Used
+886,Used 2024 Honda Civic EX,2024,Honda,Civic,EX,23500.0,35971.0,Sedan,Used
+887,Used 2022 Jeep Grand Cherokee L Laredo,2022,Jeep,Grand Cherokee L,Laredo,25991.0,61123.0,SUV,Used
+888,Used 2013 Honda Accord LX,2013,Honda,Accord,LX,12444.0,73399.0,Sedan,Used
+889,Used 2023 Nissan Rogue SV,2023,Nissan,Rogue,SV,23066.0,41962.0,SUV,Used
+890,Certified 2024 BMW X3 xDrive30i,2024,BMW,X3,xDrive30i,39988.0,14458.0,SUV,Used
+891,Used 2022 Jeep Wrangler Rubicon,2022,Jeep,Wrangler,Rubicon,33490.0,28937.0,SUV,Used
+892,New 2026 RAM 1500 Rebel,2026,RAM,1500,Rebel,60016.0,6.0,Truck,New
+893,New 2026 Jeep Wrangler Sport,2026,Jeep,Wrangler,Sport,37794.0,9.0,,New
+894,Used 2018 RAM 1500 Big Horn,2018,RAM,1500,Big Horn,20995.0,101632.0,Truck,Used
+895,Used 2018 Mazda CX-5 Touring,2018,Mazda,CX-5,Touring,19544.0,55820.0,SUV,Used
+896,New 2025 Ford F-150 XLT,2025,Ford,F-150,XLT,58690.0,1159.0,Truck,New
+897,Used 2022 Mitsubishi Outlander Sport SE,2022,Mitsubishi,Outlander Sport,SE,14500.0,56644.0,SUV,Used
+898,New 2027 Kia Telluride EX,2027,Kia,Telluride,EX,50595.0,10.0,SUV,New
+899,New 2026 Ford Ranger XLT,2026,Ford,Ranger,XLT,39858.0,3.0,Truck,New
+900,New 2025 Jeep Grand Cherokee Limited,2025,Jeep,Grand Cherokee,Limited,47188.0,,SUV,New
+901,Used 2022 Lexus RX 350 Base,2022,Lexus,RX 350,Base,33888.0,101502.0,SUV,Used
+902,Used 2025 Genesis GV70 2.5T AWD,2025,Genesis,GV70,2.5T AWD,39698.0,20462.0,SUV,Used
+903,New 2025 Nissan Versa 1.6 SR,2025,Nissan,Versa,1.6 SR,21979.0,10.0,Sedan,New
+904,New 2026 Chevrolet Tahoe High Country,2026,Chevrolet,Tahoe,High Country,86455.0,1.0,SUV,New
+905,Used 2016 Volvo XC60 T5 Drive-E Platinum,2016,Volvo,XC60,T5 Drive-E Platinum,11977.0,96299.0,SUV,Used
+906,Used 2025 Nissan Sentra SV,2025,Nissan,Sentra,SV,19199.0,35984.0,Sedan,Used
+907,New 2026 Honda Passport AWD TrailSport Blackout,2026,Honda,Passport,AWD TrailSport Blackout,48693.0,9.0,SUV,New
+908,Used 2021 Toyota Tacoma TRD Sport,2021,Toyota,Tacoma,TRD Sport,29147.0,85494.0,Truck,Used
+909,New 2026 Ford Maverick XLT,2026,Ford,Maverick,XLT,32981.0,11.0,Truck,New
+910,Used 2022 Chevrolet Traverse LS,2022,Chevrolet,Traverse,LS,22995.0,124249.0,SUV,Used
+911,Used 2024 GMC Acadia AT4,2024,GMC,Acadia,AT4,41721.0,22063.0,SUV,Used
+912,Used 2017 GMC Terrain SLE-1,2017,GMC,Terrain,SLE-1,8995.0,120821.0,SUV,Used
+913,New 2026 Nissan Kicks SR,2026,Nissan,Kicks,SR,32093.0,13.0,SUV,New
+914,Used 2024 Nissan Pathfinder S FWD,2024,Nissan,Pathfinder,S FWD,29000.0,24018.0,SUV,Used
+915,New 2026 BMW X3 30 xDrive,2026,BMW,X3,30 xDrive,54790.0,7.0,SUV,New
+916,Used 2021 Volkswagen Atlas 3.6L SEL,2021,Volkswagen,Atlas,3.6L SEL,22695.0,112750.0,SUV,Used
+917,Used 2020 Chevrolet Traverse Premier,2020,Chevrolet,Traverse,Premier,28997.0,55860.0,SUV,Used
+918,Used 2023 Land Rover Range Rover P400 SE,2023,Land Rover,Range Rover,P400 SE,89995.0,31907.0,SUV,Used
+919,Used 2019 Jeep Compass Altitude,2019,Jeep,Compass,Altitude,13315.0,107004.0,SUV,Used
+920,Used 2024 Polestar 2 Long Range Single Motor Plus,2024,Polestar,2,Long Range Single Motor Plus,24500.0,23962.0,Hatchback,Used
+921,Used 2026 Toyota Corolla Cross L,2026,Toyota,Corolla Cross,L,26622.0,1823.0,SUV,Used
+922,Used 2024 Volkswagen Tiguan 2.0T SE 4MOTION,2024,Volkswagen,Tiguan,2.0T SE 4MOTION,23938.0,62928.0,SUV,Used
+923,New 2026 Mazda CX-30 Select,2026,Mazda,CX-30,Select,29380.0,1.0,SUV,New
+924,Used 2025 Hyundai SONATA SEL,2025,Hyundai,SONATA,SEL,24230.0,48318.0,Sedan,Used
+925,New 2026 Ford Mustang EcoBoost Premium,2026,Ford,Mustang,EcoBoost Premium,43140.0,5.0,Coupe,New
+926,Used 2016 GMC Yukon SLT,2016,GMC,Yukon,SLT,19834.0,130214.0,SUV,Used
+927,Used 2022 Lexus IS 300 Base,2022,Lexus,IS 300,Base,31712.0,73946.0,Sedan,Used
+928,Used 2014 Ford F-250 XLT,2014,Ford,F-250,XLT,15488.0,209249.0,Truck,Used
+929,Used 2023 Chevrolet Equinox 2LT,2023,Chevrolet,Equinox,2LT,19943.0,49261.0,SUV,Used
+930,Used 2025 Chevrolet Blazer 2LT,2025,Chevrolet,Blazer,2LT,26340.0,31339.0,SUV,Used
+931,Used 2022 Jeep Compass Limited,2022,Jeep,Compass,Limited,26777.0,38078.0,SUV,Used
+932,New 2026 Hyundai KONA SE,2026,Hyundai,KONA,SE,24795.0,12.0,SUV,New
+933,Used 2021 Chrysler 300 Touring,2021,Chrysler,300,Touring,25940.0,36281.0,Sedan,Used
+934,New 2026 Honda Civic Si Base,2026,Honda,Civic Si,Base,30950.0,10.0,Sedan,New
+935,Used 2020 Chevrolet Silverado 1500 RST,2020,Chevrolet,Silverado 1500,RST,38287.0,28960.0,Truck,Used
+936,Used 2024 Chevrolet Malibu FWD 1LT,2024,Chevrolet,Malibu,FWD 1LT,18273.0,54800.0,Sedan,Used
+937,Used 2024 Nissan Pathfinder SV FWD,2024,Nissan,Pathfinder,SV FWD,28300.0,43423.0,SUV,Used
+938,Used 2022 Toyota Tacoma SR,2022,Toyota,Tacoma,SR,34998.0,35750.0,Truck,Used
+939,Used 2017 Ford F-450 Platinum,2017,Ford,F-450,Platinum,52995.0,71977.0,Truck,Used
+940,Used 2025 Buick Enclave Avenir AWD,2025,Buick,Enclave,Avenir AWD,49225.0,21472.0,SUV,Used
+941,New 2026 Chevrolet Equinox ACTIV,2026,Chevrolet,Equinox,ACTIV,37145.0,,SUV,New
+942,Used 2025 Kia Telluride S,2025,Kia,Telluride,S,38989.0,30212.0,SUV,Used
+943,New 2025 Kia EV6 Light Long Range,2025,Kia,EV6,Light Long Range,35500.0,6.0,SUV,New
+944,Used 2023 Polestar 2 Long Range Dual Motor,2023,Polestar,2,Long Range Dual Motor,26397.0,31646.0,Hatchback,Used
+945,New 2026 Nissan Pathfinder Rock Creek,2026,Nissan,Pathfinder,Rock Creek,44534.0,1.0,SUV,New
+946,Used 2017 Toyota Camry LE,2017,Toyota,Camry,LE,10795.0,118105.0,Sedan,Used
+947,New 2026 Chevrolet Traverse High Country,2026,Chevrolet,Traverse,High Country,53035.0,3.0,SUV,New
+948,Used 2021 Ford F-150 XL,2021,Ford,F-150,XL,29997.0,52838.0,Truck,Used
+949,Used 2023 Alfa Romeo Stelvio Ti,2023,Alfa Romeo,Stelvio,Ti,26991.0,45922.0,SUV,Used
+950,Used 2017 Lincoln MKZ Select,2017,Lincoln,MKZ,Select,11495.0,104798.0,Sedan,Used
+951,Used 2023 Chrysler Pacifica Touring L,2023,Chrysler,Pacifica,Touring L,21500.0,84655.0,Minivan,Used
+952,New 2026 Dodge Charger Scat Pack,2026,Dodge,Charger,Scat Pack,64541.0,14.0,Coupe,New
+953,Used 2022 Jaguar F-PACE S P250 AWD Automatic,2022,Jaguar,F-PACE,S P250 AWD Automatic,31980.0,49273.0,SUV,Used
+954,New 2025 Nissan Sentra SR,2025,Nissan,Sentra,SR,23611.0,,Sedan,New
+955,Used 2025 Kia Sportage LX,2025,Kia,Sportage,LX,22994.0,22062.0,SUV,Used
+956,New 2026 Land Rover Range Rover Evoque Core S,2026,Land Rover,Range Rover Evoque,Core S,56810.0,10.0,SUV,New
+957,Used 2021 Jeep Cherokee Latitude Lux,2021,Jeep,Cherokee,Latitude Lux,17900.0,62532.0,SUV,Used
+958,New 2026 Subaru Impreza Sport,2026,Subaru,Impreza,Sport,30504.0,1.0,Hatchback,New
+959,New 2026 BMW X5 xDrive40i,2026,BMW,X5,xDrive40i,85250.0,,SUV,New
+960,Used 2023 MINI Countryman Signature,2023,MINI,Countryman,Signature,22300.0,50982.0,SUV,Used
+961,Used 2026 INFINITI QX60 AUTOGRAPH,2026,INFINITI,QX60,AUTOGRAPH,61499.0,669.0,SUV,Used
+962,New 2026 Buick Enclave Sport Touring,2026,Buick,Enclave,Sport Touring,55774.0,3.0,SUV,New
+963,New 2026 Chevrolet Equinox FWD RS,2026,Chevrolet,Equinox,FWD RS,30840.0,7.0,SUV,New
+964,Used 2023 Volvo XC90 B6 Plus 6-Seater,2023,Volvo,XC90,B6 Plus 6-Seater,33000.0,73208.0,SUV,Used
+965,Used 2020 Nissan Pathfinder S,2020,Nissan,Pathfinder,S,19200.0,76814.0,SUV,Used
+966,New 2025 Ford Mustang Mach-E Premium,2025,Ford,Mustang Mach-E,Premium,49754.0,6.0,SUV,New
+967,New 2026 RAM 1500 Big Horn/Lone Star,2026,RAM,1500,Big Horn/Lone Star,59445.0,,Truck,New
+968,Used 2024 Tesla Model 3 Long Range,2024,Tesla,Model 3,Long Range,31991.0,25906.0,Sedan,Used
+969,Used 2023 Porsche Cayenne Platinum Edition,2023,Porsche,Cayenne,Platinum Edition,55995.0,17228.0,SUV,Used
+970,New 2026 Ford F-250 XL,2026,Ford,F-250,XL,65948.0,1.0,Truck,New
+971,Used 2024 Genesis G70 2.5T,2024,Genesis,G70,2.5T,27999.0,48523.0,Sedan,Used
+972,New 2025 Jeep Grand Cherokee L Altitude,2025,Jeep,Grand Cherokee L,Altitude,41758.0,9.0,SUV,New
+973,New 2025 Hyundai IONIQ 6 SE,2025,Hyundai,IONIQ 6,SE,37443.0,10.0,Sedan,New
+974,Used 2020 Honda CR-V EX-L,2020,Honda,CR-V,EX-L,25209.0,53654.0,SUV,Used
+975,Used 2022 Kia Forte GT,2022,Kia,Forte,GT,15000.0,70786.0,Sedan,Used
+976,Used 2022 GMC Sierra 1500 AT4,2022,GMC,Sierra 1500,AT4,34482.0,134761.0,Truck,Used
+977,New 2026 RAM 1500 Big Horn/Lone Star,2026,RAM,1500,Big Horn/Lone Star,56922.0,,Truck,New
+978,Used 2021 Jeep Cherokee Latitude Plus,2021,Jeep,Cherokee,Latitude Plus,17899.0,71479.0,SUV,Used
+979,Used 2023 BMW X1 xDrive28i,2023,BMW,X1,xDrive28i,27962.0,42171.0,SUV,Used
+980,Used 2018 GMC Sierra 1500 SLE,2018,GMC,Sierra 1500,SLE,24278.0,71485.0,Truck,Used
+981,Used 2019 RAM 1500 Classic Tradesman,2019,RAM,1500 Classic,Tradesman,14695.0,131162.0,Truck,Used
+982,New 2026 GMC Acadia Elevation,2026,GMC,Acadia,Elevation,47876.0,,SUV,New
+983,New 2025 Mazda CX-5 2.5 S Select Package,2025,Mazda,CX-5,2.5 S Select Package,32197.0,1.0,SUV,New
+984,Used 2022 Chevrolet Silverado 1500 LTZ,2022,Chevrolet,Silverado 1500,LTZ,34599.0,58894.0,Truck,Used
+985,Used 2022 Lincoln Corsair Standard,2022,Lincoln,Corsair,Standard,23862.0,44104.0,SUV,Used
+986,New 2025 Nissan Altima SR,2025,Nissan,Altima,SR,28045.0,9.0,Sedan,New
+987,New 2026 Chevrolet Equinox EV LT 2,2026,Chevrolet,Equinox EV,LT 2,28069.0,5.0,SUV,New
+988,New 2026 Buick Envista Preferred,2026,Buick,Envista,Preferred,26866.0,7.0,SUV,New
+989,New 2026 Chrysler Voyager LX,2026,Chrysler,Voyager,LX,37460.0,11.0,Passenger Van,New
+990,Used 2023 Chevrolet Traverse RS,2023,Chevrolet,Traverse,RS,35995.0,39518.0,SUV,Used
+991,New 2026 Chevrolet Silverado 1500 LT,2026,Chevrolet,Silverado 1500,LT,40991.0,30.0,Truck,New
+992,Used 2014 Honda Accord EX-L,2014,Honda,Accord,EX-L,9488.0,178763.0,Sedan,Used
+993,Used 2020 Jeep Wrangler Unlimited Sport,2020,Jeep,Wrangler Unlimited,Sport,21695.0,59756.0,SUV,Used
+994,New 2025 Ford Bronco Sport Big Bend,2025,Ford,Bronco Sport,Big Bend,32978.0,47.0,SUV,New
+995,Used 2024 Hyundai KONA SEL,2024,Hyundai,KONA,SEL,22796.0,21000.0,SUV,Used
+996,Used 2014 Volkswagen Tiguan Auto R-Line,2014,Volkswagen,Tiguan,Auto R-Line,12990.0,68263.0,SUV,Used
+997,New 2026 Chrysler Pacifica Select,2026,Chrysler,Pacifica,Select,44645.0,9.0,Passenger Van,New
+998,New 2025 Chevrolet Colorado LT,2025,Chevrolet,Colorado,LT,36199.0,8.0,Truck,New
+999,Used 2018 Subaru Forester 2.5i Premium,2018,Subaru,Forester,2.5i Premium,14444.0,92092.0,SUV,Used

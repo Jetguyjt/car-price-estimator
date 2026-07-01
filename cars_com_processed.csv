@@ -1,0 +1,921 @@
+listing_id,region,price,make,model,make_model,year,mileage,car_age,miles_per_year,price_per_mile,mileage_bucket,is_luxury_make,is_new,trim,title_status,accident_history,owner_count,cpo,drivetrain,transmission_type,fuel_type_group,mpg,car_color,body_style
+0,unknown,27247.0,buick,envista,buick__envista,2026,7.0,0,7.0,3892.4285714285716,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+1,unknown,20875.0,honda,accord,honda__accord,2020,48776.0,6,8129.333333333333,0.42797687387239625,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+2,unknown,23705.0,honda,civic,honda__civic,2025,24474.0,1,24474.0,0.9685789000572036,low,0,0,sport,,,,,,,,,__unknown__,sedan
+3,unknown,26158.0,chrysler,300,chrysler__300,2023,24731.0,3,8243.666666666666,1.0577008612672354,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+4,unknown,25000.0,chrysler,300,chrysler__300,2023,49206.0,3,16402.0,0.5080681217737675,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+5,unknown,23998.0,alfa romeo,stelvio,alfa romeo__stelvio,2020,30191.0,6,5031.833333333333,0.7948726441654798,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+6,unknown,9995.0,mitsubishi,outlander sport,mitsubishi__outlander sport,2018,98380.0,8,12297.5,0.10159585281561292,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+7,unknown,29949.0,chrysler,300,chrysler__300,2023,18479.0,3,6159.666666666667,1.6207045835813627,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+8,unknown,31988.0,hyundai,palisade,hyundai__palisade,2025,25765.0,1,25765.0,1.2415292062875996,low,0,0,sel,,,,,,,,,__unknown__,suv
+9,unknown,25988.0,mazda,mazda3,mazda__mazda3,2024,24890.0,2,12445.0,1.0441141020490157,low,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+10,unknown,65999.0,lincoln,aviator,lincoln__aviator,2025,8580.0,1,8580.0,7.692191142191142,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+11,unknown,26899.0,maserati,granturismo,maserati__granturismo,2014,44090.0,12,3674.1666666666665,0.6100929916080744,low,1,0,sport,,,,,,,,,__unknown__,coupe
+12,unknown,45534.0,ford,bronco,ford__bronco,2026,1.0,0,1.0,45534.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+13,unknown,27856.0,tesla,model y,tesla__model y,2021,63709.0,5,12741.8,0.43723806683514105,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+14,unknown,58520.0,chevrolet,tahoe,chevrolet__tahoe,2024,32547.0,2,16273.5,1.7980151780502043,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+15,unknown,17244.0,buick,enclave,buick__enclave,2019,112523.0,7,16074.714285714286,0.15324866916097155,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+16,unknown,27962.0,ram,1500,ram__1500,2022,26882.0,4,6720.5,1.0401755821739453,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+17,unknown,30724.0,lincoln,aviator,lincoln__aviator,2020,84625.0,6,14104.166666666666,0.3630605612998523,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+18,unknown,55430.0,hyundai,palisade,hyundai__palisade,2026,0.0,0,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+19,unknown,52765.0,hyundai,palisade,hyundai__palisade,2026,10.0,0,10.0,5276.5,very_low,0,1,limited,,,0.0,,,,,,__unknown__,suv
+20,unknown,35295.0,acura,integra,acura__integra,2026,6.0,0,6.0,5882.5,very_low,1,1,base,,,0.0,,,,,,__unknown__,hatchback
+21,unknown,54185.0,dodge,charger,dodge__charger,2026,0.0,0,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,coupe
+22,unknown,41752.0,lexus,rx 350,lexus__rx 350,2023,47193.0,3,15731.0,0.8847074778039116,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+23,unknown,49725.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2025,14279.0,1,14279.0,3.482386721759227,very_low,0,0,lt,,,,,,,,,__unknown__,truck
+24,unknown,22399.0,chrysler,pacifica,chrysler__pacifica,2020,28529.0,6,4754.833333333333,0.7851309194153318,low,0,0,__rare__,,,,,,,,,__unknown__,__rare__
+25,unknown,38597.0,ram,1500,ram__1500,2021,66541.0,5,13308.2,0.5800483912174449,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+26,unknown,51910.0,mitsubishi,outlander phev,mitsubishi__outlander phev,2025,11.0,1,11.0,4719.090909090909,very_low,0,1,sel,,,0.0,,,,,,__unknown__,suv
+27,unknown,67441.0,gmc,yukon,gmc__yukon,2025,24730.0,1,24730.0,2.7270926000808733,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+28,unknown,40994.0,volvo,xc90,volvo__xc90,2024,29229.0,2,14614.5,1.402511204625543,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+29,unknown,45589.0,ford,bronco,ford__bronco,2025,8.0,1,8.0,5698.625,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+30,unknown,25900.0,kia,sorento,kia__sorento,2024,38713.0,2,19356.5,0.669025908609511,low,0,0,s,,,,,,,,,__unknown__,suv
+31,unknown,38271.0,jeep,grand cherokee,jeep__grand cherokee,2025,11.0,1,11.0,3479.181818181818,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+32,unknown,24750.0,mazda,cx-5,mazda__cx-5,2024,28562.0,2,14281.0,0.8665359568657657,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+33,unknown,36900.0,gmc,sierra 1500,gmc__sierra 1500,2021,43159.0,5,8631.8,0.8549781042192822,low,0,0,slt,,,,,,,,,__unknown__,truck
+34,unknown,34950.0,hyundai,palisade,hyundai__palisade,2024,33188.0,2,16594.0,1.0530914788477763,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+35,unknown,33905.0,lincoln,aviator,lincoln__aviator,2023,79095.0,3,26365.0,0.4286617358872242,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+36,unknown,29900.0,kia,k4,kia__k4,2025,2564.0,1,2564.0,11.661466458658346,very_low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+37,unknown,40995.0,jeep,grand cherokee,jeep__grand cherokee,2025,9.0,1,9.0,4555.0,very_low,0,1,limited,,,0.0,,,,,,__unknown__,suv
+38,unknown,37696.0,chrysler,pacifica,chrysler__pacifica,2025,24815.0,1,24815.0,1.5190812008865606,low,0,0,limited,,,,,,,,,__unknown__,passenger van
+39,unknown,7907.0,volvo,xc60,volvo__xc60,2017,135937.0,9,15104.111111111111,0.058166650727910725,high,1,0,__rare__,,,,,,,,,__unknown__,suv
+40,unknown,22139.0,subaru,outback,subaru__outback,2020,62511.0,6,10418.5,0.3541616675465118,medium,0,0,limited,,,,,,,,,__unknown__,suv
+41,unknown,33456.0,volkswagen,atlas,volkswagen__atlas,2025,24890.0,1,24890.0,1.3441542788268381,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+42,unknown,23786.0,tesla,model y,tesla__model y,2021,82567.0,5,16513.4,0.2880811946661499,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+43,unknown,35998.0,audi,q7,audi__q7,2022,19195.0,4,4798.75,1.875384214639229,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+44,unknown,29650.0,infiniti,qx55,infiniti__qx55,2023,18712.0,3,6237.333333333333,1.584544677212484,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+45,unknown,38995.0,porsche,cayenne,porsche__cayenne,2020,73247.0,6,12207.833333333334,0.5323767526315071,medium,1,0,s,,,,,,,,,__unknown__,suv
+46,unknown,117995.0,bentley,bentayga,bentley__bentayga,2022,25021.0,4,6255.25,4.715838695495783,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+47,unknown,22996.0,mitsubishi,outlander,mitsubishi__outlander,2024,48052.0,2,24026.0,0.4785648880379589,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+48,unknown,9995.0,chevrolet,sonic,chevrolet__sonic,2020,69847.0,6,11641.166666666666,0.14309848669234182,medium,0,0,lt,,,,,,,,,__unknown__,hatchback
+49,unknown,53339.0,gmc,yukon,gmc__yukon,2023,66667.0,3,22222.333333333332,0.800080999595002,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+50,unknown,70421.0,mercedes-benz,sprinter 2500,mercedes-benz__sprinter 2500,2025,10.0,1,10.0,7042.1,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,__rare__
+51,unknown,13500.0,honda,civic,honda__civic,2016,151801.0,10,15180.1,0.08893222047285591,high,0,0,ex,,,,,,,,,__unknown__,sedan
+52,unknown,21998.0,mercedes-benz,e-class,mercedes-benz__e-class,2018,56374.0,8,7046.75,0.39021534750062087,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+53,unknown,9026.0,honda,accord,honda__accord,2012,151034.0,14,10788.142857142857,0.059761378232715816,high,0,0,lx,,,,,,,,,__unknown__,sedan
+54,unknown,16906.0,volvo,xc60,volvo__xc60,2017,35376.0,9,3930.6666666666665,0.47789461781999093,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+55,unknown,40197.0,gmc,sierra 1500,gmc__sierra 1500,2024,61847.0,2,30923.5,0.649942600287807,medium,0,0,slt,,,,,,,,,__unknown__,truck
+56,unknown,52989.0,chevrolet,tahoe,chevrolet__tahoe,2022,64140.0,4,16035.0,0.8261459307764266,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+57,unknown,51990.0,lexus,rx 350,lexus__rx 350,2024,25393.0,2,12696.5,2.0474146418304255,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+58,unknown,17599.0,volkswagen,id.4,volkswagen__id.4,2023,31186.0,3,10395.333333333334,0.564323735009299,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+59,unknown,36853.0,infiniti,qx80,infiniti__qx80,2024,47047.0,2,23523.5,0.7833230599188046,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+60,unknown,40577.0,jeep,wrangler,jeep__wrangler,2024,28885.0,2,14442.5,1.4047775662108362,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+61,unknown,53183.0,ram,1500,ram__1500,2024,15358.0,2,7679.0,3.462885792420888,low,0,0,limited,,,,,,,,,__unknown__,truck
+62,unknown,21981.0,mercedes-benz,e-class,mercedes-benz__e-class,2017,38738.0,9,4304.222222222223,0.5674273323351747,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+63,unknown,37465.0,kia,sorento,kia__sorento,2026,6589.0,0,6589.0,5.685991804522689,very_low,0,1,ex,,,0.0,,,,,,__unknown__,suv
+64,unknown,26500.0,lexus,gx 460,lexus__gx 460,2016,137356.0,10,13735.6,0.1929293223448557,high,1,0,base,,,,,,,,,__unknown__,suv
+65,unknown,18962.0,nissan,versa,nissan__versa,2025,9.0,1,9.0,2106.8888888888887,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+66,unknown,15895.0,nissan,pathfinder,nissan__pathfinder,2020,74281.0,6,12380.166666666666,0.21398473364655834,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+67,unknown,29860.0,hyundai,tucson hybrid,hyundai__tucson hybrid,2026,8.0,0,8.0,3732.5,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+68,unknown,75600.0,bmw,x5,bmw__x5,2026,5.0,0,5.0,15120.0,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+69,unknown,21499.0,jeep,wrangler,jeep__wrangler,2023,99148.0,3,33049.333333333336,0.21683745511760197,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+70,unknown,38805.0,lincoln,navigator,lincoln__navigator,2020,72209.0,6,12034.833333333334,0.5373983852428368,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+71,unknown,26744.0,kia,sorento,kia__sorento,2021,55133.0,5,11026.6,0.4850815301180781,low,0,0,s,,,,,,,,,__unknown__,suv
+72,unknown,77600.0,bmw,x5,bmw__x5,2026,1941.0,0,1941.0,39.97939206594539,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+73,unknown,22897.0,subaru,forester,subaru__forester,2021,78744.0,5,15748.8,0.29077771004774966,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+74,unknown,28000.0,acura,rdx,acura__rdx,2023,102949.0,3,34316.333333333336,0.2719793295709526,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+75,unknown,18995.0,fiat,124 spider,fiat__124 spider,2017,46692.0,9,5188.0,0.4068148719266684,low,0,0,base,,,,,,,,,__unknown__,__rare__
+76,unknown,21789.0,hyundai,tucson hybrid,hyundai__tucson hybrid,2022,52851.0,4,13212.75,0.41227223704376453,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+77,unknown,27731.0,audi,a4,audi__a4,2022,29624.0,4,7406.0,0.9360991088306778,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+78,unknown,23238.0,nissan,rogue,nissan__rogue,2025,22605.0,1,22605.0,1.0280026542800265,low,0,0,sv,,,,,,,,,__unknown__,suv
+79,unknown,39500.0,genesis,gv80,genesis__gv80,2025,24150.0,1,24150.0,1.6356107660455486,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+80,unknown,76984.0,gmc,yukon,gmc__yukon,2025,13018.0,1,13018.0,5.913658011983408,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+81,unknown,12995.0,volvo,s80,volvo__s80,2015,86536.0,11,7866.909090909091,0.15016871591014144,medium,1,0,__rare__,,,,,,,,,__unknown__,sedan
+82,unknown,57994.0,gmc,yukon,gmc__yukon,2023,42268.0,3,14089.333333333334,1.3720545093214724,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+83,unknown,31495.0,subaru,outback,subaru__outback,2024,20033.0,2,10016.5,1.572155942694554,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+84,unknown,50716.0,buick,enclave,buick__enclave,2026,0.0,0,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+85,unknown,15999.0,bmw,650,bmw__650,2013,80325.0,13,6178.846153846154,0.1991783380018674,medium,1,0,__rare__,,,,,,,,,__unknown__,coupe
+86,unknown,39750.0,infiniti,qx60,infiniti__qx60,2023,23084.0,3,7694.666666666667,1.72197192860856,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+87,unknown,27555.0,toyota,corolla cross hybrid,toyota__corolla cross hybrid,2024,28620.0,2,14310.0,0.9627882599580713,low,0,0,se,,,,,,,,,__unknown__,suv
+88,unknown,10683.0,fiat,500,fiat__500,2019,55067.0,7,7866.714285714285,0.19400003631939275,low,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+89,unknown,20987.0,volkswagen,tiguan,volkswagen__tiguan,2022,32743.0,4,8185.75,0.6409614268698653,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+90,unknown,23791.0,mini,hardtop,mini__hardtop,2021,25449.0,5,5089.8,0.9348500923415458,low,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+91,unknown,58500.0,acura,mdx,acura__mdx,2025,20681.0,1,20681.0,2.8286833325274405,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+92,unknown,31980.0,plymouth,prowler,plymouth__prowler,2001,35590.0,25,1423.6,0.8985670132059568,low,0,0,base,,,,,,,,,__unknown__,__rare__
+93,unknown,9990.0,mercedes-benz,e-class,mercedes-benz__e-class,2002,89745.0,24,3739.375,0.11131539361524319,medium,1,0,__rare__,,,,,,,,,__unknown__,sedan
+94,unknown,21900.0,dodge,durango,dodge__durango,2021,79289.0,5,15857.8,0.2762047698924189,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+95,unknown,36599.0,bmw,x3,bmw__x3,2024,30000.0,2,15000.0,1.2199666666666666,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+96,unknown,11385.0,chrysler,town & country,chrysler__town & country,2014,66401.0,12,5533.416666666667,0.1714582611707655,medium,0,0,__rare__,,,,,,,,,__unknown__,passenger van
+97,unknown,9440.0,buick,enclave,buick__enclave,2014,114647.0,12,9553.916666666666,0.08233970361195671,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+98,unknown,31489.0,hyundai,palisade,hyundai__palisade,2025,37512.0,1,37512.0,0.8394380464917893,low,0,0,sel,,,,,,,,,__unknown__,suv
+99,unknown,8950.0,mazda,mazda3,mazda__mazda3,2012,117736.0,14,8409.714285714286,0.07601753074675545,medium,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+100,unknown,58995.0,ram,2500,ram__2500,2024,39102.0,2,19551.0,1.5087463556851313,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+101,unknown,18000.0,jeep,grand cherokee,jeep__grand cherokee,2017,95655.0,9,10628.333333333334,0.18817625842872823,medium,0,0,limited,,,,,,,,,__unknown__,suv
+102,unknown,39999.0,ford,f-150,ford__f-150,2024,34665.0,2,17332.5,1.153872782345305,low,0,0,xlt,,,,,,,,,__unknown__,truck
+103,unknown,9099.0,hyundai,elantra,hyundai__elantra,2018,134909.0,8,16863.625,0.06744546323818278,high,0,0,__rare__,,,,,,,,,__unknown__,sedan
+104,unknown,10491.0,lexus,rx 350,lexus__rx 350,2010,144869.0,16,9054.3125,0.07241714928659686,high,1,0,base,,,,,,,,,__unknown__,suv
+105,unknown,24710.0,mini,hardtop,mini__hardtop,2024,33678.0,2,16839.0,0.7337134034087535,low,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+106,unknown,37162.0,volkswagen,jetta gli,volkswagen__jetta gli,2026,13.0,0,13.0,2858.6153846153848,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+107,unknown,29995.0,audi,a6,audi__a6,2021,29268.0,5,5853.6,1.0248394150608173,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+108,unknown,26998.0,tesla,model y,tesla__model y,2021,81095.0,5,16219.0,0.33291818237869164,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+109,unknown,78156.0,bentley,bentayga,bentley__bentayga,2019,27385.0,7,3912.1428571428573,2.8539711520905606,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+110,unknown,41664.0,gmc,canyon,gmc__canyon,2024,7419.0,2,3709.5,5.615851192883138,very_low,0,0,__rare__,,,,,,,,,__unknown__,truck
+111,unknown,27988.0,jeep,wrangler,jeep__wrangler,2024,23542.0,2,11771.0,1.1888539631297257,low,0,0,sport,,,,,,,,,__unknown__,suv
+112,unknown,35499.0,hyundai,palisade,hyundai__palisade,2023,57902.0,3,19300.666666666668,0.6130876308244966,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+113,unknown,6995.0,ford,fiesta,ford__fiesta,2019,119989.0,7,17141.285714285714,0.05829701055930127,medium,0,0,se,,,,,,,,,__unknown__,hatchback
+114,unknown,28809.0,toyota,4runner,toyota__4runner,2018,123467.0,8,15433.375,0.2333336033110062,high,0,0,sport,,,,,,,,,__unknown__,suv
+115,unknown,25944.0,mazda,cx-5,mazda__cx-5,2025,25777.0,1,25777.0,1.0064786437521822,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+116,unknown,9999.0,cadillac,xt5,cadillac__xt5,2017,115164.0,9,12796.0,0.08682400750234448,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+117,unknown,37989.0,dodge,challenger,dodge__challenger,2023,11491.0,3,3830.3333333333335,3.3059785919415194,very_low,0,0,__rare__,,,,,,,,,__unknown__,coupe
+118,unknown,20991.0,acura,rdx,acura__rdx,2019,66397.0,7,9485.285714285714,0.31614380167778666,medium,1,0,base,,,,,,,,,__unknown__,suv
+119,unknown,43988.0,dodge,durango,dodge__durango,2023,22416.0,3,7472.0,1.9623483226266951,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+120,unknown,45995.0,jeep,wagoneer,jeep__wagoneer,2024,70567.0,2,35283.5,0.6517919140674819,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+121,unknown,22498.0,cadillac,xt5,cadillac__xt5,2017,59607.0,9,6623.0,0.37743889140537185,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+122,unknown,19865.0,acura,mdx,acura__mdx,2020,134922.0,6,22487.0,0.1472332162286358,high,1,0,__rare__,,,,,,,,,__unknown__,suv
+123,unknown,29990.0,subaru,outback,subaru__outback,2025,27300.0,1,27300.0,1.0985347985347986,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+124,unknown,16995.0,nissan,maxima,nissan__maxima,2022,88160.0,4,22040.0,0.19277450090744103,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+125,unknown,53045.0,honda,pilot,honda__pilot,2026,5.0,0,5.0,10609.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+126,unknown,23590.0,buick,envision,buick__envision,2023,50460.0,3,16820.0,0.46749900911613157,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+127,unknown,28885.0,chrysler,pacifica,chrysler__pacifica,2024,34767.0,2,17383.5,0.8308165789397992,low,0,0,__rare__,,,,,,,,,__unknown__,__rare__
+128,unknown,11717.0,toyota,avalon,toyota__avalon,2018,162755.0,8,20344.375,0.07199164388190839,high,0,0,__rare__,,,,,,,,,__unknown__,sedan
+129,unknown,43935.0,infiniti,qx60,infiniti__qx60,2024,21705.0,2,10852.5,2.02418797512094,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+130,unknown,34452.0,mazda,cx-5,mazda__cx-5,2025,6843.0,1,6843.0,5.034633932485752,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+131,unknown,63195.0,cadillac,escalade,cadillac__escalade,2023,47302.0,3,15767.333333333334,1.3359900215635703,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+132,unknown,45805.0,bmw,230,bmw__230,2025,10.0,1,10.0,4580.5,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,coupe
+133,unknown,39040.0,mitsubishi,outlander,mitsubishi__outlander,2026,4.0,0,4.0,9760.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+134,unknown,29999.0,jaguar,f-type,jaguar__f-type,2020,42029.0,6,7004.833333333333,0.713769064217564,low,1,0,base,,,,,,,,,__unknown__,__rare__
+135,unknown,11380.0,cadillac,xt5,cadillac__xt5,2017,127923.0,9,14213.666666666666,0.08895976485854772,high,1,0,__rare__,,,,,,,,,__unknown__,suv
+136,unknown,27345.0,chrysler,300,chrysler__300,2023,9957.0,3,3319.0,2.7463091292558,very_low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+137,unknown,34950.0,ford,f-150,ford__f-150,2021,97302.0,5,19460.4,0.35919097243633225,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+138,unknown,31500.0,kia,telluride,kia__telluride,2023,63086.0,3,21028.666666666668,0.49931839076815776,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+139,unknown,15499.0,alfa romeo,giulia,alfa romeo__giulia,2019,61205.0,7,8743.57142857143,0.25323094518421696,medium,1,0,base,,,,,,,,,__unknown__,sedan
+140,unknown,29250.0,buick,enclave,buick__enclave,2024,53831.0,2,26915.5,0.5433672047704854,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+141,unknown,21777.0,acura,mdx,acura__mdx,2019,66079.0,7,9439.857142857143,0.32956007203498844,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+142,unknown,44799.0,mercedes-benz,cla 250,mercedes-benz__cla 250,2025,2779.0,1,2779.0,16.12054695933789,very_low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+143,unknown,77690.0,porsche,cayenne,porsche__cayenne,2024,8016.0,2,4008.0,9.69186626746507,very_low,1,0,base,,,,,,,,,__unknown__,suv
+144,unknown,17995.0,mazda,mx-5 miata rf,mazda__mx-5 miata rf,2017,78041.0,9,8671.222222222223,0.2305839238349073,medium,0,0,__rare__,,,,,,,,,__unknown__,coupe
+145,unknown,13998.0,nissan,pathfinder,nissan__pathfinder,2019,146230.0,7,20890.0,0.09572591123572455,high,0,0,__rare__,,,,,,,,,__unknown__,suv
+146,unknown,29495.0,gmc,sierra 1500,gmc__sierra 1500,2021,88882.0,5,17776.4,0.3318444679462658,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+147,unknown,19999.0,bmw,x1,bmw__x1,2019,63809.0,7,9115.57142857143,0.313419737027692,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+148,unknown,19634.0,ford,explorer,ford__explorer,2020,100887.0,6,16814.5,0.19461377580857792,medium,0,0,xlt,,,,,,,,,__unknown__,suv
+149,unknown,32013.0,ram,1500,ram__1500,2021,56129.0,5,11225.8,0.5703468795097009,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+150,unknown,9995.0,dodge,durango,dodge__durango,2012,145708.0,14,10407.714285714286,0.06859609630219343,high,0,0,__rare__,,,,,,,,,__unknown__,suv
+151,unknown,16701.0,nissan,rogue,nissan__rogue,2021,81865.0,5,16373.0,0.2040065962254932,medium,0,0,sv,,,,,,,,,__unknown__,suv
+152,unknown,21459.0,volvo,xc60,volvo__xc60,2019,43982.0,7,6283.142857142857,0.48790414260379245,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+153,unknown,24633.0,kia,telluride,kia__telluride,2022,102267.0,4,25566.75,0.2408694886913667,medium,0,0,ex,,,,,,,,,__unknown__,suv
+154,unknown,35900.0,jeep,wrangler unlimited,jeep__wrangler unlimited,2022,21570.0,4,5392.5,1.664348632359759,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+155,unknown,35625.0,dodge,durango,dodge__durango,2022,55181.0,4,13795.25,0.6456026530871133,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+156,unknown,49799.0,mercedes-benz,c-class,mercedes-benz__c-class,2025,4364.0,1,4364.0,11.411319890009166,very_low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+157,unknown,22988.0,infiniti,qx80,infiniti__qx80,2018,78970.0,8,9871.25,0.29109788527288843,medium,1,0,base,,,,,,,,,__unknown__,suv
+158,unknown,35987.0,ford,explorer,ford__explorer,2025,33909.0,1,33909.0,1.0612816656344923,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+159,unknown,34990.0,mazda,cx-5,mazda__cx-5,2024,9882.0,2,4941.0,3.540781218376847,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+160,unknown,29300.0,tesla,model y,tesla__model y,2023,41961.0,3,13987.0,0.6982674388122304,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+161,unknown,20995.0,chrysler,pacifica,chrysler__pacifica,2020,53372.0,6,8895.333333333334,0.3933710559844113,low,0,0,__rare__,,,,,,,,,__unknown__,__rare__
+162,unknown,39989.0,lincoln,aviator,lincoln__aviator,2022,51574.0,4,12893.5,0.7753713111257611,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+163,unknown,9495.0,chevrolet,cruze limited,chevrolet__cruze limited,2016,81599.0,10,8159.9,0.1163617201191191,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+164,unknown,92900.0,porsche,cayenne,porsche__cayenne,2026,3067.0,0,3067.0,30.2901858493642,very_low,1,0,base,,,,,,,,,__unknown__,suv
+165,unknown,20250.0,buick,enclave,buick__enclave,2021,75917.0,5,15183.4,0.2667386751320521,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+166,unknown,40935.0,chrysler,voyager,chrysler__voyager,2026,6.0,0,6.0,6822.5,very_low,0,1,lx,,,0.0,,,,,,__unknown__,passenger van
+167,unknown,30674.0,toyota,prius,toyota__prius,2026,6.0,0,6.0,5112.333333333333,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,hatchback
+168,unknown,54175.0,bmw,m235 gran coupe,bmw__m235 gran coupe,2025,247.0,1,247.0,219.33198380566802,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+169,unknown,42987.0,toyota,bz,toyota__bz,2026,5.0,0,5.0,8597.4,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+170,unknown,62999.0,ford,bronco,ford__bronco,2025,3.0,1,3.0,20999.666666666668,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+171,unknown,10219.0,audi,q5,audi__q5,2015,106765.0,11,9705.90909090909,0.09571488783777456,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+172,unknown,14691.0,mitsubishi,mirage g4,mitsubishi__mirage g4,2024,20295.0,2,10147.5,0.7238728750923873,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+173,unknown,12988.0,nissan,rogue,nissan__rogue,2017,94354.0,9,10483.777777777777,0.13765182186234817,medium,0,0,sv,,,,,,,,,__unknown__,suv
+174,unknown,33360.0,kia,k5,kia__k5,2026,11.0,0,11.0,3032.7272727272725,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+175,unknown,24857.0,mazda,cx-5,mazda__cx-5,2025,38678.0,1,38678.0,0.6426650809245565,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+176,unknown,74670.0,audi,a6,audi__a6,2026,6.0,0,6.0,12445.0,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+177,unknown,56695.0,dodge,challenger,dodge__challenger,2023,9629.0,3,3209.6666666666665,5.887942673174784,very_low,0,0,__rare__,,,,,,,,,__unknown__,coupe
+178,unknown,80991.0,land rover,range rover sport,land rover__range rover sport,2024,10020.0,2,5010.0,8.082934131736527,very_low,1,0,se,,,,,,,,,__unknown__,suv
+179,unknown,23599.0,buick,encore gx,buick__encore gx,2024,38536.0,2,19268.0,0.6123884160265726,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+180,unknown,22988.0,mitsubishi,outlander,mitsubishi__outlander,2024,40138.0,2,20069.0,0.5727241018486222,low,0,0,se,,,,,,,,,__unknown__,suv
+181,unknown,17995.0,subaru,outback,subaru__outback,2019,88308.0,7,12615.42857142857,0.20377542238528787,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+182,unknown,33810.0,hyundai,santa fe hev,hyundai__santa fe hev,2026,12.0,0,12.0,2817.5,very_low,0,1,sel,,,0.0,,,,,,__unknown__,suv
+183,unknown,28973.0,alfa romeo,giulia,alfa romeo__giulia,2023,26015.0,3,8671.666666666666,1.1137036325197003,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+184,unknown,31995.0,gmc,yukon,gmc__yukon,2019,102424.0,7,14632.0,0.31237795829102555,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+185,unknown,36900.0,maserati,ghibli,maserati__ghibli,2022,37344.0,4,9336.0,0.9881105398457584,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+186,unknown,36240.0,chrysler,voyager,chrysler__voyager,2026,250.0,0,250.0,144.96,very_low,0,1,lx,,,0.0,,,,,,__unknown__,passenger van
+187,unknown,42900.0,kia,telluride,kia__telluride,2025,12434.0,1,12434.0,3.450217146533698,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+188,unknown,29900.0,nissan,murano,nissan__murano,2025,8652.0,1,8652.0,3.45584835876098,very_low,0,0,sv,,,,,,,,,__unknown__,suv
+189,unknown,25899.0,chrysler,pacifica,chrysler__pacifica,2024,62586.0,2,31293.0,0.41381459112261526,medium,0,0,__rare__,,,,,,,,,__unknown__,passenger van
+190,unknown,9995.0,ford,fiesta,ford__fiesta,2019,58477.0,7,8353.857142857143,0.17092190091830975,low,0,0,se,,,,,,,,,__unknown__,sedan
+191,unknown,54089.0,gmc,sierra 1500,gmc__sierra 1500,2026,11.0,0,11.0,4917.181818181818,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+192,unknown,18900.0,mercedes-benz,cla 250,mercedes-benz__cla 250,2019,48119.0,7,6874.142857142857,0.39277624223279783,low,1,0,base,,,,,,,,,__unknown__,sedan
+193,unknown,24989.0,ram,1500,ram__1500,2022,69089.0,4,17272.25,0.361692888882456,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+194,unknown,13700.0,honda,accord,honda__accord,2015,118128.0,11,10738.90909090909,0.1159758905593932,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+195,unknown,29900.0,ram,1500,ram__1500,2019,82842.0,7,11834.57142857143,0.36092803167475435,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+196,unknown,26569.0,ford,explorer,ford__explorer,2023,40897.0,3,13632.333333333334,0.6496564540186321,low,0,0,xlt,,,,,,,,,__unknown__,suv
+197,unknown,14995.0,kia,optima,kia__optima,2020,49993.0,6,8332.166666666666,0.29994199187886306,low,0,0,lx,,,,,,,,,__unknown__,sedan
+198,unknown,22998.0,gmc,sierra 1500,gmc__sierra 1500,2014,74324.0,12,6193.666666666667,0.30942898659921425,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+199,unknown,45020.0,chevrolet,colorado,chevrolet__colorado,2026,1.0,0,1.0,45020.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+200,unknown,26141.0,kia,sorento,kia__sorento,2022,77206.0,4,19301.5,0.3385876745330674,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+201,unknown,38999.0,mercedes-benz,e-class,mercedes-benz__e-class,2018,25397.0,8,3174.625,1.535575067921408,low,1,0,__rare__,,,,,,,,,__unknown__,__rare__
+202,unknown,13997.0,mitsubishi,outlander sport,mitsubishi__outlander sport,2023,49616.0,3,16538.666666666668,0.2821065785230571,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+203,unknown,34999.0,ram,1500,ram__1500,2019,107586.0,7,15369.42857142857,0.3253118435484171,medium,0,0,limited,,,,,,,,,__unknown__,truck
+204,unknown,11490.0,mini,countryman,mini__countryman,2017,89298.0,9,9922.0,0.12867029496741247,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+205,unknown,21999.0,kia,k4,kia__k4,2025,19880.0,1,19880.0,1.10658953722334,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+206,unknown,21478.0,dodge,durango,dodge__durango,2021,55251.0,5,11050.2,0.3887350455195381,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+207,unknown,22500.0,honda,accord,honda__accord,2021,45000.0,5,9000.0,0.5,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+208,unknown,107774.0,bentley,continental gt,bentley__continental gt,2017,22804.0,9,2533.777777777778,4.72610068409051,low,1,0,__rare__,,,,,,,,,__unknown__,__rare__
+209,unknown,57999.0,gmc,yukon,gmc__yukon,2023,52585.0,3,17528.333333333332,1.102957117048588,low,0,0,slt,,,,,,,,,__unknown__,suv
+210,unknown,12891.0,bmw,x3,bmw__x3,2017,92965.0,9,10329.444444444445,0.13866508901199376,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+211,unknown,20970.0,toyota,corolla hatchback,toyota__corolla hatchback,2024,46712.0,2,23356.0,0.44892104812467887,low,0,0,se,,,,,,,,,__unknown__,hatchback
+212,unknown,18323.0,acura,rdx,acura__rdx,2019,94455.0,7,13493.57142857143,0.1939865544439151,medium,1,0,base,,,,,,,,,__unknown__,suv
+213,unknown,26311.0,nissan,rogue,nissan__rogue,2026,10.0,0,10.0,2631.1,very_low,0,1,s,,,0.0,,,,,,__unknown__,suv
+214,unknown,51272.0,gmc,yukon,gmc__yukon,2021,67862.0,5,13572.4,0.7555332881435856,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+215,unknown,56603.0,jaguar,xf,jaguar__xf,2024,20.0,2,10.0,2830.15,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+216,unknown,34500.0,kia,sorento,kia__sorento,2025,8464.0,1,8464.0,4.076086956521739,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+217,unknown,18998.0,alfa romeo,stelvio,alfa romeo__stelvio,2021,69367.0,5,13873.4,0.2738766272146698,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+218,unknown,20094.0,nissan,kicks play,nissan__kicks play,2025,10.0,1,10.0,2009.4,very_low,0,1,s,,,0.0,,,,,,__unknown__,suv
+219,unknown,16975.0,chrysler,300,chrysler__300,2016,56472.0,10,5647.2,0.30059144354724465,low,0,0,s,,,,,,,,,__unknown__,sedan
+220,unknown,16351.0,hyundai,elantra,hyundai__elantra,2023,35835.0,3,11945.0,0.4562857541509697,low,0,0,se,,,,,,,,,__unknown__,sedan
+221,unknown,24580.0,volvo,xc60,volvo__xc60,2023,81421.0,3,27140.333333333332,0.301887719384434,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+222,unknown,41899.0,ford,mustang,ford__mustang,2023,3714.0,3,1238.0,11.281367797522886,very_low,0,0,__rare__,,,,,,,,,__unknown__,coupe
+223,unknown,34191.0,genesis,gv70,genesis__gv70,2025,25193.0,1,25193.0,1.3571627039256937,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+224,unknown,27999.0,mercedes-benz,gls 550,mercedes-benz__gls 550,2019,82585.0,7,11797.857142857143,0.33903251195737727,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+225,unknown,36371.0,volkswagen,jetta gli,volkswagen__jetta gli,2026,8.0,0,8.0,4546.375,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+226,unknown,6995.0,nissan,versa,nissan__versa,2019,100341.0,7,14334.42857142857,0.0697122811213761,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+227,unknown,32495.0,audi,q7,audi__q7,2020,29451.0,6,4908.5,1.103358120267563,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+228,unknown,18482.0,audi,q7,audi__q7,2018,85772.0,8,10721.5,0.21547824464860327,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+229,unknown,27000.0,gmc,sierra 1500,gmc__sierra 1500,2019,120695.0,7,17242.14285714286,0.22370437880608143,high,0,0,slt,,,,,,,,,__unknown__,truck
+230,unknown,40587.0,jeep,cherokee,jeep__cherokee,2026,16.0,0,16.0,2536.6875,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+231,unknown,27797.0,tesla,model 3,tesla__model 3,2023,40370.0,3,13456.666666666666,0.6885558583106267,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+232,unknown,26388.0,hyundai,palisade,hyundai__palisade,2022,90075.0,4,22518.75,0.29295587010824314,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+233,unknown,29780.0,jeep,compass,jeep__compass,2026,11.0,0,11.0,2707.2727272727275,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+234,unknown,28632.0,nissan,kicks,nissan__kicks,2026,23.0,0,23.0,1244.8695652173913,very_low,0,1,sr,,,0.0,,,,,,__unknown__,suv
+235,unknown,61989.0,lincoln,aviator,lincoln__aviator,2025,12203.0,1,12203.0,5.079816438580677,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+236,unknown,39115.0,mitsubishi,outlander,mitsubishi__outlander,2026,5.0,0,5.0,7823.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+237,unknown,16960.0,chrysler,pacifica,chrysler__pacifica,2020,87578.0,6,14596.333333333334,0.19365594098974628,medium,0,0,__rare__,,,,,,,,,__unknown__,passenger van
+238,unknown,8495.0,ford,fiesta,ford__fiesta,2019,88661.0,7,12665.857142857143,0.09581439415300978,medium,0,0,se,,,,,,,,,__unknown__,hatchback
+239,unknown,29955.0,mazda,cx-70,mazda__cx-70,2025,38130.0,1,38130.0,0.7856018882769473,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+240,unknown,38027.0,toyota,4runner,toyota__4runner,2020,46227.0,6,7704.5,0.8226144893676856,low,0,0,limited,,,,,,,,,__unknown__,suv
+241,unknown,18739.0,nissan,versa,nissan__versa,2025,12.0,1,12.0,1561.5833333333333,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+242,unknown,66500.0,mercedes-benz,gle 450e,mercedes-benz__gle 450e,2025,19055.0,1,19055.0,3.489897664654946,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+243,unknown,10768.0,hyundai,elantra,hyundai__elantra,2017,90826.0,9,10091.777777777777,0.11855636051350935,medium,0,0,se,,,,,,,,,__unknown__,sedan
+244,unknown,53500.0,mercedes-benz,glc 300,mercedes-benz__glc 300,2025,4078.0,1,4078.0,13.119176066699362,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+245,unknown,70690.0,bmw,530,bmw__530,2026,14.0,0,14.0,5049.285714285715,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+246,unknown,85994.0,mercedes-benz,sprinter 4500,mercedes-benz__sprinter 4500,2022,41999.0,4,10499.75,2.0475249410700256,low,1,0,__rare__,,,,,,,,,__unknown__,__rare__
+247,unknown,23022.0,nissan,sentra,nissan__sentra,2026,12.0,0,12.0,1918.5,very_low,0,1,s,,,0.0,,,,,,__unknown__,sedan
+248,unknown,23991.0,lexus,rx 350,lexus__rx 350,2016,81131.0,10,8113.1,0.2957069430920363,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+249,unknown,41649.0,infiniti,qx80,infiniti__qx80,2024,46734.0,2,23367.0,0.8911927076646553,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+250,unknown,119000.0,land rover,range rover,land rover__range rover,2025,13642.0,1,13642.0,8.723061134730978,very_low,1,0,se,,,,,,,,,__unknown__,suv
+251,unknown,24995.0,volkswagen,tiguan,volkswagen__tiguan,2024,33417.0,2,16708.5,0.7479725888021067,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+252,unknown,22395.0,hyundai,elantra hev,hyundai__elantra hev,2025,24942.0,1,24942.0,0.8978830887659369,low,0,0,limited,,,,,,,,,__unknown__,sedan
+253,unknown,46090.0,chevrolet,equinox ev,chevrolet__equinox ev,2026,5.0,0,5.0,9218.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+254,unknown,37472.0,chrysler,voyager,chrysler__voyager,2026,0.0,0,0.0,,very_low,0,1,lx,,,0.0,,,,,,__unknown__,passenger van
+255,unknown,17988.0,nissan,rogue,nissan__rogue,2022,49850.0,4,12462.5,0.36084252758274826,low,0,0,sv,,,,,,,,,__unknown__,suv
+256,unknown,42795.0,chevrolet,traverse,chevrolet__traverse,2026,1.0,0,1.0,42795.0,very_low,0,1,lt,,,0.0,,,,,,__unknown__,suv
+257,unknown,27488.0,subaru,outback,subaru__outback,2023,37741.0,3,12580.333333333334,0.7283325826024748,low,0,0,limited,,,,,,,,,__unknown__,suv
+258,unknown,22984.0,dodge,challenger,dodge__challenger,2020,67685.0,6,11280.833333333334,0.33957302208761175,medium,0,0,__rare__,,,,,,,,,__unknown__,coupe
+259,unknown,24430.0,chevrolet,trailblazer,chevrolet__trailblazer,2025,32150.0,1,32150.0,0.7598755832037325,low,0,0,lt,,,,,,,,,__unknown__,suv
+260,unknown,24582.0,mazda,cx-5,mazda__cx-5,2023,45072.0,3,15024.0,0.5453940362087327,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+261,unknown,22650.0,mazda,cx-5,mazda__cx-5,2020,48811.0,6,8135.166666666667,0.4640347462662105,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+262,unknown,48000.0,bmw,x5,bmw__x5,2023,36887.0,3,12295.666666666666,1.3012714506465692,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+263,unknown,50819.0,ram,1500,ram__1500,2026,5.0,0,5.0,10163.8,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+264,unknown,29990.0,chevrolet,bolt,chevrolet__bolt,2027,1.0,0,1.0,29990.0,very_low,0,1,lt,,,0.0,,,,,,__unknown__,suv
+265,unknown,45428.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2025,6455.0,1,6455.0,7.0376452362509685,very_low,0,0,__rare__,,,,,,,,,__unknown__,truck
+266,unknown,40996.0,chevrolet,tahoe,chevrolet__tahoe,2023,65525.0,3,21841.666666666668,0.6256543304082411,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+267,unknown,11032.0,hyundai,elantra,hyundai__elantra,2017,77554.0,9,8617.111111111111,0.1422492714753591,medium,0,0,se,,,,,,,,,__unknown__,sedan
+268,unknown,18498.0,volvo,xc60,volvo__xc60,2019,89833.0,7,12833.285714285714,0.20591542083644096,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+269,unknown,48000.0,lexus,rx 350,lexus__rx 350,2024,9583.0,2,4791.5,5.008869873734739,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+270,unknown,55945.0,lincoln,nautilus,lincoln__nautilus,2026,5.0,0,5.0,11189.0,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+271,unknown,29782.0,dodge,challenger,dodge__challenger,2016,69848.0,10,6984.8,0.42638300309242927,medium,0,0,__rare__,,,,,,,,,__unknown__,coupe
+272,unknown,23080.0,kia,k4,kia__k4,2025,11.0,1,11.0,2098.181818181818,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+273,unknown,20995.0,jeep,compass,jeep__compass,2022,23000.0,4,5750.0,0.9128260869565218,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+274,unknown,21000.0,hyundai,elantra,hyundai__elantra,2025,14739.0,1,14739.0,1.4247913698351313,very_low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+275,unknown,29995.0,chevrolet,equinox,chevrolet__equinox,2025,22798.0,1,22798.0,1.3156855864549521,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+276,unknown,22991.0,ford,explorer,ford__explorer,2021,99317.0,5,19863.4,0.23149108410443328,medium,0,0,limited,,,,,,,,,__unknown__,suv
+277,unknown,24550.0,ford,explorer,ford__explorer,2020,66151.0,6,11025.166666666666,0.3711206179800759,medium,0,0,limited,,,,,,,,,__unknown__,suv
+278,unknown,37845.0,acura,integra,acura__integra,2026,10.0,0,10.0,3784.5,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,hatchback
+279,unknown,21780.0,ford,explorer,ford__explorer,2020,109840.0,6,18306.666666666668,0.1982884195193008,medium,0,0,limited,,,,,,,,,__unknown__,suv
+280,unknown,22995.0,bmw,x2,bmw__x2,2021,52409.0,5,10481.8,0.43876051823160145,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+281,unknown,49988.0,ram,2500,ram__2500,2021,48976.0,5,9795.2,1.0206631819666776,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+282,unknown,17999.0,honda,civic,honda__civic,2017,56097.0,9,6233.0,0.3208549476799116,low,0,0,ex,,,,,,,,,__unknown__,sedan
+283,unknown,10700.0,volkswagen,tiguan,volkswagen__tiguan,2018,75198.0,8,9399.75,0.14229101837814837,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+284,unknown,52020.0,bmw,x3,bmw__x3,2025,8996.0,1,8996.0,5.782570031124944,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+285,unknown,34988.0,ram,1500,ram__1500,2021,90218.0,5,18043.6,0.3878161785896384,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+286,unknown,29327.0,buick,envision,buick__envision,2023,13956.0,3,4652.0,2.101390083118372,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+287,unknown,27993.0,volvo,xc60,volvo__xc60,2023,46729.0,3,15576.333333333334,0.5990498405700957,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+288,unknown,21914.0,chevrolet,colorado,chevrolet__colorado,2016,95916.0,10,9591.6,0.22847074523541433,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+289,unknown,51196.0,lexus,gx 460,lexus__gx 460,2022,37058.0,4,9264.5,1.3815100653030385,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+290,unknown,13690.0,subaru,outback,subaru__outback,2019,86125.0,7,12303.57142857143,0.15895500725689404,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+291,unknown,25835.0,honda,civic,honda__civic,2026,2.0,0,2.0,12917.5,very_low,0,1,sport,,,0.0,,,,,,__unknown__,sedan
+292,unknown,19794.0,subaru,forester,subaru__forester,2018,28686.0,8,3585.75,0.6900230077389667,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+293,unknown,22167.0,hyundai,elantra,hyundai__elantra,2024,53462.0,2,26731.0,0.4146309528263065,low,0,0,limited,,,,,,,,,__unknown__,sedan
+294,unknown,24999.0,bmw,530e,bmw__530e,2020,51628.0,6,8604.666666666666,0.4842139924072209,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+295,unknown,66899.0,gmc,yukon,gmc__yukon,2024,44007.0,2,22003.5,1.5201899697775354,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+296,unknown,35060.0,chevrolet,tahoe,chevrolet__tahoe,2021,87217.0,5,17443.4,0.4019858513821847,medium,0,0,lt,,,,,,,,,__unknown__,suv
+297,unknown,9999.0,ford,fusion,ford__fusion,2019,114375.0,7,16339.285714285714,0.08742295081967213,medium,0,0,se,,,,,,,,,__unknown__,sedan
+298,unknown,22961.0,kia,k4,kia__k4,2026,5.0,0,5.0,4592.2,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+299,unknown,18995.0,porsche,cayenne,porsche__cayenne,2019,118975.0,7,16996.428571428572,0.15965538978777055,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+300,unknown,37965.0,kia,sorento,kia__sorento,2026,11.0,0,11.0,3451.3636363636365,very_low,0,1,ex,,,0.0,,,,,,__unknown__,suv
+301,unknown,31990.0,kia,telluride,kia__telluride,2022,39019.0,4,9754.75,0.8198569927471232,low,0,0,ex,,,,,,,,,__unknown__,suv
+302,unknown,29797.0,alfa romeo,giulia,alfa romeo__giulia,2023,32145.0,3,10715.0,0.9269559807123969,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+303,unknown,25767.0,honda,accord,honda__accord,2022,29540.0,4,7385.0,0.8722748815165877,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+304,unknown,24891.0,kia,k5,kia__k5,2023,30525.0,3,10175.0,0.8154299754299754,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+305,unknown,59500.0,dodge,challenger,dodge__challenger,2022,24040.0,4,6010.0,2.4750415973377704,low,0,0,__rare__,,,,,,,,,__unknown__,coupe
+306,unknown,24695.0,ford,escape,ford__escape,2022,38721.0,4,9680.25,0.6377676196379226,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+307,unknown,35791.0,tesla,model y,tesla__model y,2024,25073.0,2,12536.5,1.4274717823954055,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+308,unknown,20959.0,bmw,x3,bmw__x3,2019,69338.0,7,9905.42857142857,0.30227292393781185,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+309,unknown,38487.0,kia,telluride,kia__telluride,2024,17220.0,2,8610.0,2.2350174216027874,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+310,unknown,43878.0,lincoln,navigator,lincoln__navigator,2021,75629.0,5,15125.8,0.5801742717740549,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+311,unknown,24805.0,hyundai,elantra hev,hyundai__elantra hev,2025,2690.0,1,2690.0,9.221189591078067,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+312,unknown,24580.0,subaru,outback,subaru__outback,2021,51202.0,5,10240.4,0.48005937268075466,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+313,unknown,18699.0,jeep,grand cherokee,jeep__grand cherokee,2020,111599.0,6,18599.833333333332,0.16755526483212216,medium,0,0,limited,,,,,,,,,__unknown__,suv
+314,unknown,15386.0,toyota,sienna,toyota__sienna,2017,174186.0,9,19354.0,0.08833086470784104,high,0,0,__rare__,,,,,,,,,__unknown__,passenger van
+315,unknown,49499.0,gmc,sierra 1500,gmc__sierra 1500,2023,40610.0,3,13536.666666666666,1.21888697365181,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+316,unknown,31157.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2020,64509.0,6,10751.5,0.4829868700491404,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+317,unknown,98600.0,mercedes-benz,gls 450,mercedes-benz__gls 450,2026,5.0,0,5.0,19720.0,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+318,unknown,124999.0,mercedes-benz,sprinter 2500,mercedes-benz__sprinter 2500,2025,2791.0,1,2791.0,44.78645646721605,very_low,1,0,__rare__,,,,,,,,,__unknown__,__rare__
+319,unknown,38983.0,subaru,forester,subaru__forester,2026,1.0,0,1.0,38983.0,very_low,0,1,sport,,,0.0,,,,,,__unknown__,suv
+320,unknown,23800.0,chevrolet,trax,chevrolet__trax,2026,7.0,0,7.0,3400.0,very_low,0,1,lt,,,0.0,,,,,,__unknown__,suv
+321,unknown,43602.0,nissan,murano,nissan__murano,2026,24.0,0,24.0,1816.75,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+322,unknown,21491.0,honda,accord,honda__accord,2020,59691.0,6,9948.5,0.36003752659529914,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+323,unknown,16694.0,honda,civic,honda__civic,2018,107331.0,8,13416.375,0.15553754274161238,medium,0,0,ex,,,,,,,,,__unknown__,hatchback
+324,unknown,22950.0,mini,hardtop,mini__hardtop,2022,4529.0,4,1132.25,5.067343784499889,very_low,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+325,unknown,36225.0,ford,escape,ford__escape,2026,15.0,0,15.0,2415.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+326,unknown,16495.0,kia,sportage,kia__sportage,2021,31514.0,5,6302.8,0.5234181633559688,low,0,0,lx,,,,,,,,,__unknown__,suv
+327,unknown,30992.0,jeep,wrangler,jeep__wrangler,2024,37303.0,2,18651.5,0.8308178966839128,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+328,unknown,23964.0,hyundai,palisade,hyundai__palisade,2021,76216.0,5,15243.2,0.3144221685735279,medium,0,0,sel,,,,,,,,,__unknown__,suv
+329,unknown,20427.0,chrysler,300,chrysler__300,2021,65470.0,5,13094.0,0.3120054987016954,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+330,unknown,19995.0,ford,expedition,ford__expedition,2019,124364.0,7,17766.285714285714,0.16077803866070567,high,0,0,xlt,,,,,,,,,__unknown__,suv
+331,unknown,24995.0,nissan,kicks,nissan__kicks,2025,26529.0,1,26529.0,0.9421764861095405,low,0,0,sr,,,,,,,,,__unknown__,suv
+332,unknown,52590.0,honda,pilot,honda__pilot,2026,6.0,0,6.0,8765.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+333,unknown,17528.0,bmw,x5,bmw__x5,2017,101153.0,9,11239.222222222223,0.17328205787272746,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+334,unknown,51987.0,lucid,air,lucid__air,2022,14224.0,4,3556.0,3.654879077615298,very_low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+335,unknown,36903.0,genesis,gv80,genesis__gv80,2024,39190.0,2,19595.0,0.9416432763460066,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+336,unknown,32990.0,volvo,xc90,volvo__xc90,2020,8542.0,6,1423.6666666666667,3.862093186607352,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+337,unknown,77265.0,mercedes-benz,gle 350,mercedes-benz__gle 350,2026,25.0,0,25.0,3090.6,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+338,unknown,26895.0,honda,civic,honda__civic,2025,7328.0,1,7328.0,3.670169213973799,very_low,0,0,sport,,,,,,,,,__unknown__,sedan
+339,unknown,12366.0,hyundai,elantra,hyundai__elantra,2020,95208.0,6,15868.0,0.12988404335770104,medium,0,0,limited,,,,,,,,,__unknown__,sedan
+340,unknown,17999.0,gmc,acadia,gmc__acadia,2019,78659.0,7,11237.0,0.22882314801866283,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+341,unknown,28650.0,tesla,model 3,tesla__model 3,2022,44897.0,4,11224.25,0.6381272690825668,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+342,unknown,15553.0,dodge,durango,dodge__durango,2017,101120.0,9,11235.555555555555,0.15380735759493672,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+343,unknown,25397.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2020,99994.0,6,16665.666666666668,0.25398523911434684,medium,0,0,lt,,,,,,,,,__unknown__,truck
+344,unknown,20697.0,nissan,versa,nissan__versa,2025,10.0,1,10.0,2069.7,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+345,unknown,17991.0,nissan,sentra,nissan__sentra,2024,46281.0,2,23140.5,0.3887340377260647,low,0,0,sv,,,,,,,,,__unknown__,sedan
+346,unknown,56990.0,audi,q7,audi__q7,2025,2910.0,1,2910.0,19.584192439862544,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+347,unknown,22770.0,chrysler,pacifica,chrysler__pacifica,2023,77396.0,3,25798.666666666668,0.294201250710631,medium,0,0,__rare__,,,,,,,,,__unknown__,passenger van
+348,unknown,16736.0,acura,rdx,acura__rdx,2020,127266.0,6,21211.0,0.1315040937878145,high,1,0,__rare__,,,,,,,,,__unknown__,suv
+349,unknown,24970.0,land rover,range rover sport,land rover__range rover sport,2020,79126.0,6,13187.666666666666,0.31557263099360516,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+350,unknown,34965.0,ford,escape,ford__escape,2026,0.0,0,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+351,unknown,52799.0,mercedes-benz,cle 300,mercedes-benz__cle 300,2024,5758.0,2,2879.0,9.169676971170546,very_low,1,0,__rare__,,,,,,,,,__unknown__,coupe
+352,unknown,19741.0,mazda,mazda3,mazda__mazda3,2021,36511.0,5,7302.2,0.5406863684916874,low,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+353,unknown,9988.0,fiat,500,fiat__500,2017,81244.0,9,9027.111111111111,0.12293830929053222,medium,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+354,unknown,22418.0,nissan,sentra,nissan__sentra,2026,3.0,0,3.0,7472.666666666667,very_low,0,1,sv,,,0.0,,,,,,__unknown__,sedan
+355,unknown,36995.0,hyundai,palisade,hyundai__palisade,2024,57956.0,2,28978.0,0.6383290772310029,low,0,0,limited,,,,,,,,,__unknown__,suv
+356,unknown,36999.0,jeep,wrangler,jeep__wrangler,2026,263.0,0,263.0,140.680608365019,very_low,0,0,sport,,,,,,,,,__unknown__,suv
+357,unknown,34598.0,mercedes-benz,e-class,mercedes-benz__e-class,2022,32326.0,4,8081.5,1.0702839819340468,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+358,unknown,51408.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2025,16382.0,1,16382.0,3.1380783787083386,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+359,unknown,23498.0,volkswagen,atlas,volkswagen__atlas,2021,58872.0,5,11774.4,0.3991371110205191,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+360,unknown,18995.0,ram,1500,ram__1500,2015,134965.0,11,12269.545454545454,0.1407401919016041,high,0,0,__rare__,,,,,,,,,__unknown__,truck
+361,unknown,32199.0,kia,sorento,kia__sorento,2023,34325.0,3,11441.666666666666,0.9380626365622724,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+362,unknown,39988.0,jeep,grand cherokee 4xe,jeep__grand cherokee 4xe,2024,0.0,2,0.0,,very_low,0,1,base,,,0.0,,,,,,__unknown__,suv
+363,unknown,22405.0,kia,soul,kia__soul,2025,3768.0,1,3768.0,5.946125265392781,very_low,0,1,s,,,0.0,,,,,,__unknown__,hatchback
+364,unknown,52870.0,ram,1500,ram__1500,2024,20816.0,2,10408.0,2.5398731744811682,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+365,unknown,13998.0,lexus,rx 350,lexus__rx 350,2010,139983.0,16,8748.9375,0.09999785688262146,high,1,0,base,,,,,,,,,__unknown__,suv
+366,unknown,53500.0,ram,2500,ram__2500,2024,34140.0,2,17070.0,1.5670767428236672,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+367,unknown,43870.0,jeep,grand cherokee,jeep__grand cherokee,2026,12.0,0,12.0,3655.8333333333335,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+368,unknown,74295.0,mercedes-benz,e-class,mercedes-benz__e-class,2026,10.0,0,10.0,7429.5,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+369,unknown,33342.0,jeep,compass,jeep__compass,2026,0.0,0,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+370,unknown,36985.0,ram,1500,ram__1500,2023,39061.0,3,13020.333333333334,0.9468523591305906,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+371,unknown,22995.0,cadillac,xt5,cadillac__xt5,2017,73618.0,9,8179.777777777777,0.31235567388410446,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+372,unknown,33701.0,jeep,wrangler,jeep__wrangler,2022,14271.0,4,3567.75,2.3615023474178405,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+373,unknown,16763.0,hyundai,elantra,hyundai__elantra,2023,57488.0,3,19162.666666666668,0.2915912886167548,low,0,0,sel,,,,,,,,,__unknown__,sedan
+374,unknown,26995.0,hyundai,palisade,hyundai__palisade,2022,56578.0,4,14144.5,0.4771289193679522,low,0,0,sel,,,,,,,,,__unknown__,suv
+375,unknown,28988.0,jeep,compass,jeep__compass,2024,7294.0,2,3647.0,3.9742253907321086,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+376,unknown,38701.0,ford,explorer,ford__explorer,2023,43631.0,3,14543.666666666666,0.8870069446036075,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+377,unknown,28951.0,nissan,sentra,nissan__sentra,2026,9.0,0,9.0,3216.777777777778,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+378,unknown,19569.0,ford,mustang mach-e,ford__mustang mach-e,2022,48396.0,4,12099.0,0.4043515993057277,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+379,unknown,31100.0,subaru,outback,subaru__outback,2023,59227.0,3,19742.333333333332,0.5250983504145069,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+380,unknown,36995.0,ford,f-150,ford__f-150,2022,54646.0,4,13661.5,0.6769937415364345,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+381,unknown,45337.0,ram,2500,ram__2500,2024,43821.0,2,21910.5,1.034595285365464,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+382,unknown,29997.0,jeep,grand cherokee,jeep__grand cherokee,2023,41635.0,3,13878.333333333334,0.7204755614266842,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+383,unknown,93650.0,mercedes-benz,s-class,mercedes-benz__s-class,2024,10488.0,2,5244.0,8.929252479023646,very_low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+384,unknown,39220.0,acura,rdx,acura__rdx,2024,16158.0,2,8079.0,2.4272806040351527,low,1,0,base,,,,,,,,,__unknown__,suv
+385,unknown,12925.0,hummer,h3,hummer__h3,2006,80804.0,20,4040.2,0.15995495272511262,medium,0,0,base,,,,,,,,,__unknown__,suv
+386,unknown,30090.0,chevrolet,trailblazer,chevrolet__trailblazer,2026,1.0,0,1.0,30090.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+387,unknown,26990.0,mazda,cx-5,mazda__cx-5,2023,24398.0,3,8132.666666666667,1.1062382162472333,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+388,unknown,41486.0,kia,sorento,kia__sorento,2026,12.0,0,12.0,3457.1666666666665,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+389,unknown,7964.0,hyundai,sonata,hyundai__sonata,2016,123305.0,10,12330.5,0.06458781071327196,high,0,0,se,,,,,,,,,__unknown__,sedan
+390,unknown,32987.0,tesla,model y,tesla__model y,2023,29129.0,3,9709.666666666666,1.132445329396821,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+391,unknown,31385.0,nissan,kicks,nissan__kicks,2026,10.0,0,10.0,3138.5,very_low,0,1,sr,,,0.0,,,,,,__unknown__,suv
+392,unknown,10994.0,ram,1500,ram__1500,2018,127158.0,8,15894.75,0.08645936551377027,high,0,0,__rare__,,,,,,,,,__unknown__,truck
+393,unknown,40760.0,ram,promaster 1500,ram__promaster 1500,2026,11.0,0,11.0,3705.4545454545455,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,__rare__
+394,unknown,26500.0,mitsubishi,outlander phev,mitsubishi__outlander phev,2023,23050.0,3,7683.333333333333,1.1496746203904555,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+395,unknown,14497.0,subaru,outback,subaru__outback,2017,78322.0,9,8702.444444444445,0.18509486478894818,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+396,unknown,55991.0,chevrolet,silverado 2500,chevrolet__silverado 2500,2022,52212.0,4,13053.0,1.0723779973952348,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+397,unknown,64340.0,lincoln,nautilus,lincoln__nautilus,2026,10.0,0,10.0,6434.0,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+398,unknown,8495.0,ford,escape,ford__escape,2018,123379.0,8,15422.375,0.06885288420233589,high,0,0,se,,,,,,,,,__unknown__,suv
+399,unknown,13294.0,kia,sportage,kia__sportage,2020,92240.0,6,15373.333333333334,0.1441240242844753,medium,0,0,lx,,,,,,,,,__unknown__,suv
+400,unknown,13400.0,chevrolet,spark,chevrolet__spark,2020,5512.0,6,918.6666666666666,2.431059506531205,very_low,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+401,unknown,25538.0,subaru,forester,subaru__forester,2022,43465.0,4,10866.25,0.5875532037271368,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+402,unknown,28188.0,volvo,xc90,volvo__xc90,2021,68402.0,5,13680.4,0.4120932136487237,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+403,unknown,28932.0,ford,f-150,ford__f-150,2018,86773.0,8,10846.625,0.33342168646929343,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+404,unknown,13995.0,nissan,altima,nissan__altima,2022,92504.0,4,23126.0,0.15129075499437863,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+405,unknown,40499.0,chevrolet,blazer ev,chevrolet__blazer ev,2025,100.0,1,100.0,404.99,very_low,0,1,lt,,,0.0,,,,,,__unknown__,suv
+406,unknown,12634.0,ford,mustang,ford__mustang,2016,130244.0,10,13024.4,0.097002549061761,high,0,0,__rare__,,,,,,,,,__unknown__,coupe
+407,unknown,19233.0,chevrolet,traverse,chevrolet__traverse,2022,92743.0,4,23185.75,0.20737953268710307,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+408,unknown,36998.0,chrysler,300,chrysler__300,2022,30129.0,4,7532.25,1.227986325467158,low,0,0,s,,,,,,,,,__unknown__,sedan
+409,unknown,36995.0,lincoln,aviator,lincoln__aviator,2020,34729.0,6,5788.166666666667,1.0652480635779895,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+410,unknown,20440.0,dodge,challenger,dodge__challenger,2020,98999.0,6,16499.833333333332,0.2064667319871918,medium,0,0,__rare__,,,,,,,,,__unknown__,coupe
+411,unknown,40591.0,toyota,tacoma,toyota__tacoma,2024,18405.0,2,9202.5,2.2054333061668023,low,0,0,limited,,,,,,,,,__unknown__,truck
+412,unknown,15869.0,chevrolet,blazer,chevrolet__blazer,2020,101698.0,6,16949.666666666668,0.15604043344018564,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+413,unknown,20975.0,chevrolet,equinox,chevrolet__equinox,2024,23983.0,2,11991.5,0.8745778259600551,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+414,unknown,86870.0,chevrolet,tahoe,chevrolet__tahoe,2026,100.0,0,100.0,868.7,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+415,unknown,25854.0,honda,hr-v,honda__hr-v,2025,13684.0,1,13684.0,1.889359836305174,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+416,unknown,34293.0,volkswagen,tiguan,volkswagen__tiguan,2025,5.0,1,5.0,6858.6,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+417,unknown,13995.0,kia,sorento,kia__sorento,2020,116911.0,6,19485.166666666668,0.11970644336289998,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+418,unknown,56951.0,gmc,sierra 1500,gmc__sierra 1500,2023,52737.0,3,17579.0,1.0799059483853841,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+419,unknown,9995.0,kia,sorento,kia__sorento,2017,110356.0,9,12261.777777777777,0.09057051723512995,medium,0,0,lx,,,,,,,,,__unknown__,suv
+420,unknown,27170.0,kia,seltos,kia__seltos,2026,11.0,0,11.0,2470.0,very_low,0,1,ex,,,0.0,,,,,,__unknown__,suv
+421,unknown,30538.0,jeep,grand cherokee,jeep__grand cherokee,2023,35964.0,3,11988.0,0.8491269046824602,low,0,0,limited,,,,,,,,,__unknown__,suv
+422,unknown,12995.0,kia,soul,kia__soul,2020,85594.0,6,14265.666666666666,0.15182138934972078,medium,0,0,ex,,,,,,,,,__unknown__,hatchback
+423,unknown,29594.0,jeep,gladiator,jeep__gladiator,2021,90390.0,5,18078.0,0.3274034738356013,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+424,unknown,51987.0,dodge,challenger,dodge__challenger,2022,8778.0,4,2194.5,5.92241968557758,very_low,0,0,__rare__,,,,,,,,,__unknown__,coupe
+425,unknown,13999.0,ford,explorer,ford__explorer,2018,113520.0,8,14190.0,0.12331747709654686,medium,0,0,xlt,,,,,,,,,__unknown__,suv
+426,unknown,85124.0,chevrolet,silverado 2500,chevrolet__silverado 2500,2026,8.0,0,8.0,10640.5,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+427,unknown,31995.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2022,20665.0,4,5166.25,1.5482700217759497,low,0,0,lt,,,,,,,,,__unknown__,truck
+428,unknown,42750.0,bmw,x1,bmw__x1,2026,13240.0,0,13240.0,3.2288519637462234,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+429,unknown,26777.0,land rover,range rover evoque,land rover__range rover evoque,2020,50483.0,6,8413.833333333334,0.5304161797040587,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+430,unknown,63995.0,jeep,grand wagoneer l,jeep__grand wagoneer l,2024,22429.0,2,11214.5,2.8532257345401044,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+431,unknown,25500.0,subaru,crosstrek,subaru__crosstrek,2024,40564.0,2,20282.0,0.6286362291687211,low,0,0,limited,,,,,,,,,__unknown__,suv
+432,unknown,41903.0,lincoln,corsair,lincoln__corsair,2026,3.0,0,3.0,13967.666666666666,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+433,unknown,30495.0,ram,1500 classic,ram__1500 classic,2023,45783.0,3,15261.0,0.6660769281174235,low,0,0,slt,,,,,,,,,__unknown__,truck
+434,unknown,25001.0,ford,f-150,ford__f-150,2019,124065.0,7,17723.571428571428,0.2015153347035828,high,0,0,__rare__,,,,,,,,,__unknown__,truck
+435,unknown,20995.0,infiniti,qx80,infiniti__qx80,2019,106666.0,7,15238.0,0.1968293551834699,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+436,unknown,62995.0,gmc,sierra 1500,gmc__sierra 1500,2024,26850.0,2,13425.0,2.3461824953445065,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+437,unknown,43403.0,gmc,yukon,gmc__yukon,2022,74084.0,4,18521.0,0.585861994492738,medium,0,0,slt,,,,,,,,,__unknown__,suv
+438,unknown,33885.0,jeep,compass,jeep__compass,2026,1.0,0,1.0,33885.0,very_low,0,1,limited,,,0.0,,,,,,__unknown__,suv
+439,unknown,25990.0,chevrolet,tahoe,chevrolet__tahoe,2019,111494.0,7,15927.714285714286,0.2331067142626509,medium,0,0,lt,,,,,,,,,__unknown__,suv
+440,unknown,42988.0,ram,promaster 2500,ram__promaster 2500,2024,0.0,2,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,__rare__
+441,unknown,38386.0,toyota,tacoma,toyota__tacoma,2024,41869.0,2,20934.5,0.9168119611168167,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+442,unknown,39995.0,bmw,x5 phev,bmw__x5 phev,2021,41563.0,5,8312.6,0.962274138055482,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+443,unknown,33995.0,toyota,highlander,toyota__highlander,2023,41910.0,3,13970.0,0.8111429253161536,low,0,0,limited,,,,,,,,,__unknown__,suv
+444,unknown,29827.0,kia,sorento,kia__sorento,2025,16.0,1,16.0,1864.1875,very_low,0,1,lx,,,0.0,,,,,,__unknown__,suv
+445,unknown,29679.0,mitsubishi,outlander,mitsubishi__outlander,2024,13490.0,2,6745.0,2.2000741289844328,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+446,unknown,15995.0,jeep,cherokee,jeep__cherokee,2019,85808.0,7,12258.285714285714,0.1864045310460563,medium,0,0,limited,,,,,,,,,__unknown__,suv
+447,unknown,35870.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2023,23604.0,3,7868.0,1.5196576851381123,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+448,unknown,20892.0,buick,envision,buick__envision,2021,45367.0,5,9073.4,0.4605109440782948,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+449,unknown,20901.0,buick,envision,buick__envision,2021,46251.0,5,9250.2,0.4519037426217811,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+450,unknown,51527.0,lincoln,nautilus,lincoln__nautilus,2025,9.0,1,9.0,5725.222222222223,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+451,unknown,16995.0,chevrolet,equinox,chevrolet__equinox,2018,106102.0,8,13262.75,0.16017605700175302,medium,0,0,lt,,,,,,,,,__unknown__,suv
+452,unknown,25998.0,subaru,outback,subaru__outback,2024,36141.0,2,18070.5,0.7193492155723417,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+453,unknown,11995.0,chevrolet,camaro,chevrolet__camaro,2014,108310.0,12,9025.833333333334,0.11074693010802326,medium,0,0,__rare__,,,,,,,,,__unknown__,coupe
+454,unknown,23999.0,jeep,grand cherokee,jeep__grand cherokee,2021,51021.0,5,10204.2,0.47037494365065363,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+455,unknown,44994.0,chevrolet,tahoe,chevrolet__tahoe,2024,56186.0,2,28093.0,0.8008044708646282,low,0,0,lt,,,,,,,,,__unknown__,suv
+456,unknown,27168.0,honda,civic,honda__civic,2026,6.0,0,6.0,4528.0,very_low,0,1,sport,,,0.0,,,,,,__unknown__,sedan
+457,unknown,17888.0,mazda,cx-5,mazda__cx-5,2018,103045.0,8,12880.625,0.1735940608472027,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+458,unknown,46517.0,ford,f-150,ford__f-150,2025,32.0,1,32.0,1453.65625,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+459,unknown,26991.0,jeep,wrangler,jeep__wrangler,2021,96168.0,5,19233.6,0.28066508609932617,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+460,unknown,20995.0,ford,transit-250,ford__transit-250,2020,148886.0,6,24814.333333333332,0.1410139301210322,high,0,0,base,,,,,,,,,__unknown__,__rare__
+461,unknown,19450.0,volkswagen,id.4,volkswagen__id.4,2021,42955.0,5,8591.0,0.4527994412757537,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+462,unknown,18495.0,gmc,terrain,gmc__terrain,2023,84364.0,3,28121.333333333332,0.2192285809112892,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+463,unknown,34680.0,hyundai,tucson,hyundai__tucson,2026,14.0,0,14.0,2477.1428571428573,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+464,unknown,31012.0,toyota,camry,toyota__camry,2025,12953.0,1,12953.0,2.3941943951208216,very_low,0,0,se,,,,,,,,,__unknown__,sedan
+465,unknown,32951.0,kia,telluride,kia__telluride,2022,52920.0,4,13230.0,0.6226568405139834,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+466,unknown,45595.0,mazda,cx-90,mazda__cx-90,2026,0.0,0,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+467,unknown,36980.0,nissan,rogue,nissan__rogue,2026,10.0,0,10.0,3698.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+468,unknown,50725.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2025,5258.0,1,5258.0,9.647204260174972,very_low,0,0,__rare__,,,,,,,,,__unknown__,truck
+469,unknown,10498.0,nissan,pathfinder,nissan__pathfinder,2017,106516.0,9,11835.111111111111,0.09855796312291111,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+470,unknown,65895.0,dodge,charger,dodge__charger,2026,10.0,0,10.0,6589.5,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,coupe
+471,unknown,43941.0,ram,2500,ram__2500,2024,23868.0,2,11934.0,1.8410005027652085,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+472,unknown,23000.0,subaru,ascent,subaru__ascent,2021,91231.0,5,18246.2,0.25210728809286315,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+473,unknown,18995.0,chevrolet,equinox,chevrolet__equinox,2018,33911.0,8,4238.875,0.5601427265489074,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+474,unknown,19999.0,jeep,wrangler,jeep__wrangler,2018,82862.0,8,10357.75,0.24135309309454273,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+475,unknown,38941.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2022,74012.0,4,18503.0,0.5261444090147543,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+476,unknown,41479.0,audi,q7,audi__q7,2023,11694.0,3,3898.0,3.547032666324611,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+477,unknown,72520.0,audi,a6,audi__a6,2026,315.0,0,315.0,230.22222222222223,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+478,unknown,20991.0,honda,civic,honda__civic,2023,25360.0,3,8453.333333333334,0.8277208201892744,low,0,0,sport,,,,,,,,,__unknown__,sedan
+479,unknown,46991.0,gmc,sierra 1500,gmc__sierra 1500,2023,27280.0,3,9093.333333333334,1.7225439882697948,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+480,unknown,22458.0,hyundai,elantra,hyundai__elantra,2024,11030.0,2,5515.0,2.0360834088848594,very_low,0,0,sel,,,,,,,,,__unknown__,sedan
+481,unknown,21998.0,ford,f-150,ford__f-150,2011,78451.0,15,5230.066666666667,0.2804043288167136,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+482,unknown,41999.0,ram,1500,ram__1500,2022,49224.0,4,12306.0,0.8532220055257598,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+483,unknown,9990.0,hyundai,sonata,hyundai__sonata,2019,120956.0,7,17279.428571428572,0.08259201693177684,high,0,0,se,,,,,,,,,__unknown__,sedan
+484,unknown,21261.0,honda,civic,honda__civic,2022,39922.0,4,9980.5,0.5325634988227043,low,0,0,sport,,,,,,,,,__unknown__,hatchback
+485,unknown,39991.0,dodge,charger,dodge__charger,2021,32518.0,5,6503.6,1.2298111814994772,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+486,unknown,43087.0,subaru,forester,subaru__forester,2026,6.0,0,6.0,7181.166666666667,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+487,unknown,25390.0,hyundai,sonata,hyundai__sonata,2026,8.0,0,8.0,3173.75,very_low,0,1,se,,,0.0,,,,,,__unknown__,sedan
+488,unknown,27526.0,kia,sportage hybrid,kia__sportage hybrid,2025,3401.0,1,3401.0,8.093501911202587,very_low,0,0,lx,,,,,,,,,__unknown__,suv
+489,unknown,21799.0,honda,civic,honda__civic,2024,24114.0,2,12057.0,0.9039976776976031,low,0,0,sport,,,,,,,,,__unknown__,sedan
+490,unknown,27270.0,kia,sportage,kia__sportage,2021,51300.0,5,10260.0,0.531578947368421,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+491,unknown,43343.0,ram,1500,ram__1500,2025,42168.0,1,42168.0,1.0278647315499905,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+492,unknown,52778.0,jeep,wrangler,jeep__wrangler,2026,16.0,0,16.0,3298.625,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+493,unknown,38486.0,chrysler,voyager,chrysler__voyager,2026,10.0,0,10.0,3848.6,very_low,0,1,lx,,,0.0,,,,,,__unknown__,passenger van
+494,unknown,21895.0,honda,civic,honda__civic,2024,63944.0,2,31972.0,0.3424089828600025,medium,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+495,unknown,12999.0,jeep,grand cherokee,jeep__grand cherokee,2012,57454.0,14,4103.857142857143,0.22625056566992724,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+496,unknown,22991.0,mazda,mazda3,mazda__mazda3,2025,6401.0,1,6401.0,3.5917825339790657,very_low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+497,unknown,19469.0,chevrolet,equinox,chevrolet__equinox,2022,52700.0,4,13175.0,0.3694307400379507,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+498,unknown,43495.0,dodge,charger,dodge__charger,2022,19951.0,4,4987.75,2.180091223497569,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+499,unknown,32419.0,hyundai,santa cruz,hyundai__santa cruz,2026,10.0,0,10.0,3241.9,very_low,0,1,sel,,,0.0,,,,,,__unknown__,truck
+500,unknown,41157.0,dodge,challenger,dodge__challenger,2022,40500.0,4,10125.0,1.0162222222222221,low,0,0,__rare__,,,,,,,,,__unknown__,coupe
+501,unknown,21834.0,gmc,yukon,gmc__yukon,2019,115065.0,7,16437.85714285714,0.18975361752053188,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+502,unknown,20991.0,acura,mdx,acura__mdx,2019,100694.0,7,14384.857142857143,0.20846326494130732,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+503,unknown,94753.0,land rover,defender,land rover__defender,2026,5.0,0,5.0,18950.6,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+504,unknown,19495.0,tesla,model 3,tesla__model 3,2018,56953.0,8,7119.125,0.34229979105578284,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+505,unknown,27991.0,subaru,outback,subaru__outback,2024,62137.0,2,31068.5,0.4504723433702947,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+506,unknown,11880.0,honda,civic,honda__civic,2018,111071.0,8,13883.875,0.10695861205895328,medium,0,0,lx,,,,,,,,,__unknown__,sedan
+507,unknown,29991.0,toyota,highlander,toyota__highlander,2021,81208.0,5,16241.6,0.3693109053295242,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+508,unknown,24495.0,jeep,grand cherokee,jeep__grand cherokee,2021,44865.0,5,8973.0,0.545971247074557,low,0,0,limited,,,,,,,,,__unknown__,suv
+509,unknown,42727.0,honda,ridgeline,honda__ridgeline,2026,6.0,0,6.0,7121.166666666667,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+510,unknown,39991.0,chevrolet,suburban,chevrolet__suburban,2021,74133.0,5,14826.6,0.5394493680277339,medium,0,0,lt,,,,,,,,,__unknown__,suv
+511,unknown,23999.0,honda,civic,honda__civic,2023,26665.0,3,8888.333333333334,0.9000187511719483,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+512,unknown,31995.0,subaru,outback,subaru__outback,2023,44013.0,3,14671.0,0.7269443119078454,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+513,unknown,32788.0,bmw,x3,bmw__x3,2022,15759.0,4,3939.75,2.080588869852148,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+514,unknown,17400.0,ford,escape,ford__escape,2022,51434.0,4,12858.5,0.3382976241396741,low,0,0,se,,,,,,,,,__unknown__,suv
+515,unknown,40774.0,ram,1500,ram__1500,2021,58598.0,5,11719.6,0.695825796102256,low,0,0,limited,,,,,,,,,__unknown__,truck
+516,unknown,44985.0,bmw,x3,bmw__x3,2025,18726.0,1,18726.0,2.4022749118872158,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+517,unknown,26261.0,lincoln,corsair,lincoln__corsair,2022,67450.0,4,16862.5,0.38934025203854705,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+518,unknown,16535.0,mini,countryman,mini__countryman,2019,35491.0,7,5070.142857142857,0.46589276154518044,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+519,unknown,18995.0,nissan,kicks,nissan__kicks,2024,40892.0,2,20446.0,0.4645162868042649,low,0,0,sr,,,,,,,,,__unknown__,suv
+520,unknown,37999.0,mercedes-benz,sprinter 2500,mercedes-benz__sprinter 2500,2022,53295.0,4,13323.75,0.7129937142321043,low,1,0,__rare__,,,,,,,,,__unknown__,__rare__
+521,unknown,21995.0,nissan,altima,nissan__altima,2025,52507.0,1,52507.0,0.41889652808197003,low,0,0,sv,,,,,,,,,__unknown__,sedan
+522,unknown,15987.0,jeep,wrangler unlimited,jeep__wrangler unlimited,2014,121819.0,12,10151.583333333334,0.13123568573046898,high,0,0,__rare__,,,,,,,,,__unknown__,suv
+523,unknown,16995.0,bmw,530,bmw__530,2019,67049.0,7,9578.42857142857,0.2534713418544646,medium,1,0,__rare__,,,,,,,,,__unknown__,sedan
+524,unknown,37800.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2023,24539.0,3,8179.666666666667,1.540405069481234,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+525,unknown,31995.0,kia,sorento,kia__sorento,2023,21034.0,3,7011.333333333333,1.521108681182847,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+526,unknown,24595.0,toyota,corolla,toyota__corolla,2025,4805.0,1,4805.0,5.118626430801249,very_low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+527,unknown,9968.0,kia,sorento,kia__sorento,2016,112819.0,10,11281.9,0.0883539120183657,medium,0,0,lx,,,,,,,,,__unknown__,suv
+528,unknown,23986.0,jeep,wrangler,jeep__wrangler,2023,78273.0,3,26091.0,0.3064402795344499,medium,0,0,sport,,,,,,,,,__unknown__,suv
+529,unknown,18995.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2020,139675.0,6,23279.166666666668,0.1359942724181135,high,0,0,__rare__,,,,,,,,,__unknown__,truck
+530,unknown,29995.0,acura,rdx,acura__rdx,2023,66889.0,3,22296.333333333332,0.44842948765865837,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+531,unknown,27995.0,tesla,model s,tesla__model s,2018,33788.0,8,4223.5,0.8285485971350776,low,1,0,__rare__,,,,,,,,,__unknown__,hatchback
+532,unknown,22900.0,nissan,rogue,nissan__rogue,2023,34379.0,3,11459.666666666666,0.6661043078623579,low,0,0,sv,,,,,,,,,__unknown__,suv
+533,unknown,12488.0,ford,f-150,ford__f-150,2010,116722.0,16,7295.125,0.1069892565240486,medium,0,0,xlt,,,,,,,,,__unknown__,truck
+534,unknown,14342.0,ford,escape,ford__escape,2021,99030.0,5,19806.0,0.14482480056548522,medium,0,0,se,,,,,,,,,__unknown__,suv
+535,unknown,23500.0,mercedes-benz,e-class,mercedes-benz__e-class,2019,68366.0,7,9766.57142857143,0.34373811543749816,medium,1,0,__rare__,,,,,,,,,__unknown__,sedan
+536,unknown,17999.0,dodge,challenger,dodge__challenger,2017,67731.0,9,7525.666666666667,0.2657424222291122,medium,0,0,__rare__,,,,,,,,,__unknown__,coupe
+537,unknown,34846.0,toyota,highlander,toyota__highlander,2024,36010.0,2,18005.0,0.967675645653985,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+538,unknown,13995.0,toyota,camry,toyota__camry,2015,85255.0,11,7750.454545454545,0.16415459503841417,medium,0,0,se,,,,,,,,,__unknown__,sedan
+539,unknown,23264.0,hyundai,elantra,hyundai__elantra,2025,12907.0,1,12907.0,1.8024327884093903,very_low,0,0,limited,,,,,,,,,__unknown__,sedan
+540,unknown,22490.0,chevrolet,trax,chevrolet__trax,2026,4.0,0,4.0,5622.5,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+541,unknown,22683.0,nissan,murano,nissan__murano,2022,80883.0,4,20220.75,0.28044212009940284,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+542,unknown,21995.0,cadillac,escalade,cadillac__escalade,2017,133767.0,9,14863.0,0.1644276989092975,high,1,0,__rare__,,,,,,,,,__unknown__,suv
+543,unknown,28991.0,ford,f-150,ford__f-150,2020,52149.0,6,8691.5,0.5559262881359183,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+544,unknown,22500.0,subaru,outback,subaru__outback,2023,83729.0,3,27909.666666666668,0.2687240979827778,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+545,unknown,60999.0,mercedes-benz,glc 350e,mercedes-benz__glc 350e,2025,4011.0,1,4011.0,15.207928197456994,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+546,unknown,8284.0,ford,taurus,ford__taurus,2012,129073.0,14,9219.5,0.06418073493294492,high,0,0,limited,,,,,,,,,__unknown__,sedan
+547,unknown,32537.0,kia,sorento,kia__sorento,2025,2729.0,1,2729.0,11.922682301209234,very_low,0,1,s,,,0.0,,,,,,__unknown__,suv
+548,unknown,20995.0,jeep,grand cherokee,jeep__grand cherokee,2021,73128.0,5,14625.6,0.28709933267695,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+549,unknown,14642.0,hyundai,elantra,hyundai__elantra,2020,40948.0,6,6824.666666666667,0.3575754615610042,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+550,unknown,33995.0,ford,f-150,ford__f-150,2022,47300.0,4,11825.0,0.7187103594080338,low,0,0,xlt,,,,,,,,,__unknown__,truck
+551,unknown,37477.0,hyundai,palisade,hyundai__palisade,2025,31958.0,1,31958.0,1.172695412729207,low,0,0,sel,,,,,,,,,__unknown__,suv
+552,unknown,32878.0,volkswagen,tiguan,volkswagen__tiguan,2026,0.0,0,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+553,unknown,27949.0,kia,telluride,kia__telluride,2022,51013.0,4,12753.25,0.5478799521690549,low,0,0,lx,,,,,,,,,__unknown__,suv
+554,unknown,66697.0,ford,f-150,ford__f-150,2023,46520.0,3,15506.666666666666,1.4337274290627686,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+555,unknown,17485.0,mini,convertible,mini__convertible,2019,52965.0,7,7566.428571428572,0.3301236665722647,low,0,0,__rare__,,,,,,,,,__unknown__,__rare__
+556,unknown,16308.0,nissan,rogue,nissan__rogue,2022,82399.0,4,20599.75,0.1979150232405733,medium,0,0,sv,,,,,,,,,__unknown__,suv
+557,unknown,26990.0,mazda,mazda3,mazda__mazda3,2025,3624.0,1,3624.0,7.44757174392936,very_low,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+558,unknown,35290.0,ford,bronco sport,ford__bronco sport,2025,0.0,1,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+559,unknown,17995.0,ford,f-350,ford__f-350,2015,153647.0,11,13967.90909090909,0.11711911068878664,high,0,0,xlt,,,,,,,,,__unknown__,truck
+560,unknown,20900.0,chevrolet,blazer,chevrolet__blazer,2023,53501.0,3,17833.666666666668,0.3906469037961907,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+561,unknown,22995.0,volvo,xc60,volvo__xc60,2023,88264.0,3,29421.333333333332,0.2605252424544548,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+562,unknown,20996.0,nissan,kicks,nissan__kicks,2024,8846.0,2,4423.0,2.3735021478634413,very_low,0,0,sr,,,,,,,,,__unknown__,suv
+563,unknown,28489.0,volkswagen,tiguan,volkswagen__tiguan,2023,42500.0,3,14166.666666666666,0.6703294117647058,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+564,unknown,17495.0,subaru,forester,subaru__forester,2021,117464.0,5,23492.8,0.1489392494721787,medium,0,0,limited,,,,,,,,,__unknown__,suv
+565,unknown,42996.0,ford,explorer,ford__explorer,2026,1.0,0,1.0,42996.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+566,unknown,10998.0,honda,civic,honda__civic,2016,127728.0,10,12772.8,0.08610484780157836,high,0,0,lx,,,,,,,,,__unknown__,sedan
+567,unknown,42713.0,gmc,sierra 1500,gmc__sierra 1500,2022,34593.0,4,8648.25,1.2347295695660971,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+568,unknown,21295.0,nissan,rogue,nissan__rogue,2022,31582.0,4,7895.5,0.6742764866062947,low,0,0,sv,,,,,,,,,__unknown__,suv
+569,unknown,26443.0,honda,accord hybrid,honda__accord hybrid,2024,30297.0,2,15148.5,0.8727926857444631,low,0,0,sport,,,,,,,,,__unknown__,sedan
+570,unknown,22995.0,chevrolet,trailblazer,chevrolet__trailblazer,2024,17222.0,2,8611.0,1.3352107769132504,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+571,unknown,27989.0,buick,enclave,buick__enclave,2024,80076.0,2,40038.0,0.3495304460762276,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+572,unknown,24994.0,toyota,camry,toyota__camry,2025,35339.0,1,35339.0,0.7072639293698181,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+573,unknown,53576.0,ford,bronco,ford__bronco,2025,8.0,1,8.0,6697.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+574,unknown,18990.0,jeep,grand cherokee,jeep__grand cherokee,2019,86990.0,7,12427.142857142857,0.21830095413265893,medium,0,0,limited,,,,,,,,,__unknown__,suv
+575,unknown,31788.0,jeep,compass,jeep__compass,2026,14.0,0,14.0,2270.5714285714284,very_low,0,1,limited,,,0.0,,,,,,__unknown__,suv
+576,unknown,26134.0,nissan,kicks,nissan__kicks,2026,9.0,0,9.0,2903.777777777778,very_low,0,1,sv,,,0.0,,,,,,__unknown__,suv
+577,unknown,22995.0,chevrolet,trax,chevrolet__trax,2025,18587.0,1,18587.0,1.2371550008070156,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+578,unknown,37485.0,chrysler,voyager,chrysler__voyager,2026,11.0,0,11.0,3407.7272727272725,very_low,0,1,lx,,,0.0,,,,,,__unknown__,passenger van
+579,unknown,40540.0,chrysler,voyager,chrysler__voyager,2026,16.0,0,16.0,2533.75,very_low,0,1,lx,,,0.0,,,,,,__unknown__,passenger van
+580,unknown,69990.0,dodge,challenger,dodge__challenger,2023,1505.0,3,501.6666666666667,46.50498338870432,very_low,0,0,__rare__,,,,,,,,,__unknown__,coupe
+581,unknown,19995.0,buick,enclave,buick__enclave,2021,132910.0,5,26582.0,0.15044014746821158,high,0,0,__rare__,,,,,,,,,__unknown__,suv
+582,unknown,46840.0,buick,enclave,buick__enclave,2026,4670.0,0,4670.0,10.029978586723768,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+583,unknown,17995.0,toyota,corolla,toyota__corolla,2024,68040.0,2,34020.0,0.26447677836566724,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+584,unknown,17400.0,nissan,rogue,nissan__rogue,2021,83909.0,5,16781.8,0.20736750527357017,medium,0,0,s,,,,,,,,,__unknown__,suv
+585,unknown,28995.0,honda,pilot,honda__pilot,2022,31278.0,4,7819.5,0.9270093995779781,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+586,unknown,24995.0,chevrolet,suburban,chevrolet__suburban,2019,100815.0,7,14402.142857142857,0.24792937558895006,medium,0,0,lt,,,,,,,,,__unknown__,suv
+587,unknown,37955.0,ford,f-150,ford__f-150,2024,63799.0,2,31899.5,0.5949152808037743,medium,0,0,xlt,,,,,,,,,__unknown__,truck
+588,unknown,29532.0,gmc,terrain,gmc__terrain,2026,10100.0,0,10100.0,2.923960396039604,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+589,unknown,35920.0,ford,bronco sport,ford__bronco sport,2026,35.0,0,35.0,1026.2857142857142,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+590,unknown,50446.0,ram,promaster 3500,ram__promaster 3500,2026,0.0,0,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,__rare__
+591,unknown,22988.0,chrysler,300,chrysler__300,2022,22758.0,4,5689.5,1.0101063362334124,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+592,unknown,16495.0,ford,explorer,ford__explorer,2018,90100.0,8,11262.5,0.1830743618201998,medium,0,0,xlt,,,,,,,,,__unknown__,suv
+593,unknown,126515.0,cadillac,escalade iq,cadillac__escalade iq,2025,2285.0,1,2285.0,55.36761487964989,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+594,unknown,27775.0,jeep,wrangler unlimited,jeep__wrangler unlimited,2020,92533.0,6,15422.166666666666,0.3001631850258827,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+595,unknown,40625.0,mazda,cx-50,mazda__cx-50,2026,1.0,0,1.0,40625.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+596,unknown,14999.0,jeep,cherokee,jeep__cherokee,2019,74451.0,7,10635.857142857143,0.20146136385004904,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+597,unknown,40140.0,chrysler,voyager,chrysler__voyager,2026,0.0,0,0.0,,very_low,0,1,lx,,,0.0,,,,,,__unknown__,passenger van
+598,unknown,26942.0,ford,expedition,ford__expedition,2020,103143.0,6,17190.5,0.261210164528858,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+599,unknown,20899.0,ford,bronco sport,ford__bronco sport,2022,55110.0,4,13777.5,0.3792233714389403,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+600,unknown,38174.0,ford,explorer,ford__explorer,2026,10.0,0,10.0,3817.4,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+601,unknown,14452.0,volkswagen,tiguan,volkswagen__tiguan,2020,78776.0,6,13129.333333333334,0.18345689042347924,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+602,unknown,8995.0,subaru,legacy,subaru__legacy,2013,118969.0,13,9151.461538461539,0.07560793147794803,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+603,unknown,36386.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2026,8.0,0,8.0,4548.25,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+604,unknown,35500.0,jeep,grand cherokee,jeep__grand cherokee,2025,7058.0,1,7058.0,5.029753471238311,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+605,unknown,8497.0,honda,odyssey,honda__odyssey,2011,127163.0,15,8477.533333333333,0.06681975102820789,high,0,0,__rare__,,,,,,,,,__unknown__,passenger van
+606,unknown,35777.0,toyota,rav4,toyota__rav4,2024,1288.0,2,644.0,27.777173913043477,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+607,unknown,25537.0,nissan,sentra,nissan__sentra,2026,7.0,0,7.0,3648.1428571428573,very_low,0,1,sr,,,0.0,,,,,,__unknown__,sedan
+608,unknown,53333.0,mazda,cx-90,mazda__cx-90,2026,5.0,0,5.0,10666.6,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+609,unknown,46730.0,jeep,wrangler,jeep__wrangler,2026,1.0,0,1.0,46730.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,__rare__
+610,unknown,33611.0,toyota,rav4 hybrid,toyota__rav4 hybrid,2023,30716.0,3,10238.666666666666,1.0942505534574813,low,0,0,se,,,,,,,,,__unknown__,suv
+611,unknown,21992.0,lexus,rx 350,lexus__rx 350,2017,100026.0,9,11114.0,0.21986283566272768,medium,1,0,base,,,,,,,,,__unknown__,suv
+612,unknown,47465.0,bmw,x1,bmw__x1,2026,10.0,0,10.0,4746.5,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+613,unknown,19995.0,chevrolet,malibu,chevrolet__malibu,2023,56988.0,3,18996.0,0.35086333965045274,low,0,0,lt,,,,,,,,,__unknown__,sedan
+614,unknown,27276.0,buick,encore gx,buick__encore gx,2025,4.0,1,4.0,6819.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+615,unknown,17388.0,chevrolet,malibu,chevrolet__malibu,2024,47520.0,2,23760.0,0.3659090909090909,low,0,0,lt,,,,,,,,,__unknown__,sedan
+616,unknown,12495.0,chevrolet,malibu,chevrolet__malibu,2021,112371.0,5,22474.2,0.11119416931414688,medium,0,0,lt,,,,,,,,,__unknown__,sedan
+617,unknown,22165.0,hyundai,elantra,hyundai__elantra,2025,5.0,1,5.0,4433.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+618,unknown,37777.0,jeep,grand cherokee,jeep__grand cherokee,2023,35459.0,3,11819.666666666666,1.0653712738655912,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+619,unknown,26995.0,hyundai,tucson,hyundai__tucson,2025,9949.0,1,9949.0,2.7133380239220024,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+620,unknown,36989.0,nissan,pathfinder,nissan__pathfinder,2025,32665.0,1,32665.0,1.1323741007194246,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+621,unknown,49295.0,lexus,gx 460,lexus__gx 460,2022,47656.0,4,11914.0,1.0343923115662246,low,1,0,base,,,,,,,,,__unknown__,suv
+622,unknown,29896.0,subaru,outback,subaru__outback,2023,21610.0,3,7203.333333333333,1.3834335955576123,low,0,0,limited,,,,,,,,,__unknown__,suv
+623,unknown,34500.0,chrysler,pacifica,chrysler__pacifica,2023,44094.0,3,14698.0,0.7824193767859573,low,0,0,__rare__,,,,,,,,,__unknown__,__rare__
+624,unknown,29950.0,volvo,xc90,volvo__xc90,2021,56555.0,5,11311.0,0.5295729820528688,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+625,unknown,29995.0,toyota,corolla cross,toyota__corolla cross,2024,9827.0,2,4913.5,3.052304874325837,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+626,unknown,14991.0,bmw,x1,bmw__x1,2018,69982.0,8,8747.75,0.21421222600097167,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+627,unknown,33791.0,ford,explorer,ford__explorer,2022,73807.0,4,18451.75,0.4578292031921091,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+628,unknown,25851.0,chevrolet,tahoe,chevrolet__tahoe,2018,121086.0,8,15135.75,0.2134928893513701,high,0,0,lt,,,,,,,,,__unknown__,suv
+629,unknown,26900.0,subaru,forester,subaru__forester,2023,36369.0,3,12123.0,0.7396409029668124,low,0,0,limited,,,,,,,,,__unknown__,suv
+630,unknown,17550.0,subaru,forester,subaru__forester,2019,101854.0,7,14550.57142857143,0.17230545683036502,medium,0,0,limited,,,,,,,,,__unknown__,suv
+631,unknown,27995.0,mazda,cx-5,mazda__cx-5,2023,11625.0,3,3875.0,2.4081720430107527,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+632,unknown,48993.0,ram,1500,ram__1500,2023,23756.0,3,7918.666666666667,2.0623421451422796,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+633,unknown,18995.0,chevrolet,malibu,chevrolet__malibu,2025,33345.0,1,33345.0,0.5696506222822012,low,0,0,lt,,,,,,,,,__unknown__,sedan
+634,unknown,25988.0,mazda,mazda3,mazda__mazda3,2026,1542.0,0,1542.0,16.85343709468223,very_low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+635,unknown,18827.0,chevrolet,malibu,chevrolet__malibu,2025,38146.0,1,38146.0,0.49355109316835316,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+636,unknown,43753.0,jeep,gladiator,jeep__gladiator,2025,9.0,1,9.0,4861.444444444444,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+637,unknown,23000.0,toyota,camry,toyota__camry,2025,34822.0,1,34822.0,0.6605019815059445,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+638,unknown,50011.0,ford,f-150,ford__f-150,2022,48332.0,4,12083.0,1.0347388893486718,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+639,unknown,36995.0,toyota,highlander,toyota__highlander,2023,43707.0,3,14569.0,0.846431921660146,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+640,unknown,26510.0,kia,k5,kia__k5,2021,42631.0,5,8526.2,0.6218479510215571,low,0,0,ex,,,,,,,,,__unknown__,sedan
+641,unknown,22499.0,mitsubishi,outlander,mitsubishi__outlander,2024,54926.0,2,27463.0,0.40962385755379965,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+642,unknown,42000.0,bmw,ix,bmw__ix,2023,29085.0,3,9695.0,1.444043321299639,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+643,unknown,27599.0,chevrolet,tahoe,chevrolet__tahoe,2018,111173.0,8,13896.625,0.24825272323315914,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+644,unknown,31725.0,toyota,4runner,toyota__4runner,2018,108256.0,8,13532.0,0.29305535028081586,medium,0,0,sport,,,,,,,,,__unknown__,suv
+645,unknown,17302.0,buick,envision,buick__envision,2021,96634.0,5,19326.8,0.1790467123372726,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+646,unknown,15830.0,ford,ecosport,ford__ecosport,2022,81426.0,4,20356.5,0.19440964802397268,medium,0,0,se,,,,,,,,,__unknown__,suv
+647,unknown,53963.0,ram,1500,ram__1500,2026,0.0,0,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+648,unknown,21995.0,nissan,rogue,nissan__rogue,2023,54793.0,3,18264.333333333332,0.4014198894019309,low,0,0,sv,,,,,,,,,__unknown__,suv
+649,unknown,46998.0,ram,2500,ram__2500,2021,60503.0,5,12100.6,0.7767879278713452,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+650,unknown,61153.0,lincoln,aviator,lincoln__aviator,2026,307.0,0,307.0,199.19543973941367,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+651,unknown,26814.0,nissan,sentra,nissan__sentra,2025,4.0,1,4.0,6703.5,very_low,0,1,sr,,,0.0,,,,,,__unknown__,sedan
+652,unknown,12000.0,chevrolet,equinox,chevrolet__equinox,2018,103202.0,8,12900.25,0.11627681634076859,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+653,unknown,19995.0,buick,enclave,buick__enclave,2019,154632.0,7,22090.285714285714,0.1293069998447928,high,0,0,__rare__,,,,,,,,,__unknown__,suv
+654,unknown,39995.0,infiniti,qx80,infiniti__qx80,2024,53846.0,2,26923.0,0.7427664079040226,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+655,unknown,25995.0,kia,sportage,kia__sportage,2023,31201.0,3,10400.333333333334,0.8331463735136694,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+656,unknown,29595.0,volkswagen,atlas,volkswagen__atlas,2024,38048.0,2,19024.0,0.7778332632464255,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+657,unknown,31000.0,land rover,range rover sport,land rover__range rover sport,2019,61950.0,7,8850.0,0.5004035512510089,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+658,unknown,28495.0,genesis,g80,genesis__g80,2023,52982.0,3,17660.666666666668,0.5378241666981239,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+659,unknown,39748.0,lincoln,aviator,lincoln__aviator,2023,39316.0,3,13105.333333333334,1.0109878929697833,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+660,unknown,29500.0,ram,1500,ram__1500,2023,34277.0,3,11425.666666666666,0.860635411500423,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+661,unknown,15997.0,nissan,altima,nissan__altima,2020,84983.0,6,14163.833333333334,0.1882376475295059,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+662,unknown,28995.0,gmc,yukon,gmc__yukon,2020,71467.0,6,11911.166666666666,0.40571172709082515,medium,0,0,slt,,,,,,,,,__unknown__,suv
+663,unknown,26995.0,subaru,forester,subaru__forester,2023,14785.0,3,4928.333333333333,1.8258369969563748,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+664,unknown,28500.0,subaru,forester,subaru__forester,2021,24089.0,5,4817.8,1.183112624019262,low,0,0,limited,,,,,,,,,__unknown__,suv
+665,unknown,44300.0,mazda,cx-90,mazda__cx-90,2026,3.0,0,3.0,14766.666666666666,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+666,unknown,84289.0,ram,2500,ram__2500,2026,18.0,0,18.0,4682.722222222223,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+667,unknown,8999.0,nissan,sentra,nissan__sentra,2017,84614.0,9,9401.555555555555,0.10635355851277567,medium,0,0,s,,,,,,,,,__unknown__,sedan
+668,unknown,14495.0,lexus,rx 350,lexus__rx 350,2013,101276.0,13,7790.461538461538,0.14312374106402306,medium,1,0,base,,,,,,,,,__unknown__,suv
+669,unknown,23987.0,mitsubishi,outlander,mitsubishi__outlander,2023,37302.0,3,12434.0,0.6430486301002627,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+670,unknown,40884.0,chevrolet,colorado,chevrolet__colorado,2026,6.0,0,6.0,6814.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+671,unknown,40360.0,nissan,frontier,nissan__frontier,2025,1.0,1,1.0,40360.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+672,unknown,25997.0,gmc,acadia,gmc__acadia,2022,40258.0,4,10064.5,0.645759848974117,low,0,0,slt,,,,,,,,,__unknown__,suv
+673,unknown,13988.0,mercedes-benz,e-class,mercedes-benz__e-class,2013,71377.0,13,5490.538461538462,0.19597349286184626,medium,1,0,__rare__,,,,,,,,,__unknown__,__rare__
+674,unknown,17108.0,jeep,cherokee,jeep__cherokee,2019,92318.0,7,13188.285714285714,0.18531597304967612,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+675,unknown,10988.0,subaru,forester,subaru__forester,2015,114311.0,11,10391.90909090909,0.09612373262415691,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+676,unknown,29900.0,ram,1500,ram__1500,2019,72794.0,7,10399.142857142857,0.41074813858285025,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+677,unknown,48415.0,gmc,sierra 1500,gmc__sierra 1500,2022,47795.0,4,11948.75,1.0129720682079715,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+678,unknown,51495.0,ram,3500,ram__3500,2024,139430.0,2,69715.0,0.36932510937387936,high,0,0,__rare__,,,,,,,,,__unknown__,truck
+679,unknown,39195.0,dodge,challenger,dodge__challenger,2022,22586.0,4,5646.5,1.7353670415301514,low,0,0,__rare__,,,,,,,,,__unknown__,coupe
+680,unknown,29665.0,kia,sportage,kia__sportage,2026,4.0,0,4.0,7416.25,very_low,0,1,ex,,,0.0,,,,,,__unknown__,suv
+681,unknown,15991.0,jeep,cherokee,jeep__cherokee,2019,65055.0,7,9293.57142857143,0.2458073937437553,medium,0,0,limited,,,,,,,,,__unknown__,suv
+682,unknown,23969.0,ford,f-150,ford__f-150,2018,77508.0,8,9688.5,0.3092454972389947,medium,0,0,xlt,,,,,,,,,__unknown__,truck
+683,unknown,16995.0,jeep,wrangler unlimited,jeep__wrangler unlimited,2013,105359.0,13,8104.538461538462,0.16130563122277167,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+684,unknown,8995.0,jeep,cherokee,jeep__cherokee,2015,106900.0,11,9718.181818181818,0.08414405986903649,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+685,unknown,35900.0,hyundai,palisade,hyundai__palisade,2023,34465.0,3,11488.333333333334,1.0416364427680256,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+686,unknown,46595.0,toyota,4runner,toyota__4runner,2025,1947.0,1,1947.0,23.931689779147405,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+687,unknown,15495.0,ram,1500,ram__1500,2014,125860.0,12,10488.333333333334,0.12311298267916733,high,0,0,slt,,,,,,,,,__unknown__,truck
+688,unknown,22997.0,chevrolet,trax,chevrolet__trax,2024,52527.0,2,26263.5,0.437812934300455,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+689,unknown,19694.0,nissan,versa,nissan__versa,2025,3.0,1,3.0,6564.666666666667,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+690,unknown,31757.0,toyota,tacoma,toyota__tacoma,2022,16716.0,4,4179.0,1.8997966020579087,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+691,unknown,14374.0,mercedes-benz,m-class,mercedes-benz__m-class,2014,46089.0,12,3840.75,0.31187485083208577,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+692,unknown,9990.0,jeep,grand cherokee,jeep__grand cherokee,2014,120796.0,12,10066.333333333334,0.08270141395410444,high,0,0,__rare__,,,,,,,,,__unknown__,suv
+693,unknown,32660.0,kia,sportage hybrid,kia__sportage hybrid,2026,11.0,0,11.0,2969.090909090909,very_low,0,1,s,,,0.0,,,,,,__unknown__,suv
+694,unknown,41690.0,chrysler,pacifica,chrysler__pacifica,2026,10356.0,0,10356.0,4.025685592893009,very_low,0,0,limited,,,,,,,,,__unknown__,__rare__
+695,unknown,15988.0,subaru,outback,subaru__outback,2020,164052.0,6,27342.0,0.09745690390851681,high,0,0,__rare__,,,,,,,,,__unknown__,suv
+696,unknown,68208.0,ineos,grenadier,ineos__grenadier,2024,16281.0,2,8140.5,4.189423254099871,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+697,unknown,16908.0,hyundai,elantra,hyundai__elantra,2022,50103.0,4,12525.75,0.3374648224657206,low,0,0,sel,,,,,,,,,__unknown__,sedan
+698,unknown,14885.0,dodge,journey,dodge__journey,2019,60583.0,7,8654.714285714286,0.24569598732317646,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+699,unknown,41660.0,jeep,wrangler,jeep__wrangler,2026,10.0,0,10.0,4166.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+700,unknown,41932.0,kia,telluride,kia__telluride,2024,24558.0,2,12279.0,1.7074680348562588,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+701,unknown,24959.0,bmw,x5,bmw__x5,2019,84544.0,7,12077.714285714286,0.2952190575321726,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+702,unknown,17490.0,volvo,xc60,volvo__xc60,2019,90523.0,7,12931.857142857143,0.19321056527070468,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+703,unknown,46163.0,lincoln,corsair,lincoln__corsair,2026,4.0,0,4.0,11540.75,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+704,unknown,29995.0,chrysler,300,chrysler__300,2023,15616.0,3,5205.333333333333,1.9207863729508197,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+705,unknown,29999.0,kia,telluride,kia__telluride,2022,74280.0,4,18570.0,0.40386375875067315,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+706,unknown,49985.0,gmc,sierra 1500,gmc__sierra 1500,2024,26533.0,2,13266.5,1.8838804507594316,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+707,unknown,26495.0,mitsubishi,outlander sport,mitsubishi__outlander sport,2025,4.0,1,4.0,6623.75,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+708,unknown,18997.0,buick,cascada,buick__cascada,2018,44700.0,8,5587.5,0.4249888143176734,low,0,0,__rare__,,,,,,,,,__unknown__,__rare__
+709,unknown,19392.0,jeep,cherokee,jeep__cherokee,2019,38084.0,7,5440.571428571428,0.5091902111122781,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+710,unknown,46900.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2022,13552.0,4,3388.0,3.4607438016528924,very_low,0,0,__rare__,,,,,,,,,__unknown__,truck
+711,unknown,19160.0,chevrolet,trailblazer,chevrolet__trailblazer,2023,54609.0,3,18203.0,0.35085791719313664,low,0,0,lt,,,,,,,,,__unknown__,suv
+712,unknown,54165.0,bmw,330,bmw__330,2026,12.0,0,12.0,4513.75,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+713,unknown,29208.0,kia,k5,kia__k5,2026,2.0,0,2.0,14604.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+714,unknown,25500.0,dodge,durango,dodge__durango,2021,97886.0,5,19577.2,0.2605071205279611,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+715,unknown,21000.0,alfa romeo,stelvio,alfa romeo__stelvio,2018,101061.0,8,12632.625,0.2077952919523852,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+716,unknown,17888.0,chevrolet,tahoe,chevrolet__tahoe,2016,121172.0,10,12117.2,0.1476248638299277,high,0,0,__rare__,,,,,,,,,__unknown__,suv
+717,unknown,15264.0,kia,forte,kia__forte,2023,57239.0,3,19079.666666666668,0.2666713254948549,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+718,unknown,42244.0,chevrolet,traverse,chevrolet__traverse,2026,6.0,0,6.0,7040.666666666667,very_low,0,1,lt,,,0.0,,,,,,__unknown__,suv
+719,unknown,18594.0,mitsubishi,outlander sport,mitsubishi__outlander sport,2020,40794.0,6,6799.0,0.45580232387115754,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+720,unknown,37490.0,ford,bronco sport,ford__bronco sport,2025,1178.0,1,1178.0,31.825127334465193,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+721,unknown,10900.0,ford,explorer,ford__explorer,2016,156107.0,10,15610.7,0.06982390283587539,high,0,0,xlt,,,,,,,,,__unknown__,suv
+722,unknown,14995.0,ford,f-150,ford__f-150,2014,144301.0,12,12025.083333333334,0.10391473378562865,high,0,0,xlt,,,,,,,,,__unknown__,truck
+723,unknown,28265.0,subaru,outback,subaru__outback,2025,28473.0,1,28473.0,0.9926948337021038,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+724,unknown,14300.0,ford,escape,ford__escape,2021,78747.0,5,15749.4,0.18159421946232873,medium,0,0,s,,,,,,,,,__unknown__,suv
+725,unknown,40644.0,cadillac,xt5,cadillac__xt5,2026,2.0,0,2.0,20322.0,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+726,unknown,28195.0,gmc,sierra 1500,gmc__sierra 1500,2018,99862.0,8,12482.75,0.2823396286875889,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+727,unknown,16995.0,jeep,wrangler unlimited,jeep__wrangler unlimited,2018,106376.0,8,13297.0,0.15976348048431976,medium,0,0,sport,,,,,,,,,__unknown__,suv
+728,unknown,24685.0,jeep,wrangler,jeep__wrangler,2021,22959.0,5,4591.8,1.0751774903088114,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+729,unknown,11556.0,infiniti,qx60,infiniti__qx60,2015,114844.0,11,10440.363636363636,0.10062345442513322,medium,1,0,base,,,,,,,,,__unknown__,suv
+730,unknown,48991.0,jeep,grand cherokee,jeep__grand cherokee,2025,5082.0,1,5082.0,9.640102321920503,very_low,0,1,limited,,,0.0,,,,,,__unknown__,suv
+731,unknown,23992.0,hyundai,elantra,hyundai__elantra,2025,17314.0,1,17314.0,1.3856994339840591,low,0,0,limited,,,,,,,,,__unknown__,sedan
+732,unknown,22995.0,chevrolet,colorado,chevrolet__colorado,2018,57628.0,8,7203.5,0.39902477962101757,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+733,unknown,45446.0,chrysler,pacifica,chrysler__pacifica,2026,5.0,0,5.0,9089.2,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,__rare__
+734,unknown,26500.0,subaru,legacy,subaru__legacy,2024,34726.0,2,17363.0,0.7631169728733513,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+735,unknown,12899.0,jeep,compass,jeep__compass,2020,126684.0,6,21114.0,0.10182027722522181,high,0,0,__rare__,,,,,,,,,__unknown__,suv
+736,unknown,23500.0,hyundai,venue,hyundai__venue,2026,12.0,0,12.0,1958.3333333333333,very_low,0,1,sel,,,0.0,,,,,,__unknown__,suv
+737,unknown,54777.0,gmc,yukon,gmc__yukon,2022,55895.0,4,13973.75,0.9799982109312103,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+738,unknown,90175.0,chevrolet,tahoe,chevrolet__tahoe,2026,3.0,0,3.0,30058.333333333332,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+739,unknown,24056.0,jeep,wrangler,jeep__wrangler,2020,24624.0,6,4104.0,0.9769330734243015,low,0,0,sport,,,,,,,,,__unknown__,suv
+740,unknown,67869.0,ram,2500,ram__2500,2026,15.0,0,15.0,4524.6,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+741,unknown,37900.0,jeep,grand cherokee l,jeep__grand cherokee l,2025,15420.0,1,15420.0,2.4578469520103763,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+742,unknown,26109.0,hyundai,elantra,hyundai__elantra,2026,17.0,0,17.0,1535.8235294117646,very_low,0,1,sport,,,0.0,,,,,,__unknown__,sedan
+743,unknown,54298.0,ram,2500,ram__2500,2024,0.0,2,0.0,,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+744,unknown,9775.0,chevrolet,impala,chevrolet__impala,2015,115923.0,11,10538.454545454546,0.08432321454758762,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+745,unknown,9995.0,chevrolet,malibu,chevrolet__malibu,2017,132720.0,9,14746.666666666666,0.07530892103676914,high,0,0,__rare__,,,,,,,,,__unknown__,sedan
+746,unknown,28937.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2020,54964.0,6,9160.666666666666,0.5264718724983626,low,0,0,lt,,,,,,,,,__unknown__,truck
+747,unknown,20500.0,nissan,altima,nissan__altima,2024,11985.0,2,5992.5,1.7104714226115978,very_low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+748,unknown,72726.0,ford,f-150,ford__f-150,2026,15.0,0,15.0,4848.4,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+749,unknown,13323.0,honda,accord,honda__accord,2017,142133.0,9,15792.555555555555,0.09373614853693371,high,0,0,__rare__,,,,,,,,,__unknown__,sedan
+750,unknown,12985.0,ford,f-150,ford__f-150,2014,123007.0,12,10250.583333333334,0.10556309803507118,high,0,0,xlt,,,,,,,,,__unknown__,truck
+751,unknown,27072.0,nissan,rogue,nissan__rogue,2026,7.0,0,7.0,3867.4285714285716,very_low,0,1,sv,,,0.0,,,,,,__unknown__,suv
+752,unknown,21500.0,nissan,titan xd,nissan__titan xd,2019,100005.0,7,14286.42857142857,0.21498925053747311,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+753,unknown,28702.0,ford,escape,ford__escape,2025,2895.0,1,2895.0,9.91433506044905,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+754,unknown,78784.0,lincoln,aviator,lincoln__aviator,2026,1900.0,0,1900.0,41.46526315789474,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+755,unknown,20495.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2017,133596.0,9,14844.0,0.15341028174496243,high,0,0,lt,,,,,,,,,__unknown__,truck
+756,unknown,18999.0,chevrolet,equinox,chevrolet__equinox,2020,76118.0,6,12686.333333333334,0.24959930634015606,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+757,unknown,37010.0,ram,1500 classic,ram__1500 classic,2024,10.0,2,5.0,3701.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+758,unknown,25691.0,buick,envista,buick__envista,2025,12496.0,1,12496.0,2.055937900128041,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+759,unknown,19995.0,subaru,outback,subaru__outback,2018,42131.0,8,5266.375,0.4745911561557998,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+760,unknown,14495.0,subaru,legacy,subaru__legacy,2016,80568.0,10,8056.8,0.1799101380200576,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+761,unknown,47977.0,chevrolet,tahoe,chevrolet__tahoe,2022,68320.0,4,17080.0,0.7022394613583138,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+762,unknown,18500.0,nissan,murano,nissan__murano,2020,57999.0,6,9666.5,0.31897101674166795,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+763,unknown,34357.0,ram,1500,ram__1500,2025,15.0,1,15.0,2290.4666666666667,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+764,unknown,35990.0,ford,maverick,ford__maverick,2025,4184.0,1,4184.0,8.601816443594647,very_low,0,0,__rare__,,,,,,,,,__unknown__,truck
+765,unknown,59497.0,jeep,wrangler,jeep__wrangler,2026,1570.0,0,1570.0,37.896178343949046,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+766,unknown,45995.0,land rover,range rover evoque,land rover__range rover evoque,2025,6310.0,1,6310.0,7.289223454833597,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+767,unknown,25995.0,toyota,camry hybrid,toyota__camry hybrid,2023,45796.0,3,15265.333333333334,0.5676259935365534,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+768,unknown,19000.0,nissan,frontier,nissan__frontier,2019,117731.0,7,16818.714285714286,0.1613848519081635,medium,0,0,sv,,,,,,,,,__unknown__,truck
+769,unknown,42969.0,gmc,yukon,gmc__yukon,2021,67488.0,5,13497.6,0.6366909672830725,medium,0,0,slt,,,,,,,,,__unknown__,suv
+770,unknown,19775.0,toyota,camry,toyota__camry,2022,109273.0,4,27318.25,0.18096876630091605,medium,0,0,se,,,,,,,,,__unknown__,sedan
+771,unknown,9991.0,lexus,rx 350,lexus__rx 350,2011,158959.0,15,10597.266666666666,0.0628526852836266,high,1,0,base,,,,,,,,,__unknown__,suv
+772,unknown,40415.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2024,70470.0,2,35235.0,0.5735064566482191,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+773,unknown,21617.0,chevrolet,equinox,chevrolet__equinox,2022,37702.0,4,9425.5,0.573364808232985,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+774,unknown,31495.0,ram,1500,ram__1500,2022,38321.0,4,9580.25,0.821873124396545,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+775,unknown,27290.0,subaru,ascent,subaru__ascent,2022,46636.0,4,11659.0,0.5851702547388283,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+776,unknown,14757.0,hyundai,tucson,hyundai__tucson,2017,77795.0,9,8643.888888888889,0.18969085416800566,medium,0,0,limited,,,,,,,,,__unknown__,suv
+777,unknown,34990.0,ram,1500,ram__1500,2019,39788.0,7,5684.0,0.8794108776515532,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+778,unknown,61000.0,lincoln,navigator,lincoln__navigator,2024,36475.0,2,18237.5,1.6723783413296778,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+779,unknown,53921.0,jeep,wrangler,jeep__wrangler,2025,151.0,1,151.0,357.0927152317881,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+780,unknown,20800.0,jeep,compass,jeep__compass,2019,52127.0,7,7446.714285714285,0.3990254570568036,low,0,0,limited,,,,,,,,,__unknown__,suv
+781,unknown,35889.0,lexus,rx 350,lexus__rx 350,2020,34590.0,6,5765.0,1.0375542064180399,low,1,0,base,,,,,,,,,__unknown__,suv
+782,unknown,54999.0,gmc,sierra 1500,gmc__sierra 1500,2024,30426.0,2,15213.0,1.807631630842043,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+783,unknown,17807.0,kia,forte,kia__forte,2023,57469.0,3,19156.333333333332,0.309854008247925,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+784,unknown,17697.0,subaru,outback,subaru__outback,2019,97823.0,7,13974.714285714286,0.18090837533095488,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+785,unknown,21989.0,chrysler,pacifica,chrysler__pacifica,2022,77504.0,4,19376.0,0.28371438893476464,medium,0,0,__rare__,,,,,,,,,__unknown__,__rare__
+786,unknown,32295.0,ram,1500,ram__1500,2019,64623.0,7,9231.857142857143,0.49974467294925956,medium,0,0,sport,,,,,,,,,__unknown__,truck
+787,unknown,27495.0,mazda,mazda3,mazda__mazda3,2026,1.0,0,1.0,27495.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+788,unknown,48025.0,jeep,grand cherokee,jeep__grand cherokee,2026,1.0,0,1.0,48025.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+789,unknown,31921.0,kia,sorento,kia__sorento,2023,28351.0,3,9450.333333333334,1.1259214842509964,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+790,unknown,20986.0,kia,k5,kia__k5,2022,97983.0,4,24495.75,0.21418001081820315,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+791,unknown,21694.0,jeep,compass,jeep__compass,2024,44759.0,2,22379.5,0.4846846444290534,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+792,unknown,24999.0,buick,envision,buick__envision,2023,56151.0,3,18717.0,0.4452102366832292,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+793,unknown,32790.0,nissan,frontier,nissan__frontier,2023,9338.0,3,3112.6666666666665,3.5114585564360676,very_low,0,0,sv,,,,,,,,,__unknown__,truck
+794,unknown,40150.0,bmw,x2,bmw__x2,2025,11100.0,1,11100.0,3.6171171171171173,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+795,unknown,92997.0,mercedes-benz,sprinter 3500,mercedes-benz__sprinter 3500,2019,32205.0,7,4600.714285714285,2.887657196087564,low,1,0,__rare__,,,,,,,,,__unknown__,__rare__
+796,unknown,29495.0,mercedes-benz,s-class,mercedes-benz__s-class,2018,90931.0,8,11366.375,0.3243668275945497,medium,1,0,__rare__,,,,,,,,,__unknown__,sedan
+797,unknown,20988.0,volvo,v60 cross country,volvo__v60 cross country,2020,103955.0,6,17325.833333333332,0.20189505074311,medium,1,0,__rare__,,,,,,,,,__unknown__,__rare__
+798,unknown,27084.0,honda,hr-v,honda__hr-v,2026,6.0,0,6.0,4514.0,very_low,0,1,lx,,,0.0,,,,,,__unknown__,suv
+799,unknown,24995.0,toyota,camry,toyota__camry,2025,57895.0,1,57895.0,0.43172985577338285,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+800,unknown,40840.0,acura,integra,acura__integra,2026,6.0,0,6.0,6806.666666666667,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,hatchback
+801,unknown,24086.0,nissan,altima,nissan__altima,2025,12.0,1,12.0,2007.1666666666667,very_low,0,1,sv,,,0.0,,,,,,__unknown__,sedan
+802,unknown,42899.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2025,31918.0,1,31918.0,1.3440378469828937,low,0,0,lt,,,,,,,,,__unknown__,truck
+803,unknown,21999.0,kia,carnival,kia__carnival,2022,108685.0,4,27171.25,0.20241063624235175,medium,0,0,__rare__,,,,,,,,,__unknown__,__rare__
+804,unknown,81800.0,ford,f-150,ford__f-150,2026,9.0,0,9.0,9088.888888888889,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+805,unknown,14495.0,mercedes-benz,c-class,mercedes-benz__c-class,2016,79773.0,10,7977.3,0.18170308249658407,medium,1,0,__rare__,,,,,,,,,__unknown__,sedan
+806,unknown,23500.0,mazda,cx-30,mazda__cx-30,2022,23466.0,4,5866.5,1.0014489047984318,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+807,unknown,39820.0,subaru,solterra,subaru__solterra,2026,1.0,0,1.0,39820.0,very_low,0,1,limited,,,0.0,,,,,,__unknown__,suv
+808,unknown,45999.0,mercedes-benz,gle 450,mercedes-benz__gle 450,2021,46606.0,5,9321.2,0.9869759258464575,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+809,unknown,14977.0,buick,encore,buick__encore,2020,51423.0,6,8570.5,0.29125099663574666,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+810,unknown,24975.0,dodge,durango,dodge__durango,2019,72191.0,7,10313.0,0.3459572522890665,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+811,unknown,37023.0,jeep,cherokee,jeep__cherokee,2026,19.0,0,19.0,1948.578947368421,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+812,unknown,25999.0,toyota,highlander hybrid,toyota__highlander hybrid,2020,112984.0,6,18830.666666666668,0.23011222828011046,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+813,unknown,26451.0,gmc,sierra 1500,gmc__sierra 1500,2014,44543.0,12,3711.9166666666665,0.5938306804660665,low,0,0,slt,,,,,,,,,__unknown__,truck
+814,unknown,22102.0,audi,q7,audi__q7,2019,60222.0,7,8603.142857142857,0.36700873434957326,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+815,unknown,44667.0,gmc,sierra 1500,gmc__sierra 1500,2025,21854.0,1,21854.0,2.043882126841768,low,0,0,slt,,,,,,,,,__unknown__,truck
+816,unknown,23500.0,honda,civic,honda__civic,2024,35971.0,2,17985.5,0.653304050485113,low,0,0,ex,,,,,,,,,__unknown__,sedan
+817,unknown,25991.0,jeep,grand cherokee l,jeep__grand cherokee l,2022,61123.0,4,15280.75,0.4252245472244491,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+818,unknown,12444.0,honda,accord,honda__accord,2013,73399.0,13,5646.076923076923,0.16953909453807273,medium,0,0,lx,,,,,,,,,__unknown__,sedan
+819,unknown,23066.0,nissan,rogue,nissan__rogue,2023,41962.0,3,13987.333333333334,0.5496878127829942,low,0,0,sv,,,,,,,,,__unknown__,suv
+820,unknown,39988.0,bmw,x3,bmw__x3,2024,14458.0,2,7229.0,2.765804398948679,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+821,unknown,33490.0,jeep,wrangler,jeep__wrangler,2022,28937.0,4,7234.25,1.1573418115215814,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+822,unknown,60016.0,ram,1500,ram__1500,2026,6.0,0,6.0,10002.666666666666,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,truck
+823,unknown,37794.0,jeep,wrangler,jeep__wrangler,2026,9.0,0,9.0,4199.333333333333,very_low,0,1,sport,,,0.0,,,,,,__unknown__,__rare__
+824,unknown,20995.0,ram,1500,ram__1500,2018,101632.0,8,12704.0,0.20657863664987405,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+825,unknown,19544.0,mazda,cx-5,mazda__cx-5,2018,55820.0,8,6977.5,0.35012540308133283,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+826,unknown,58690.0,ford,f-150,ford__f-150,2025,1159.0,1,1159.0,50.63848144952545,very_low,0,1,xlt,,,0.0,,,,,,__unknown__,truck
+827,unknown,14500.0,mitsubishi,outlander sport,mitsubishi__outlander sport,2022,56644.0,4,14161.0,0.25598474683991246,low,0,0,se,,,,,,,,,__unknown__,suv
+828,unknown,50595.0,kia,telluride,kia__telluride,2027,10.0,0,10.0,5059.5,very_low,0,1,ex,,,0.0,,,,,,__unknown__,suv
+829,unknown,39858.0,ford,ranger,ford__ranger,2026,3.0,0,3.0,13286.0,very_low,0,1,xlt,,,0.0,,,,,,__unknown__,truck
+830,unknown,33888.0,lexus,rx 350,lexus__rx 350,2022,101502.0,4,25375.5,0.3338653425548265,medium,1,0,base,,,,,,,,,__unknown__,suv
+831,unknown,39698.0,genesis,gv70,genesis__gv70,2025,20462.0,1,20462.0,1.940084058254325,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+832,unknown,21979.0,nissan,versa,nissan__versa,2025,10.0,1,10.0,2197.9,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,sedan
+833,unknown,11977.0,volvo,xc60,volvo__xc60,2016,96299.0,10,9629.9,0.12437304644908047,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+834,unknown,19199.0,nissan,sentra,nissan__sentra,2025,35984.0,1,35984.0,0.5335426856380614,low,0,0,sv,,,,,,,,,__unknown__,sedan
+835,unknown,48693.0,honda,passport,honda__passport,2026,9.0,0,9.0,5410.333333333333,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+836,unknown,29147.0,toyota,tacoma,toyota__tacoma,2021,85494.0,5,17098.8,0.3409245093222916,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+837,unknown,32981.0,ford,maverick,ford__maverick,2026,11.0,0,11.0,2998.2727272727275,very_low,0,1,xlt,,,0.0,,,,,,__unknown__,truck
+838,unknown,22995.0,chevrolet,traverse,chevrolet__traverse,2022,124249.0,4,31062.25,0.18507191204758186,high,0,0,__rare__,,,,,,,,,__unknown__,suv
+839,unknown,41721.0,gmc,acadia,gmc__acadia,2024,22063.0,2,11031.5,1.8909939718080044,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+840,unknown,8995.0,gmc,terrain,gmc__terrain,2017,120821.0,9,13424.555555555555,0.07444897824053766,high,0,0,__rare__,,,,,,,,,__unknown__,suv
+841,unknown,32093.0,nissan,kicks,nissan__kicks,2026,13.0,0,13.0,2468.6923076923076,very_low,0,1,sr,,,0.0,,,,,,__unknown__,suv
+842,unknown,29000.0,nissan,pathfinder,nissan__pathfinder,2024,24018.0,2,12009.0,1.2074277625114498,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+843,unknown,54790.0,bmw,x3,bmw__x3,2026,7.0,0,7.0,7827.142857142857,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+844,unknown,22695.0,volkswagen,atlas,volkswagen__atlas,2021,112750.0,5,22550.0,0.2012860310421286,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+845,unknown,28997.0,chevrolet,traverse,chevrolet__traverse,2020,55860.0,6,9310.0,0.5191013247404225,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+846,unknown,89995.0,land rover,range rover,land rover__range rover,2023,31907.0,3,10635.666666666666,2.8205409471275895,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+847,unknown,13315.0,jeep,compass,jeep__compass,2019,107004.0,7,15286.285714285714,0.12443460057567941,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+848,unknown,24500.0,polestar,2,polestar__2,2024,23962.0,2,11981.0,1.0224522160086804,low,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+849,unknown,26622.0,toyota,corolla cross,toyota__corolla cross,2026,1823.0,0,1823.0,14.603400987383434,very_low,0,0,__rare__,,,,,,,,,__unknown__,suv
+850,unknown,23938.0,volkswagen,tiguan,volkswagen__tiguan,2024,62928.0,2,31464.0,0.3804030002542588,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+851,unknown,29380.0,mazda,cx-30,mazda__cx-30,2026,1.0,0,1.0,29380.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+852,unknown,24230.0,hyundai,sonata,hyundai__sonata,2025,48318.0,1,48318.0,0.5014694316817749,low,0,0,sel,,,,,,,,,__unknown__,sedan
+853,unknown,43140.0,ford,mustang,ford__mustang,2026,5.0,0,5.0,8628.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,coupe
+854,unknown,19834.0,gmc,yukon,gmc__yukon,2016,130214.0,10,13021.4,0.15231849109926737,high,0,0,slt,,,,,,,,,__unknown__,suv
+855,unknown,31712.0,lexus,is 300,lexus__is 300,2022,73946.0,4,18486.5,0.42885348768019904,medium,1,0,base,,,,,,,,,__unknown__,sedan
+856,unknown,15488.0,ford,f-250,ford__f-250,2014,209249.0,12,17437.416666666668,0.0740170801294152,high,0,0,xlt,,,,,,,,,__unknown__,truck
+857,unknown,19943.0,chevrolet,equinox,chevrolet__equinox,2023,49261.0,3,16420.333333333332,0.4048435882341,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+858,unknown,26340.0,chevrolet,blazer,chevrolet__blazer,2025,31339.0,1,31339.0,0.8404862950317495,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+859,unknown,26777.0,jeep,compass,jeep__compass,2022,38078.0,4,9519.5,0.7032144545406797,low,0,0,limited,,,,,,,,,__unknown__,suv
+860,unknown,24795.0,hyundai,kona,hyundai__kona,2026,12.0,0,12.0,2066.25,very_low,0,1,se,,,0.0,,,,,,__unknown__,suv
+861,unknown,25940.0,chrysler,300,chrysler__300,2021,36281.0,5,7256.2,0.7149747801879772,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+862,unknown,30950.0,honda,civic si,honda__civic si,2026,10.0,0,10.0,3095.0,very_low,0,1,base,,,0.0,,,,,,__unknown__,sedan
+863,unknown,38287.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2020,28960.0,6,4826.666666666667,1.3220649171270717,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+864,unknown,18273.0,chevrolet,malibu,chevrolet__malibu,2024,54800.0,2,27400.0,0.33344890510948905,low,0,0,__rare__,,,,,,,,,__unknown__,sedan
+865,unknown,28300.0,nissan,pathfinder,nissan__pathfinder,2024,43423.0,2,21711.5,0.6517283467286922,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+866,unknown,34998.0,toyota,tacoma,toyota__tacoma,2022,35750.0,4,8937.5,0.978965034965035,low,0,0,sr,,,,,,,,,__unknown__,truck
+867,unknown,52995.0,ford,f-450,ford__f-450,2017,71977.0,9,7997.444444444444,0.736276866221154,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+868,unknown,49225.0,buick,enclave,buick__enclave,2025,21472.0,1,21472.0,2.2925204918032787,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+869,unknown,38989.0,kia,telluride,kia__telluride,2025,30212.0,1,30212.0,1.2905137031643055,low,0,0,s,,,,,,,,,__unknown__,suv
+870,unknown,35500.0,kia,ev6,kia__ev6,2025,6.0,1,6.0,5916.666666666667,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+871,unknown,26397.0,polestar,2,polestar__2,2023,31646.0,3,10548.666666666666,0.8341338557795615,low,0,0,__rare__,,,,,,,,,__unknown__,hatchback
+872,unknown,44534.0,nissan,pathfinder,nissan__pathfinder,2026,1.0,0,1.0,44534.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+873,unknown,10795.0,toyota,camry,toyota__camry,2017,118105.0,9,13122.777777777777,0.09140171880953389,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+874,unknown,53035.0,chevrolet,traverse,chevrolet__traverse,2026,3.0,0,3.0,17678.333333333332,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+875,unknown,29997.0,ford,f-150,ford__f-150,2021,52838.0,5,10567.6,0.5677164162156024,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+876,unknown,26991.0,alfa romeo,stelvio,alfa romeo__stelvio,2023,45922.0,3,15307.333333333334,0.5877575018509646,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+877,unknown,11495.0,lincoln,mkz,lincoln__mkz,2017,104798.0,9,11644.222222222223,0.10968720777114067,medium,1,0,__rare__,,,,,,,,,__unknown__,sedan
+878,unknown,21500.0,chrysler,pacifica,chrysler__pacifica,2023,84655.0,3,28218.333333333332,0.25397200401630143,medium,0,0,__rare__,,,,,,,,,__unknown__,__rare__
+879,unknown,64541.0,dodge,charger,dodge__charger,2026,14.0,0,14.0,4610.071428571428,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,coupe
+880,unknown,31980.0,jaguar,f-pace,jaguar__f-pace,2022,49273.0,4,12318.25,0.6490369979501959,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+881,unknown,22994.0,kia,sportage,kia__sportage,2025,22062.0,1,22062.0,1.0422445834466503,low,0,0,lx,,,,,,,,,__unknown__,suv
+882,unknown,56810.0,land rover,range rover evoque,land rover__range rover evoque,2026,10.0,0,10.0,5681.0,very_low,1,1,__rare__,,,0.0,,,,,,__unknown__,suv
+883,unknown,17900.0,jeep,cherokee,jeep__cherokee,2021,62532.0,5,12506.4,0.2862534382396213,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+884,unknown,30504.0,subaru,impreza,subaru__impreza,2026,1.0,0,1.0,30504.0,very_low,0,1,sport,,,0.0,,,,,,__unknown__,hatchback
+885,unknown,22300.0,mini,countryman,mini__countryman,2023,50982.0,3,16994.0,0.4374092817072692,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+886,unknown,61499.0,infiniti,qx60,infiniti__qx60,2026,669.0,0,669.0,91.92675635276532,very_low,1,0,__rare__,,,,,,,,,__unknown__,suv
+887,unknown,55774.0,buick,enclave,buick__enclave,2026,3.0,0,3.0,18591.333333333332,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+888,unknown,30840.0,chevrolet,equinox,chevrolet__equinox,2026,7.0,0,7.0,4405.714285714285,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+889,unknown,33000.0,volvo,xc90,volvo__xc90,2023,73208.0,3,24402.666666666668,0.4507704076057262,medium,1,0,__rare__,,,,,,,,,__unknown__,suv
+890,unknown,19200.0,nissan,pathfinder,nissan__pathfinder,2020,76814.0,6,12802.333333333334,0.24995443538938214,medium,0,0,s,,,,,,,,,__unknown__,suv
+891,unknown,49754.0,ford,mustang mach-e,ford__mustang mach-e,2025,6.0,1,6.0,8292.333333333334,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+892,unknown,31991.0,tesla,model 3,tesla__model 3,2024,25906.0,2,12953.0,1.234887670809851,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+893,unknown,55995.0,porsche,cayenne,porsche__cayenne,2023,17228.0,3,5742.666666666667,3.2502321801718135,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+894,unknown,27999.0,genesis,g70,genesis__g70,2024,48523.0,2,24261.5,0.5770253281948766,low,1,0,__rare__,,,,,,,,,__unknown__,sedan
+895,unknown,41758.0,jeep,grand cherokee l,jeep__grand cherokee l,2025,9.0,1,9.0,4639.777777777777,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+896,unknown,37443.0,hyundai,ioniq 6,hyundai__ioniq 6,2025,10.0,1,10.0,3744.3,very_low,0,1,se,,,0.0,,,,,,__unknown__,sedan
+897,unknown,25209.0,honda,cr-v,honda__cr-v,2020,53654.0,6,8942.333333333334,0.46984381406791664,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+898,unknown,15000.0,kia,forte,kia__forte,2022,70786.0,4,17696.5,0.21190630915717798,medium,0,0,__rare__,,,,,,,,,__unknown__,sedan
+899,unknown,34482.0,gmc,sierra 1500,gmc__sierra 1500,2022,134761.0,4,33690.25,0.2558752161233591,high,0,0,__rare__,,,,,,,,,__unknown__,truck
+900,unknown,17899.0,jeep,cherokee,jeep__cherokee,2021,71479.0,5,14295.8,0.25040921109696557,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+901,unknown,27962.0,bmw,x1,bmw__x1,2023,42171.0,3,14057.0,0.6630622939935027,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+902,unknown,24278.0,gmc,sierra 1500,gmc__sierra 1500,2018,71485.0,8,8935.625,0.3396236972791495,medium,0,0,__rare__,,,,,,,,,__unknown__,truck
+903,unknown,14695.0,ram,1500 classic,ram__1500 classic,2019,131162.0,7,18737.428571428572,0.11203702291822326,high,0,0,__rare__,,,,,,,,,__unknown__,truck
+904,unknown,32197.0,mazda,cx-5,mazda__cx-5,2025,1.0,1,1.0,32197.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+905,unknown,34599.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2022,58894.0,4,14723.5,0.5874791999184976,low,0,0,__rare__,,,,,,,,,__unknown__,truck
+906,unknown,23862.0,lincoln,corsair,lincoln__corsair,2022,44104.0,4,11026.0,0.5410393615091602,low,1,0,__rare__,,,,,,,,,__unknown__,suv
+907,unknown,28045.0,nissan,altima,nissan__altima,2025,9.0,1,9.0,3116.1111111111113,very_low,0,1,sr,,,0.0,,,,,,__unknown__,sedan
+908,unknown,28069.0,chevrolet,equinox ev,chevrolet__equinox ev,2026,5.0,0,5.0,5613.8,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+909,unknown,26866.0,buick,envista,buick__envista,2026,7.0,0,7.0,3838.0,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+910,unknown,37460.0,chrysler,voyager,chrysler__voyager,2026,11.0,0,11.0,3405.4545454545455,very_low,0,1,lx,,,0.0,,,,,,__unknown__,passenger van
+911,unknown,35995.0,chevrolet,traverse,chevrolet__traverse,2023,39518.0,3,13172.666666666666,0.9108507515562528,low,0,0,__rare__,,,,,,,,,__unknown__,suv
+912,unknown,40991.0,chevrolet,silverado 1500,chevrolet__silverado 1500,2026,30.0,0,30.0,1366.3666666666666,very_low,0,1,lt,,,0.0,,,,,,__unknown__,truck
+913,unknown,21695.0,jeep,wrangler unlimited,jeep__wrangler unlimited,2020,59756.0,6,9959.333333333334,0.3630597764241248,low,0,0,sport,,,,,,,,,__unknown__,suv
+914,unknown,32978.0,ford,bronco sport,ford__bronco sport,2025,47.0,1,47.0,701.6595744680851,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,suv
+915,unknown,22796.0,hyundai,kona,hyundai__kona,2024,21000.0,2,10500.0,1.0855238095238096,low,0,0,sel,,,,,,,,,__unknown__,suv
+916,unknown,12990.0,volkswagen,tiguan,volkswagen__tiguan,2014,68263.0,12,5688.583333333333,0.19029342396320115,medium,0,0,__rare__,,,,,,,,,__unknown__,suv
+917,unknown,44645.0,chrysler,pacifica,chrysler__pacifica,2026,9.0,0,9.0,4960.555555555556,very_low,0,1,__rare__,,,0.0,,,,,,__unknown__,passenger van
+918,unknown,36199.0,chevrolet,colorado,chevrolet__colorado,2025,8.0,1,8.0,4524.875,very_low,0,1,lt,,,0.0,,,,,,__unknown__,truck
+919,unknown,14444.0,subaru,forester,subaru__forester,2018,92092.0,8,11511.5,0.15684315684315683,medium,0,0,__rare__,,,,,,,,,__unknown__,suv

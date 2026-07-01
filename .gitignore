@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.env
+
+.ipynb_checkpoints/
+
+# Scraper/runtime logs
+*.log
+
+# Browser/debug artifacts
+chrome-debug-profile/
+
+# Temporary files
+*.tmp
+*.bak
