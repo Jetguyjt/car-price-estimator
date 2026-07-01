@@ -353,6 +353,16 @@ def main() -> None:
     # quick writeup
     write_quick_writeup(payload, pred_df, fi, artifact_dir / "quick_model_writeup.md")
 
+    # Version this model: snapshot the just-written artifacts into archive/vN/ and
+    # record them in the registry so a future retrain never clobbers this one.
+    import model_registry
+    rows = payload["dataset"]["rows_total"]
+    version = model_registry.register_current_model(
+        artifact_dir, metrics_payload=payload,
+        notes=f"trained on {rows} rows",
+    )
+    log(f"Registered model as v{version} (archived under {artifact_dir}/archive/v{version}/)")
+
     log(f"\nSaved artifacts to {artifact_dir}/")
 
 

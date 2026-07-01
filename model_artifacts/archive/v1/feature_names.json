@@ -1,0 +1,15 @@
+[
+  "region",
+  "make_model",
+  "year",
+  "mileage",
+  "car_age",
+  "miles_per_year",
+  "mileage_bucket",
+  "is_luxury_make",
+  "is_new",
+  "trim",
+  "owner_count",
+  "car_color",
+  "body_style"
+]

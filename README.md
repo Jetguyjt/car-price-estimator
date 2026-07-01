@@ -36,7 +36,7 @@ Full breakdown: `model_artifacts/eval/`.
 
 ## Project timeline
 
-This repository was initialized in **late June 2026** to preserve and publish the current working state of a local automotive ML research project. The project itself began earlier as local experiments and scripts around **late 2025**, before there was a formal GitHub history. As a result, the first commit is a repository baseline rather than the true beginning of the research work.
+This repository was initialized in **late June 2026** to preserve and publish the current working state of a local automotive ML research project. The project itself began earlier as local experiments and scripts around **November 2025**, before there was a formal GitHub history. As a result, the first commit is a repository baseline rather than the true beginning of the research work, and the earlier timeline is reconstructed from the local files rather than a commit log.
 
 
 ## Setup
@@ -141,6 +141,10 @@ The raw data collection policy is intentionally conservative:
   saved to `model_artifacts/category_levels.json` so an unseen make/model or trim at
   prediction time is flagged as **low-confidence** rather than silently guessed.
 - **Leakage:** `price_per_mile` is engineered for analysis but dropped before training.
+- **Versioning:** every training run snapshots its artifacts into `model_artifacts/archive/vN/`
+  and appends a row to [`model_artifacts/MODEL_HISTORY.md`](model_artifacts/MODEL_HISTORY.md),
+  so improving the model never overwrites the one it replaced. The live model in
+  `model_artifacts/` is always the latest version.
 
 ## Roadmap
 
