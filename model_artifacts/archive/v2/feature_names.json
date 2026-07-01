@@ -1,0 +1,23 @@
+[
+  "region",
+  "make_model",
+  "year",
+  "mileage",
+  "car_age",
+  "miles_per_year",
+  "mileage_bucket",
+  "is_luxury_make",
+  "is_new",
+  "trim",
+  "title_status",
+  "accident_history",
+  "owner_count",
+  "cpo",
+  "drivetrain",
+  "engine_size_l",
+  "transmission_type",
+  "fuel_type_group",
+  "mpg",
+  "car_color",
+  "body_style"
+]

@@ -1,47 +1,47 @@
 # Quick Model Writeup
 
-Generated: 2026-06-30 11:36:05
+Generated: 2026-06-30 20:10:57
 
 ## Setup
 - Model: lightgbm + quantile regression (q10/q50/q90) + mean point model
-- Rows: total 920, train 736, test 184
-- Features: 13 (6 categorical)
+- Rows: total 2535, train 2028, test 507
+- Features: 21 (11 categorical)
 
 ## Headline results
-- Test R2: 0.4224  (baseline R2: -0.0732)
-- Test MAE: $8,059  (baseline MAE: $12,504)
-- Test RMSE: $13,787
-- Test MAPE: 22.43%
+- Test R2: 0.7954  (baseline R2: -0.3191)
+- Test MAE: $3,045  (baseline MAE: $10,658)
+- Test RMSE: $7,775
+- Test MAPE: 21.78%
 
 ## Confidence band (q10–q90)
-- Coverage on test set: 70.1% (ideal ~80%)
-- Average band width: $19,942
+- Coverage on test set: 74.2% (ideal ~80%)
+- Average band width: $8,029
 
 ## Top features (gain)
 ```
-       feature  gain_importance  split_importance
-       mileage      1070.238483               947
-          year       961.694845               409
-    body_style       610.061009               118
-miles_per_year       473.242231               756
-is_luxury_make       363.409796               145
-    make_model       246.304361                39
-          trim       146.624600                53
-       car_age        60.075600                24
-mileage_bucket         0.413708                 1
-        region         0.000000                 0
+          feature  gain_importance  split_importance
+          mileage      8058.768274              5995
+             year      7687.702940              3023
+   miles_per_year      4370.199034              5960
+    engine_size_l      2348.680328              2750
+       make_model      2141.114743               725
+             trim      1188.143834               772
+          car_age      1034.077700               315
+        car_color       709.149108               629
+              cpo       539.965766               360
+transmission_type       506.373146               681
 ```
 
 ## Sample predictions
-- Closest call: predicted $18,832, actual $18,999, error $167
-- Worst miss:  predicted $28,056, actual $107,774, error $79,718
+- Closest call: predicted $3,898, actual $3,900, error $2
+- Worst miss:  predicted $20,208, actual $119,800, error $99,592
 
 ### Listings that look like deals (actual < q10):
-- listed $8,497, fair range $10,649–$20,988
-- listed $7,907, fair range $9,935–$25,361
-- listed $13,690, fair range $15,093–$25,433
+- listed $1,808, fair range $3,535–$6,178
+- listed $3,495, fair range $4,007–$5,556
+- listed $2,780, fair range $3,374–$5,443
 
 ### Listings that look overpriced (actual > q90):
-- listed $35,060, fair range $15,263–$27,493
-- listed $38,805, fair range $19,226–$34,458
-- listed $29,495, fair range $12,180–$22,120
+- listed $4,797, fair range $2,886–$4,592
+- listed $25,998, fair range $13,653–$17,840
+- listed $4,795, fair range $2,903–$4,468

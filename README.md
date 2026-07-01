@@ -20,19 +20,28 @@ with an honest evaluation of where the model works and where it doesn't.
 
 ## Results at a glance
 
-On a held-out test set (n = 184, ~900-listing snapshot):
+Current model is **v2**, trained on the cleaned 2,535-listing dataset. On a held-out
+test set (n = 507), every method is scored on the **same** test rows:
 
 | Method | MAE | R² | MAPE |
 |---|---|---|---|
-| **LightGBM (this model)** | **$8,059** | **0.422** | **22.4%** |
-| Global-median baseline | $12,504 | −0.073 | 42.2% |
-| Same make/model median | $12,536 | −0.031 | 44.5% |
-| Linear depreciation baseline | $9,897 | 0.284 | 29.5% |
+| **LightGBM (this model)** | **$3,045** | **0.795** | **21.8%** |
+| Global-median baseline | $10,658 | −0.319 | 50.5% |
+| Same make/model median | $8,373 | 0.233 | 75.3% |
+| Linear depreciation baseline | $4,371 | 0.671 | 36.6% |
 
-The model beats every baseline, but error is **not uniform**: it concentrates in luxury /
-high-price cars (luxury MAE $14.2k vs economy $6.3k), where comparable listings are sparse.
-The q10–q90 band currently covers 70% of test prices (target ~80% — slightly too narrow).
+The model outperforms the three simple baselines evaluated here. Error is **not
+uniform**: it concentrates in high-price / luxury cars, where comparable listings are
+sparse — the $80k+ band has ~$48k MAE (n = 7) and luxury MAE ($6.9k) is 3× economy
+($2.3k). The q10–q90 band covers 74% of test prices (target ~80% — still slightly narrow).
 Full breakdown: `model_artifacts/eval/`.
+
+> **On comparing to v1.** v1 (the ~900-row pre-enrichment baseline) reported $8,059 MAE /
+> 0.42 R² on a *different, more expensive* test set (median $28.7k vs v2's $5.0k), so the
+> raw MAE numbers are **not** directly comparable. The honest, like-for-like gains from v2
+> are: **R² 0.42 → 0.80**, eight added detail-page features (engine size is a top-5
+> driver), 2.75× more data, and interval coverage 70% → 74%. See
+> [`model_artifacts/MODEL_HISTORY.md`](model_artifacts/MODEL_HISTORY.md).
 
 ## Project timeline
 
