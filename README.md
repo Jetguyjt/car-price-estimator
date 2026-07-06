@@ -118,15 +118,21 @@ docs/   tests/   dev/probes/ (throwaway debug scripts)
 
 | Path | Purpose |
 |---|---|
-| `src/clean_raw_data.py` | Raw hygiene: dedup, impossible-value + payment-artifact removal; writes a cleaning report. |
-| `src/preprocess_cars_data.py` | Normalization + feature engineering; normalizers are unit-tested. |
-| `src/train_price_model.py` | LightGBM training; writes models + `metrics.json` + `category_levels.json`. |
-| `src/evaluate_model.py` | Baselines, segment error analysis, calibration, SHAP, KBB benchmark scaffold. |
-| `src/predict_listing.py` | Single-listing scoring: price band + verdict, with unseen-category warnings. |
+| `src/` | Reusable Python code for cleaning, training, evaluation, and prediction. |
+| `data/raw/` | Raw listing snapshots with source URLs and timestamps. |
+| `data/interim/` | Cleaned or balanced intermediate datasets, including `cars_com_balanced_training_view.csv`. |
+| `data/processed/` | Processed ML-ready datasets. |
+| `data/snapshots/` | Smaller historical snapshots used during development. |
+| `data/benchmarks/` | External benchmark templates such as KBB/Edmunds comparison scaffolds. |
+| `notebooks/` | Exploratory notebooks for dataset profiling and model analysis. |
+| `notes/` | Research notes and decision logs. |
+| `media/` | Portfolio images, diagrams, screenshots, and demo assets. |
+| `outputs/` | Exported portfolio/report outputs that should not break the training pipeline. |
+| `dev/probes/` | One-off browser/CDP probes used while debugging Cars.com rendering. |
 | `tests/` | Unit tests for the preprocessing normalizers. |
+| `docs/dataset_profile_2026-07-01.md` | Point-in-time July 1 raw dataset profile and balancing diagnosis. |
 | `docs/portfolio_summary.md` | Point-in-time portfolio summary from the initial repository setup. |
 | `model_artifacts/` | Trained models + metrics. `eval/` holds the evaluation report + plots. |
-| `data/benchmarks/benchmark_kbb.csv` | Hand-fill template to benchmark the model against KBB/Edmunds. |
 
 ## Data collection principles
 
