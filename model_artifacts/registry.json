@@ -1,5 +1,5 @@
 {
-  "latest_version": 2,
+  "latest_version": 3,
   "versions": [
     {
       "version": 1,
@@ -53,6 +53,33 @@
         "test_r2": 0.79536820148284,
         "test_mape_percent": 21.779190905993566,
         "interval_coverage_q10_q90": 0.7416173570019724
+      }
+    },
+    {
+      "version": 3,
+      "created_at": "2026-07-06T19:21:24",
+      "notes": "retrain on cleaned 12.6k-row dataset (5x v2). MAPE 21.8%->12.8% and R2 0.795->0.826 on a harder, 4.6x more expensive test set (median $23k vs $5k). Regression: q10-q90 coverage 74%->63% (band too narrow \u2014 recalibration is next).",
+      "archive_path": "archive/v3",
+      "artifacts": [
+        "lgbm_q10.pkl",
+        "lgbm_q50.pkl",
+        "lgbm_q90.pkl",
+        "lgbm_mean.pkl",
+        "feature_names.json",
+        "cat_features.json",
+        "category_levels.json",
+        "feature_importance.csv",
+        "test_predictions.csv",
+        "metrics.json",
+        "quick_model_writeup.md"
+      ],
+      "metrics": {
+        "rows_total": 12619,
+        "rows_test": 2524,
+        "test_mae": 3067.8605514277933,
+        "test_r2": 0.8260337936971787,
+        "test_mape_percent": 12.825668431837009,
+        "interval_coverage_q10_q90": 0.6351030110935024
       }
     }
   ]

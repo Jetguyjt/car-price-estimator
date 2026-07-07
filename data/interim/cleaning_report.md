@@ -1,18 +1,18 @@
 # Cleaning report
 
-- Rows in (raw): **2668**
-- Rows out (clean): **2615**
-- Total dropped: **53** (2.0%)
+- Rows in (raw): **13348**
+- Rows out (clean): **13003**
+- Total dropped: **345** (2.6%)
 
 | Reason | Rows dropped |
 |---|---|
 | Exact duplicate rows | 0 |
 | Duplicate listing_key (kept freshest) | 0 |
-| Missing required field | 29 |
+| Missing required field | 317 |
 | Price at/below $500 floor | 6 |
 | Mileage outside 0–350,000 | 7 |
-| Year outside 1990–next model year | 1 |
-| Payment-amount artifact | 10 |
+| Year outside 1990–next model year | 4 |
+| Payment-amount artifact | 11 |
 
 ### Payment-amount artifacts caught (examples)
 
