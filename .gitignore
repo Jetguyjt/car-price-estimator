@@ -22,3 +22,6 @@ chrome-debug-profile/
 # Temporary files
 *.tmp
 *.bak
+
+# Scraper pre-dedupe safety snapshots (throwaway; canonical data is cars_com_raw.csv)
+*.pre_dedupe_*.csv
