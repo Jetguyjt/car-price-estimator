@@ -33,6 +33,7 @@ import numpy as np
 import pandas as pd
 
 import paths
+import conformal
 
 
 ARTIFACT_DIR = paths.ARTIFACT_DIR
@@ -74,6 +75,7 @@ def _load() -> dict:
         "feature_names": feature_names,
         "cat_features": cat_features,
         "category_levels": category_levels,
+        "conformal_delta": conformal.load_delta(ARTIFACT_DIR),
     }
     return _CACHE
 
@@ -117,14 +119,18 @@ def evaluate(listing: Dict, asking_price: Optional[float] = None) -> Dict:
     """
     cache = _load()
     models = cache["models"]
+    delta = cache["conformal_delta"]
     x = _row_from_listing(listing, cache["feature_names"], cache["cat_features"])
 
-    pred = {name: float(np.expm1(m.predict(x)[0])) for name, m in models.items()}
+    # q10/q90 get the conformal (CQR) widening in log space; q50/mean are as-is.
+    lo = float(np.expm1(models["q10"].predict(x)[0] - delta))
+    hi = float(np.expm1(models["q90"].predict(x)[0] + delta))
+    median_raw = float(np.expm1(models["q50"].predict(x)[0]))
+    point = float(np.expm1(models["mean"].predict(x)[0]))
 
-    # Enforce a non-crossing band: q10 <= q50 <= q90 even if the independently
+    # Enforce a non-crossing band: lo <= median <= hi even if the independently
     # trained quantile models disagree for this particular input.
-    band_lo, median, band_hi = sorted([pred["q10"], pred["q50"], pred["q90"]])
-    point = pred["mean"]
+    band_lo, median, band_hi = sorted([lo, median_raw, hi])
 
     warnings = _unseen_category_warnings(listing, cache["category_levels"])
 

@@ -80,7 +80,7 @@
     "test_r2": 0.8260337936971787,
     "test_mape_percent": 12.825668431837009,
     "median_q50_mae": 3030.7598437484826,
-    "interval_coverage_q10_q90": 0.6351030110935024,
-    "interval_avg_width_dollars": 7238.059522321085
+    "interval_coverage_q10_q90": 0.7908082408874801,
+    "interval_avg_width_dollars": 9679.134401418414
   }
 }

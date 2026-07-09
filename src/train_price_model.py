@@ -29,6 +29,7 @@ from sklearn.model_selection import KFold, train_test_split
 import lightgbm as lgb
 
 import paths
+import conformal
 
 
 DATA_PATH = str(paths.PROCESSED_CSV)
@@ -51,6 +52,11 @@ CATEGORICAL_FEATURES = [
 TEST_SIZE = 0.20
 RANDOM_SEED = 42
 CV_FOLDS = 5
+
+# Conformal band calibration (CQR): fraction of the TRAIN split held out to calibrate
+# the q10/q90 interval, and the coverage the calibrated band targets.
+CALIBRATION_FRACTION = 0.20
+TARGET_COVERAGE = 0.80
 
 ARTIFACT_DIR = str(paths.ARTIFACT_DIR)
 
@@ -211,15 +217,36 @@ def main() -> None:
     cv = cv_score(lambda: make_lgbm("regression", params=best_params), x_train, y_train_log, cat_cols, folds=CV_FOLDS)
     log(f"CV MAE=${cv['cv_mae_mean']:,.0f} (+/- {cv['cv_mae_std']:,.0f}), R2={cv['cv_r2_mean']:.4f}")
 
+    # Hold out a calibration slice from train for conformal band calibration (CQR).
+    # The q10/q90 band models are fit on the proper-train slice only, so the
+    # calibration set is genuinely unseen and the coverage guarantee is honest.
+    x_ptrain, x_cal, y_ptrain, y_cal = train_test_split(
+        x_train, y_train, test_size=CALIBRATION_FRACTION, random_state=RANDOM_SEED,
+    )
+    y_ptrain_log = np.log1p(y_ptrain)
+    y_cal_log = np.log1p(y_cal)
+
     log("\n=== Training final models (q10, q50, q90) ===")
     models: Dict[str, lgb.LGBMRegressor] = {}
-    for name, alpha, objective in [
-        ("q10", 0.10, "quantile"),
-        ("q50", 0.50, "quantile"),
-        ("q90", 0.90, "quantile"),
-    ]:
-        log(f"  fitting {name}...")
-        m = make_lgbm(objective, alpha=alpha, params=best_params)
+
+    # Band models (q10, q90) train on the proper-train slice, leaving x_cal unseen.
+    for name, alpha in [("q10", 0.10), ("q90", 0.90)]:
+        log(f"  fitting {name} (on proper-train slice)...")
+        m = make_lgbm("quantile", alpha=alpha, params=best_params)
+        m.fit(
+            x_ptrain, y_ptrain_log,
+            categorical_feature=cat_cols if cat_cols else "auto",
+            eval_set=[(x_test, y_test_log)],
+            callbacks=[lgb.early_stopping(80, verbose=False)],
+        )
+        models[name] = m
+
+    # q50 (display median) and the mean point model train on the FULL train set so
+    # the headline point metrics don't pay for the calibration hold-out.
+    for name, objective, kw in [("q50", "quantile", {"alpha": 0.50}), ("mean", "regression", {})]:
+        label = "q50" if name == "q50" else "mean (regression L2) point"
+        log(f"  fitting {label} model (on full train)...")
+        m = make_lgbm(objective, params=best_params, **kw)
         m.fit(
             x_train, y_train_log,
             categorical_feature=cat_cols if cat_cols else "auto",
@@ -228,16 +255,17 @@ def main() -> None:
         )
         models[name] = m
 
-    # also a mean-objective model — better point estimate than q50 for MAE/R2
-    log("  fitting mean (regression L2) model for point estimate...")
-    point_model = make_lgbm("regression", params=best_params)
-    point_model.fit(
-        x_train, y_train_log,
-        categorical_feature=cat_cols if cat_cols else "auto",
-        eval_set=[(x_test, y_test_log)],
-        callbacks=[lgb.early_stopping(80, verbose=False)],
+    # Conformal calibration: measure how far actuals fall outside the raw band on the
+    # untouched calibration slice, and derive the additive log-space adjustment.
+    log("  calibrating conformal band (CQR)...")
+    cal_lo_log = models["q10"].predict(x_cal)
+    cal_hi_log = models["q90"].predict(x_cal)
+    log_delta = conformal.compute_log_delta(
+        cal_lo_log, cal_hi_log, y_cal_log, target_coverage=TARGET_COVERAGE,
     )
-    models["mean"] = point_model
+    conformal.save(ARTIFACT_DIR, log_delta, TARGET_COVERAGE, len(x_cal))
+    log(f"  conformal log-delta={log_delta:+.4f} (target coverage {TARGET_COVERAGE:.0%}, "
+        f"calibrated on {len(x_cal)} held-out rows)")
 
     # ------------------ evaluation in $ space ------------------
     pred_log_q10 = models["q10"].predict(x_test)
@@ -245,9 +273,10 @@ def main() -> None:
     pred_log_q90 = models["q90"].predict(x_test)
     pred_log_pt  = models["mean"].predict(x_test)
 
-    pred_q10 = np.expm1(pred_log_q10)
+    # Apply the conformal adjustment to widen (or tighten) the band in log space.
+    pred_q10 = np.expm1(pred_log_q10 - log_delta)
     pred_q50 = np.expm1(pred_log_q50)
-    pred_q90 = np.expm1(pred_log_q90)
+    pred_q90 = np.expm1(pred_log_q90 + log_delta)
     pred_pt  = np.expm1(pred_log_pt)
 
     actual = y_test.to_numpy()

@@ -50,6 +50,7 @@ from train_price_model import (
     prepare_features,
 )
 import paths
+import conformal
 
 ARTIFACT_DIR = paths.ARTIFACT_DIR
 EVAL_DIR = paths.EVAL_DIR
@@ -311,8 +312,15 @@ def main() -> None:
     models = load_models()
 
     # ---- point + quantile predictions (sorted to prevent crossing) ----
+    # Apply the conformal (CQR) adjustment to q10/q90 in log space before inverting,
+    # so reported coverage matches the band predict_listing.py actually serves.
+    log_delta = conformal.load_delta(ARTIFACT_DIR)
     pred_pt = predict_dollars(models["mean"], x_test)
-    q = {name: predict_dollars(models[name], x_test) for name in QUANTILE_MODELS}
+    q = {
+        "q10": np.expm1(models["q10"].predict(x_test) - log_delta),
+        "q50": predict_dollars(models["q50"], x_test),
+        "q90": np.expm1(models["q90"].predict(x_test) + log_delta),
+    }
     stacked = np.sort(np.vstack([q["q10"], q["q50"], q["q90"]]).T, axis=1)
     q["q10"], q["q50"], q["q90"] = stacked[:, 0], stacked[:, 1], stacked[:, 2]
 

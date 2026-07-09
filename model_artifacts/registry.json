@@ -1,5 +1,5 @@
 {
-  "latest_version": 3,
+  "latest_version": 4,
   "versions": [
     {
       "version": 1,
@@ -80,6 +80,34 @@
         "test_r2": 0.8260337936971787,
         "test_mape_percent": 12.825668431837009,
         "interval_coverage_q10_q90": 0.6351030110935024
+      }
+    },
+    {
+      "version": 4,
+      "created_at": "2026-07-08T00:07:11",
+      "notes": "conformalized quantile band (CQR): coverage 63%->79% (target 80%), same 12.6k data + identical point model as v3 so MAE/R2/MAPE unchanged. Fixes v3's band regression. See src/conformal.py + model_artifacts/conformal.json.",
+      "archive_path": "archive/v4",
+      "artifacts": [
+        "lgbm_q10.pkl",
+        "lgbm_q50.pkl",
+        "lgbm_q90.pkl",
+        "lgbm_mean.pkl",
+        "feature_names.json",
+        "cat_features.json",
+        "category_levels.json",
+        "feature_importance.csv",
+        "test_predictions.csv",
+        "metrics.json",
+        "quick_model_writeup.md",
+        "conformal.json"
+      ],
+      "metrics": {
+        "rows_total": 12619,
+        "rows_test": 2524,
+        "test_mae": 3067.8605514277933,
+        "test_r2": 0.8260337936971787,
+        "test_mape_percent": 12.825668431837009,
+        "interval_coverage_q10_q90": 0.7908082408874801
       }
     }
   ]

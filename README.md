@@ -20,7 +20,7 @@ with an honest evaluation of where the model works and where it doesn't.
 
 ## Results at a glance
 
-Current model is **v3**, trained on the cleaned 12,619-listing dataset. On a held-out
+Current model is **v4**, trained on the cleaned 12,619-listing dataset. On a held-out
 test set (n = 2,524), every method is scored on the **same** test rows:
 
 | Method | MAE | R² | MAPE |
@@ -30,19 +30,20 @@ test set (n = 2,524), every method is scored on the **same** test rows:
 | Same make/model median | $8,499 | 0.391 | 59.9% |
 | Linear depreciation baseline | $6,847 | 0.508 | 29.3% |
 
-The model outperforms the three simple baselines evaluated here. Error is **not
-uniform**: it concentrates in high-price / luxury cars, where comparable listings are
-sparse — the $80k+ band has ~$32k MAE (n = 31) and luxury MAE ($6.1k) is ~2.7× economy
-($2.2k). **Known regression:** the q10–q90 band currently covers only **63%** of test
-prices (target ~80%) — it is too narrow and quantile recalibration is the next fix.
-Full breakdown: `model_artifacts/eval/`.
+The model outperforms the three simple baselines evaluated here. The q10–q90 price band
+is **conformally calibrated (CQR)** and now covers **79%** of held-out prices against its
+80% target — up from 63% before calibration. Error is **not uniform**: it concentrates in
+high-price / luxury cars, where comparable listings are sparse — the $80k+ band has ~$32k
+MAE (n = 31) and luxury MAE ($6.1k) is ~2.7× economy ($2.2k). Closing that top-end gap
+(via targeted high-price scraping) is the main remaining lever. Full breakdown:
+`model_artifacts/eval/`.
 
 > **On comparing versions.** MAE is *not* comparable across versions because each was
-> tested on a differently-priced held-out set (v2's median $5.0k vs v3's $23.0k). The
-> honest, like-for-like story: v3 holds the same ~$3.0k MAE as v2 while its test set is
-> **4.6× more expensive**, and relative error (MAPE) nearly halves — **21.8% → 12.8%** —
-> on **5× more data** (2.5k → 12.6k rows). R² rises 0.795 → 0.826. The tradeoff is band
-> coverage (74% → 63%), now the top open issue. Full changelog:
+> tested on a differently-priced held-out set (v2's median $5.0k vs v3/v4's $23.0k). The
+> honest, like-for-like story: the v2→v3 jump to 12.6k rows nearly halved relative error
+> (**MAPE 21.8% → 12.8%**, R² 0.795 → 0.826) but left the band too narrow (63% coverage);
+> **v4 adds conformal calibration** to restore an honest ~80% band at **no cost to point
+> accuracy** (MAE/R²/MAPE identical to v3). Full changelog:
 > [`model_artifacts/MODEL_HISTORY.md`](model_artifacts/MODEL_HISTORY.md).
 
 ## Project timeline
