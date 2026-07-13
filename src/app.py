@@ -78,63 +78,65 @@ def main() -> None:
     makes = make_model_maps(levels)
     make_display = {_titly(m): m for m in sorted(makes)}
 
-    with st.form("attributes"):
-        st.subheader("Vehicle")
-        c1, c2, c3 = st.columns(3)
-        with c1:
-            make_disp = st.selectbox("Make", list(make_display.keys()))
-        make = make_display[make_disp]
-        with c2:
-            model_opts = makes.get(make, [])
-            model_disp = st.selectbox("Model", [_titly(m) for m in model_opts]) if model_opts else ""
-            model = model_opts[[_titly(m) for m in model_opts].index(model_disp)] if model_opts else ""
-        with c3:
-            year = st.number_input("Year", min_value=1990, max_value=2027, value=2020, step=1)
+    # NOTE: no st.form here — the Make→Model dropdowns must cascade live, and inside a
+    # form widgets don't rerun until submit (so Model would stay stuck on Acura's list).
+    st.subheader("Vehicle")
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        make_disp = st.selectbox("Make", list(make_display.keys()), key="make")
+    make = make_display[make_disp]
+    with c2:
+        model_opts = makes.get(make, [])
+        model_display = [_titly(m) for m in model_opts]
+        model_disp = st.selectbox("Model", model_display, key="model") if model_display else ""
+        model = model_opts[model_display.index(model_disp)] if model_disp else ""
+    with c3:
+        year = st.number_input("Year", min_value=1990, max_value=2027, value=2020, step=1)
 
-        c4, c5, c6 = st.columns(3)
-        with c4:
-            mileage = st.number_input("Mileage", min_value=0, max_value=350000, value=40000, step=1000)
-        with c5:
-            trim = st.selectbox("Trim", [NOT_SPECIFIED] + clean_options(levels, "trim"))
-        with c6:
-            body_style = st.selectbox("Body style", [NOT_SPECIFIED] + clean_options(levels, "body_style"))
+    c4, c5, c6 = st.columns(3)
+    with c4:
+        mileage = st.number_input("Mileage", min_value=0, max_value=350000, value=40000, step=1000)
+    with c5:
+        trim = st.selectbox("Trim", [NOT_SPECIFIED] + clean_options(levels, "trim"))
+    with c6:
+        body_style = st.selectbox("Body style", [NOT_SPECIFIED] + clean_options(levels, "body_style"))
 
-        st.subheader("Drivetrain & condition")
-        c7, c8, c9 = st.columns(3)
-        with c7:
-            drivetrain = st.selectbox("Drivetrain", [NOT_SPECIFIED] + clean_options(levels, "drivetrain"))
-        with c8:
-            transmission = st.selectbox("Transmission", [NOT_SPECIFIED] + clean_options(levels, "transmission_type"))
-        with c9:
-            fuel = st.selectbox("Fuel", [NOT_SPECIFIED] + clean_options(levels, "fuel_type_group"))
+    st.subheader("Drivetrain & condition")
+    c7, c8, c9 = st.columns(3)
+    with c7:
+        drivetrain = st.selectbox("Drivetrain", [NOT_SPECIFIED] + clean_options(levels, "drivetrain"))
+    with c8:
+        transmission = st.selectbox("Transmission", [NOT_SPECIFIED] + clean_options(levels, "transmission_type"))
+    with c9:
+        fuel = st.selectbox("Fuel", [NOT_SPECIFIED] + clean_options(levels, "fuel_type_group"))
 
-        c10, c11, c12 = st.columns(3)
-        with c10:
-            color = st.selectbox("Color", [NOT_SPECIFIED] + clean_options(levels, "car_color"))
-        with c11:
-            title_status = st.selectbox("Title", [NOT_SPECIFIED] + clean_options(levels, "title_status"))
-        with c12:
-            accident = st.selectbox("Accident history", [NOT_SPECIFIED] + clean_options(levels, "accident_history"))
+    c10, c11, c12 = st.columns(3)
+    with c10:
+        color = st.selectbox("Color", [NOT_SPECIFIED] + clean_options(levels, "car_color"))
+    with c11:
+        title_status = st.selectbox("Title", [NOT_SPECIFIED] + clean_options(levels, "title_status"))
+    with c12:
+        accident = st.selectbox("Accident history", [NOT_SPECIFIED] + clean_options(levels, "accident_history"))
 
-        st.subheader("Optional detail (leave blank if unknown)")
-        c13, c14, c15 = st.columns(3)
-        with c13:
-            engine = st.number_input("Engine (L)", min_value=0.0, max_value=8.5, value=None, step=0.1, format="%.1f")
-        with c14:
-            mpg = st.number_input("MPG", min_value=0, max_value=150, value=None, step=1)
-        with c15:
-            owner_count = st.number_input("Prior owners", min_value=0, max_value=15, value=None, step=1)
+    st.subheader("Optional detail (leave blank if unknown)")
+    c13, c14, c15 = st.columns(3)
+    with c13:
+        engine = st.number_input("Engine (L)", min_value=0.0, max_value=8.5, value=None, step=0.1, format="%.1f")
+    with c14:
+        mpg = st.number_input("MPG", min_value=0, max_value=150, value=None, step=1)
+    with c15:
+        owner_count = st.number_input("Prior owners", min_value=0, max_value=15, value=None, step=1)
 
-        c16, c17 = st.columns(2)
-        with c16:
-            cpo = st.checkbox("Certified pre-owned (CPO)")
-        with c17:
-            is_new = st.checkbox("New (0 prior owners)")
+    c16, c17 = st.columns(2)
+    with c16:
+        cpo = st.checkbox("Certified pre-owned (CPO)")
+    with c17:
+        is_new = st.checkbox("New (0 prior owners)")
 
-        st.subheader("Price to judge")
-        asking_price = st.number_input("Asking price ($)", min_value=0, max_value=1_000_000, value=20000, step=500)
+    st.subheader("Price to judge")
+    asking_price = st.number_input("Asking price ($)", min_value=0, max_value=1_000_000, value=20000, step=500)
 
-        submitted = st.form_submit_button("Estimate price", type="primary", use_container_width=True)
+    submitted = st.button("Estimate price", type="primary", use_container_width=True)
 
     if not submitted:
         return
