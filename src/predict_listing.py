@@ -26,6 +26,7 @@ Notes on correctness:
 
 import json
 import pickle
+from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -45,6 +46,85 @@ HIGH_IMPACT_CATEGORICALS = ("make_model", "trim")
 
 # Module-level cache so the 4 pickles + metadata load once, not on every call.
 _CACHE: Optional[dict] = None
+
+
+def assemble_listing(
+    make: str,
+    model: str,
+    year,
+    mileage,
+    *,
+    trim=None,
+    body_style=None,
+    drivetrain=None,
+    transmission_type=None,
+    fuel_type_group=None,
+    car_color=None,
+    title_status=None,
+    accident_history=None,
+    engine_size_l=None,
+    mpg=None,
+    owner_count=None,
+    cpo=None,
+    region="unknown",
+    is_new=False,
+) -> Dict:
+    """Turn user-entered primary attributes into the full feature dict the model
+    expects, deriving the engineered columns (make_model, car_age, miles_per_year,
+    mileage_bucket, is_luxury_make) exactly as the training pipeline does.
+
+    Kept here (not in the app) so the derivation is reusable and unit-testable, and
+    so it shares the luxury/mileage-bucket definitions with preprocess_cars_data.
+    """
+    import preprocess_cars_data as pp
+
+    make_l = (make or "").strip().lower()
+    model_l = (model or "").strip().lower()
+
+    year_val = pd.to_numeric(year, errors="coerce")
+    mileage_val = pd.to_numeric(mileage, errors="coerce")
+
+    current_year = datetime.now().year
+    car_age = None
+    if pd.notna(year_val):
+        car_age = max(current_year - int(year_val), 0)
+
+    miles_per_year = None
+    if pd.notna(mileage_val) and car_age is not None:
+        miles_per_year = float(mileage_val) / max(car_age, 1)
+
+    def _norm(v):
+        # Blank strings become None so unseen-category logic and the model see NaN.
+        if v is None:
+            return None
+        s = str(v).strip()
+        return s if s else None
+
+    return {
+        "make": make_l,
+        "model": model_l,
+        "make_model": f"{make_l}__{model_l}" if make_l and model_l else None,
+        "year": float(year_val) if pd.notna(year_val) else None,
+        "mileage": float(mileage_val) if pd.notna(mileage_val) else None,
+        "car_age": car_age,
+        "miles_per_year": miles_per_year,
+        "mileage_bucket": pp.mileage_bucket(mileage_val if pd.notna(mileage_val) else None),
+        "is_luxury_make": int(make_l in pp.LUXURY_MAKES),
+        "is_new": int(bool(is_new)),
+        "trim": _norm(trim),
+        "body_style": _norm(body_style),
+        "drivetrain": _norm(drivetrain),
+        "transmission_type": _norm(transmission_type),
+        "fuel_type_group": _norm(fuel_type_group),
+        "car_color": _norm(car_color),
+        "title_status": _norm(title_status),
+        "accident_history": _norm(accident_history),
+        "engine_size_l": pd.to_numeric(engine_size_l, errors="coerce") if engine_size_l not in (None, "") else None,
+        "mpg": pd.to_numeric(mpg, errors="coerce") if mpg not in (None, "") else None,
+        "owner_count": pd.to_numeric(owner_count, errors="coerce") if owner_count not in (None, "") else None,
+        "cpo": int(bool(cpo)) if cpo is not None else None,
+        "region": _norm(region) or "unknown",
+    }
 
 
 def _load() -> dict:

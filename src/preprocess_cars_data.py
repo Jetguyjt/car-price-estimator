@@ -42,6 +42,29 @@ MIN_TRIM_COUNT = 10
 MIN_BODY_STYLE_COUNT = 10
 MIN_COLOR_COUNT = 10
 
+# Shared feature-engineering definitions. These are module-level (not buried inside
+# the pipeline) so the inference path — e.g. the web app assembling a single listing —
+# derives mileage_bucket / is_luxury_make exactly the way training does. One source of
+# truth prevents train/serve skew.
+MILEAGE_BUCKET_BINS = [-1, 15000, 60000, 120000, float("inf")]
+MILEAGE_BUCKET_LABELS = ["very_low", "low", "medium", "high"]
+
+LUXURY_MAKES = {
+    "acura", "alfa romeo", "aston martin", "audi", "bentley", "bmw", "cadillac",
+    "genesis", "infiniti", "jaguar", "land rover", "lexus", "lincoln", "lucid",
+    "maserati", "mercedes-benz", "mercedes", "porsche", "rolls-royce", "volvo",
+    "ferrari", "lamborghini", "mclaren", "rivian", "tesla",
+}
+
+
+def mileage_bucket(mileage) -> Optional[str]:
+    """Bucket a single mileage value using the same bins as the training pipeline."""
+    if mileage is None or (isinstance(mileage, float) and pd.isna(mileage)):
+        return None
+    series = pd.cut([mileage], bins=MILEAGE_BUCKET_BINS, labels=MILEAGE_BUCKET_LABELS)
+    value = series[0]
+    return None if pd.isna(value) else str(value)
+
 
 def log(message: str) -> None:
     if VERBOSE:
@@ -303,17 +326,11 @@ def preprocess_for_model(df: pd.DataFrame) -> pd.DataFrame:
 
     out["mileage_bucket"] = pd.cut(
         out["mileage"],
-        bins=[-1, 15000, 60000, 120000, float("inf")],
-        labels=["very_low", "low", "medium", "high"],
+        bins=MILEAGE_BUCKET_BINS,
+        labels=MILEAGE_BUCKET_LABELS,
     ).astype("string")
 
-    luxury_makes = {
-        "acura", "alfa romeo", "aston martin", "audi", "bentley", "bmw", "cadillac",
-        "genesis", "infiniti", "jaguar", "land rover", "lexus", "lincoln", "lucid",
-        "maserati", "mercedes-benz", "mercedes", "porsche", "rolls-royce", "volvo",
-        "ferrari", "lamborghini", "mclaren", "rivian", "tesla",
-    }
-    out["is_luxury_make"] = out["make"].isin(luxury_makes).astype(int)
+    out["is_luxury_make"] = out["make"].isin(LUXURY_MAKES).astype(int)
 
     out["is_new"] = (out.get("stock_type", pd.Series(index=out.index, dtype="object")).astype(str).str.lower() == "new").astype(int)
 

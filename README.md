@@ -93,6 +93,17 @@ python3 src/predict_listing.py     # edit EXAMPLE_LISTING inside the file
 Steps 2 and 3 accept optional `input.csv output.csv` overrides; with no arguments
 they use the `data/` layout above.
 
+### Local web app (attribute enterer)
+
+A Streamlit front end wraps the model: pick a car's attributes and get the estimated
+price, a conformally-calibrated fair-price band, and a deal / fair / overpriced verdict.
+Dropdowns are populated from the model's own trained vocabularies, so an unseen make/model
+or trim surfaces a low-confidence warning.
+
+```bash
+python3 -m streamlit run src/app.py     # opens http://localhost:8501
+```
+
 Run the tests:
 
 ```bash
@@ -107,7 +118,9 @@ src/                          pipeline code (paths resolved via src/paths.py)
   preprocess_cars_data.py     normalization + feature engineering
   train_price_model.py        LightGBM quantile + point training
   evaluate_model.py           baselines, segments, calibration, SHAP
-  predict_listing.py          single-listing scoring
+  predict_listing.py          single-listing scoring (+ assemble_listing helper)
+  conformal.py                CQR band calibration
+  app.py                      Streamlit attribute-enterer front end
   paths.py                    single source of truth for all data/artifact paths
 data/
   raw/         immutable scraper output (cars_com_raw.csv)
@@ -166,13 +179,19 @@ The raw data collection policy is intentionally conservative:
 
 ## Roadmap
 
-This snapshot is the **ML + evaluation core**. Planned next:
+Done so far:
 
-1. **Scale the data** to 10–20k listings and populate detail-page fields (drivetrain, fuel,
-   MPG, accidents) — the biggest lever on accuracy and the luxury blind spot.
+- ✅ **Scaled the data** to ~12.6k cleaned listings with detail-page fields.
+- ✅ **Honest confidence band** — conformal (CQR) calibration to ~80% coverage.
+- ✅ **Local web app** — Streamlit attribute-enterer → price band + verdict + warnings.
+
+Planned next:
+
+1. **Close the luxury blind spot** — targeted collection of high-price listings (the
+   $80k+ segment is still the weakest, ~$32k MAE on few comparables).
 2. attribute entry - map plain-language vehicle details to the
-   model's schema (constrained by `category_levels.json`).
-3. **Web app** — text box → extracted attributes → price band + verdict + SHAP "why".
-4. **External benchmark** vs KBB/Edmunds; quantile recalibration for honest 80% coverage.
+   model's schema (constrained by `category_levels.json`) and feeds the same web app.
+3. **Per-listing "why"** — surface SHAP contributions in the app, not just warnings.
+4. **External benchmark** vs KBB/Edmunds on a hand-collected sample.
 
 See `model_artifacts/eval/` for the full methodology and the limitations section.

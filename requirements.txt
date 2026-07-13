@@ -19,6 +19,9 @@ lightgbm==4.6.0
 shap==0.52.0
 matplotlib==3.11.0
 
+# --- local front end (attribute-enterer demo) ---
+streamlit>=1.40.0
+
 # --- optional API prototype dependencies; no API server was completed in this phase ---
 fastapi>=0.115.0
 uvicorn[standard]>=0.32.0
