@@ -169,8 +169,9 @@ The raw data collection policy is intentionally conservative:
   never crosses.
 - **Point estimate:** a separate L2 model (better MAE/R² than q50 alone).
 - **Categoricals:** LightGBM handles them natively. The exact levels seen in training are
-  saved to `model_artifacts/category_levels.json` so an unseen make/model or trim at
-  prediction time is flagged as **low-confidence** rather than silently guessed.
+  saved to `model_artifacts/category_levels.json`, and their per-value counts to
+  `category_counts.json`, so a make/model that is unseen **or too sparse** (e.g. a BMW M3
+  with only ~5 listings) is flagged as **low-confidence** rather than silently guessed.
 - **Leakage:** `price_per_mile` is engineered for analysis but dropped before training.
 - **Versioning:** every training run snapshots its artifacts into `model_artifacts/archive/vN/`
   and appends a row to [`model_artifacts/MODEL_HISTORY.md`](model_artifacts/MODEL_HISTORY.md),

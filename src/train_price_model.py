@@ -342,6 +342,16 @@ def main() -> None:
     }
     (artifact_dir / "category_levels.json").write_text(json.dumps(category_levels, indent=2))
 
+    # Category counts: how many training rows back each make_model / trim. Prediction
+    # uses these to flag sparsely-observed values (e.g. a make_model with a handful of
+    # listings) as low-confidence, not just entirely-unseen ones.
+    HIGH_IMPACT_CATEGORICALS = ("make_model", "trim")
+    category_counts = {
+        c: {str(k): int(v) for k, v in x_train[c].value_counts().items()}
+        for c in HIGH_IMPACT_CATEGORICALS if c in x_train.columns
+    }
+    (artifact_dir / "category_counts.json").write_text(json.dumps(category_counts, indent=2))
+
     # feature importance from q50 (median model)
     fi = pd.DataFrame({
         "feature": feature_names,

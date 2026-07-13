@@ -37,8 +37,9 @@ from typing import Dict, List, Optional
 ARTIFACT_FILE_NAMES = [
     "lgbm_q10.pkl", "lgbm_q50.pkl", "lgbm_q90.pkl", "lgbm_mean.pkl",
     "feature_names.json", "cat_features.json", "category_levels.json",
-    "feature_importance.csv", "test_predictions.csv", "metrics.json",
-    "quick_model_writeup.md", "conformal.json",
+    "category_counts.json", "feature_importance.csv", "test_predictions.csv",
+    "metrics.json", "quick_model_writeup.md", "conformal.json",
+    "conformal_mondrian.json", "make_model_price_enc.json",
 ]
 
 REGISTRY_NAME = "registry.json"

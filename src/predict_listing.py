@@ -44,6 +44,11 @@ MODEL_FILES = {"q10": "lgbm_q10.pkl", "q50": "lgbm_q50.pkl", "q90": "lgbm_q90.pk
 # (make_model and trim carry most of the signal; an unseen region/color matters less.)
 HIGH_IMPACT_CATEGORICALS = ("make_model", "trim")
 
+# A make_model the model saw only a handful of times can't be trusted much more than
+# an unseen one — e.g. a BMW M3 with 5 training listings. Below this count we flag the
+# estimate as low-confidence so the number isn't taken at face value.
+MIN_CONFIDENT_MAKE_MODEL_COUNT = 15
+
 # Module-level cache so the 4 pickles + metadata load once, not on every call.
 _CACHE: Optional[dict] = None
 
@@ -145,6 +150,14 @@ def _load() -> dict:
         with open(levels_path) as f:
             category_levels = json.load(f)
 
+    # category_counts.json (how many training rows each make_model/trim had) is also
+    # optional; used to flag sparsely-observed categories as low-confidence.
+    category_counts: Dict[str, Dict[str, int]] = {}
+    counts_path = ARTIFACT_DIR / "category_counts.json"
+    if counts_path.exists():
+        with open(counts_path) as f:
+            category_counts = json.load(f)
+
     models = {}
     for name, fname in MODEL_FILES.items():
         with open(ARTIFACT_DIR / fname, "rb") as f:
@@ -155,6 +168,7 @@ def _load() -> dict:
         "feature_names": feature_names,
         "cat_features": cat_features,
         "category_levels": category_levels,
+        "category_counts": category_counts,
         "conformal_delta": conformal.load_delta(ARTIFACT_DIR),
     }
     return _CACHE
@@ -173,8 +187,17 @@ def _row_from_listing(listing: Dict, feature_names, cat_features) -> pd.DataFram
     return df
 
 
-def _unseen_category_warnings(listing: Dict, category_levels: Dict[str, List]) -> List[str]:
-    """Flag high-impact categorical values the model never saw in training."""
+def _confidence_warnings(
+    listing: Dict,
+    category_levels: Dict[str, List],
+    category_counts: Dict[str, Dict[str, int]],
+) -> List[str]:
+    """Flag high-impact categorical values that are unseen OR too sparse to trust.
+
+    An unseen make_model/trim has no comparables at all; a *sparse* one (e.g. a BMW M3
+    with only 5 training listings) has too few for the model to price reliably. Both
+    make the estimate low-confidence, so we surface them the same way.
+    """
     warnings: List[str] = []
     for col in HIGH_IMPACT_CATEGORICALS:
         known = category_levels.get(col)
@@ -183,10 +206,21 @@ def _unseen_category_warnings(listing: Dict, category_levels: Dict[str, List]) -
         value = listing.get(col)
         if value is None or (isinstance(value, float) and pd.isna(value)):
             continue
+        # Display make_model as "BMW M3" rather than the raw "bmw__m3" slug.
+        shown = str(value).replace("__", " ").title() if col == "make_model" else f"'{value}'"
+        label = "make/model" if col == "make_model" else col
         if value not in known:
             warnings.append(
-                f"'{value}' is an unseen {col}; the model has no comparable listings "
+                f"{shown} is an unseen {label}; the model has no comparable listings "
                 f"for it, so this estimate is low-confidence."
+            )
+            continue
+        count = category_counts.get(col, {}).get(value)
+        if count is not None and count < MIN_CONFIDENT_MAKE_MODEL_COUNT:
+            warnings.append(
+                f"{shown} appears in only {count} training listing(s) — too few for a "
+                f"reliable estimate, especially outside the mileage/year range of those "
+                f"few examples. Treat this as a rough, low-confidence figure."
             )
     return warnings
 
@@ -212,7 +246,7 @@ def evaluate(listing: Dict, asking_price: Optional[float] = None) -> Dict:
     # trained quantile models disagree for this particular input.
     band_lo, median, band_hi = sorted([lo, median_raw, hi])
 
-    warnings = _unseen_category_warnings(listing, cache["category_levels"])
+    warnings = _confidence_warnings(listing, cache["category_levels"], cache["category_counts"])
 
     out = {
         "predicted_price": round(point),
