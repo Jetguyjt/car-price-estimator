@@ -85,6 +85,10 @@ def assemble_listing(
 
     make_l = (make or "").strip().lower()
     model_l = (model or "").strip().lower()
+    # Trim is lowercased to match the training vocabulary, and any sub-model tokens
+    # the source left in it are folded back into the model, exactly as training does.
+    trim_l = str(trim).strip().lower() if trim not in (None, "") else None
+    model_l, trim_l = pp.repair_split_model(make_l, model_l, trim_l)
 
     year_val = pd.to_numeric(year, errors="coerce")
     mileage_val = pd.to_numeric(mileage, errors="coerce")
@@ -116,7 +120,8 @@ def assemble_listing(
         "mileage_bucket": pp.mileage_bucket(mileage_val if pd.notna(mileage_val) else None),
         "is_luxury_make": int(make_l in pp.LUXURY_MAKES),
         "is_new": int(bool(is_new)),
-        "trim": _norm(trim),
+        "trim": _norm(trim_l),
+        "trim_tier": pp.trim_tier(make_l, model_l, trim_l),
         "body_style": _norm(body_style),
         "drivetrain": _norm(drivetrain),
         "transmission_type": _norm(transmission_type),
@@ -158,12 +163,20 @@ def _load() -> dict:
         with open(counts_path) as f:
             category_counts = json.load(f)
 
+    # make_model target encoding (optional; artifacts before v7 predate it).
+    mm_price_enc: Optional[Dict] = None
+    enc_path = ARTIFACT_DIR / "make_model_price_enc.json"
+    if enc_path.exists():
+        with open(enc_path) as f:
+            mm_price_enc = json.load(f)
+
     models = {}
     for name, fname in MODEL_FILES.items():
         with open(ARTIFACT_DIR / fname, "rb") as f:
             models[name] = pickle.load(f)
 
     _CACHE = {
+        "mm_price_enc": mm_price_enc,
         "models": models,
         "feature_names": feature_names,
         "cat_features": cat_features,
@@ -234,6 +247,16 @@ def evaluate(listing: Dict, asking_price: Optional[float] = None) -> Dict:
     cache = _load()
     models = cache["models"]
     delta = cache["conformal_delta"]
+
+    # Derive the make_model target-encoding feature the same way training did:
+    # the smoothed typical log-price of this model line, prior if never seen.
+    if cache["mm_price_enc"] is not None:
+        enc = cache["mm_price_enc"]
+        listing = dict(listing)
+        listing["make_model_price_enc"] = enc["encoding"].get(
+            str(listing.get("make_model")), enc["prior"]
+        )
+
     x = _row_from_listing(listing, cache["feature_names"], cache["cat_features"])
 
     # q10/q90 get the conformal (CQR) widening in log space; q50/mean are as-is.

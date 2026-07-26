@@ -20,30 +20,36 @@ with an honest evaluation of where the model works and where it doesn't.
 
 ## Results at a glance
 
-Current model is **v4**, trained on the cleaned 12,619-listing dataset. On a held-out
-test set (n = 2,524), every method is scored on the **same** test rows:
+Current model is **v7**, trained on the cleaned 12,739-listing dataset. On a held-out
+test set (n = 2,548), every method is scored on the **same** test rows:
 
 | Method | MAE | R² | MAPE |
 |---|---|---|---|
-| **LightGBM (this model)** | **$3,068** | **0.826** | **12.8%** |
-| Global-median baseline | $11,229 | −0.018 | 83.8% |
-| Same make/model median | $8,499 | 0.391 | 59.9% |
-| Linear depreciation baseline | $6,847 | 0.508 | 29.3% |
+| **LightGBM (this model)** | **$2,947** | **0.854** | **12.6%** |
+| Global-median baseline | $11,836 | −0.022 | 82.2% |
+| Same make/model median | $8,761 | 0.497 | 60.8% |
+| Linear depreciation baseline | $7,763 | 0.410 | 31.1% |
 
 The model outperforms the three simple baselines evaluated here. The q10–q90 price band
-is **conformally calibrated (CQR)** and now covers **79%** of held-out prices against its
-80% target — up from 63% before calibration. Error is **not uniform**: it concentrates in
-high-price / luxury cars, where comparable listings are sparse — the $80k+ band has ~$32k
-MAE (n = 31) and luxury MAE ($6.1k) is ~2.7× economy ($2.2k). Closing that top-end gap
-(via targeted high-price scraping) is the main remaining lever. Full breakdown:
+is **conformally calibrated (CQR)** and covers **80%** of held-out prices, on target.
+Error still concentrates in high-price / luxury cars, where comparable listings are sparse
+(luxury-make MAPE 15.5% vs economy 11.8%), but far less than it used to: v5–v7 fixed a
+preprocessing bug that silently deleted 80% of the >$120k cars from training, added a
+trim-tier feature (base / premium / performance) so AMG/M/RS/Turbo variants stop pricing
+like base models, and added a make_model target encoding so sparse expensive model lines
+aren't shrunk toward the market average. Together those cut >$120k MAPE from **65% to
+~30%** and the systematic underprediction bias at $60–80k from **−$12.9k to −$4.3k**.
+More top-end listings remain the best next lever. Full breakdown:
 `model_artifacts/eval/`.
 
 > **On comparing versions.** MAE is *not* comparable across versions because each was
-> tested on a differently-priced held-out set (v2's median $5.0k vs v3/v4's $23.0k). The
-> honest, like-for-like story: the v2→v3 jump to 12.6k rows nearly halved relative error
-> (**MAPE 21.8% → 12.8%**, R² 0.795 → 0.826) but left the band too narrow (63% coverage);
-> **v4 adds conformal calibration** to restore an honest ~80% band at **no cost to point
-> accuracy** (MAE/R²/MAPE identical to v3). Full changelog:
+> tested on a differently-priced held-out set (v2's median $5.0k vs later versions' $23k).
+> The honest, like-for-like story: the v2→v3 jump to 12.6k rows nearly halved relative
+> error (**MAPE 21.8% → 12.8%**, R² 0.795 → 0.826) but left the band too narrow (63%
+> coverage); **v4 added conformal calibration** for an honest ~80% band; **v5–v7 fixed
+> luxury-segment accuracy** (restored the deleted price tail, trim-tier feature,
+> split-model repair, make_model target encoding) and improved every headline metric on
+> a strictly harder test set that now includes six-figure cars. Full changelog:
 > [`model_artifacts/MODEL_HISTORY.md`](model_artifacts/MODEL_HISTORY.md).
 
 ## Project timeline

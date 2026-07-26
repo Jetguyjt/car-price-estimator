@@ -128,6 +128,30 @@ def make_lgbm(objective: str, alpha: float = None, params: Dict = None) -> lgb.L
     return lgb.LGBMRegressor(**base)
 
 
+# --- make_model target encoding ---
+# With hundreds of make_model categories and min_child_samples floors, LightGBM
+# can't isolate a 15-listing model line (an AMG G-Wagon, a 911) into its own leaf,
+# so rare-but-expensive lines get shrunk toward the market average and luxury cars
+# come out badly underpredicted. A smoothed mean-log-price-per-make_model feature
+# turns that into a single continuous split. Computed from the proper-train slice
+# only, so the calibration and test sets never contribute to their own encoding.
+ENCODING_FEATURE = "make_model_price_enc"
+ENCODING_SMOOTHING = 10.0
+
+
+def compute_make_model_encoding(x: pd.DataFrame, y_log: pd.Series) -> Tuple[Dict[str, float], float]:
+    prior = float(y_log.mean())
+    grouped = y_log.groupby(x["make_model"].astype(str), observed=True)
+    smoothed = (grouped.sum() + prior * ENCODING_SMOOTHING) / (grouped.count() + ENCODING_SMOOTHING)
+    return {str(k): float(v) for k, v in smoothed.items()}, prior
+
+
+def apply_make_model_encoding(x: pd.DataFrame, enc: Dict[str, float], prior: float) -> pd.DataFrame:
+    x = x.copy()
+    x[ENCODING_FEATURE] = x["make_model"].astype(str).map(enc).fillna(prior).astype(float)
+    return x
+
+
 def safe_mape(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     denom = np.maximum(np.abs(y_true), 1e-9)
     return float(np.mean(np.abs((y_true - y_pred) / denom)) * 100.0)
@@ -206,6 +230,24 @@ def main() -> None:
     y_train_log = np.log1p(y_train)
     y_test_log = np.log1p(y_test)
 
+    # Hold out a calibration slice from train for conformal band calibration (CQR).
+    # Done up front because the make_model encoding is computed from the proper-train
+    # slice only — the calibration and test sets must not encode their own prices.
+    x_ptrain, x_cal, y_ptrain, y_cal = train_test_split(
+        x_train, y_train, test_size=CALIBRATION_FRACTION, random_state=RANDOM_SEED,
+    )
+    y_ptrain_log = np.log1p(y_ptrain)
+    y_cal_log = np.log1p(y_cal)
+
+    mm_enc, mm_prior = compute_make_model_encoding(x_ptrain, y_ptrain_log)
+    x_train = apply_make_model_encoding(x_train, mm_enc, mm_prior)
+    x_test = apply_make_model_encoding(x_test, mm_enc, mm_prior)
+    x_ptrain = apply_make_model_encoding(x_ptrain, mm_enc, mm_prior)
+    x_cal = apply_make_model_encoding(x_cal, mm_enc, mm_prior)
+    x = apply_make_model_encoding(x, mm_enc, mm_prior)  # for category_levels below
+    feature_names = feature_names + [ENCODING_FEATURE]
+    log(f"make_model target encoding: {len(mm_enc)} categories, prior={mm_prior:.3f}")
+
     base = baseline_metrics(y_train, y_test)
     log(f"Baseline -> MAE=${base['baseline_mae']:,.0f}, R2={base['baseline_r2']:.4f}")
 
@@ -216,15 +258,6 @@ def main() -> None:
     log("\n=== Final 5-fold CV with best params ===")
     cv = cv_score(lambda: make_lgbm("regression", params=best_params), x_train, y_train_log, cat_cols, folds=CV_FOLDS)
     log(f"CV MAE=${cv['cv_mae_mean']:,.0f} (+/- {cv['cv_mae_std']:,.0f}), R2={cv['cv_r2_mean']:.4f}")
-
-    # Hold out a calibration slice from train for conformal band calibration (CQR).
-    # The q10/q90 band models are fit on the proper-train slice only, so the
-    # calibration set is genuinely unseen and the coverage guarantee is honest.
-    x_ptrain, x_cal, y_ptrain, y_cal = train_test_split(
-        x_train, y_train, test_size=CALIBRATION_FRACTION, random_state=RANDOM_SEED,
-    )
-    y_ptrain_log = np.log1p(y_ptrain)
-    y_cal_log = np.log1p(y_cal)
 
     log("\n=== Training final models (q10, q50, q90) ===")
     models: Dict[str, lgb.LGBMRegressor] = {}
@@ -331,6 +364,11 @@ def main() -> None:
 
     (artifact_dir / "feature_names.json").write_text(json.dumps(feature_names, indent=2))
     (artifact_dir / "cat_features.json").write_text(json.dumps(cat_cols, indent=2))
+
+    # make_model target encoding — inference derives the same feature from this.
+    (artifact_dir / "make_model_price_enc.json").write_text(json.dumps({
+        "encoding": mm_enc, "prior": mm_prior, "smoothing": ENCODING_SMOOTHING,
+    }, indent=2))
 
     # Category vocabularies: the exact levels the model saw for each categorical
     # feature. The predict-time validator uses these levels to

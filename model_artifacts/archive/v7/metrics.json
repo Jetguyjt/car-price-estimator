@@ -1,0 +1,86 @@
+{
+  "config": {
+    "data_path": "./data/processed/cars_com_processed.csv",
+    "target": "price",
+    "drop_columns": [
+      "listing_id",
+      "listing_key",
+      "zip",
+      "price_per_mile",
+      "make",
+      "model"
+    ],
+    "cat_features": [
+      "make_model",
+      "trim",
+      "body_style",
+      "mileage_bucket",
+      "drivetrain",
+      "fuel_type_group",
+      "transmission_type",
+      "car_color",
+      "title_status",
+      "accident_history",
+      "region"
+    ],
+    "test_size": 0.2,
+    "random_seed": 42,
+    "cv_folds": 5,
+    "best_hyperparameters": {
+      "num_leaves": 127,
+      "learning_rate": 0.03,
+      "min_child_samples": 10
+    },
+    "log_transform_target": true,
+    "model": "lightgbm + quantile regression (q10/q50/q90) + mean point model"
+  },
+  "dataset": {
+    "rows_total": 12739,
+    "rows_train": 10191,
+    "rows_test": 2548,
+    "features_used": 23,
+    "categorical_features": 11
+  },
+  "baseline": {
+    "baseline_mae": 11835.79945054945,
+    "baseline_rmse": 19792.704297606237,
+    "baseline_r2": -0.022140991539252308,
+    "baseline_mape_percent": 82.22436115658279
+  },
+  "hp_search_results": {
+    "{\"num_leaves\": 63, \"learning_rate\": 0.05, \"min_child_samples\": 20}": {
+      "cv_mae_mean": 3381.610450606828,
+      "cv_mae_std": 130.2182024978796,
+      "cv_r2_mean": 0.7675979340110549
+    },
+    "{\"num_leaves\": 127, \"learning_rate\": 0.04, \"min_child_samples\": 20}": {
+      "cv_mae_mean": 3385.531167876508,
+      "cv_mae_std": 124.95964799924963,
+      "cv_r2_mean": 0.7662189828562692
+    },
+    "{\"num_leaves\": 255, \"learning_rate\": 0.03, \"min_child_samples\": 30}": {
+      "cv_mae_mean": 3393.9554547476255,
+      "cv_mae_std": 128.94588825206526,
+      "cv_r2_mean": 0.7697126053155937
+    },
+    "{\"num_leaves\": 127, \"learning_rate\": 0.03, \"min_child_samples\": 10}": {
+      "cv_mae_mean": 3337.050470045922,
+      "cv_mae_std": 145.64463807030037,
+      "cv_r2_mean": 0.7708602478884066
+    }
+  },
+  "cv_with_best_params": {
+    "cv_mae_mean": 3156.067273093811,
+    "cv_mae_std": 203.88740817069706,
+    "cv_r2_mean": 0.7941617159594078
+  },
+  "test_metrics": {
+    "test_mae": 2946.5611512566506,
+    "test_rmse": 7481.258285329403,
+    "test_r2": 0.853967395774688,
+    "test_mape_percent": 12.611173121864994,
+    "median_q50_mae": 2876.132048139202,
+    "interval_coverage_q10_q90": 0.804160125588697,
+    "interval_avg_width_dollars": 9959.803937721179
+  }
+}

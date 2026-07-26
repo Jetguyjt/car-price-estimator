@@ -305,6 +305,20 @@ def main() -> None:
         x, y, test_size=TEST_SIZE, random_state=RANDOM_SEED,
     )
     y_train_log = np.log1p(y_train)
+
+    # Rebuild the make_model target-encoding feature exactly as training did:
+    # from the proper-train slice (same split seed), applied to train and test.
+    from train_price_model import (
+        CALIBRATION_FRACTION, ENCODING_FEATURE,
+        apply_make_model_encoding, compute_make_model_encoding,
+    )
+    x_ptrain, _, y_ptrain, _ = train_test_split(
+        x_train, y_train, test_size=CALIBRATION_FRACTION, random_state=RANDOM_SEED,
+    )
+    mm_enc, mm_prior = compute_make_model_encoding(x_ptrain, np.log1p(y_ptrain))
+    x_train = apply_make_model_encoding(x_train, mm_enc, mm_prior)
+    x_test = apply_make_model_encoding(x_test, mm_enc, mm_prior)
+    feature_names = feature_names + [ENCODING_FEATURE]
     actual = y_test.to_numpy()
     # Keep the original processed columns aligned to the test rows for segmenting.
     test_df = df.loc[x_test.index]

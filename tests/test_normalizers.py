@@ -160,3 +160,70 @@ def test_parse_mpg_equivalent():
 def test_parse_mpg_missing():
     out = parse_mpg_from_text(None)
     assert all(v is None for v in out.values())
+
+
+# --------------------------- trim tier ---------------------------
+
+from preprocess_cars_data import trim_tier  # noqa: E402
+
+
+@pytest.mark.parametrize("make,model,trim,expected", [
+    # performance / halo badges
+    ("mercedes-benz", "amg", "g 63 4matic", 2),
+    ("mercedes-benz", "g-class", "g 63 base", 2),     # AMG number without the word
+    ("porsche", "cayenne", "turbo gt", 2),
+    ("porsche", "macan", "gts", 2),                   # Porsche-specific badge
+    ("bmw", "m3", None, 2),                           # badge lives in the model field
+    ("bmw", "x7", "m60i", 2),
+    ("ford", "f-150", "raptor", 2),
+    ("ford", "mustang", "gt premium", 2),
+    ("jeep", "grand", "cherokee trackhawk", 2),
+    ("cadillac", "escalade", "v-series", 2),
+    ("tesla", "model", "s plaid", 2),
+    # premium / loaded
+    ("ford", "f-150", "lariat", 1),
+    ("gmc", "yukon", "denali ultimate", 1),
+    ("chevrolet", "suburban", "high country", 1),
+    ("tesla", "model", "3 long range", 1),
+    # base — including known confusables
+    ("bmw", "x3", "xdrive30i", 0),
+    ("kia", "forte", "gt-line", 0),                   # cosmetic package, not a GT
+    ("mercedes-benz", "gls", "450 4matic", 0),        # 450 is not an AMG number
+    ("honda", "civic", "sport", 0),
+    ("toyota", "camry", "le", 0),
+])
+def test_trim_tier(make, model, trim, expected):
+    assert trim_tier(make, model, trim) == expected
+
+
+def test_trim_tier_missing_everything():
+    assert trim_tier(None, None, None) == 0
+    assert trim_tier("", "", "") == 0
+    assert trim_tier("honda", float("nan"), float("nan")) == 0
+
+
+# --------------------------- split-model repair ---------------------------
+
+from preprocess_cars_data import repair_split_model  # noqa: E402
+
+
+@pytest.mark.parametrize("make,model,trim,exp_model,exp_trim", [
+    ("land rover", "range", "rover sport se", "range rover sport", "se"),
+    ("land rover", "range", "rover evoque core s", "range rover evoque", "core s"),
+    ("land rover", "range", "rover 3.0l supercharged hse", "range rover", "3.0l supercharged hse"),
+    ("jeep", "grand", "cherokee limited", "grand cherokee", "limited"),
+    ("hyundai", "santa", "fe sel", "santa fe", "sel"),
+    ("mercedes-benz", "amg", "g 63 4matic", "amg g", "63 4matic"),
+    ("mercedes-benz", "amg", "gt r", "amg gt", "r"),
+    # non-matching cases pass through untouched
+    ("nissan", "rogue", "sv", "rogue", "sv"),
+    ("jeep", "grand", "wagoneer series ii", "grand wagoneer", "series ii"),
+    ("jeep", "wrangler", "unlimited sahara", "wrangler", "unlimited sahara"),
+])
+def test_repair_split_model(make, model, trim, exp_model, exp_trim):
+    assert repair_split_model(make, model, trim) == (exp_model, exp_trim)
+
+
+def test_repair_split_model_missing_trim():
+    assert repair_split_model("land rover", "range", None) == ("range", None)
+    assert repair_split_model("land rover", "range", pd.NA) == ("range", pd.NA)

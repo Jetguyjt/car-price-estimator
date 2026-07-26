@@ -9,6 +9,7 @@
   "is_luxury_make",
   "is_new",
   "trim",
+  "trim_tier",
   "title_status",
   "accident_history",
   "owner_count",
@@ -19,5 +20,6 @@
   "fuel_type_group",
   "mpg",
   "car_color",
-  "body_style"
+  "body_style",
+  "make_model_price_enc"
 ]

@@ -24,21 +24,31 @@ OUTPUT_CSV_PATH = str(paths.PROCESSED_CSV)
 VERBOSE = True
 
 # Price clipping is a tradeoff: too tight and you lose luxury, too loose and
-# you keep typo'd listings. 0.005/0.995 keeps the genuine $80k–$150k cars in.
+# you keep typo'd listings. The upper cut is an absolute cap, not a quantile:
+# a quantile cap (formerly 0.995 ≈ $140k) deleted 80% of the >$120k cars, which
+# is why the model had almost no examples of what expensive cars cost. $500k
+# keeps every G-Wagon/911/Range Rover while still catching extra-digit typos.
 REMOVE_PRICE_OUTLIERS = True
 PRICE_LOWER_Q = 0.005
-PRICE_UPPER_Q = 0.995
+MAX_PRICE_ALLOWED = 500_000
 
 REMOVE_PRICE_PER_MILE_OUTLIERS = True
 PRICE_PER_MILE_LOWER_Q = 0.01
 PRICE_PER_MILE_UPPER_Q = 0.99
+# Near-new cars legitimately have extreme $/mile (a $130k car with 3k miles is
+# $43/mile), so the $/mile outlier cut only applies above this mileage floor.
+PPM_FILTER_MIN_MILEAGE = 2500
+# The high $/mile cut exists to catch understated-mileage typos. On luxury-priced
+# cars a high $/mile is just what the segment looks like (a $242k 911 with 8k miles
+# is $30/mile), so the high cut only applies below this price.
+PPM_HIGH_CUT_MAX_PRICE = 80_000
 
 MAX_MILEAGE_ALLOWED = 350000
 
 # Rare-category grouping: keeps high-cardinality columns from blowing up,
 # and gives the model a sensible bucket for unseen values at predict time.
 GROUP_RARE_CATEGORIES = True
-MIN_TRIM_COUNT = 10
+MIN_TRIM_COUNT = 5
 MIN_BODY_STYLE_COUNT = 10
 MIN_COLOR_COUNT = 10
 
@@ -55,6 +65,101 @@ LUXURY_MAKES = {
     "maserati", "mercedes-benz", "mercedes", "porsche", "rolls-royce", "volvo",
     "ferrari", "lamborghini", "mclaren", "rivian", "tesla",
 }
+
+
+# Trim-tier signal: rare trims get collapsed to __rare__ below, which erases the
+# difference between a base model and its AMG/M/RS/Turbo variant — the expensive
+# variants are exactly the trims too rare to survive the collapse. This ordinal
+# keeps that signal in a form that also generalizes to trims never seen in training.
+#   0 = base/unknown, 1 = premium/loaded, 2 = performance/halo
+PERFORMANCE_TRIM_PATTERNS = re.compile(
+    r"\bamg\b|\bmaybach\b|\bm\d+i?\b|\brs ?\d?\b|\bgt[sr234]?\b|\bgt-r\b"
+    r"|\bgt[35]00\b|\braptor\b|\btrx\b|\bhellcat\b|\bsrt\b|\btrackhawk\b"
+    r"|\bdemon\b|\bredeye\b|\bscat pack\b|\bshelby\b|\bmach 1\b|\bdark horse\b"
+    r"|\bz06\b|\bzr1\b|\bzl1\b|\bss\b|\bgrand sport\b|\btype[ -]?[sr]\b"
+    r"|\bnismo\b|\bsti\b|\bgti\b|\bquadrifoglio\b|\bcompetition\b|\bcsl\b"
+    r"|\bblack series\b|\bv-series\b|\bblackwing\b|\bjohn cooper works\b|\bjcw\b"
+    r"|\bcarrera\b|\btarga\b|\bturbo s\b|\bturbo gt\b|\bplaid\b|\bperformance\b"
+)
+# Mercedes labels its AMG variants by number alone on many listings ("G 63 4MATIC").
+MERCEDES_AMG_NUMBERS = re.compile(r"\b(43|53|55|63|65)\b")
+# Porsche sells "Turbo" and "GTS" as top-of-range badges, not engine notes.
+PORSCHE_PERFORMANCE = re.compile(r"\bturbo\b|\bgts\b|\bspyder\b")
+PREMIUM_TRIM_PATTERNS = re.compile(
+    r"\bplatinum\b|\bdenali\b|\bhigh country\b|\bking ranch\b|\blariat\b"
+    r"|\blimited\b|\blaramie\b|\blonghorn\b|\bautograph\b|\bcalligraphy\b"
+    r"|\bcapstone\b|\bultimate\b|\bavenir\b|\bsummit\b|\breserve\b"
+    r"|\bblack label\b|\bsignature\b|\bpremium plus\b|\bprestige\b|\belite\b"
+    r"|\bexecutive\b|\brubicon\b|\bat4\b|\blong range\b"
+)
+
+
+# cars.com truncates multi-word models at the first space, leaving the rest at the
+# head of the trim ("Range Rover Sport SE" -> model "range", trim "rover sport se").
+# That lumps a $5k Evoque and a $200k Range Rover into ONE make_model category.
+# For each (make, truncated-model) below, the listed leading trim tokens actually
+# belong to the model and are moved back, repeatedly, until no continuation matches.
+_MERCEDES_AMG_CLASSES = {
+    "a", "c", "e", "s", "g", "gt", "sl", "slc", "slk", "cla", "cls",
+    "gla", "glb", "glc", "gle", "gls", "eqe", "eqs",
+}
+MODEL_REPAIR_CONTINUATIONS = {
+    ("jeep", "grand"): {"cherokee", "wagoneer"},
+    ("hyundai", "santa"): {"fe", "cruz"},
+    ("toyota", "land"): {"cruiser"},
+    ("land rover", "range"): {"rover"},
+    ("land rover", "range rover"): {"sport", "evoque", "velar"},
+    ("mercedes-benz", "amg"): _MERCEDES_AMG_CLASSES,
+    ("mercedes", "amg"): _MERCEDES_AMG_CLASSES,
+}
+
+
+def repair_split_model(make, model, trim):
+    """Move sub-model tokens the scraper left in the trim back into the model.
+
+    Expects lowercased inputs; trim may be None/NA. Returns (model, trim).
+    """
+    if not isinstance(model, str) or not isinstance(trim, str):
+        return model, trim
+    while True:
+        continuations = MODEL_REPAIR_CONTINUATIONS.get((make, model))
+        if not continuations:
+            return model, trim
+        tokens = trim.split()
+        if not tokens or tokens[0] not in continuations:
+            return model, trim
+        model = f"{model} {tokens[0]}"
+        trim = " ".join(tokens[1:])
+
+
+def trim_tier(make, model=None, trim=None) -> int:
+    """Ordinal trim tier (0 base, 1 premium, 2 performance) from make/model/trim text.
+
+    Shared by the training pipeline and single-listing inference so both derive it
+    identically. Matches against model+trim combined because listings are inconsistent
+    about which field carries the badge ("AMG" is a model at cars.com, "M3" too).
+    """
+    parts = []
+    for p in (model, trim):
+        if p is None or (isinstance(p, float) and pd.isna(p)):
+            continue
+        s = str(p).strip().lower()
+        if s:
+            parts.append(s)
+    text = " ".join(parts)
+    if not text:
+        return 0
+    text = re.sub(r"\bgt[ -]line\b", "", text)  # cosmetic package, not a GT
+    make_l = str(make or "").strip().lower()
+    if make_l in ("mercedes-benz", "mercedes") and MERCEDES_AMG_NUMBERS.search(text):
+        return 2
+    if make_l == "porsche" and PORSCHE_PERFORMANCE.search(text):
+        return 2
+    if PERFORMANCE_TRIM_PATTERNS.search(text):
+        return 2
+    if PREMIUM_TRIM_PATTERNS.search(text):
+        return 1
+    return 0
 
 
 def mileage_bucket(mileage) -> Optional[str]:
@@ -256,6 +361,14 @@ def preprocess_for_model(df: pd.DataFrame) -> pd.DataFrame:
     out["trim"] = out.get("trim").astype("string").str.lower().str.strip() if "trim" in out.columns else pd.NA
     out["body_style"] = out.get("body_style").astype("string").str.lower().str.strip() if "body_style" in out.columns else pd.NA
 
+    # Undo the scraper's first-space model truncation (see MODEL_REPAIR_CONTINUATIONS).
+    repaired = [
+        repair_split_model(mk, md, tr)
+        for mk, md, tr in zip(out["make"], out["model"], out["trim"])
+    ]
+    out["model"] = [m for m, _ in repaired]
+    out["trim"] = pd.array([t for _, t in repaired], dtype="string")
+
     # New cars have 0 prior owners by definition
     if "stock_type" in out.columns:
         stock_type = out["stock_type"].astype("string").str.lower().fillna("")
@@ -332,25 +445,34 @@ def preprocess_for_model(df: pd.DataFrame) -> pd.DataFrame:
 
     out["is_luxury_make"] = out["make"].isin(LUXURY_MAKES).astype(int)
 
+    # Derived from the raw trim text, BEFORE rare-trim grouping erases it.
+    out["trim_tier"] = [
+        trim_tier(mk, md, tr)
+        for mk, md, tr in zip(out["make"], out["model"], out["trim"])
+    ]
+
     out["is_new"] = (out.get("stock_type", pd.Series(index=out.index, dtype="object")).astype(str).str.lower() == "new").astype(int)
 
     # --- outlier filtering ---
     if REMOVE_PRICE_OUTLIERS and len(out) > 50:
         low = out["price"].quantile(PRICE_LOWER_Q)
-        high = out["price"].quantile(PRICE_UPPER_Q)
         before = len(out)
-        out = out[out["price"].between(low, high)]
-        log(f"Price outlier filter [{low:.0f}, {high:.0f}] removed {before - len(out)} rows.")
+        out = out[out["price"].between(low, MAX_PRICE_ALLOWED)]
+        log(f"Price outlier filter [{low:.0f}, {MAX_PRICE_ALLOWED}] removed {before - len(out)} rows.")
 
     if REMOVE_PRICE_PER_MILE_OUTLIERS and len(out) > 50:
         ppm_all = pd.to_numeric(out["price_per_mile"], errors="coerce")
-        ppm = ppm_all.dropna()
+        # Quantiles come from broken-in cars only; near-new cars are exempt from
+        # the cut entirely (their $/mile is legitimately enormous).
+        broken_in = out["mileage"] >= PPM_FILTER_MIN_MILEAGE
+        ppm = ppm_all[broken_in].dropna()
         if len(ppm) > 50:
             low = ppm.quantile(PRICE_PER_MILE_LOWER_Q)
             high = ppm.quantile(PRICE_PER_MILE_UPPER_Q)
             before = len(out)
-            keep = ppm_all.isna() | ppm_all.between(low, high)
-            out = out[keep]
+            below_low = broken_in & (ppm_all < low)
+            above_high = broken_in & (ppm_all > high) & (out["price"] < PPM_HIGH_CUT_MAX_PRICE)
+            out = out[~(below_low | above_high) | ppm_all.isna()]
             log(f"Price-per-mile outlier filter removed {before - len(out)} rows.")
 
     if GROUP_RARE_CATEGORIES:
@@ -363,7 +485,7 @@ def preprocess_for_model(df: pd.DataFrame) -> pd.DataFrame:
         "listing_id", "listing_key", "zip", "region",
         "price", "make", "model", "make_model", "year", "mileage", "car_age",
         "miles_per_year", "price_per_mile", "mileage_bucket", "is_luxury_make", "is_new",
-        "trim", "title_status", "accident_history", "owner_count", "cpo",
+        "trim", "trim_tier", "title_status", "accident_history", "owner_count", "cpo",
         "drivetrain", "engine_size_l", "transmission_type", "fuel_type_group",
         "mpg", "car_color", "body_style",
     ]
