@@ -12,6 +12,7 @@ numpy==2.4.2
 selenium==4.41.0
 beautifulsoup4==4.14.3
 webdriver-manager==4.0.2
+certifi>=2024.0.0
 
 # --- modeling + evaluation ---
 scikit-learn==1.8.0
