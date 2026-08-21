@@ -1,0 +1,13 @@
+[
+  "make_model",
+  "trim",
+  "body_style",
+  "mileage_bucket",
+  "drivetrain",
+  "fuel_type_group",
+  "transmission_type",
+  "car_color",
+  "title_status",
+  "accident_history",
+  "region"
+]

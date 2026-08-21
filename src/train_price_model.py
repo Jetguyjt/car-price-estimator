@@ -30,6 +30,7 @@ import lightgbm as lgb
 
 import paths
 import conformal
+import conformal_mondrian
 
 
 DATA_PATH = str(paths.PROCESSED_CSV)
@@ -57,6 +58,13 @@ CV_FOLDS = 5
 # the q10/q90 interval, and the coverage the calibrated band targets.
 CALIBRATION_FRACTION = 0.20
 TARGET_COVERAGE = 0.80
+# Bins for Mondrian (group-conditional) conformal calibration; 10 is the operating
+# point from the bin-count sweep (docs/paper_results.md): it roughly halves the
+# conditional-coverage error vs marginal CQR for ~4% extra band width.
+MONDRIAN_BINS = 10
+# Enforce economic monotonicity (mileage/age down, year/tier/price-line up) on the
+# production models. See MONOTONE_DIRECTIONS and docs/paper_results.md §monotonicity.
+USE_MONOTONE_CONSTRAINTS = True
 
 ARTIFACT_DIR = str(paths.ARTIFACT_DIR)
 
@@ -106,6 +114,32 @@ def prepare_features(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, List[st
 
 
 # ---------------------------- modeling ----------------------------
+
+# Economically-required monotonicity, enforced as LightGBM monotone_constraints.
+# Directions are in log1p(price) space, but monotonicity is preserved by expm1, so
+# they hold in dollars too. Constraining these (a) removes nonsensical predictions
+# (an unconstrained model raises the price of ~1 in 4 cars when you add mileage),
+# and (b) regularizes extrapolation into the sparse luxury region, where the
+# make_model price encoding and trim tier carry most of the signal.
+# The "depreciation" constraint set: the three unarguable physical-depreciation
+# directions. Empirically these drive ceteris-paribus monotonicity violations to
+# exactly zero at no accuracy cost (MAE unchanged within noise), whereas also
+# constraining the collinear derived features (car_age, miles_per_year) or the
+# learned signals (make_model_price_enc, trim_tier) over-regularizes and measurably
+# hurts accuracy — a legitimately loud luxury car in poor condition *should* be
+# allowed to price below its model line's typical value.
+MONOTONE_DIRECTIONS = {
+    "year": +1,                    # newer is not cheaper, all else equal
+    "mileage": -1,                 # more miles is not more expensive
+    "owner_count": -1,             # more prior owners is not more expensive
+}
+
+
+def monotone_constraints_for(columns) -> list:
+    """Build LightGBM's monotone_constraints vector for a given feature order.
+    Categoricals and unconstrained numerics get 0."""
+    return [MONOTONE_DIRECTIONS.get(c, 0) for c in columns]
+
 
 def make_lgbm(objective: str, alpha: float = None, params: Dict = None) -> lgb.LGBMRegressor:
     base = dict(
@@ -262,6 +296,16 @@ def main() -> None:
     log("\n=== Training final models (q10, q50, q90) ===")
     models: Dict[str, lgb.LGBMRegressor] = {}
 
+    # Economic monotonicity applies to the POINT model only: LightGBM forbids
+    # monotone_constraints under the quantile objective, and the headline predicted
+    # price (which the violation audit is about) is the mean model anyway. The band
+    # quantiles stay unconstrained.
+    mean_params = dict(best_params)
+    if USE_MONOTONE_CONSTRAINTS:
+        mean_params["monotone_constraints"] = monotone_constraints_for(x_train.columns.tolist())
+        log(f"  monotone constraints (mean/point model): "
+            f"{[(c, d) for c, d in zip(x_train.columns, mean_params['monotone_constraints']) if d]}")
+
     # Band models (q10, q90) train on the proper-train slice, leaving x_cal unseen.
     for name, alpha in [("q10", 0.10), ("q90", 0.90)]:
         log(f"  fitting {name} (on proper-train slice)...")
@@ -279,7 +323,8 @@ def main() -> None:
     for name, objective, kw in [("q50", "quantile", {"alpha": 0.50}), ("mean", "regression", {})]:
         label = "q50" if name == "q50" else "mean (regression L2) point"
         log(f"  fitting {label} model (on full train)...")
-        m = make_lgbm(objective, params=best_params, **kw)
+        params = mean_params if name == "mean" else best_params
+        m = make_lgbm(objective, params=params, **kw)
         m.fit(
             x_train, y_train_log,
             categorical_feature=cat_cols if cat_cols else "auto",
@@ -293,12 +338,25 @@ def main() -> None:
     log("  calibrating conformal band (CQR)...")
     cal_lo_log = models["q10"].predict(x_cal)
     cal_hi_log = models["q90"].predict(x_cal)
+    cal_mid_log = models["q50"].predict(x_cal)
     log_delta = conformal.compute_log_delta(
         cal_lo_log, cal_hi_log, y_cal_log, target_coverage=TARGET_COVERAGE,
     )
     conformal.save(ARTIFACT_DIR, log_delta, TARGET_COVERAGE, len(x_cal))
     log(f"  conformal log-delta={log_delta:+.4f} (target coverage {TARGET_COVERAGE:.0%}, "
         f"calibrated on {len(x_cal)} held-out rows)")
+
+    # Mondrian calibration: separate deltas per predicted-price bin. This reduced
+    # empirical coverage imbalance across price segments in the calibration study,
+    # but it does not guarantee coverage for every segment. The marginal delta
+    # above remains a backward-compatible fallback.
+    mondrian_model = conformal_mondrian.fit(
+        cal_lo_log, cal_hi_log, cal_mid_log, y_cal_log,
+        target_coverage=TARGET_COVERAGE, n_bins=MONDRIAN_BINS,
+    )
+    conformal_mondrian.save(ARTIFACT_DIR, mondrian_model)
+    log(f"  mondrian deltas ({MONDRIAN_BINS} bins): "
+        f"{[round(x, 3) for x in mondrian_model['bin_deltas_log']]}")
 
     # ------------------ evaluation in $ space ------------------
     pred_log_q10 = models["q10"].predict(x_test)

@@ -1,6 +1,6 @@
 # Quick Model Writeup
 
-Generated: 2026-07-13 21:20:31
+Generated: 2026-08-19 13:03:47
 
 ## Setup
 - Model: lightgbm + quantile regression (q10/q50/q90) + mean point model
@@ -8,10 +8,10 @@ Generated: 2026-07-13 21:20:31
 - Features: 23 (11 categorical)
 
 ## Headline results
-- Test R2: 0.8540  (baseline R2: -0.0221)
-- Test MAE: $2,947  (baseline MAE: $11,836)
-- Test RMSE: $7,481
-- Test MAPE: 12.61%
+- Test R2: 0.8588  (baseline R2: -0.0221)
+- Test MAE: $2,855  (baseline MAE: $11,836)
+- Test RMSE: $7,357
+- Test MAPE: 12.24%
 
 ## Confidence band (q10–q90)
 - Coverage on test set: 80.4% (ideal ~80%)
@@ -33,8 +33,8 @@ make_model_price_enc     36108.142426             22861
 ```
 
 ## Sample predictions
-- Closest call: predicted $20,997, actual $20,998, error $1
-- Worst miss:  predicted $58,323, actual $239,991, error $181,668
+- Closest call: predicted $15,798, actual $15,798, error $0
+- Worst miss:  predicted $62,193, actual $239,991, error $177,798
 
 ### Listings that look like deals (actual < q10):
 - listed $4,357, fair range $4,644–$7,339

@@ -448,8 +448,8 @@ def write_report(results, seg, calib, interval_cov, fi, bench_msg) -> None:
         "## Known limitations",
         "",
         "- **Asking, not sale price.** We never observe what a car actually sold for.",
-        "- **Data scale + features.** The collected sample is limited and uneven across makes,",
-        "  model lines, price ranges, and available detail fields.",
+        "- **Data scale + features.** Trained on 12,739 processed listings. Detail-page fields are",
+        "  unevenly populated, and high-price and luxury segments remain sparse.",
         "- **Temporal snapshot.** Prices drift; the model reflects one collection window.",
     ]
     (EVAL_DIR / "evaluation_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")

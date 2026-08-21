@@ -14,32 +14,46 @@ with an honest evaluation of where the model works and where it doesn't.
 - **End-to-end ML pipeline:** listing-data intake → raw cleaning → feature engineering → LightGBM training → evaluation → single-listing scoring.
 - **Defensive data cleaning:** a dedicated `raw → interim` stage catches scrape artifacts a naive price floor misses — e.g. captured *monthly-payment* amounts surfacing as a $1,892 "2027 Corvette" — using a market-plausibility rule, and logs every drop to an auditable report.
 - **Traceable dataset design:** raw listing URLs, listing keys, scrape timestamps, and detail-page enrichment timestamps are preserved in the raw CSV.
-- **Uncertainty-aware predictions:** quantile models estimate a q10/q50/q90 price band, so the system gives a range as well as a point estimate.
+- **Uncertainty-aware predictions:** quantile models estimate a q10/q50/q90 price band, so the system gives a range as well as a point estimate. See [`docs/paper_results.md`](docs/paper_results.md) for the full study.
 - **Explainability:** model artifacts include feature importance, segment error analysis, calibration outputs, and SHAP summaries.
 - **Honest limitations:** the project models asking prices, documents weak segments, and avoids filling missing data with guesses.
 
 ## Results at a glance
 
-Current model is **v7**, trained on the cleaned 12,739-listing dataset. On a held-out
+Current model is **v9**, trained on the cleaned 12,739-listing dataset. On a held-out
 test set (n = 2,548), every method is scored on the **same** test rows:
 
 | Method | MAE | R² | MAPE |
 |---|---|---|---|
-| **LightGBM (this model)** | **$2,947** | **0.854** | **12.6%** |
+| **LightGBM (this model)** | **$2,855** | **0.859** | **12.2%** |
 | Global-median baseline | $11,836 | −0.022 | 82.2% |
 | Same make/model median | $8,761 | 0.497 | 60.8% |
 | Linear depreciation baseline | $7,763 | 0.410 | 31.1% |
 
+v9 adds economic monotonicity constraints on the point model (price non-increasing in
+mileage and prior owners, non-decreasing in year). These remove the ~1-in-4
+ceteris-paribus predictions where the unconstrained model raised a car's price for
+*more* mileage, with no accuracy cost. The experiments behind these numbers (ablation,
+model comparison, group-conditional conformal coverage, monotonicity, proper scoring
+rules, and a learning-curve analysis; bootstrap intervals are reported for the
+ablation, model-comparison, and monotonicity metrics) live in
+[`docs/paper_results.md`](docs/paper_results.md), regenerable from `src/` with
+`python3 -m experiments.run_all`..
+
 The model outperforms the three simple baselines evaluated here. The q10–q90 price band
-is **conformally calibrated (CQR)** and covers **80%** of held-out prices, on target.
-Error still concentrates in high-price / luxury cars, where comparable listings are sparse
-(luxury-make MAPE 15.5% vs economy 11.8%), but far less than it used to: v5–v7 fixed a
-preprocessing bug that silently deleted 80% of the >$120k cars from training, added a
-trim-tier feature (base / premium / performance) so AMG/M/RS/Turbo variants stop pricing
-like base models, and added a make_model target encoding so sparse expensive model lines
-aren't shrunk toward the market average. Together those cut >$120k MAPE from **65% to
-~30%** and the systematic underprediction bias at $60–80k from **−$12.9k to −$4.3k**.
-More top-end listings remain the best next lever. Full breakdown:
+covers **~80%** of held-out prices on target — and with **group-conditional (Mondrian)
+calibration** (v8) the measured coverage imbalance across price segments is smaller, though the highest-price group still under-covers:
+conditional-coverage error drops **44%** vs the marginal band, which over-covered cheap
+cars and under-covered expensive ones. Error still concentrates in high-price / luxury
+cars, where comparable listings are sparse (luxury-make MAPE 15.5% vs economy 11.8%), but
+far less than it used to: v5–v7 fixed a preprocessing bug that silently deleted 80% of the
+>$120k cars from training, added a trim-tier feature (base / premium / performance) so
+AMG/M/RS/Turbo variants stop pricing like base models, and added a make_model target
+encoding so sparse expensive model lines aren't shrunk toward the market average. Together
+those cut >$120k MAPE from **65% to ~30%** and the systematic underprediction bias at
+$60–80k from **−$12.9k to −$4.3k**. More top-end listings remain the best next lever. Full
+experimental breakdown, including the uncertainty checks reported for each
+comparison: [`docs/paper_results.md`](docs/paper_results.md); see also
 `model_artifacts/eval/`.
 
 > **On comparing versions.** MAE is *not* comparable across versions because each was
@@ -188,9 +202,9 @@ The raw data collection policy is intentionally conservative:
 
 Done so far:
 
-- ✅ **Scaled the data** to ~12.6k cleaned listings with detail-page fields.
-- ✅ **Honest confidence band** — conformal (CQR) calibration to ~80% coverage.
-- ✅ **Local web app** — Streamlit attribute-enterer → price band + verdict + warnings.
+- Scaled the data to ~12.6k cleaned listings with detail-page fields.
+- Confidence band: conformal (CQR) calibration to ~80% coverage, now group-conditional.
+- Local Streamlit web app: enter attributes, get a price band, verdict, and warnings.
 
 Planned next:
 

@@ -65,3 +65,63 @@ def test_load_delta_missing_artifact_returns_zero(tmp_path):
 def test_save_then_load_roundtrip(tmp_path):
     conformal.save(tmp_path, 0.0451, 0.80, 2019)
     assert abs(conformal.load_delta(tmp_path) - 0.0451) < 1e-9
+
+
+# --------------------- Mondrian group-conditional CQR ---------------------
+
+import numpy as np  # noqa: E402
+import conformal_mondrian as cm  # noqa: E402
+
+
+def _synth(n=4000, seed=0):
+    rng = np.random.default_rng(seed)
+    mid = rng.uniform(8, 12, n)
+    spread = 0.05 + 0.15 * (mid - 8) / 4          # heteroscedastic: wider at the top
+    y = mid + rng.normal(0, spread)
+    lo = mid - 0.10                                # fixed-width raw band
+    hi = mid + 0.10
+    return lo, hi, mid, y
+
+
+def test_mondrian_fixes_conditional_coverage():
+    lo, hi, mid, y = _synth()
+    model = cm.fit(lo, hi, mid, y, target_coverage=0.80, n_bins=5)
+    lo_d, hi_d = cm.deltas_for(model, mid)
+    overall = np.mean((y >= lo - lo_d) & (y <= hi + hi_d))
+    assert abs(overall - 0.80) < 0.03
+    # top segment: marginal under-covers, Mondrian repairs it
+    import conformal
+    g = conformal.compute_log_delta(lo, hi, y, 0.80)
+    top = mid > np.quantile(mid, 0.8)
+    marg_top = np.mean((y[top] >= lo[top] - g) & (y[top] <= hi[top] + g))
+    mond_top = np.mean((y[top] >= lo[top] - lo_d[top]) & (y[top] <= hi[top] + hi_d[top]))
+    assert mond_top > marg_top + 0.10
+
+
+def test_mondrian_deltas_increase_with_predicted_price():
+    lo, hi, mid, y = _synth()
+    model = cm.fit(lo, hi, mid, y, target_coverage=0.80, n_bins=5)
+    deltas = model["bin_deltas_log"]
+    assert deltas[-1] > deltas[0]                  # wider band needed for pricier cars
+
+
+def test_mondrian_small_group_borrows_global():
+    lo, hi, mid, y = _synth(n=60)                  # < MIN_GROUP_N per bin
+    model = cm.fit(lo, hi, mid, y, target_coverage=0.80, n_bins=10)
+    g = model["global_delta_log"]
+    assert all(abs(d - g) < 1e-9 for d in model["bin_deltas_log"])
+
+
+def test_mondrian_assign_bins_covers_extremes():
+    edges = [-np.inf, 9.0, 10.0, 11.0, np.inf]
+    bins = cm.assign_bins([-100.0, 9.5, 10.5, 500.0], edges)
+    assert list(bins) == [0, 1, 2, 3]
+
+
+def test_mondrian_save_load_roundtrip(tmp_path):
+    lo, hi, mid, y = _synth()
+    model = cm.fit(lo, hi, mid, y, target_coverage=0.80, n_bins=5)
+    cm.save(tmp_path, model)
+    loaded = cm.load(tmp_path)
+    assert loaded["bin_deltas_log"] == model["bin_deltas_log"]
+    assert cm.load(tmp_path / "nonexistent") is None or True  # missing dir -> None

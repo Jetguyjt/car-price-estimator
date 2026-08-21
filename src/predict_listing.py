@@ -35,6 +35,7 @@ import pandas as pd
 
 import paths
 import conformal
+import conformal_mondrian
 
 
 ARTIFACT_DIR = paths.ARTIFACT_DIR
@@ -183,6 +184,9 @@ def _load() -> dict:
         "category_levels": category_levels,
         "category_counts": category_counts,
         "conformal_delta": conformal.load_delta(ARTIFACT_DIR),
+        # Group-conditional (Mondrian) deltas, preferred when present. Optional:
+        # artifacts trained before Mondrian fall back to the marginal delta above.
+        "conformal_mondrian": conformal_mondrian.load(ARTIFACT_DIR),
     }
     return _CACHE
 
@@ -259,10 +263,23 @@ def evaluate(listing: Dict, asking_price: Optional[float] = None) -> Dict:
 
     x = _row_from_listing(listing, cache["feature_names"], cache["cat_features"])
 
-    # q10/q90 get the conformal (CQR) widening in log space; q50/mean are as-is.
-    lo = float(np.expm1(models["q10"].predict(x)[0] - delta))
-    hi = float(np.expm1(models["q90"].predict(x)[0] + delta))
-    median_raw = float(np.expm1(models["q50"].predict(x)[0]))
+    q10_log = float(models["q10"].predict(x)[0])
+    q90_log = float(models["q90"].predict(x)[0])
+    q50_log = float(models["q50"].predict(x)[0])
+
+    # Prefer Mondrian (group-conditional) deltas keyed on this car's predicted q50,
+    # so the band is calibrated for its price segment; fall back to the single
+    # marginal delta for pre-Mondrian artifacts.
+    mondrian = cache.get("conformal_mondrian")
+    if mondrian is not None:
+        lo_d, hi_d = conformal_mondrian.deltas_for(mondrian, np.array([q50_log]))
+        lo_delta, hi_delta = float(lo_d[0]), float(hi_d[0])
+    else:
+        lo_delta = hi_delta = delta
+
+    lo = float(np.expm1(q10_log - lo_delta))
+    hi = float(np.expm1(q90_log + hi_delta))
+    median_raw = float(np.expm1(q50_log))
     point = float(np.expm1(models["mean"].predict(x)[0]))
 
     # Enforce a non-crossing band: lo <= median <= hi even if the independently

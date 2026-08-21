@@ -1,5 +1,7 @@
 # Model Evaluation Report
 
+_This saved report is a point-in-time version 7 evaluation and was not regenerated after the version 9 monotonicity update. See the README and model history for version 9 metrics._
+
 _Market-relative used-car pricing. Target = asking price from listings (not realized
 sale price); all verdicts are relative to comparable listings on the market._
 
@@ -81,6 +83,6 @@ available check that the model tracks real-world value, not just listing pattern
 ## Known limitations
 
 - **Asking, not sale price.** We never observe what a car actually sold for.
-- **Data scale + features.** The collected sample is limited and uneven across makes,
-  model lines, price ranges, and available detail fields.
+- **Data scale + features.** Trained on 12,739 processed listings. Detail-page fields are
+  unevenly populated, and high-price and luxury segments remain sparse.
 - **Temporal snapshot.** Prices drift; the model reflects one collection window.

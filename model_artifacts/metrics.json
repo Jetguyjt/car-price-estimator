@@ -75,10 +75,10 @@
     "cv_r2_mean": 0.7941617159594078
   },
   "test_metrics": {
-    "test_mae": 2946.5611512566506,
-    "test_rmse": 7481.258285329403,
-    "test_r2": 0.853967395774688,
-    "test_mape_percent": 12.611173121864994,
+    "test_mae": 2854.5880095505486,
+    "test_rmse": 7356.6681735647535,
+    "test_r2": 0.8587908406811269,
+    "test_mape_percent": 12.240076305991131,
     "median_q50_mae": 2876.132048139202,
     "interval_coverage_q10_q90": 0.804160125588697,
     "interval_avg_width_dollars": 9959.803937721179
