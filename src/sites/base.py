@@ -1,5 +1,5 @@
 """
-The SiteAdapter contract — everything a listing site must provide so the
+The SiteAdapter contract - everything a listing site must provide so the
 collection runner and enricher can drive it without knowing any
 site-specific details.
 
@@ -18,7 +18,7 @@ from typing import Dict, List, Optional
 
 # VINs never contain I, O, or Q.
 VIN_RE = re.compile(r"\b([A-HJ-NPR-Z0-9]{17})\b")
-# "Some Dealer Name  Austin, TX 78701" — city, two-letter state, zip5.
+# "Some Dealer Name  Austin, TX 78701" - city, two-letter state, zip5.
 CITY_STATE_ZIP_RE = re.compile(r"([A-Za-z .'\-]{3,40}),\s*([A-Z]{2})\s*(\d{5})")
 
 

@@ -38,7 +38,8 @@ model comparison, group-conditional conformal coverage, monotonicity, proper sco
 rules, and a learning-curve analysis; bootstrap intervals are reported for the
 ablation, model-comparison, and monotonicity metrics) live in
 [`docs/paper_results.md`](docs/paper_results.md), regenerable from `src/` with
-`python3 -m experiments.run_all`..
+`python3 -m experiments.run_all`. The data-growth decisions are in
+[`docs/data_expansion_decision.md`](docs/data_expansion_decision.md).
 
 The model outperforms the three simple baselines evaluated here. The q10–q90 price band
 covers **~80%** of held-out prices on target — and with **group-conditional (Mondrian)

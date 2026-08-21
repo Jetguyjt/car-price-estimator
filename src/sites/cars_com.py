@@ -1,5 +1,5 @@
 """
-cars.com adapter — port of the proven parsers from the earlier listing collector and
+cars.com adapter - port of the proven parsers from the earlier listing collector and
 the earlier detail-page collector into the SiteAdapter contract, with two upgrades:
 
 - searches are seeded per-ZIP3 (zip + radius params) instead of the old
@@ -98,7 +98,7 @@ class CarsComAdapter(SiteAdapter):
                 "stock_type": payload.get("stockType"),
                 "listing_type": "dealer",
             }
-            # Cards show the dealer line ("Best Motors — Renton, WA"); grab what we can.
+            # Cards show the dealer line ("Best Motors - Renton, WA"); grab what we can.
             card_text = card.get_text(" ", strip=True)
             row.update({k: v for k, v in
                         self.extract_dealer_location(card_text).items()
