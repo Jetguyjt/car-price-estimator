@@ -321,14 +321,14 @@ def pretty_print(result: Dict) -> None:
     print("\n--- Price Estimate ---")
     print(f"Predicted price:   ${result['predicted_price']:>9,}")
     print(f"Median (q50):      ${result['median_estimate']:>9,}")
-    print(f"Fair range:        ${result['fair_range_low']:>9,} – ${result['fair_range_high']:,}")
+    print(f"Fair range:        ${result['fair_range_low']:>9,} - ${result['fair_range_high']:,}")
     if "verdict" in result:
         print(f"Asking price:      ${int(result['asking_price']):>9,}")
         sign = "+" if result["delta_vs_predicted"] >= 0 else ""
         print(f"Delta vs predict:  {sign}${result['delta_vs_predicted']:,} ({sign}{result['delta_vs_predicted_percent']}%)")
         print(f"VERDICT:           {result['verdict'].upper()}")
     if result.get("warnings"):
-        print("\n  ⚠ low-confidence:")
+        print("\n  low-confidence:")
         for w in result["warnings"]:
             print(f"    - {w}")
     print()

@@ -41,18 +41,14 @@ ablation, model-comparison, and monotonicity metrics) live in
 `python3 -m experiments.run_all`. The data-growth decisions are in
 [`docs/data_expansion_decision.md`](docs/data_expansion_decision.md).
 
-The model outperforms the three simple baselines evaluated here. The q10–q90 price band
-covers **~80%** of held-out prices on target - and with **group-conditional (Mondrian)
-calibration** (v8) the measured coverage imbalance across price segments is smaller, though the highest-price group still under-covers:
-conditional-coverage error drops **44%** vs the marginal band, which over-covered cheap
-cars and under-covered expensive ones. Error still concentrates in high-price / luxury
+The model outperforms the three simple baselines evaluated here. The q10-q90 price band covered **~80%** of held-out prices overall. Group-conditional (Mondrian) calibration reduced the measured coverage imbalance across price segments by **44%** in this evaluation; this is an empirical improvement, not a per-segment guarantee. Error still concentrates in high-price / luxury
 cars, where comparable listings are sparse (luxury-make MAPE 15.5% vs economy 11.8%), but
-far less than it used to: v5–v7 fixed a preprocessing bug that silently deleted 80% of the
+far less than it used to: v5-v7 fixed a preprocessing bug that silently deleted 80% of the
 >$120k cars from training, added a trim-tier feature (base / premium / performance) so
 AMG/M/RS/Turbo variants stop pricing like base models, and added a make_model target
 encoding so sparse expensive model lines aren't shrunk toward the market average. Together
 those cut >$120k MAPE from **65% to ~30%** and the systematic underprediction bias at
-$60–80k from **−$12.9k to −$4.3k**. More top-end listings remain the best next lever. Full
+$60-80k from **−$12.9k to −$4.3k**. More top-end listings remain the best next lever. Full
 experimental breakdown, including the uncertainty checks reported for each
 comparison: [`docs/paper_results.md`](docs/paper_results.md); see also
 `model_artifacts/eval/`.
@@ -61,7 +57,7 @@ comparison: [`docs/paper_results.md`](docs/paper_results.md); see also
 > tested on a differently-priced held-out set (v2's median $5.0k vs later versions' $23k).
 > The honest, like-for-like story: the v2->v3 jump to 12.6k rows nearly halved relative
 > error (**MAPE 21.8% -> 12.8%**, R² 0.795 -> 0.826) but left the band too narrow (63%
-> coverage); **v4 added conformal calibration** for an honest ~80% band; **v5–v7 fixed
+> coverage); **v4 added conformal calibration** for an honest ~80% band; **v5-v7 fixed
 > luxury-segment accuracy** (restored the deleted price tail, trim-tier feature,
 > split-model repair, make_model target encoding) and improved every headline metric on
 > a strictly harder test set that now includes six-figure cars. Full changelog:

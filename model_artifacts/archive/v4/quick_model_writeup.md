@@ -13,7 +13,7 @@ Generated: 2026-07-08 00:07:11
 - Test RMSE: $6,678
 - Test MAPE: 12.83%
 
-## Confidence band (q10–q90)
+## Confidence band (q10-q90)
 - Coverage on test set: 79.1% (ideal ~80%)
 - Average band width: $9,679
 
@@ -37,11 +37,11 @@ transmission_type      2950.159361              2308
 - Worst miss:  predicted $37,557, actual $132,489, error $94,932
 
 ### Listings that look like deals (actual < q10):
-- listed $17,998, fair range $18,253–$20,852
-- listed $9,200, fair range $9,824–$15,867
-- listed $4,500, fair range $4,698–$9,997
+- listed $17,998, fair range $18,253-$20,852
+- listed $9,200, fair range $9,824-$15,867
+- listed $4,500, fair range $4,698-$9,997
 
 ### Listings that look overpriced (actual > q90):
-- listed $19,900, fair range $13,445–$19,613
-- listed $23,998, fair range $19,185–$23,848
-- listed $39,998, fair range $24,517–$35,831
+- listed $19,900, fair range $13,445-$19,613
+- listed $23,998, fair range $19,185-$23,848
+- listed $39,998, fair range $24,517-$35,831

@@ -32,7 +32,7 @@ The project intentionally avoids claiming more than the data supports:
 
 ## Next improvements
 
-1. Scale raw listings to 10k–25k unique rows while preserving provenance.
+1. Scale raw listings to 10k-25k unique rows while preserving provenance.
 2. Improve detail-page extraction and field-level coverage reporting.
 3. Add automated dataset validation before training.
 4. Re-train models on the expanded dataset and compare performance against the current baseline.

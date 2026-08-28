@@ -62,8 +62,8 @@ def score(listing: dict, asking_price):
 # --- UI -------------------------------------------------------------------------
 
 def main() -> None:
-    st.set_page_config(page_title="CarPrice - used-car pricing", page_icon="🚗", layout="centered")
-    st.title("🚗 CarPrice")
+    st.set_page_config(page_title="CarPrice - used-car pricing", layout="centered")
+    st.title("CarPrice")
     st.caption(
         "Enter a car's attributes to get a market-relative price band and a "
         "**deal / fair / overpriced** verdict. Estimates are based on **asking prices** "
@@ -167,15 +167,15 @@ def render_result(result: dict, asking_price, listing: dict) -> None:
             delta = f"{result['delta_vs_predicted']:+,} vs asking"
         st.metric("Estimated price", f"${point:,.0f}", delta=delta, delta_color="off")
     with m2:
-        st.metric("Fair range (q10–q90)", f"${lo:,.0f} – ${hi:,.0f}")
+        st.metric("Fair range (q10-q90)", f"${lo:,.0f} - ${hi:,.0f}")
 
     verdict = result.get("verdict")
     if verdict == "deal":
-        st.success(f"✅ **DEAL** - ${asking_price:,.0f} is below the fair range for this car.")
+        st.success(f"**DEAL** - ${asking_price:,.0f} is below the fair range for this car.")
     elif verdict == "overpriced":
-        st.error(f"⛔ **OVERPRICED** - ${asking_price:,.0f} is above the fair range for this car.")
+        st.error(f"**OVERPRICED** - ${asking_price:,.0f} is above the fair range for this car.")
     elif verdict == "fair":
-        st.info(f"➖ **FAIR** - ${asking_price:,.0f} sits inside the fair range.")
+        st.info(f"**FAIR** - ${asking_price:,.0f} sits inside the fair range.")
 
     # Visual band: where the asking price falls within [lo, hi].
     span = max(hi - lo, 1)
@@ -185,13 +185,13 @@ def render_result(result: dict, asking_price, listing: dict) -> None:
 
     if result.get("low_confidence"):
         for w in result.get("warnings", []):
-            st.warning(f"⚠️ {w}")
+            st.warning(f"{w}")
 
     with st.expander("How this was computed"):
         st.write(
             "The model derives engineered features (make_model, car age, miles/year, "
             "mileage bucket, luxury flag) from your inputs, predicts a point price plus a "
-            "conformally-calibrated q10–q90 band, and compares your asking price to that band."
+            "conformally-calibrated q10-q90 band, and compares your asking price to that band."
         )
         st.json({k: v for k, v in listing.items() if v is not None})
 

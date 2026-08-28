@@ -27,17 +27,17 @@ Generated from `data/raw/cars_com_raw.csv` on 2026-07-01.
 
 | Price band | All rows | Used rows |
 |---|---:|---:|
-| $0k–$5k | 1,359 | 1,348 |
-| $5k–$10k | 174 | 164 |
-| $10k–$15k | 199 | 185 |
-| $15k–$20k | 194 | 187 |
-| $20k–$25k | 208 | 194 |
-| $25k–$30k | 158 | 140 |
-| $30k–$40k | 165 | 144 |
-| $40k–$50k | 94 | 80 |
-| $50k–$70k | 53 | 42 |
-| $70k–$100k | 24 | 13 |
-| $100k–$150k | 19 | 8 |
+| $0k-$5k | 1,359 | 1,348 |
+| $5k-$10k | 174 | 164 |
+| $10k-$15k | 199 | 185 |
+| $15k-$20k | 194 | 187 |
+| $20k-$25k | 208 | 194 |
+| $25k-$30k | 158 | 140 |
+| $30k-$40k | 165 | 144 |
+| $40k-$50k | 94 | 80 |
+| $50k-$70k | 53 | 42 |
+| $70k-$100k | 24 | 13 |
+| $100k-$150k | 19 | 8 |
 | $150k+ | 13 | 3 |
 
 ## Percentiles
@@ -110,10 +110,10 @@ The current data is useful as a seed dataset and for parser/model pipeline devel
 
 ## What needs to improve next
 
-1. **Balance price coverage.** Prioritize collection in the $20k–$50k range. To move the raw median above $20k without deleting rows, roughly 1.2k additional rows priced at/above $20k are needed. To move the median closer to $25k, roughly 1.6k additional rows above $25k are needed. To approach $30k, roughly 1.9k additional rows above $30k are needed.
+1. **Balance price coverage.** Prioritize collection in the $20k-$50k range. To move the raw median above $20k without deleting rows, roughly 1.2k additional rows priced at/above $20k are needed. To move the median closer to $25k, roughly 1.6k additional rows above $25k are needed. To approach $30k, roughly 1.9k additional rows above $30k are needed.
 2. **Do not delete raw cheap rows.** Keep raw data intact for provenance. Create a balanced training view instead of rewriting history.
 3. **Create a balanced modeling dataset.** Downsample the <$10k rows or use sample weights so training is not dominated by older cheap vehicles.
-4. **Improve detail enrichment coverage.** Core detail fields are present for about 67–71% of rows, but history fields such as accidents, owner count, and title status are mostly missing.
+4. **Improve detail enrichment coverage.** Core detail fields are present for about 67-71% of rows, but history fields such as accidents, owner count, and title status are mostly missing.
 5. **Validate price parsing.** There are a few suspicious prices such as very low values in non-used rows. New/CPO rows should be excluded or revalidated before training.
 6. **Re-run evaluation after balancing.** Current metrics were trained on an earlier snapshot and should be regenerated after a balanced dataset is built.
 
@@ -123,7 +123,7 @@ For the next scrape, skip broad cheap searches and focus on searches likely to p
 
 - Stock: `used` first; add CPO later only after price parsing is validated.
 - Price floor: prioritize $20k+ inventory.
-- Preferred target bands: $20k–$25k, $25k–$30k, $30k–$40k, $40k–$50k.
+- Preferred target bands: $20k-$25k, $25k-$30k, $30k-$40k, $40k-$50k.
 - Makes: Toyota, Honda, Ford, Chevrolet, Nissan, Hyundai, Kia, Subaru, Jeep, Volkswagen, Mazda, BMW, Lexus, Audi, Mercedes-Benz, GMC.
 
-The goal should be to get each of the $20k–$50k bands to at least several hundred rows before collecting more under-$10k inventory.
+The goal should be to get each of the $20k-$50k bands to at least several hundred rows before collecting more under-$10k inventory.

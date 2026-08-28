@@ -13,7 +13,7 @@ Generated: 2026-06-30 11:36:05
 - Test RMSE: $13,787
 - Test MAPE: 22.43%
 
-## Confidence band (q10–q90)
+## Confidence band (q10-q90)
 - Coverage on test set: 70.1% (ideal ~80%)
 - Average band width: $19,942
 
@@ -37,11 +37,11 @@ mileage_bucket         0.413708                 1
 - Worst miss:  predicted $28,056, actual $107,774, error $79,718
 
 ### Listings that look like deals (actual < q10):
-- listed $8,497, fair range $10,649–$20,988
-- listed $7,907, fair range $9,935–$25,361
-- listed $13,690, fair range $15,093–$25,433
+- listed $8,497, fair range $10,649-$20,988
+- listed $7,907, fair range $9,935-$25,361
+- listed $13,690, fair range $15,093-$25,433
 
 ### Listings that look overpriced (actual > q90):
-- listed $35,060, fair range $15,263–$27,493
-- listed $38,805, fair range $19,226–$34,458
-- listed $29,495, fair range $12,180–$22,120
+- listed $35,060, fair range $15,263-$27,493
+- listed $38,805, fair range $19,226-$34,458
+- listed $29,495, fair range $12,180-$22,120

@@ -204,7 +204,7 @@ def _robustness_section(rob) -> str:
         "",
         f"- Repeated {rk['n_splits']}-fold x{rk['n_repeats']} cross-validation: "
         f"mean fold MAE ${rk['mae_mean']:,.0f} "
-        f"(empirical 2.5th-97.5th percentile range across fold MAEs ${rk['mae_ci_lo']:,.0f}–${rk['mae_ci_hi']:,.0f}).",
+        f"(empirical 2.5th-97.5th percentile range across fold MAEs ${rk['mae_ci_lo']:,.0f}-${rk['mae_ci_hi']:,.0f}).",
         f"- make_model-grouped {gk['n_splits']}-fold CV holds every listing of a model "
         f"line out together, so test folds are unseen model lines: MAE rises to "
         f"${gk['mae_mean']:,.0f}, a +${rob['unseen_model_penalty']:,.0f} penalty "

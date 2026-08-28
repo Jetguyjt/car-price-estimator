@@ -68,7 +68,7 @@ model plus per-region corrections, chosen by the buyer's ZIP).
 What's implemented (Phase A): the ZIP3 collection system, with its work queue seeded.
 
 - `build_zip3_reference.py` - all 896 ZIP3s with centroids and population;
-- `allocate_quotas.py` - population-weighted per-ZIP3 quotas (clipped to 40–1500, target
+- `allocate_quotas.py` - population-weighted per-ZIP3 quotas (clipped to 40-1500, target
   175k) plus nationwide sweeps for the sparse luxury bands; 14,339 work units queued;
 - SQLite storage and site adapters support per-ZIP3 collection and merging data from separate machines.
 

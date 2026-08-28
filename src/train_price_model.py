@@ -530,7 +530,7 @@ def write_quick_writeup(payload: Dict, pred_df: pd.DataFrame, fi: pd.DataFrame, 
         f"- Test RMSE: {fmt(tm['test_rmse'])}",
         f"- Test MAPE: {tm['test_mape_percent']:.2f}%",
         "",
-        "## Confidence band (q10–q90)",
+        "## Confidence band (q10-q90)",
         f"- Coverage on test set: {tm['interval_coverage_q10_q90']*100:.1f}% (ideal ~80%)",
         f"- Average band width: {fmt(tm['interval_avg_width_dollars'])}",
         "",
@@ -550,11 +550,11 @@ def write_quick_writeup(payload: Dict, pred_df: pd.DataFrame, fi: pd.DataFrame, 
         if not deals.empty:
             lines += ["", "### Listings that look like deals (actual < q10):"]
             for _, r in deals.iterrows():
-                lines.append(f"- listed {fmt(r['actual_price'])}, fair range {fmt(r['lo_q10'])}–{fmt(r['hi_q90'])}")
+                lines.append(f"- listed {fmt(r['actual_price'])}, fair range {fmt(r['lo_q10'])}-{fmt(r['hi_q90'])}")
         if not overs.empty:
             lines += ["", "### Listings that look overpriced (actual > q90):"]
             for _, r in overs.iterrows():
-                lines.append(f"- listed {fmt(r['actual_price'])}, fair range {fmt(r['lo_q10'])}–{fmt(r['hi_q90'])}")
+                lines.append(f"- listed {fmt(r['actual_price'])}, fair range {fmt(r['lo_q10'])}-{fmt(r['hi_q90'])}")
 
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 

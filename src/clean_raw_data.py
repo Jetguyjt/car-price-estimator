@@ -164,8 +164,8 @@ def format_report(report: dict) -> str:
         ("Duplicate listing_key (kept freshest)", "dropped_duplicate_listing_key"),
         ("Missing required field", "dropped_missing_required_field"),
         (f"Price at/below ${MIN_PRICE} floor", "dropped_price_at_or_below_floor"),
-        (f"Mileage outside 0–{MAX_MILEAGE:,}", "dropped_mileage_out_of_range"),
-        (f"Year outside {MIN_YEAR}–next model year", "dropped_year_out_of_range"),
+        (f"Mileage outside 0-{MAX_MILEAGE:,}", "dropped_mileage_out_of_range"),
+        (f"Year outside {MIN_YEAR}-next model year", "dropped_year_out_of_range"),
         ("Payment-amount artifact", "dropped_payment_amount_artifact"),
     ]
     for label, key in reasons:

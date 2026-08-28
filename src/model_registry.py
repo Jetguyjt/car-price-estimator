@@ -148,7 +148,7 @@ def write_history_md(artifact_dir: Path, registry: Optional[Dict] = None) -> Non
         "live model in `model_artifacts/` is always the latest version. Lower test",
         "MAE / MAPE and higher R² are better; interval coverage targets ~0.80.",
         "",
-        "| Version | Date | Rows | Test MAE | R² | MAPE | q10–q90 coverage | Notes |",
+        "| Version | Date | Rows | Test MAE | R² | MAPE | q10-q90 coverage | Notes |",
         "|---|---|---|---|---|---|---|---|",
     ]
     for e in registry.get("versions", []):
