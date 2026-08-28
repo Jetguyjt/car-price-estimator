@@ -185,7 +185,7 @@ from preprocess_cars_data import trim_tier  # noqa: E402
     ("gmc", "yukon", "denali ultimate", 1),
     ("chevrolet", "suburban", "high country", 1),
     ("tesla", "model", "3 long range", 1),
-    # base — including known confusables
+    # base - including known confusables
     ("bmw", "x3", "xdrive30i", 0),
     ("kia", "forte", "gt-line", 0),                   # cosmetic package, not a GT
     ("mercedes-benz", "gls", "450 4matic", 0),        # 450 is not an AMG number

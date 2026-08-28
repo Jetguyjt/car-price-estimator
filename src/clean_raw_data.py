@@ -20,7 +20,7 @@ are auditable on their own and the intermediate CSV is still human-readable.
 The rule that earns this stage its keep: **payment-amount artifacts**. Cars.com
 cards sometimes surface a monthly/financing figure where the price should be, so a
 2027 Corvette shows up at $1,892 and a 2025 BMW X5 at $999. A flat "price > $500"
-floor (which preprocessing already applies) does not catch these — they are three
+floor (which preprocessing already applies) does not catch these - they are three
 and four digits. We catch them with a market-plausibility rule instead: a nearly
 new, low-mileage car cannot cost a few thousand dollars.
 

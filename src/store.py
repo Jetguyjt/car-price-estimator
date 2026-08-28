@@ -5,14 +5,14 @@ Why a database now: the CSV appender was fine for one site and 13k rows, but the
 expansion means ~150-200k rows, several sites writing the same schema, VIN-keyed
 cross-site dedup, and collection running on a a different collection machine than
 training. A single SQLite file gives atomic upserts, indexes, and a mergeable
-shard format — while `export_training_csv.py` keeps the downstream
+shard format - while `export_training_csv.py` keeps the downstream
 clean -> preprocess -> train pipeline working on a plain CSV, unchanged.
 
 Tables
 ------
 listings      one row per (site, listing_key); card fields + detail fields.
 scrape_state  one row per work unit (site, zip3, price band, stock type):
-              quota, last_page, status — the generalization of the old
+              quota, last_page, status - the generalization of the old
               scraper_state.json partition checkpoints.
 vin_specs     cache of NHTSA vPIC decode results, one row per VIN.
 """

@@ -3,7 +3,7 @@ Site-adapter tests against saved HTML fixtures (tests/fixtures/<site>/).
 
 Adapters are pure URL-building + parsing, so these tests pin the canonical
 schema contract: if a site redesign breaks a parser, the fixture test won't
-catch it (fixtures are frozen) — but if a code change breaks parsing or the
+catch it (fixtures are frozen) - but if a code change breaks parsing or the
 schema, it fails loudly here.
 """
 

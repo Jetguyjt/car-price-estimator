@@ -1,5 +1,5 @@
 """
-CarPrice — local attribute-enterer front end.
+CarPrice - local attribute-enterer front end.
 
 A single-page Streamlit app: pick a car's attributes, get the model's estimated
 price, a conformally-calibrated fair-price band, and a deal / fair / overpriced
@@ -62,7 +62,7 @@ def score(listing: dict, asking_price):
 # --- UI -------------------------------------------------------------------------
 
 def main() -> None:
-    st.set_page_config(page_title="CarPrice — used-car pricing", page_icon="🚗", layout="centered")
+    st.set_page_config(page_title="CarPrice - used-car pricing", page_icon="🚗", layout="centered")
     st.title("🚗 CarPrice")
     st.caption(
         "Enter a car's attributes to get a market-relative price band and a "
@@ -78,7 +78,7 @@ def main() -> None:
     makes = make_model_maps(levels)
     make_display = {_titly(m): m for m in sorted(makes)}
 
-    # NOTE: no st.form here — the Make→Model dropdowns must cascade live, and inside a
+    # NOTE: no st.form here - the Make->Model dropdowns must cascade live, and inside a
     # form widgets don't rerun until submit (so Model would stay stuck on Acura's list).
     st.subheader("Vehicle")
     c1, c2, c3 = st.columns(3)
@@ -171,11 +171,11 @@ def render_result(result: dict, asking_price, listing: dict) -> None:
 
     verdict = result.get("verdict")
     if verdict == "deal":
-        st.success(f"✅ **DEAL** — ${asking_price:,.0f} is below the fair range for this car.")
+        st.success(f"✅ **DEAL** - ${asking_price:,.0f} is below the fair range for this car.")
     elif verdict == "overpriced":
-        st.error(f"⛔ **OVERPRICED** — ${asking_price:,.0f} is above the fair range for this car.")
+        st.error(f"⛔ **OVERPRICED** - ${asking_price:,.0f} is above the fair range for this car.")
     elif verdict == "fair":
-        st.info(f"➖ **FAIR** — ${asking_price:,.0f} sits inside the fair range.")
+        st.info(f"➖ **FAIR** - ${asking_price:,.0f} sits inside the fair range.")
 
     # Visual band: where the asking price falls within [lo, hi].
     span = max(hi - lo, 1)

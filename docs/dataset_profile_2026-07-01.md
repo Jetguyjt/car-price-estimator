@@ -1,4 +1,4 @@
-# Dataset profile — Cars.com raw listings
+# Dataset profile - Cars.com raw listings
 
 Generated from `data/raw/cars_com_raw.csv` on 2026-07-01.
 

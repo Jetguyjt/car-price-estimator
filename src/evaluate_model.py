@@ -4,23 +4,23 @@ Rigorous evaluation of the trained car-price model.
 This is the "research half" of the project. Where train_price_model.py reports a single
 headline MAE/R2, this script asks the harder, more honest questions:
 
-  1. Baselines    — does the model actually beat dumb-but-reasonable strategies
+  1. Baselines    - does the model actually beat dumb-but-reasonable strategies
                     (global median, same-make/model median, a linear depreciation fit)?
-  2. Where it fails — segment-level error analysis by price band, car age, mileage, and
+  2. Where it fails - segment-level error analysis by price band, car age, mileage, and
                     luxury vs economy. A single average hides the luxury blind spot.
-  3. Is the band honest — calibration of the q10/q50/q90 quantiles. If we claim an 80%
+  3. Is the band honest - calibration of the q10/q50/q90 quantiles. If we claim an 80%
                     band, do ~80% of real prices actually fall inside it?
-  4. Why            — SHAP global importances + a reusable per-listing explanation
+  4. Why            - SHAP global importances + a reusable per-listing explanation
                     function (this is what the website surfaces as "priced high because…").
-  5. External truth — a scaffold to benchmark our estimate against KBB/Edmunds values on a
+  5. External truth - a scaffold to benchmark our estimate against KBB/Edmunds values on a
                     hand-collected held-out sample (the single biggest credibility signal).
 
 All numbers are computed on the SAME held-out test split as training (same seed), so they
 are directly comparable to metrics.json.
 
 IMPORTANT framing: the target is *asking* price from listings, not realized sale price.
-Every "deal / fair / overpriced" statement is market-relative — priced low/in-line/high
-versus comparable listings — not a claim about a car's true resale value.
+Every "deal / fair / overpriced" statement is market-relative - priced low/in-line/high
+versus comparable listings - not a claim about a car's true resale value.
 
 Run:  python3 evaluate_model.py
 Outputs land in model_artifacts/eval/.
@@ -436,7 +436,7 @@ def write_report(results, seg, calib, interval_cov, fi, bench_msg) -> None:
         "```",
         "",
         "The per-listing explainer (`make_listing_explainer`) returns signed contributions",
-        "for a single car — this is what the web UI surfaces as the human-readable 'why'.",
+        "for a single car - this is what the web UI surfaces as the human-readable 'why'.",
         "",
         "## 5. External benchmark (KBB / Edmunds)",
         "",

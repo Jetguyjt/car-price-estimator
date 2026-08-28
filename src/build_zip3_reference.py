@@ -1,5 +1,5 @@
 """
-Build data/reference/zip3_reference.csv — the ZIP3 table that drives regional
+Build data/reference/zip3_reference.csv - the ZIP3 table that drives regional
 collection quotas and, later, dynamic region grouping.
 
 One row per 3-digit ZIP prefix (~900 in the US):
@@ -8,7 +8,7 @@ One row per 3-digit ZIP prefix (~900 in the US):
 - Centroids come from the Census ZCTA Gazetteer (free, ~1MB zip).
 - Population comes from the ACS 5-year API (B01003_001E, all ZCTAs in one call).
 - zip3 lat/lon is the population-weighted mean of its member ZCTAs.
-- seed_zip5 is the most populous member ZCTA — the zip we hand to a site's
+- seed_zip5 is the most populous member ZCTA - the zip we hand to a site's
   "search near <zip>" parameter to anchor that ZIP3's searches.
 
 This is a run-once script; the output CSV is committed so nothing downstream
@@ -45,7 +45,7 @@ GAZETTEER_URL = (
 )
 # Population per ZIP. The Census API requires a (free) key nowadays; when
 # CENSUS_API_KEY is set we use real ACS population. Otherwise we fall back to
-# the keyless IRS SOI ZIP file and use N2 (number of individuals on returns) —
+# the keyless IRS SOI ZIP file and use N2 (number of individuals on returns) -
 # an excellent *relative* population proxy, which is all quotas/centroids need.
 ACS_POP_URL = (
     "https://api.census.gov/data/2022/acs/acs5"

@@ -39,11 +39,11 @@ TARGET_COLUMN = "price"
 # Cols that aren't features (ids, leakage, raw helpers)
 DROP_COLUMNS = [
     "listing_id", "listing_key", "zip",
-    "price_per_mile",   # leaks the target — price/mileage
+    "price_per_mile",   # leaks the target - price/mileage
     "make", "model",    # redundant with make_model; let's not triple-count
 ]
 
-# Categoricals — LightGBM handles them natively, no encoding needed
+# Categoricals - LightGBM handles them natively, no encoding needed
 CATEGORICAL_FEATURES = [
     "make_model", "trim", "body_style", "mileage_bucket",
     "drivetrain", "fuel_type_group", "transmission_type", "car_color",
@@ -103,7 +103,7 @@ def prepare_features(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, List[st
         if c not in cat_cols:
             x[c] = pd.to_numeric(x[c], errors="coerce")
 
-    # drop columns that are 100% NaN — they help no one
+    # drop columns that are 100% NaN - they help no one
     all_nan = [c for c in x.columns if x[c].isna().all()]
     if all_nan:
         log(f"Dropping all-NaN columns: {all_nan}")
@@ -126,7 +126,7 @@ def prepare_features(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, List[st
 # exactly zero at no accuracy cost (MAE unchanged within noise), whereas also
 # constraining the collinear derived features (car_age, miles_per_year) or the
 # learned signals (make_model_price_enc, trim_tier) over-regularizes and measurably
-# hurts accuracy — a legitimately loud luxury car in poor condition *should* be
+# hurts accuracy - a legitimately loud luxury car in poor condition *should* be
 # allowed to price below its model line's typical value.
 MONOTONE_DIRECTIONS = {
     "year": +1,                    # newer is not cheaper, all else equal
@@ -229,7 +229,7 @@ def cv_score(model_fn, x: pd.DataFrame, y_log: pd.Series, cat_cols: List[str], f
 
 
 def small_hp_search(x: pd.DataFrame, y_log: pd.Series, cat_cols: List[str]) -> Tuple[Dict, Dict]:
-    """Tiny grid — enough to noticeably help, fast enough to run on a laptop."""
+    """Tiny grid - enough to noticeably help, fast enough to run on a laptop."""
     grid = [
         dict(num_leaves=63,  learning_rate=0.05, min_child_samples=20),
         dict(num_leaves=127, learning_rate=0.04, min_child_samples=20),
@@ -266,7 +266,7 @@ def main() -> None:
 
     # Hold out a calibration slice from train for conformal band calibration (CQR).
     # Done up front because the make_model encoding is computed from the proper-train
-    # slice only — the calibration and test sets must not encode their own prices.
+    # slice only - the calibration and test sets must not encode their own prices.
     x_ptrain, x_cal, y_ptrain, y_cal = train_test_split(
         x_train, y_train, test_size=CALIBRATION_FRACTION, random_state=RANDOM_SEED,
     )
@@ -423,7 +423,7 @@ def main() -> None:
     (artifact_dir / "feature_names.json").write_text(json.dumps(feature_names, indent=2))
     (artifact_dir / "cat_features.json").write_text(json.dumps(cat_cols, indent=2))
 
-    # make_model target encoding — inference derives the same feature from this.
+    # make_model target encoding - inference derives the same feature from this.
     (artifact_dir / "make_model_price_enc.json").write_text(json.dumps({
         "encoding": mm_enc, "prior": mm_prior, "smoothing": ENCODING_SMOOTHING,
     }, indent=2))

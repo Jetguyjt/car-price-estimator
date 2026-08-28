@@ -1,18 +1,18 @@
-# CarPrice — market-relative used-car pricing
+# CarPrice - market-relative used-car pricing
 
 Use used-car listing data to train a LightGBM model on `log(price)` with **quantile
-regression** for a price *band*, and judge any listing as **deal / fair / overpriced** —
+regression** for a price *band*, and judge any listing as **deal / fair / overpriced** -
 with an honest evaluation of where the model works and where it doesn't.
 
 > **What "deal / fair / overpriced" means.** The model learns from **asking prices** on
 > listings, not realized sale prices. A verdict is therefore *market-relative*: priced low,
-> in-line, or high **versus comparable listings** — not a claim about a car's true resale
+> in-line, or high **versus comparable listings** - not a claim about a car's true resale
 > value. (Same basis as Zillow's Zestimate.)
 
 ## Portfolio highlights
 
-- **End-to-end ML pipeline:** listing-data intake → raw cleaning → feature engineering → LightGBM training → evaluation → single-listing scoring.
-- **Defensive data cleaning:** a dedicated `raw → interim` stage catches scrape artifacts a naive price floor misses — e.g. captured *monthly-payment* amounts surfacing as a $1,892 "2027 Corvette" — using a market-plausibility rule, and logs every drop to an auditable report.
+- **End-to-end ML pipeline:** listing-data intake -> raw cleaning -> feature engineering -> LightGBM training -> evaluation -> single-listing scoring.
+- **Defensive data cleaning:** a dedicated `raw -> interim` stage catches scrape artifacts a naive price floor misses - e.g. captured *monthly-payment* amounts surfacing as a $1,892 "2027 Corvette" - using a market-plausibility rule, and logs every drop to an auditable report.
 - **Traceable dataset design:** raw listing URLs, listing keys, scrape timestamps, and detail-page enrichment timestamps are preserved in the raw CSV.
 - **Uncertainty-aware predictions:** quantile models estimate a q10/q50/q90 price band, so the system gives a range as well as a point estimate. See [`docs/paper_results.md`](docs/paper_results.md) for the full study.
 - **Explainability:** model artifacts include feature importance, segment error analysis, calibration outputs, and SHAP summaries.
@@ -42,7 +42,7 @@ ablation, model-comparison, and monotonicity metrics) live in
 [`docs/data_expansion_decision.md`](docs/data_expansion_decision.md).
 
 The model outperforms the three simple baselines evaluated here. The q10–q90 price band
-covers **~80%** of held-out prices on target — and with **group-conditional (Mondrian)
+covers **~80%** of held-out prices on target - and with **group-conditional (Mondrian)
 calibration** (v8) the measured coverage imbalance across price segments is smaller, though the highest-price group still under-covers:
 conditional-coverage error drops **44%** vs the marginal band, which over-covered cheap
 cars and under-covered expensive ones. Error still concentrates in high-price / luxury
@@ -59,8 +59,8 @@ comparison: [`docs/paper_results.md`](docs/paper_results.md); see also
 
 > **On comparing versions.** MAE is *not* comparable across versions because each was
 > tested on a differently-priced held-out set (v2's median $5.0k vs later versions' $23k).
-> The honest, like-for-like story: the v2→v3 jump to 12.6k rows nearly halved relative
-> error (**MAPE 21.8% → 12.8%**, R² 0.795 → 0.826) but left the band too narrow (63%
+> The honest, like-for-like story: the v2->v3 jump to 12.6k rows nearly halved relative
+> error (**MAPE 21.8% -> 12.8%**, R² 0.795 -> 0.826) but left the band too narrow (63%
 > coverage); **v4 added conformal calibration** for an honest ~80% band; **v5–v7 fixed
 > luxury-segment accuracy** (restored the deleted price tail, trim-tier feature,
 > split-model repair, make_model target encoding) and improved every headline metric on
@@ -209,11 +209,11 @@ Done so far:
 
 Planned next:
 
-1. **Close the luxury blind spot** — targeted collection of high-price listings (the
+1. **Close the luxury blind spot** - targeted collection of high-price listings (the
    $80k+ segment is still the weakest, ~$32k MAE on few comparables).
 2. attribute entry - map plain-language vehicle details to the
    model's schema (constrained by `category_levels.json`) and feeds the same web app.
-3. **Per-listing "why"** — surface SHAP contributions in the app, not just warnings.
+3. **Per-listing "why"** - surface SHAP contributions in the app, not just warnings.
 4. **External benchmark** vs KBB/Edmunds on a hand-collected sample.
 
 See `model_artifacts/eval/` for the full methodology and the limitations section.

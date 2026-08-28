@@ -53,7 +53,7 @@ MIN_BODY_STYLE_COUNT = 10
 MIN_COLOR_COUNT = 10
 
 # Shared feature-engineering definitions. These are module-level (not buried inside
-# the pipeline) so the inference path — e.g. the web app assembling a single listing —
+# the pipeline) so the inference path - e.g. the web app assembling a single listing -
 # derives mileage_bucket / is_luxury_make exactly the way training does. One source of
 # truth prevents train/serve skew.
 MILEAGE_BUCKET_BINS = [-1, 15000, 60000, 120000, float("inf")]
@@ -68,7 +68,7 @@ LUXURY_MAKES = {
 
 
 # Trim-tier signal: rare trims get collapsed to __rare__ below, which erases the
-# difference between a base model and its AMG/M/RS/Turbo variant — the expensive
+# difference between a base model and its AMG/M/RS/Turbo variant - the expensive
 # variants are exactly the trims too rare to survive the collapse. This ordinal
 # keeps that signal in a form that also generalizes to trims never seen in training.
 #   0 = base/unknown, 1 = premium/loaded, 2 = performance/halo
@@ -426,7 +426,7 @@ def preprocess_for_model(df: pd.DataFrame) -> pd.DataFrame:
     has_mileage = out["mileage"] > 0
     out.loc[has_mileage, "price_per_mile"] = out.loc[has_mileage, "price"] / out.loc[has_mileage, "mileage"]
 
-    # Single MPG number — average of city/hwy when both present, else fall back
+    # Single MPG number - average of city/hwy when both present, else fall back
     out["mpg"] = pd.to_numeric(out.get("mpg_city"), errors="coerce")
     if "mpg_highway" in out.columns:
         both = out["mpg"].notna() & out["mpg_highway"].notna()
@@ -480,7 +480,7 @@ def preprocess_for_model(df: pd.DataFrame) -> pd.DataFrame:
         out["body_style"] = group_rare(out["body_style"].fillna("__unknown__"), MIN_BODY_STYLE_COUNT)
         out["car_color"] = group_rare(out["car_color"].fillna("__unknown__"), MIN_COLOR_COUNT)
 
-    # final column order — keep NaN, no sentinels
+    # final column order - keep NaN, no sentinels
     ordered_cols = [
         "listing_id", "listing_key", "zip", "region",
         "price", "make", "model", "make_model", "year", "mileage", "car_age",

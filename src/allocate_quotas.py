@@ -8,7 +8,7 @@ floor at MIN_Q (they'll usually exhaust their inventory before hitting it).
 Each ZIP3 gets work units = ZIP3_BANDS x STOCK_TYPES for the given site, seeded
 at the ZIP3's most-populous member zip (seed_zip5) with a fixed search radius.
 Luxury inventory is too sparse per-ZIP3, so bands >= $80k also get NATIONWIDE
-sweep units (zip3 '000') — that's where most six-figure rows will come from.
+sweep units (zip3 '000') - that's where most six-figure rows will come from.
 
 Run:
     python3 src/allocate_quotas.py --site cars_com          # seed/refresh units

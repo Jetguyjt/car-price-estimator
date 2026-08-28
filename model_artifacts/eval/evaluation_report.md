@@ -71,7 +71,7 @@ make_model_price_enc       0.176994
 ```
 
 The per-listing explainer (`make_listing_explainer`) returns signed contributions
-for a single car — this is what the web UI surfaces as the human-readable 'why'.
+for a single car - this is what the web UI surfaces as the human-readable 'why'.
 
 ## 5. External benchmark (KBB / Edmunds)
 

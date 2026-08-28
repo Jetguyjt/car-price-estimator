@@ -1,4 +1,4 @@
-# CarPrice — Python dependencies
+# CarPrice - Python dependencies
 # Developed and tested on Python 3.13.
 #
 # macOS note: LightGBM needs the OpenMP runtime. If `import lightgbm` fails with

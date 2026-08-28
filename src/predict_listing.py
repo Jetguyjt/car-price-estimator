@@ -17,7 +17,7 @@ This is the seed for the "is this listing over/underpriced?" feature.
 Notes on correctness:
 - The model learns from *asking* prices on listings, not actual sale prices. So a
   verdict of "deal / fair / overpriced" means priced low / in-line / high *relative to
-  comparable listings on the market* — not relative to a car's true resale value.
+  comparable listings on the market* - not relative to a car's true resale value.
 - The three quantile models (q10/q50/q90) are trained independently and can cross for
   some inputs. We sort them per-prediction so the band is always q10 <= q50 <= q90.
 - If a listing's make_model or trim was never seen in training, the prediction is far
@@ -46,7 +46,7 @@ MODEL_FILES = {"q10": "lgbm_q10.pkl", "q50": "lgbm_q50.pkl", "q90": "lgbm_q90.pk
 HIGH_IMPACT_CATEGORICALS = ("make_model", "trim")
 
 # A make_model the model saw only a handful of times can't be trusted much more than
-# an unseen one — e.g. a BMW M3 with 5 training listings. Below this count we flag the
+# an unseen one - e.g. a BMW M3 with 5 training listings. Below this count we flag the
 # estimate as low-confidence so the number isn't taken at face value.
 MIN_CONFIDENT_MAKE_MODEL_COUNT = 15
 
@@ -235,7 +235,7 @@ def _confidence_warnings(
         count = category_counts.get(col, {}).get(value)
         if count is not None and count < MIN_CONFIDENT_MAKE_MODEL_COUNT:
             warnings.append(
-                f"{shown} appears in only {count} training listing(s) — too few for a "
+                f"{shown} appears in only {count} training listing(s) - too few for a "
                 f"reliable estimate, especially outside the mileage/year range of those "
                 f"few examples. Treat this as a rough, low-confidence figure."
             )
@@ -245,7 +245,7 @@ def _confidence_warnings(
 def evaluate(listing: Dict, asking_price: Optional[float] = None) -> Dict:
     """
     listing: dict of car features. Use the same column names as the processed CSV.
-             Missing fields are fine — the model handles NaN.
+             Missing fields are fine - the model handles NaN.
     asking_price: if given, returns a verdict (deal / fair / overpriced).
     """
     cache = _load()

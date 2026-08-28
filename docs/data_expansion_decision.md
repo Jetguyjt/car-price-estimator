@@ -15,8 +15,8 @@ The curve is still dropping at the current ~10.2k training rows:
 |---|---|---|
 | 1,000 | ~$5,190 | ~$10,380 |
 | 10,191 (all) | ~$2,920 | ~$5,810 |
-| 50,000 (projected) | ~$1,990 | — |
-| 175,000 (projected) | ~$1,470 | — |
+| 50,000 (projected) | ~$1,990 | - |
+| 175,000 (projected) | ~$1,470 | - |
 
 Scaling to ~175k rows projects roughly half the current MAE. The extrapolation is
 uncertain (the fitted error floor is optimistic), but the direction is clear, and the
@@ -40,11 +40,11 @@ sparse top end where the model is weakest. Adding sites gives:
 
 What's implemented: a `SiteAdapter` layer (`src/sites/`) covering
 
-- `cars_com` — the original scraper ported over, now also capturing VIN and dealer
+- `cars_com` - the original scraper ported over, now also capturing VIN and dealer
   location;
-- `ebay_motors` — the eBay Browse API (structured JSON, VINs, an auction/private flag),
+- `ebay_motors` - the eBay Browse API (structured JSON, VINs, an auction/private flag),
   the easiest source to add; needs a free `EBAY_OAUTH_TOKEN`;
-- `autotrader` and `edmunds` — URL builders plus a shared schema.org JSON-LD parser
+- `autotrader` and `edmunds` - URL builders plus a shared schema.org JSON-LD parser
   (`src/sites/schema_org.py`). Parsing the embedded structured data is sturdier than
   chasing each site's CSS, since the schema is stable.
 
@@ -67,13 +67,13 @@ model plus per-region corrections, chosen by the buyer's ZIP).
 
 What's implemented (Phase A): the ZIP3 collection system, with its work queue seeded.
 
-- `build_zip3_reference.py` — all 896 ZIP3s with centroids and population;
-- `allocate_quotas.py` — population-weighted per-ZIP3 quotas (clipped to 40–1500, target
+- `build_zip3_reference.py` - all 896 ZIP3s with centroids and population;
+- `allocate_quotas.py` - population-weighted per-ZIP3 quotas (clipped to 40–1500, target
   175k) plus nationwide sweeps for the sparse luxury bands; 14,339 work units queued;
 - SQLite storage and site adapters support per-ZIP3 collection and merging data from separate machines.
 
 Order of work: (1) first, then (2) and (3) together, since the multi-site collection is
-already ZIP3-stratified — running it produces regional coverage and cross-site volume in
+already ZIP3-stratified - running it produces regional coverage and cross-site volume in
 one pass. The per-region modeling (Phase D) is worth doing once each grouped region has
 ~6k rows, which the 175k target reaches.
 

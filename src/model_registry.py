@@ -128,12 +128,12 @@ def register_current_model(
 
 
 def _fmt_money(v) -> str:
-    return f"${v:,.0f}" if isinstance(v, (int, float)) else "—"
+    return f"${v:,.0f}" if isinstance(v, (int, float)) else "-"
 
 
 def _fmt_num(v, pct=False) -> str:
     if not isinstance(v, (int, float)):
-        return "—"
+        return "-"
     return f"{v:.1f}%" if pct else f"{v:.3f}"
 
 
@@ -155,10 +155,10 @@ def write_history_md(artifact_dir: Path, registry: Optional[Dict] = None) -> Non
         m = e.get("metrics", {})
         date = str(e.get("created_at", ""))[:10]
         cov = m.get("interval_coverage_q10_q90")
-        cov_str = f"{cov:.2f}" if isinstance(cov, (int, float)) else "—"
+        cov_str = f"{cov:.2f}" if isinstance(cov, (int, float)) else "-"
         mape = m.get("test_mape_percent")
         lines.append(
-            f"| v{e.get('version')} | {date} | {m.get('rows_total', '—')} | "
+            f"| v{e.get('version')} | {date} | {m.get('rows_total', '-')} | "
             f"{_fmt_money(m.get('test_mae'))} | {_fmt_num(m.get('test_r2'))} | "
             f"{_fmt_num(mape, pct=True)} | {cov_str} | {e.get('notes', '')} |"
         )
