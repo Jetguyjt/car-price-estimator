@@ -1,12 +1,14 @@
 """
 Tests for the conformal (CQR) band calibration in src/conformal.py.
 
-These guard the coverage guarantee: after calibration, a held-out set should be
-covered at ~the target rate whether the raw band starts too narrow or too wide.
+These checks verify how the calibration adjustment behaves on synthetic calibration
+samples. They do not establish future coverage; that must be measured on separate
+evaluation data.
 """
 
 import os
 import sys
+import json
 
 import numpy as np
 
@@ -67,6 +69,31 @@ def test_save_then_load_roundtrip(tmp_path):
     assert abs(conformal.load_delta(tmp_path) - 0.0451) < 1e-9
 
 
+def test_crossed_quantiles_are_ordered_before_calibration():
+    y = np.array([10.0, 10.5, 11.0])
+    crossed_lo = np.array([11.0, 11.0, 11.5])
+    crossed_hi = np.array([9.0, 10.0, 10.5])
+
+    crossed = conformal.compute_log_delta(crossed_lo, crossed_hi, y, 0.80)
+    ordered = conformal.compute_log_delta(crossed_hi, crossed_lo, y, 0.80)
+
+    assert crossed == ordered
+
+
+def test_display_median_never_expands_calibrated_endpoints():
+    lo, mid, hi = conformal.calibrated_band_logs(
+        q10_log=np.array([9.0, 11.0]),
+        q50_log=np.array([12.0, 8.0]),
+        q90_log=np.array([11.0, 9.0]),
+        lo_delta=np.array([0.2, 0.2]),
+        hi_delta=np.array([0.3, 0.3]),
+    )
+
+    np.testing.assert_allclose(lo, [8.8, 8.8])
+    np.testing.assert_allclose(hi, [11.3, 11.3])
+    np.testing.assert_allclose(mid, [11.3, 8.8])
+
+
 # --------------------- Mondrian group-conditional CQR ---------------------
 
 import numpy as np  # noqa: E402
@@ -122,6 +149,14 @@ def test_mondrian_save_load_roundtrip(tmp_path):
     lo, hi, mid, y = _synth()
     model = cm.fit(lo, hi, mid, y, target_coverage=0.80, n_bins=5)
     cm.save(tmp_path, model)
+    artifact_text = (tmp_path / cm.ARTIFACT_NAME).read_text()
+    json.loads(
+        artifact_text,
+        parse_constant=lambda value: (_ for _ in ()).throw(
+            ValueError(f"non-standard JSON constant: {value}")
+        ),
+    )
+    assert "Infinity" not in artifact_text
     loaded = cm.load(tmp_path)
     assert loaded["bin_deltas_log"] == model["bin_deltas_log"]
-    assert cm.load(tmp_path / "nonexistent") is None or True  # missing dir -> None
+    assert cm.load(tmp_path / "nonexistent") is None

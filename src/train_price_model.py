@@ -11,8 +11,9 @@ Outputs (in model_artifacts/):
   - feature_importance.csv                        -- gain-based importance from q50
   - quick_model_writeup.md                        -- human-readable summary
 
-Why quantile regression: predicting q10/q50/q90 gives you a *range* a car
-should sell for. A listing above q90 is overpriced; below q10 is a deal.
+Why quantile regression: predicting q10/q50/q90 gives a range of asking prices
+seen for comparable vehicles. A listing above q90 is high relative to that range;
+one below q10 is low.
 """
 
 import json
@@ -33,7 +34,7 @@ import conformal
 import conformal_mondrian
 
 
-DATA_PATH = str(paths.PROCESSED_CSV)
+DATA_PATH = paths.PROCESSED_CSV
 TARGET_COLUMN = "price"
 
 # Cols that aren't features (ids, leakage, raw helpers)
@@ -41,29 +42,43 @@ DROP_COLUMNS = [
     "listing_id", "listing_key", "zip",
     "price_per_mile",   # leaks the target - price/mileage
     "make", "model",    # redundant with make_model; let's not triple-count
+    "region",           # sparse geographic tag on a minority of rows; not a
+                        # modeled signal - kept in the data as metadata only
+]
+
+# The training contract is explicit so an extra column in a future processed file
+# cannot silently become a model input (especially a target-derived field).
+MODEL_FEATURES = [
+    "make_model", "year", "mileage", "car_age", "miles_per_year",
+    "mileage_bucket", "is_luxury_make", "is_new", "trim", "trim_tier",
+    "title_status", "accident_history", "owner_count", "cpo", "drivetrain",
+    "engine_size_l", "transmission_type", "fuel_type_group", "mpg",
+    "car_color", "body_style",
 ]
 
 # Categoricals - LightGBM handles them natively, no encoding needed
 CATEGORICAL_FEATURES = [
     "make_model", "trim", "body_style", "mileage_bucket",
     "drivetrain", "fuel_type_group", "transmission_type", "car_color",
-    "title_status", "accident_history", "region",
+    "title_status", "accident_history",
 ]
 
 TEST_SIZE = 0.20
 RANDOM_SEED = 42
 CV_FOLDS = 5
+EARLY_STOP_VALIDATION_FRACTION = 0.15
+EARLY_STOPPING_ROUNDS = 80
 
 # Conformal band calibration (CQR): fraction of the TRAIN split held out to calibrate
 # the q10/q90 interval, and the coverage the calibrated band targets.
 CALIBRATION_FRACTION = 0.20
 TARGET_COVERAGE = 0.80
 # Bins for Mondrian (group-conditional) conformal calibration; 10 is the operating
-# point from the bin-count sweep (docs/paper_results.md): it roughly halves the
-# conditional-coverage error vs marginal CQR for ~4% extra band width.
+# point selected in the saved calibration experiments: it roughly halves the
+# conditional-coverage error versus marginal CQR for about 4% extra band width.
 MONDRIAN_BINS = 10
 # Enforce economic monotonicity (mileage/age down, year/tier/price-line up) on the
-# production models. See MONOTONE_DIRECTIONS and docs/paper_results.md §monotonicity.
+# production models. See MONOTONE_DIRECTIONS below.
 USE_MONOTONE_CONSTRAINTS = True
 
 ARTIFACT_DIR = str(paths.ARTIFACT_DIR)
@@ -84,9 +99,11 @@ def load_dataset(path: str) -> pd.DataFrame:
 
 def prepare_features(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, List[str], List[str]]:
     cleaned = df.copy().dropna(subset=[TARGET_COLUMN]).reset_index(drop=True)
-    drop_existing = [c for c in DROP_COLUMNS if c in cleaned.columns]
+    missing = [column for column in MODEL_FEATURES if column not in cleaned.columns]
+    if missing:
+        raise ValueError(f"Processed data is missing required model features: {missing}")
 
-    x = cleaned.drop(columns=[TARGET_COLUMN] + drop_existing, errors="ignore")
+    x = cleaned[MODEL_FEATURES].copy()
     y = pd.to_numeric(cleaned[TARGET_COLUMN], errors="coerce")
 
     valid = y.notna() & (y > 0)
@@ -111,6 +128,18 @@ def prepare_features(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, List[st
         cat_cols = [c for c in cat_cols if c in x.columns]
 
     return x, y, x.columns.tolist(), cat_cols
+
+
+def infer_reference_year(x: pd.DataFrame) -> int:
+    """Recover the year used to derive car_age in the processed snapshot."""
+    candidates = (
+        pd.to_numeric(x["year"], errors="coerce")
+        + pd.to_numeric(x["car_age"], errors="coerce")
+    ).dropna().round().astype(int)
+    plausible = candidates[candidates.between(2000, 2100)]
+    if plausible.empty:
+        raise ValueError("Could not infer the preprocessing reference year.")
+    return int(plausible.mode().iloc[0])
 
 
 # ---------------------------- modeling ----------------------------
@@ -202,13 +231,16 @@ def baseline_metrics(y_train: pd.Series, y_test: pd.Series) -> Dict[str, float]:
 
 
 def cv_score(model_fn, x: pd.DataFrame, y_log: pd.Series, cat_cols: List[str], folds: int = CV_FOLDS) -> Dict[str, float]:
-    """CV in log-space, but report MAE in $ space for interpretability."""
+    """CV in log-space, with target encoding fitted inside each training fold."""
     cv = KFold(n_splits=folds, shuffle=True, random_state=RANDOM_SEED)
     maes = []
     r2s = []
     for fold_i, (tr, va) in enumerate(cv.split(x)):
-        x_tr, x_va = x.iloc[tr], x.iloc[va]
+        x_tr_raw, x_va_raw = x.iloc[tr], x.iloc[va]
         y_tr, y_va = y_log.iloc[tr], y_log.iloc[va]
+        fold_enc, fold_prior = compute_make_model_encoding(x_tr_raw, y_tr)
+        x_tr = apply_make_model_encoding(x_tr_raw, fold_enc, fold_prior)
+        x_va = apply_make_model_encoding(x_va_raw, fold_enc, fold_prior)
         model = model_fn()
         model.fit(
             x_tr, y_tr,
@@ -248,53 +280,112 @@ def small_hp_search(x: pd.DataFrame, y_log: pd.Series, cat_cols: List[str]) -> T
     return best[0], results
 
 
+def fit_final_model(
+    objective: str,
+    x_full: pd.DataFrame,
+    y_full: pd.Series,
+    cat_cols: List[str],
+    params: Dict,
+    *,
+    encoding: Dict[str, float],
+    encoding_prior: float,
+    alpha: float = None,
+    seed_offset: int = 0,
+) -> Tuple[lgb.LGBMRegressor, int]:
+    """Select an iteration count internally, then refit on all allowed rows.
+
+    The outer test split is never passed to LightGBM during fitting. Quantile
+    models call this with the proper-training rows so the separate conformal
+    calibration slice also remains untouched.
+    """
+    x_fit_raw, x_val_raw, y_fit, y_val = train_test_split(
+        x_full,
+        y_full,
+        test_size=EARLY_STOP_VALIDATION_FRACTION,
+        random_state=RANDOM_SEED + seed_offset,
+    )
+    probe_enc, probe_prior = compute_make_model_encoding(x_fit_raw, y_fit)
+    x_fit = apply_make_model_encoding(x_fit_raw, probe_enc, probe_prior)
+    x_val = apply_make_model_encoding(x_val_raw, probe_enc, probe_prior)
+    probe = make_lgbm(objective, alpha=alpha, params=params)
+    probe.fit(
+        x_fit,
+        y_fit,
+        categorical_feature=cat_cols if cat_cols else "auto",
+        eval_set=[(x_val, y_val)],
+        callbacks=[lgb.early_stopping(EARLY_STOPPING_ROUNDS, verbose=False)],
+    )
+    best_iteration = int(probe.best_iteration_ or probe.n_estimators)
+
+    final_params = dict(params)
+    final_params["n_estimators"] = best_iteration
+    model = make_lgbm(objective, alpha=alpha, params=final_params)
+    x_final = apply_make_model_encoding(x_full, encoding, encoding_prior)
+    model.fit(
+        x_final,
+        y_full,
+        categorical_feature=cat_cols if cat_cols else "auto",
+    )
+    return model, best_iteration
+
+
 # ---------------------------- main ----------------------------
 
 def main() -> None:
     log("Loading dataset...")
     df = load_dataset(DATA_PATH)
     x, y, feature_names, cat_cols = prepare_features(df)
+    reference_year = infer_reference_year(x)
     log(f"Rows: {len(df)} -> usable: {len(x)} | features: {x.shape[1]} | categorical: {len(cat_cols)}")
+    log(f"Feature reference year: {reference_year}")
 
     y_log = np.log1p(y)
 
-    x_train, x_test, y_train, y_test = train_test_split(
+    x_train_raw, x_test_raw, y_train, y_test = train_test_split(
         x, y, test_size=TEST_SIZE, random_state=RANDOM_SEED,
     )
     y_train_log = np.log1p(y_train)
-    y_test_log = np.log1p(y_test)
-
     # Hold out a calibration slice from train for conformal band calibration (CQR).
     # Done up front because the make_model encoding is computed from the proper-train
     # slice only - the calibration and test sets must not encode their own prices.
-    x_ptrain, x_cal, y_ptrain, y_cal = train_test_split(
-        x_train, y_train, test_size=CALIBRATION_FRACTION, random_state=RANDOM_SEED,
+    x_ptrain_raw, x_cal_raw, y_ptrain, y_cal = train_test_split(
+        x_train_raw, y_train, test_size=CALIBRATION_FRACTION, random_state=RANDOM_SEED,
     )
     y_ptrain_log = np.log1p(y_ptrain)
     y_cal_log = np.log1p(y_cal)
 
-    mm_enc, mm_prior = compute_make_model_encoding(x_ptrain, y_ptrain_log)
-    x_train = apply_make_model_encoding(x_train, mm_enc, mm_prior)
-    x_test = apply_make_model_encoding(x_test, mm_enc, mm_prior)
-    x_ptrain = apply_make_model_encoding(x_ptrain, mm_enc, mm_prior)
-    x_cal = apply_make_model_encoding(x_cal, mm_enc, mm_prior)
-    x = apply_make_model_encoding(x, mm_enc, mm_prior)  # for category_levels below
-    feature_names = feature_names + [ENCODING_FEATURE]
-    log(f"make_model target encoding: {len(mm_enc)} categories, prior={mm_prior:.3f}")
-
     base = baseline_metrics(y_train, y_test)
     log(f"Baseline -> MAE=${base['baseline_mae']:,.0f}, R2={base['baseline_r2']:.4f}")
 
-    log("\n=== Tiny hyperparameter search (q50 model) ===")
-    best_params, hp_results = small_hp_search(x_train, y_train_log, cat_cols)
+    # Model selection uses only the proper-training rows. Each CV fold fits its own
+    # make/model encoding, so neither validation-fold prices nor calibration prices
+    # enter the features used to score a candidate configuration.
+    log("\n=== Tiny hyperparameter search (proper-training rows only) ===")
+    best_params, hp_results = small_hp_search(x_ptrain_raw, y_ptrain_log, cat_cols)
     log(f"Best params: {best_params}")
 
-    log("\n=== Final 5-fold CV with best params ===")
-    cv = cv_score(lambda: make_lgbm("regression", params=best_params), x_train, y_train_log, cat_cols, folds=CV_FOLDS)
+    log("\n=== Final 5-fold CV with best params (proper-training rows only) ===")
+    cv = cv_score(
+        lambda: make_lgbm("regression", params=best_params),
+        x_ptrain_raw,
+        y_ptrain_log,
+        cat_cols,
+        folds=CV_FOLDS,
+    )
     log(f"CV MAE=${cv['cv_mae_mean']:,.0f} (+/- {cv['cv_mae_std']:,.0f}), R2={cv['cv_r2_mean']:.4f}")
 
-    log("\n=== Training final models (q10, q50, q90) ===")
+    # Fit the production encoding after model selection. Calibration and test rows
+    # do not contribute to it.
+    mm_enc, mm_prior = compute_make_model_encoding(x_ptrain_raw, y_ptrain_log)
+    x_train = apply_make_model_encoding(x_train_raw, mm_enc, mm_prior)
+    x_test = apply_make_model_encoding(x_test_raw, mm_enc, mm_prior)
+    x_cal = apply_make_model_encoding(x_cal_raw, mm_enc, mm_prior)
+    feature_names = feature_names + [ENCODING_FEATURE]
+    log(f"make_model target encoding: {len(mm_enc)} categories, prior={mm_prior:.3f}")
+
+    log("\n=== Training final models (q10, q50, q90, point) ===")
     models: Dict[str, lgb.LGBMRegressor] = {}
+    selected_iterations: Dict[str, int] = {}
 
     # Economic monotonicity applies to the POINT model only: LightGBM forbids
     # monotone_constraints under the quantile objective, and the headline predicted
@@ -306,38 +397,47 @@ def main() -> None:
         log(f"  monotone constraints (mean/point model): "
             f"{[(c, d) for c, d in zip(x_train.columns, mean_params['monotone_constraints']) if d]}")
 
-    # Band models (q10, q90) train on the proper-train slice, leaving x_cal unseen.
-    for name, alpha in [("q10", 0.10), ("q90", 0.90)]:
+    # All quantile models train on the proper-training slice, leaving calibration
+    # and test rows unseen. Each chooses its iteration count on an internal split,
+    # then refits on the full proper-training slice.
+    for offset, (name, alpha) in enumerate([("q10", 0.10), ("q50", 0.50), ("q90", 0.90)], start=1):
         log(f"  fitting {name} (on proper-train slice)...")
-        m = make_lgbm("quantile", alpha=alpha, params=best_params)
-        m.fit(
-            x_ptrain, y_ptrain_log,
-            categorical_feature=cat_cols if cat_cols else "auto",
-            eval_set=[(x_test, y_test_log)],
-            callbacks=[lgb.early_stopping(80, verbose=False)],
+        m, best_iteration = fit_final_model(
+            "quantile",
+            x_ptrain_raw, y_ptrain_log,
+            cat_cols,
+            best_params,
+            encoding=mm_enc,
+            encoding_prior=mm_prior,
+            alpha=alpha,
+            seed_offset=offset,
         )
         models[name] = m
+        selected_iterations[name] = best_iteration
+        log(f"    selected {best_iteration} boosting rounds")
 
-    # q50 (display median) and the mean point model train on the FULL train set so
-    # the headline point metrics don't pay for the calibration hold-out.
-    for name, objective, kw in [("q50", "quantile", {"alpha": 0.50}), ("mean", "regression", {})]:
-        label = "q50" if name == "q50" else "mean (regression L2) point"
-        log(f"  fitting {label} model (on full train)...")
-        params = mean_params if name == "mean" else best_params
-        m = make_lgbm(objective, params=params, **kw)
-        m.fit(
-            x_train, y_train_log,
-            categorical_feature=cat_cols if cat_cols else "auto",
-            eval_set=[(x_test, y_test_log)],
-            callbacks=[lgb.early_stopping(80, verbose=False)],
-        )
-        models[name] = m
+    # The point model can use the full training split because it is not calibrated.
+    # Its boosting rounds are still chosen without looking at the outer test split.
+    log("  fitting mean (regression L2) point model (on full train)...")
+    models["mean"], selected_iterations["mean"] = fit_final_model(
+        "regression",
+        x_train_raw,
+        y_train_log,
+        cat_cols,
+        mean_params,
+        encoding=mm_enc,
+        encoding_prior=mm_prior,
+        seed_offset=10,
+    )
+    log(f"    selected {selected_iterations['mean']} boosting rounds")
 
     # Conformal calibration: measure how far actuals fall outside the raw band on the
     # untouched calibration slice, and derive the additive log-space adjustment.
     log("  calibrating conformal band (CQR)...")
-    cal_lo_log = models["q10"].predict(x_cal)
-    cal_hi_log = models["q90"].predict(x_cal)
+    cal_q10_log = models["q10"].predict(x_cal)
+    cal_q90_log = models["q90"].predict(x_cal)
+    cal_lo_log = np.minimum(cal_q10_log, cal_q90_log)
+    cal_hi_log = np.maximum(cal_q10_log, cal_q90_log)
     cal_mid_log = models["q50"].predict(x_cal)
     log_delta = conformal.compute_log_delta(
         cal_lo_log, cal_hi_log, y_cal_log, target_coverage=TARGET_COVERAGE,
@@ -346,10 +446,11 @@ def main() -> None:
     log(f"  conformal log-delta={log_delta:+.4f} (target coverage {TARGET_COVERAGE:.0%}, "
         f"calibrated on {len(x_cal)} held-out rows)")
 
-    # Mondrian calibration: separate deltas per predicted-price bin. This reduced
-    # empirical coverage imbalance across price segments in the calibration study,
-    # but it does not guarantee coverage for every segment. The marginal delta
-    # above remains a backward-compatible fallback.
+    # Mondrian (group-conditional) calibration: separate deltas per predicted-price
+    # bin. This improved empirical coverage balance across price segments in the
+    # calibration study, but does not guarantee coverage for every segment. It is
+    # served preferentially by predict_listing; the marginal delta above remains a
+    # backward-compatible fallback.
     mondrian_model = conformal_mondrian.fit(
         cal_lo_log, cal_hi_log, cal_mid_log, y_cal_log,
         target_coverage=TARGET_COVERAGE, n_bins=MONDRIAN_BINS,
@@ -364,10 +465,14 @@ def main() -> None:
     pred_log_q90 = models["q90"].predict(x_test)
     pred_log_pt  = models["mean"].predict(x_test)
 
-    # Apply the conformal adjustment to widen (or tighten) the band in log space.
-    pred_q10 = np.expm1(pred_log_q10 - log_delta)
-    pred_q50 = np.expm1(pred_log_q50)
-    pred_q90 = np.expm1(pred_log_q90 + log_delta)
+    # Apply the same price-segment-specific deltas used by predict_listing.py.
+    lo_delta, hi_delta = conformal_mondrian.deltas_for(mondrian_model, pred_log_q50)
+    band_lo_log, median_log, band_hi_log = conformal.calibrated_band_logs(
+        pred_log_q10, pred_log_q50, pred_log_q90, lo_delta, hi_delta,
+    )
+    pred_q10 = np.expm1(band_lo_log)
+    pred_q50 = np.expm1(median_log)
+    pred_q90 = np.expm1(band_hi_log)
     pred_pt  = np.expm1(pred_log_pt)
 
     actual = y_test.to_numpy()
@@ -422,6 +527,10 @@ def main() -> None:
 
     (artifact_dir / "feature_names.json").write_text(json.dumps(feature_names, indent=2))
     (artifact_dir / "cat_features.json").write_text(json.dumps(cat_cols, indent=2))
+    (artifact_dir / "model_metadata.json").write_text(json.dumps({
+        "reference_year": reference_year,
+        "target": "advertised asking price",
+    }, indent=2))
 
     # make_model target encoding - inference derives the same feature from this.
     (artifact_dir / "make_model_price_enc.json").write_text(json.dumps({
@@ -429,12 +538,11 @@ def main() -> None:
     }, indent=2))
 
     # Category vocabularies: the exact levels the model saw for each categorical
-    # feature. The predict-time validator uses these levels to
-    # identify values outside the trained vocabulary, and
-    # (b) flag unseen make_model / trim at inference time as low-confidence.
+    # feature. The prediction-time validator uses these levels to flag unseen
+    # make_model or trim values as low-confidence.
     category_levels = {
-        c: [lvl for lvl in x[c].cat.categories.tolist()]
-        for c in cat_cols if c in x.columns
+        c: sorted(str(value) for value in x_ptrain_raw[c].dropna().astype(str).unique())
+        for c in cat_cols if c in x_ptrain_raw.columns
     }
     (artifact_dir / "category_levels.json").write_text(json.dumps(category_levels, indent=2))
 
@@ -443,8 +551,8 @@ def main() -> None:
     # listings) as low-confidence, not just entirely-unseen ones.
     HIGH_IMPACT_CATEGORICALS = ("make_model", "trim")
     category_counts = {
-        c: {str(k): int(v) for k, v in x_train[c].value_counts().items()}
-        for c in HIGH_IMPACT_CATEGORICALS if c in x_train.columns
+        c: {str(k): int(v) for k, v in x_ptrain_raw[c].value_counts().items()}
+        for c in HIGH_IMPACT_CATEGORICALS if c in x_ptrain_raw.columns
     }
     (artifact_dir / "category_counts.json").write_text(json.dumps(category_counts, indent=2))
 
@@ -460,13 +568,17 @@ def main() -> None:
 
     payload = {
         "config": {
-            "data_path": DATA_PATH,
+            "data_path": str(Path(DATA_PATH).relative_to(paths.PROJECT_ROOT)),
             "target": TARGET_COLUMN,
             "drop_columns": DROP_COLUMNS,
             "cat_features": cat_cols,
             "test_size": TEST_SIZE,
             "random_seed": RANDOM_SEED,
             "cv_folds": CV_FOLDS,
+            "early_stop_validation_fraction": EARLY_STOP_VALIDATION_FRACTION,
+            "early_stopping_rounds": EARLY_STOPPING_ROUNDS,
+            "selected_iterations": selected_iterations,
+            "reference_year": reference_year,
             "best_hyperparameters": best_params,
             "log_transform_target": True,
             "model": "lightgbm + quantile regression (q10/q50/q90) + mean point model",
@@ -474,8 +586,9 @@ def main() -> None:
         "dataset": {
             "rows_total": int(len(df)),
             "rows_train": int(len(x_train)),
+            "rows_calibration": int(len(x_cal)),
             "rows_test": int(len(x_test)),
-            "features_used": int(x.shape[1]),
+            "features_used": int(len(feature_names)),
             "categorical_features": int(len(cat_cols)),
         },
         "baseline": base,
@@ -488,15 +601,18 @@ def main() -> None:
     # quick writeup
     write_quick_writeup(payload, pred_df, fi, artifact_dir / "quick_model_writeup.md")
 
-    # Version this model: snapshot the just-written artifacts into archive/vN/ and
-    # record them in the registry so a future retrain never clobbers this one.
+    # Record the run and keep a local snapshot of the just-written artifacts.
     import model_registry
     rows = payload["dataset"]["rows_total"]
     version = model_registry.register_current_model(
         artifact_dir, metrics_payload=payload,
-        notes=f"trained on {rows} rows",
+        notes=(
+            f"retrained on {rows:,} rows with fold-local target encoding and internal "
+            "early-stopping validation; calibration and outer test rows remained "
+            "untouched during model selection"
+        ),
     )
-    log(f"Registered model as v{version} (archived under {artifact_dir}/archive/v{version}/)")
+    log(f"Registered model as v{version} (local snapshot: {artifact_dir}/archive/v{version}/)")
 
     log(f"\nSaved artifacts to {artifact_dir}/")
 
@@ -525,6 +641,7 @@ def write_quick_writeup(payload: Dict, pred_df: pd.DataFrame, fi: pd.DataFrame, 
         f"- Features: {payload['dataset']['features_used']} ({payload['dataset']['categorical_features']} categorical)",
         "",
         "## Headline results",
+        "- Evaluation note: this fixed split was consulted during model development; see README.md.",
         f"- Test R2: {tm['test_r2']:.4f}  (baseline R2: {base['baseline_r2']:.4f})",
         f"- Test MAE: {fmt(tm['test_mae'])}  (baseline MAE: {fmt(base['baseline_mae'])})",
         f"- Test RMSE: {fmt(tm['test_rmse'])}",

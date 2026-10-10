@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vehicle-price-training-coverage"
+version = "1.0.0"
+description = "Tools for testing vehicle asking-price models under training-coverage gaps"
+readme = "README.md"
+authors = [{ name = "Joshua Lukose" }]
+requires-python = ">=3.11"
+dependencies = [
+    "lightgbm==4.6.0",
+    "matplotlib==3.11.0",
+    "numpy==2.4.2",
+    "pandas==3.0.1",
+    "scikit-learn==1.8.0",
+]
+
+[project.scripts]
+coverage-shift = "coverage_shift.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+testpaths = ["tests"]

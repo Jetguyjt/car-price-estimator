@@ -1,14 +1,25 @@
 """
 Mondrian (group-conditional) conformalized quantile regression.
 
-Marginal CQR targets coverage for the q10-q90 band on average. That average can
-hide differences across price ranges when prediction errors change with vehicle
-price. This module partitions the calibration set by predicted price and computes
-a separate adjustment per bin.
+Marginal CQR (see conformal.py) targets coverage for the q10-q90 band *on average*.
+That average can hide substantial differences across price ranges when prediction
+errors change with vehicle price. A single global adjustment cannot directly account
+for those differences.
 
-The goal is better empirical balance across price segments. It is not a guarantee
-of coverage for every segment or future dataset. Sparse groups borrow the global
-adjustment instead of estimating an unstable group-specific value.
+This implementation partitions the calibration set by predicted price and computes
+a separate CQR adjustment per bin. A test point receives its bin's adjustment. The
+goal is better empirical balance across price segments; it is not a guarantee of
+coverage for every segment or future dataset.
+
+The group must be knowable at prediction time, so we key it off the model's own
+*predicted* price (q50), not the actual price - binning by prediction is legitimate
+(no target leakage) and puts each car in the segment the model thinks it belongs to.
+An optional categorical key (e.g. is_luxury_make) is also supported.
+
+Groups with too few calibration points borrow the global (marginal) delta instead
+of estimating an unstable group-specific adjustment.
+Artifact format is a superset of conformal.json; load_delta-style helpers keep the
+serving path simple.
 """
 
 import json
@@ -36,6 +47,25 @@ def assign_bins(pred_log: Sequence[float], edges: Sequence[float]) -> np.ndarray
     edges = np.asarray(edges, dtype=float)
     return np.clip(np.digitize(np.asarray(pred_log, dtype=float), edges[1:-1]),
                    0, len(edges) - 2).astype(int)
+
+
+def _json_edges(edges: Sequence[float]) -> List[float | str]:
+    """Use JSON strings for infinite outer bounds.
+
+    Python's JSON encoder otherwise writes bare Infinity values, which are accepted
+    by Python but are not part of the JSON standard. NumPy accepts the strings
+    ``-inf`` and ``inf`` when the artifact is converted back to floats.
+    """
+    output: List[float | str] = []
+    for edge in edges:
+        value = float(edge)
+        if np.isneginf(value):
+            output.append("-inf")
+        elif np.isposinf(value):
+            output.append("inf")
+        else:
+            output.append(value)
+    return output
 
 
 def fit(lo_log, hi_log, mid_log, y_log, *, target_coverage: float = 0.80,
@@ -70,7 +100,7 @@ def fit(lo_log, hi_log, mid_log, y_log, *, target_coverage: float = 0.80,
         "method": "Mondrian conformalized quantile regression (bin key: predicted q50)",
         "target_coverage": target_coverage,
         "n_bins": n_bins,
-        "bin_edges_log": [float(e) for e in edges],
+        "bin_edges_log": _json_edges(edges),
         "bin_deltas_log": [float(d) for d in deltas],
         "bin_counts": counts,
         "global_delta_log": float(global_delta),
@@ -93,7 +123,9 @@ def deltas_for(model: Dict, mid_log: Sequence[float]):
 
 
 def save(artifact_dir, model: Dict) -> None:
-    (Path(artifact_dir) / ARTIFACT_NAME).write_text(json.dumps(model, indent=2))
+    (Path(artifact_dir) / ARTIFACT_NAME).write_text(
+        json.dumps(model, indent=2, allow_nan=False) + "\n"
+    )
 
 
 def load(artifact_dir) -> Optional[Dict]:

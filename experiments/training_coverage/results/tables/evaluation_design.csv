@@ -1,0 +1,6 @@
+protocol,evaluation_condition,holdout_unit,cycles,fits,predictions_per_listing,observed_fits,train_rows_min,train_rows_max,test_rows_min,test_rows_max
+random_reference,Random listing-level reference,Individual listings,3,15,3,15,16640,16641,4160,4161
+holdout_make_model,Processed make/model-group holdout,Complete processed make/model groups,3,15,3,15,16630,16648,4153,4171
+holdout_make,Manufacturer-group holdout,Complete manufacturer groups,3,15,3,15,16555,16750,4051,4246
+holdout_mileage_primary,Complete mileage-range holdout,One of five fixed mileage ranges,1,5,1,5,16313,17076,3725,4488
+holdout_age_primary,Complete vehicle-age-range holdout,One of five fixed age ranges,1,5,1,5,15980,17613,3188,4821

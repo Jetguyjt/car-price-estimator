@@ -8,6 +8,5 @@
   "transmission_type",
   "car_color",
   "title_status",
-  "accident_history",
-  "region"
+  "accident_history"
 ]

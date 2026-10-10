@@ -1,0 +1,11 @@
+protocol,band,n,share_overpredicted_percent,mean_signed_error
+holdout_mileage_primary,"0-14,999",3725,27.7,-6368.624844563003
+holdout_mileage_primary,"15,000-34,999",4488,37.4,-1539.3579904774278
+holdout_mileage_primary,"35,000-59,999",4310,57.6,244.9882842805212
+holdout_mileage_primary,"60,000-99,999",4359,21.5,-2579.691536055506
+holdout_mileage_primary,"100,000+",3919,79.1,2426.396209545308
+holdout_age_primary,0-1,4731,38.8,-3066.3264516909576
+holdout_age_primary,2-3,4020,46.9,-524.768305566611
+holdout_age_primary,4-5,3188,51.7,-376.00838782405765
+holdout_age_primary,6-8,4041,37.5,-1602.5035244797657
+holdout_age_primary,9+,4821,82.0,3089.8521218197875

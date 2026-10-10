@@ -1,8 +1,7 @@
 """
-Rigorous evaluation of the trained car-price model.
+Evaluation of the trained vehicle price model.
 
-This is the "research half" of the project. Where train_price_model.py reports a single
-headline MAE/R2, this script asks the harder, more honest questions:
+Where train_price_model.py reports a single headline MAE/R2, this script adds:
 
   1. Baselines    - does the model actually beat dumb-but-reasonable strategies
                     (global median, same-make/model median, a linear depreciation fit)?
@@ -10,13 +9,13 @@ headline MAE/R2, this script asks the harder, more honest questions:
                     luxury vs economy. A single average hides the luxury blind spot.
   3. Is the band honest - calibration of the q10/q50/q90 quantiles. If we claim an 80%
                     band, do ~80% of real prices actually fall inside it?
-  4. Why            - SHAP global importances + a reusable per-listing explanation
-                    function (this is what the website surfaces as "priced high because…").
-  5. External truth - a scaffold to benchmark our estimate against KBB/Edmunds values on a
-                    hand-collected held-out sample (the single biggest credibility signal).
+  4. Why            - SHAP global importances and a reusable per-listing explanation
+                    function.
 
-All numbers are computed on the SAME held-out test split as training (same seed), so they
-are directly comparable to metrics.json.
+All numbers are computed on the same fixed evaluation split as training (same seed), so
+they are directly comparable to metrics.json. Those rows were not used to fit or
+calibrate version 13, but the split was consulted across several model versions. The
+results are therefore model-development measurements, not a one-time final test.
 
 IMPORTANT framing: the target is *asking* price from listings, not realized sale price.
 Every "deal / fair / overpriced" statement is market-relative - priced low/in-line/high
@@ -51,10 +50,10 @@ from train_price_model import (
 )
 import paths
 import conformal
+import conformal_mondrian
 
 ARTIFACT_DIR = paths.ARTIFACT_DIR
 EVAL_DIR = paths.EVAL_DIR
-BENCHMARK_CSV = paths.BENCHMARK_CSV
 
 QUANTILE_MODELS = {"q10": "lgbm_q10.pkl", "q50": "lgbm_q50.pkl", "q90": "lgbm_q90.pkl"}
 POINT_MODEL = "lgbm_mean.pkl"
@@ -108,7 +107,10 @@ def baseline_group_median(
     train_df: pd.DataFrame, test_df: pd.DataFrame, y_train: pd.Series
 ) -> np.ndarray:
     """Predict the median asking price of the same make_model seen in training.
-    Falls back to the global median for unseen make_models. This is a simple comparable-vehicle lookup baseline."""
+
+    Falls back to the global median for unseen make_models. This represents a
+    simple comparable-vehicle lookup.
+    """
     global_median = float(np.median(y_train))
     grp = (
         pd.DataFrame({"make_model": train_df["make_model"].values, "price": y_train.values})
@@ -188,17 +190,15 @@ def segment_errors(
 
 def quantile_calibration(
     actual: np.ndarray, q_preds: Dict[str, np.ndarray]
-) -> Tuple[pd.DataFrame, float]:
-    """For a well-calibrated qX model, the fraction of actuals BELOW the predicted qX
-    should be ~X. Also report the [q10,q90] interval coverage."""
+) -> pd.DataFrame:
+    """Check raw quantile models before conformal interval adjustment."""
     targets = {"q10": 0.10, "q50": 0.50, "q90": 0.90}
     rows = []
     for name, level in targets.items():
         empirical = float(np.mean(actual <= q_preds[name]))
         rows.append({"quantile": name, "target_level": level,
                      "empirical_below": round(empirical, 3)})
-    interval_coverage = float(np.mean((actual >= q_preds["q10"]) & (actual <= q_preds["q90"])))
-    return pd.DataFrame(rows), interval_coverage
+    return pd.DataFrame(rows)
 
 
 def plot_calibration(calib_df: pd.DataFrame, path: Path) -> None:
@@ -211,7 +211,7 @@ def plot_calibration(calib_df: pd.DataFrame, path: Path) -> None:
                     textcoords="offset points", xytext=(6, -10), fontsize=9)
     ax.set_xlabel("target quantile level")
     ax.set_ylabel("empirical fraction of actuals below prediction")
-    ax.set_title("Quantile calibration")
+    ax.set_title("Raw quantile calibration")
     ax.set_xlim(0, 1); ax.set_ylim(0, 1)
     ax.legend()
     fig.tight_layout()
@@ -244,9 +244,7 @@ def shap_global(models: dict, x_test: pd.DataFrame, feature_names: List[str]) ->
 
 
 def make_listing_explainer(models: dict, feature_names: List[str], cat_features: List[str]):
-    """Return explain(row_df) -> top signed feature contributions for ONE listing,
-    in log-price space. This is the function the website will call to render
-    'priced higher than expected because of: low mileage, luxury brand, ...'."""
+    """Return the top signed feature contributions for one listing."""
     import shap
     explainer = shap.TreeExplainer(models["mean"])
 
@@ -259,38 +257,6 @@ def make_listing_explainer(models: dict, feature_names: List[str], cat_features:
         return contribs[:top_k]
 
     return explain
-
-
-# ----------------------------- KBB benchmark scaffold -----------------------------
-
-def ensure_benchmark_scaffold(test_df: pd.DataFrame, actual: np.ndarray, pred_pt: np.ndarray) -> str:
-    """Create benchmark_kbb.csv if absent: a hand-fill template seeded with real test
-    listings. You look each car up on KBB/Edmunds and fill `kbb_value`; rerun to compare
-    model vs KBB vs actual asking. If already filled, compute the comparison."""
-    if not BENCHMARK_CSV.exists():
-        sample = test_df.head(30).copy()
-        scaffold = pd.DataFrame({
-            "make_model": sample["make_model"].values,
-            "year": sample.get("year", pd.Series([np.nan] * len(sample))).values,
-            "mileage": sample.get("mileage", pd.Series([np.nan] * len(sample))).values,
-            "trim": sample.get("trim", pd.Series([""] * len(sample))).values,
-            "asking_price": actual[:len(sample)].round(0),
-            "model_predicted": pred_pt[:len(sample)].round(0),
-            "kbb_value": "",   # <-- fill these by hand from KBB/Edmunds
-        })
-        scaffold.to_csv(BENCHMARK_CSV, index=False)
-        return (f"Created {BENCHMARK_CSV} with {len(scaffold)} rows to fill in by hand "
-                f"(look up each car's KBB/Edmunds value in the `kbb_value` column).")
-
-    bench = pd.read_csv(BENCHMARK_CSV)
-    filled = bench[pd.to_numeric(bench.get("kbb_value"), errors="coerce").notna()].copy()
-    if filled.empty:
-        return f"{BENCHMARK_CSV} exists but no kbb_value rows are filled in yet."
-    filled["kbb_value"] = pd.to_numeric(filled["kbb_value"], errors="coerce")
-    model_mae = mean_absolute_error(filled["asking_price"], filled["model_predicted"])
-    kbb_mae = mean_absolute_error(filled["asking_price"], filled["kbb_value"])
-    return (f"KBB benchmark on {len(filled)} filled rows -> "
-            f"model MAE vs asking ${model_mae:,.0f} | KBB MAE vs asking ${kbb_mae:,.0f}")
 
 
 # ----------------------------- main -----------------------------
@@ -326,20 +292,35 @@ def main() -> None:
     models = load_models()
 
     # ---- point + quantile predictions (sorted to prevent crossing) ----
-    # Apply the conformal (CQR) adjustment to q10/q90 in log space before inverting,
-    # so reported coverage matches the band predict_listing.py actually serves.
-    log_delta = conformal.load_delta(ARTIFACT_DIR)
+    # Use the same Mondrian (price-segment-specific) conformal adjustment served by
+    # predict_listing.py. Older artifacts without it fall back to one global delta.
+    pred_log_q10 = models["q10"].predict(x_test)
+    pred_log_q50 = models["q50"].predict(x_test)
+    pred_log_q90 = models["q90"].predict(x_test)
+    mondrian = conformal_mondrian.load(ARTIFACT_DIR)
+    if mondrian is not None:
+        lo_delta, hi_delta = conformal_mondrian.deltas_for(mondrian, pred_log_q50)
+    else:
+        global_delta = conformal.load_delta(ARTIFACT_DIR)
+        lo_delta = hi_delta = global_delta
+
     pred_pt = predict_dollars(models["mean"], x_test)
+    band_lo_log, median_log, band_hi_log = conformal.calibrated_band_logs(
+        pred_log_q10, pred_log_q50, pred_log_q90, lo_delta, hi_delta,
+    )
     q = {
-        "q10": np.expm1(models["q10"].predict(x_test) - log_delta),
-        "q50": predict_dollars(models["q50"], x_test),
-        "q90": np.expm1(models["q90"].predict(x_test) + log_delta),
+        "q10": np.expm1(band_lo_log),
+        "q50": np.expm1(median_log),
+        "q90": np.expm1(band_hi_log),
     }
-    stacked = np.sort(np.vstack([q["q10"], q["q50"], q["q90"]]).T, axis=1)
-    q["q10"], q["q50"], q["q90"] = stacked[:, 0], stacked[:, 1], stacked[:, 2]
+    raw_q = {
+        "q10": np.expm1(pred_log_q10),
+        "q50": np.expm1(pred_log_q50),
+        "q90": np.expm1(pred_log_q90),
+    }
 
     # ---- baselines ----
-    log("\n=== Baselines vs model (test set, $ space) ===")
+    log("\n=== Baselines vs model (fixed evaluation set, $ space) ===")
     results = {
         "model_point": metric_block(actual, pred_pt),
         "baseline_global_median": metric_block(actual, baseline_global_median(y_train, len(actual))),
@@ -356,8 +337,9 @@ def main() -> None:
     log(seg.to_string(index=False))
 
     # ---- calibration ----
-    log("\n=== Quantile calibration ===")
-    calib, interval_cov = quantile_calibration(actual, q)
+    log("\n=== Raw quantile diagnostics + adjusted interval coverage ===")
+    calib = quantile_calibration(actual, raw_q)
+    interval_cov = float(np.mean((actual >= q["q10"]) & (actual <= q["q90"])))
     calib.to_csv(EVAL_DIR / "calibration.csv", index=False)
     plot_calibration(calib, EVAL_DIR / "calibration_curve.png")
     log(calib.to_string(index=False))
@@ -375,17 +357,12 @@ def main() -> None:
     for c in example_contribs:
         log(f"    {c['feature']:20s} {c['shap']:+.3f}")
 
-    # ---- KBB benchmark scaffold ----
-    log("\n=== External (KBB/Edmunds) benchmark ===")
-    bench_msg = ensure_benchmark_scaffold(test_df, actual, pred_pt)
-    log(f"  {bench_msg}")
-
     # ---- write a human-readable report ----
-    write_report(results, seg, calib, interval_cov, fi, bench_msg)
+    write_report(results, seg, calib, interval_cov, fi)
     log(f"\nSaved evaluation outputs to {EVAL_DIR}/ and a report at {EVAL_DIR/'evaluation_report.md'}")
 
 
-def write_report(results, seg, calib, interval_cov, fi, bench_msg) -> None:
+def write_report(results, seg, calib, interval_cov, fi) -> None:
     fmt = lambda v: f"${v:,.0f}"
     m = results["model_point"]
     gm = results["baseline_global_median"]
@@ -395,10 +372,10 @@ def write_report(results, seg, calib, interval_cov, fi, bench_msg) -> None:
     lines = [
         "# Model Evaluation Report",
         "",
-        "_Market-relative used-car pricing. Target = asking price from listings (not realized",
+        "_Market-relative vehicle pricing. Target = asking price from listings (not realized",
         "sale price); all verdicts are relative to comparable listings on the market._",
         "",
-        "## 1. Model vs baselines (held-out test set)",
+        "## 1. Model vs baselines (fixed evaluation split)",
         "",
         "| Method | MAE | R² | MAPE |",
         "|---|---|---|---|",
@@ -407,7 +384,8 @@ def write_report(results, seg, calib, interval_cov, fi, bench_msg) -> None:
         f"| Same make/model median | {fmt(grp['mae'])} | {grp['r2']:.3f} | {grp['mape_percent']:.1f}% |",
         f"| Linear depreciation (age+miles+luxury) | {fmt(lin['mae'])} | {lin['r2']:.3f} | {lin['mape_percent']:.1f}% |",
         "",
-        "The model is compared with a simple baseline: the median price of the same make/model.",
+        "The relevant question is not only whether R² is high, but whether the model beats",
+        "a simple comparable-vehicle lookup: the median price of the same make/model.",
         "",
         "## 2. Where the model fails (segment analysis)",
         "",
@@ -420,8 +398,8 @@ def write_report(results, seg, calib, interval_cov, fi, bench_msg) -> None:
         "",
         "## 3. Is the confidence band honest? (calibration)",
         "",
-        f"[q10, q90] interval coverage on test: **{interval_cov*100:.1f}%** (target ~80%).",
-        "Quantile calibration (`calibration_curve.png`):",
+        f"[q10, q90] interval coverage on the evaluation split: **{interval_cov*100:.1f}%** (target ~80%).",
+        "Raw quantile diagnostics (`calibration_curve.png`):",
         "",
         "```",
         calib.to_string(index=False),
@@ -435,22 +413,21 @@ def write_report(results, seg, calib, interval_cov, fi, bench_msg) -> None:
         fi.head(10).to_string(index=False),
         "```",
         "",
-        "The per-listing explainer (`make_listing_explainer`) returns signed contributions",
-        "for a single car - this is what the web UI surfaces as the human-readable 'why'.",
-        "",
-        "## 5. External benchmark (KBB / Edmunds)",
-        "",
-        f"{bench_msg}",
-        "",
-        "Comparing against an independent valuation source (KBB/Edmunds) is the strongest",
-        "available check that the model tracks real-world value, not just listing patterns.",
+        "The reusable `make_listing_explainer` function returns signed contributions",
+        "for one listing in log-price space.",
         "",
         "## Known limitations",
         "",
         "- **Asking, not sale price.** We never observe what a car actually sold for.",
-        "- **Data scale + features.** Trained on 12,739 processed listings. Detail-page fields are",
-        "  unevenly populated, and high-price and luxury segments remain sparse.",
+        "- **Data scale + coverage.** The six-figure/luxury segment is thinly represented,",
+        "  and this is where error concentrates; collecting more high-price and rare-model",
+        "  listings is the top driver of future accuracy.",
         "- **Temporal snapshot.** Prices drift; the model reflects one collection window.",
+        "- **Dataset-wide preprocessing.** Price-based outlier rules and rare-category",
+        "  grouping based on full-sample counts were applied before the 80/20 split.",
+        "- **Repeated evaluation use.** The fixed split was reviewed across versions 10-13",
+        "  and influenced feature selection during development. Its rows were not used to",
+        "  fit or calibrate version 13, but this is not a one-time independent final test.",
     ]
     (EVAL_DIR / "evaluation_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 

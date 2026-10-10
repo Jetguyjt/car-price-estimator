@@ -1,10 +1,10 @@
 """
-Preprocess raw Cars.com scrape into a model-ready table.
+Preprocess cleaned vehicle listings into a model-ready table.
 
 Changes vs the old version:
 - No more -999999 / __missing_sentinel__ shenanigans. NaN is NaN.
 - Wider price clip so luxury cars survive (they're real listings).
-- Region kept as a feature.
+- Region remains available as metadata.
 - Drops only obvious garbage; lets the model handle nuance.
 """
 
@@ -328,7 +328,11 @@ def group_rare(series: pd.Series, min_count: int) -> pd.Series:
 
 # ------------------------------ main pipeline ------------------------------
 
-def preprocess_for_model(df: pd.DataFrame) -> pd.DataFrame:
+def preprocess_for_model(
+    df: pd.DataFrame,
+    *,
+    reference_year: int | None = None,
+) -> pd.DataFrame:
     out = df.copy()
 
     numeric_cols = [
@@ -339,7 +343,7 @@ def preprocess_for_model(df: pd.DataFrame) -> pd.DataFrame:
         if col in out.columns:
             out[col] = pd.to_numeric(out[col], errors="coerce")
 
-    current_year = datetime.now().year
+    current_year = int(reference_year or datetime.now().year)
 
     # --- core required fields ---
     for col in ["make", "model"]:
@@ -361,7 +365,7 @@ def preprocess_for_model(df: pd.DataFrame) -> pd.DataFrame:
     out["trim"] = out.get("trim").astype("string").str.lower().str.strip() if "trim" in out.columns else pd.NA
     out["body_style"] = out.get("body_style").astype("string").str.lower().str.strip() if "body_style" in out.columns else pd.NA
 
-    # Undo the scraper's first-space model truncation (see MODEL_REPAIR_CONTINUATIONS).
+    # Repair known first-space model truncations (see MODEL_REPAIR_CONTINUATIONS).
     repaired = [
         repair_split_model(mk, md, tr)
         for mk, md, tr in zip(out["make"], out["model"], out["trim"])
@@ -505,10 +509,11 @@ def main() -> None:
     log(f"Reading raw data: {input_path}")
     raw_df = pd.read_csv(input_path)
     if raw_df.empty:
-        log("Raw CSV is empty.")
-        return
+        raise SystemExit("Input CSV is empty; refusing to leave an older processed file in place.")
 
     processed_df = preprocess_for_model(raw_df)
+    if processed_df.empty:
+        raise SystemExit("Preprocessing removed every row; no output was written.")
     processed_df.to_csv(output_path, index=False)
     log(f"Saved processed data: {output_path}")
     log(f"Rows: raw={len(raw_df)} processed={len(processed_df)}")

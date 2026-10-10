@@ -1,0 +1,24 @@
+quantity,value
+Raw listing records,21745.0
+Records after primary cleaning,21219.0
+Model-ready records,20801.0
+Source-labeled used listings,17459.0
+Source-labeled certified listings,3282.0
+Source-labeled new listings,60.0
+Listings encoded non-new,20741.0
+Listings encoded new,60.0
+Processed make/model categories,641.0
+Manufacturers,48.0
+Median asking price,24998.0
+"Asking-price interquartile range, low",17677.0
+"Asking-price interquartile range, high",34999.0
+"Asking-price range, low",2300.0
+"Asking-price range, high",466326.0
+Median mileage,46907.0
+"Mileage interquartile range, low",21551.0
+"Mileage interquartile range, high",87000.0
+"Vehicle-year range, low",1992.0
+"Vehicle-year range, high",2027.0
+Median processed-group size,6.0
+Singleton processed groups,132.0
+Processed groups with fewer than five listings,282.0

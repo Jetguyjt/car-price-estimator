@@ -1,31 +1,9 @@
-# CarPrice - Python dependencies
-# Developed and tested on Python 3.13.
-#
-# macOS note: LightGBM needs the OpenMP runtime. If `import lightgbm` fails with
-# "Library not loaded: @rpath/libomp.dylib", install it with:  brew install libomp
-#
-# Pinned to the versions this project was built and verified against.
-
-# --- data + scraping ---
 pandas==3.0.1
 numpy==2.4.2
-selenium==4.41.0
-beautifulsoup4==4.14.3
-webdriver-manager==4.0.2
-certifi>=2024.0.0
-
-# --- modeling + evaluation ---
 scikit-learn==1.8.0
 lightgbm==4.6.0
 shap==0.52.0
 matplotlib==3.11.0
-
-# --- local front end (attribute-enterer demo) ---
 streamlit>=1.40.0
-
-# --- optional API prototype dependencies; no API server was completed in this phase ---
-fastapi>=0.115.0
-uvicorn[standard]>=0.32.0
-
-# --- tests ---
+websocket-client>=1.8.0
 pytest>=8.0.0

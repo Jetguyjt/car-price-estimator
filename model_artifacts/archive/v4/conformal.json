@@ -1,7 +1,0 @@
-{
-  "log_delta": 0.04512345502888593,
-  "target_coverage": 0.8,
-  "calibration_n": 2019,
-  "method": "conformalized quantile regression (CQR)",
-  "note": "Additive adjustment in log1p(price) space: band = [expm1(q10_log - log_delta), expm1(q90_log + log_delta)]."
-}

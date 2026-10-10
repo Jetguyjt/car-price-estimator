@@ -1,0 +1,31 @@
+field,type,role,used_as_model_input,description
+listing_id,string,metadata,no,Source listing identifier when available
+listing_key,string,metadata,no,Collection-time listing key used for record handling
+zip,string,metadata,no,Listing postal code when available
+region,string,metadata,no,Collection region label when available
+price,float,target,no,Advertised asking price in U.S. dollars
+make,string,grouping metadata,no,Cleaned manufacturer name used for manufacturer holdouts
+model,string,grouping metadata,no,Cleaned model name
+make_model,string,categorical input,yes,Processed manufacturer and model grouping key
+year,integer,numerical input,yes,Listed model year
+mileage,float,numerical input,yes,Recorded odometer mileage
+car_age,float,derived numerical input,yes,Vehicle age relative to the 2026 reference year clipped at zero
+miles_per_year,float,derived numerical input,yes,Mileage divided by derived age using a lower age bound
+price_per_mile,float,excluded target-derived field,no,Asking price divided by mileage
+mileage_bucket,string,derived categorical input,yes,Rule-based mileage category
+is_luxury_make,integer,derived binary input,yes,Indicator based on the fixed luxury-manufacturer list
+is_new,integer,binary input,yes,Indicator derived from listing stock type
+trim,string,categorical input,yes,Cleaned trim with rare values grouped
+trim_tier,integer,derived ordinal input,yes,Rule-based base premium or performance tier
+title_status,string,categorical input,yes,Parsed title-status information
+accident_history,string,categorical input,yes,Parsed accident-history information
+owner_count,float,numerical input,yes,Parsed prior-owner count
+cpo,integer,binary input,yes,Certified-pre-owned indicator
+drivetrain,string,categorical input,yes,Normalized drivetrain category
+engine_size_l,float,numerical input,yes,Parsed engine displacement in liters
+transmission_type,string,categorical input,yes,Grouped transmission category
+fuel_type_group,string,categorical input,yes,Grouped fuel type
+mpg,float,numerical input,yes,Parsed fuel-economy value
+car_color,string,categorical input,yes,Grouped exterior-color category
+body_style,string,categorical input,yes,Grouped body style
+make_model_price_enc,float,fold-derived numerical input,yes,Smoothed mean log asking price computed from the current training fold only

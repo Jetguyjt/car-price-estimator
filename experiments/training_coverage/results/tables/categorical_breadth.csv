@@ -1,0 +1,7 @@
+protocol,minimum_group_n,eligible_groups,eligible_rows,groups_with_higher_mae,fraction_with_higher_mae
+holdout_make_model,1,641,20801,488,0.7613104524180967
+holdout_make_model,20,189,18578,186,0.9841269841269841
+holdout_make_model,50,116,16229,116,1.0
+holdout_make,1,48,20801,45,0.9375
+holdout_make,20,31,20664,31,1.0
+holdout_make,50,31,20664,31,1.0

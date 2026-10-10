@@ -1,215 +1,108 @@
-# CarPrice - market-relative used-car pricing
+# Vehicle Asking-Price Model
 
-Use used-car listing data to train a LightGBM model on `log(price)` with **quantile
-regression** for a price *band*, and judge any listing as **deal / fair / overpriced** -
-with an honest evaluation of where the model works and where it doesn't.
+This project estimates a vehicle's advertised asking price from details such as its make, model, year, mileage, trim, and condition. It returns both a point estimate and a price range, then compares a seller's asking price with that range.
 
-> **What "deal / fair / overpriced" means.** The model learns from **asking prices** on
-> listings, not realized sale prices. A verdict is therefore *market-relative*: priced low,
-> in-line, or high **versus comparable listings** - not a claim about a car's true resale
-> value. (Same basis as Zillow's Zestimate.)
+The model learns from asking prices in marketplace listings, not completed sales. A “deal” or “overpriced” result only means low or high relative to similar listings in the collected sample.
 
-## Portfolio highlights
+The current model is version 13. It was trained on a private, cleaned snapshot of 20,801 listings. The current checkout does not contain the row-level dataset, but it does include the trained model, preprocessing code, aggregate results, and tests. Earlier development commits contain old marketplace-data snapshots and source URLs; those files are not part of the current release.
 
-- **End-to-end ML pipeline:** listing-data intake -> raw cleaning -> feature engineering -> LightGBM training -> evaluation -> single-listing scoring.
-- **Defensive data cleaning:** a dedicated `raw -> interim` stage catches scrape artifacts a naive price floor misses - e.g. captured *monthly-payment* amounts surfacing as a $1,892 "2027 Corvette" - using a market-plausibility rule, and logs every drop to an auditable report.
-- **Traceable dataset design:** raw listing URLs, listing keys, scrape timestamps, and detail-page enrichment timestamps are preserved in the raw CSV.
-- **Uncertainty-aware predictions:** quantile models estimate a q10/q50/q90 price band, so the system gives a range as well as a point estimate. See [`docs/paper_results.md`](docs/paper_results.md) for the full study.
-- **Explainability:** model artifacts include feature importance, segment error analysis, calibration outputs, and SHAP summaries.
-- **Honest limitations:** the project models asking prices, documents weak segments, and avoids filling missing data with guesses.
+## Try the app
 
-## Results at a glance
+The saved model files are committed, so the app can run without the training data.
+Use Python 3.12 or newer.
 
-Current model is **v9**, trained on the cleaned 12,739-listing dataset. On a held-out
-test set (n = 2,548), every method is scored on the **same** test rows:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m streamlit run src/app.py
+```
+
+On macOS, LightGBM may also need the OpenMP runtime. If it reports a missing `libomp.dylib`, install it with `brew install libomp` and rerun the app.
+
+Open `http://localhost:8501`, enter a vehicle and asking price, and click **Estimate price**. The app shows the estimated price, an 80% target price range, and a warning when the selected model or trim had few training examples.
+
+## How it works
+
+The main pipeline has four stages:
+
+1. `src/clean_raw_data.py` removes duplicate rows, missing required fields, impossible values, and obvious price-capture errors.
+2. `src/preprocess_cars_data.py` normalizes text fields and builds model inputs such as vehicle age, miles per year, mileage range, combined make/model, and trim tier.
+3. `src/train_price_model.py` trains LightGBM models on `log1p(price)`. One model produces the point estimate, while three quantile models produce the lower, middle, and upper estimates. Conformal calibration adjusts the final range.
+4. `src/evaluate_model.py` compares the model with simple baselines and saves segment errors, calibration results, and SHAP feature importance.
+
+`src/cars_com_browser_collect.py` is the browser collector used in the later collection phase. It reads fields visible in a loaded browser page, saves incrementally, and stops when the site returns a block page. The collected rows themselves are kept private.
+
+The collector should only be used where automated access is permitted. Check the site's terms and robots rules first, keep request rates low, stop at any block, and do not redistribute collected rows.
+
+## Current model results
+
+Version 13 used a fixed 80/20 split: 16,640 training rows and 4,161 evaluation rows. Within that training run, the evaluation rows were not used for fitting, early stopping, calibration, or hyperparameter selection. The same split was reviewed across versions 10–13 and influenced feature selection during development, so the numbers below describe performance on a repeatedly consulted evaluation set rather than a one-time independent final test.
 
 | Method | MAE | R² | MAPE |
-|---|---|---|---|
-| **LightGBM (this model)** | **$2,855** | **0.859** | **12.2%** |
-| Global-median baseline | $11,836 | −0.022 | 82.2% |
-| Same make/model median | $8,761 | 0.497 | 60.8% |
-| Linear depreciation baseline | $7,763 | 0.410 | 31.1% |
+|---|---:|---:|---:|
+| LightGBM point model | $2,976 | 0.885 | 11.0% |
+| Global median | $12,753 | -0.032 | 67.0% |
+| Same make/model median | $9,049 | 0.573 | 49.7% |
+| Linear depreciation baseline | $8,645 | 0.329 | 29.4% |
 
-v9 adds economic monotonicity constraints on the point model (price non-increasing in
-mileage and prior owners, non-decreasing in year). These remove the ~1-in-4
-ceteris-paribus predictions where the unconstrained model raised a car's price for
-*more* mileage, with no accuracy cost. The experiments behind these numbers (ablation,
-model comparison, group-conditional conformal coverage, monotonicity, proper scoring
-rules, and a learning-curve analysis; bootstrap intervals are reported for the
-ablation, model-comparison, and monotonicity metrics) live in
-[`docs/paper_results.md`](docs/paper_results.md), regenerable from `src/` with
-`python3 -m experiments.run_all`. The data-growth decisions are in
-[`docs/data_expansion_decision.md`](docs/data_expansion_decision.md).
+MAE is the average dollar error. MAPE is the average error as a percentage of the listing price. The q10–q90 range covered 79.1% of the fixed evaluation prices, close to its 80% target.
 
-The model outperforms the three simple baselines evaluated here. The q10-q90 price band covered **~80%** of held-out prices overall. Group-conditional (Mondrian) calibration reduced the measured coverage imbalance across price segments by **44%** in this evaluation; this is an empirical improvement, not a per-segment guarantee. Error still concentrates in high-price / luxury
-cars, where comparable listings are sparse (luxury-make MAPE 15.5% vs economy 11.8%), but
-far less than it used to: v5-v7 fixed a preprocessing bug that silently deleted 80% of the
->$120k cars from training, added a trim-tier feature (base / premium / performance) so
-AMG/M/RS/Turbo variants stop pricing like base models, and added a make_model target
-encoding so sparse expensive model lines aren't shrunk toward the market average. Together
-those cut >$120k MAPE from **65% to ~30%** and the systematic underprediction bias at
-$60-80k from **−$12.9k to −$4.3k**. More top-end listings remain the best next lever. Full
-experimental breakdown, including the uncertainty checks reported for each
-comparison: [`docs/paper_results.md`](docs/paper_results.md); see also
-`model_artifacts/eval/`.
+## Training-coverage checks
 
-> **On comparing versions.** MAE is *not* comparable across versions because each was
-> tested on a differently-priced held-out set (v2's median $5.0k vs later versions' $23k).
-> The honest, like-for-like story: the v2->v3 jump to 12.6k rows nearly halved relative
-> error (**MAPE 21.8% -> 12.8%**, R² 0.795 -> 0.826) but left the band too narrow (63%
-> coverage); **v4 added conformal calibration** for an honest ~80% band; **v5-v7 fixed
-> luxury-segment accuracy** (restored the deleted price tail, trim-tier feature,
-> split-model repair, make_model target encoding) and improved every headline metric on
-> a strictly harder test set that now includes six-figure cars. Full changelog:
-> [`model_artifacts/MODEL_HISTORY.md`](model_artifacts/MODEL_HISTORY.md).
+An ordinary random split usually tests the model on new listings from vehicle groups and numerical ranges that were already represented in training. I added a separate set of experiments to see what happens when complete categories or ranges are missing from training.
 
-## Project timeline
+| Evaluation condition | MAE | Compared with random | MAPE |
+|---|---:|---:|---:|
+| Random listing-level reference | $3,015 | 1.00× | 10.9% |
+| Complete mileage ranges withheld | $4,171 | 1.38× | 18.4% |
+| Complete vehicle-age ranges withheld | $4,403 | 1.46× | 23.0% |
+| Complete make/model categories withheld | $7,676 | 2.55× | 25.4% |
+| Complete manufacturers withheld | $7,921 | 2.63× | 25.7% |
 
-This repository was initialized in **late June 2026** to preserve and publish the current working state of a local automotive ML research project. The project itself began earlier as local experiments and scripts around **November 2025**, before there was a formal GitHub history. As a result, the first commit is a repository baseline rather than the true beginning of the research work, and the earlier timeline is reconstructed from the local files rather than a commit log.
+![MAE ratios across training-coverage conditions](experiments/training_coverage/results/figures/primary_ratio_forest.png)
 
+The experiment also compares selected ranges using the same test listings and the same number of training rows in both conditions. Code, design notes, aggregate tables, figures, and synthetic-data tests are in [`experiments/training_coverage/`](experiments/training_coverage/).
 
-## Setup
+The 80/20 model result and the training-coverage table answer different questions, so their MAE values should not be treated as the same test.
+
+Two preprocessing steps were applied before the 80/20 split: price-based outlier rules and rare-category grouping based on counts from the full processed table. The fixed evaluation split was also reviewed across several model versions. Its rows were not used to fit or calibrate version 13, but the reported metrics are not independent of the project’s earlier preprocessing and feature decisions.
+
+## Running the pipeline
+
+Place appropriately obtained input files in the paths described in [`data/README.md`](data/README.md), then run:
 
 ```bash
-python3 -m pip install -r requirements.txt
-# macOS only: LightGBM needs the OpenMP runtime
-brew install libomp
+make data
+make train
+make evaluate
 ```
 
+Training writes the current models and metadata to `model_artifacts/`. Older local snapshots are not included in the public checkout; their metrics are summarized in [`model_artifacts/MODEL_HISTORY.md`](model_artifacts/MODEL_HISTORY.md).
 
-## Pipeline
-
-Paths are resolved from the project root via `src/paths.py`. Run the commands
-below from the repository root.
+Run the root tests with:
 
 ```bash
-# 1. Provide appropriately obtained raw listing data
-#    -> writes data/raw/cars_com_raw.csv
-
-# 2. Clean the raw scrape (dedup, drop impossible values, kill payment-amount
-#    artifacts). Writes a per-reason report you can audit.
-python3 src/clean_raw_data.py
-#    -> writes data/interim/cars_com_clean.csv + data/interim/cleaning_report.md
-
-# 3. Engineer features (normalization, feature columns, rare-category grouping)
-python3 src/preprocess_cars_data.py
-#    -> writes data/processed/cars_com_processed.csv
-
-# 4. Train LightGBM (quantile q10/q50/q90 + L2 point model)
-python3 src/train_price_model.py
-#    -> writes model_artifacts/
-
-# 5. Rigorous evaluation (baselines, segments, calibration, SHAP, KBB scaffold)
-python3 src/evaluate_model.py
-#    -> writes model_artifacts/eval/
-
-# 6. Score a single listing
-python3 src/predict_listing.py     # edit EXAMPLE_LISTING inside the file
+make test
 ```
 
-Steps 2 and 3 accept optional `input.csv output.csv` overrides; with no arguments
-they use the `data/` layout above.
-
-### Local web app (attribute enterer)
-
-A Streamlit front end wraps the model: pick a car's attributes and get the estimated
-price, a conformally-calibrated fair-price band, and a deal / fair / overpriced verdict.
-Dropdowns are populated from the model's own trained vocabularies, so an unseen make/model
-or trim surfaces a low-confidence warning.
+Run the training-coverage package checks with:
 
 ```bash
-python3 -m streamlit run src/app.py     # opens http://localhost:8501
+make coverage-test
+make coverage-smoke
 ```
 
-Run the tests:
-
-```bash
-python3 -m pytest tests/ -q
-```
+The smoke run uses generated data and checks that the experiment works end to end. It does not reproduce the saved numerical results.
 
 ## Repository layout
 
-```
-src/                          pipeline code (paths resolved via src/paths.py)
-  clean_raw_data.py           raw hygiene: dedup, impossible values, artifacts
-  preprocess_cars_data.py     normalization + feature engineering
-  train_price_model.py        LightGBM quantile + point training
-  evaluate_model.py           baselines, segments, calibration, SHAP
-  predict_listing.py          single-listing scoring (+ assemble_listing helper)
-  conformal.py                CQR band calibration
-  app.py                      Streamlit attribute-enterer front end
-  paths.py                    single source of truth for all data/artifact paths
-data/
-  raw/         immutable scraper output (cars_com_raw.csv)
-  interim/     cleaned raw + cleaning_report.md
-  processed/   model-ready table (cars_com_processed.csv)
-  snapshots/   frozen point-in-time CSVs
-  benchmarks/  KBB/Edmunds benchmark template
-model_artifacts/  trained models + metrics; eval/ holds report + plots
-docs/   tests/   dev/probes/ (throwaway debug scripts)
+```text
+src/                           collection, cleaning, modeling, evaluation, and app
+tests/                         preprocessing and calibration tests
+model_artifacts/               current trained model and aggregate evaluation files
+experiments/training_coverage/ coverage experiments, tables, figures, and tests
+data/                          local-data layout and availability notes
 ```
 
-| Path | Purpose |
-|---|---|
-| `src/` | Reusable Python code for cleaning, training, evaluation, and prediction. |
-| `data/raw/` | Raw listing snapshots with source URLs and timestamps. |
-| `data/interim/` | Cleaned or balanced intermediate datasets, including `cars_com_balanced_training_view.csv`. |
-| `data/processed/` | Processed ML-ready datasets. |
-| `data/snapshots/` | Smaller historical snapshots used during development. |
-| `data/benchmarks/` | External benchmark templates such as KBB/Edmunds comparison scaffolds. |
-| `notebooks/` | Exploratory notebooks for dataset profiling and model analysis. |
-| `notes/` | Research notes and decision logs. |
-| `media/` | Portfolio images, diagrams, screenshots, and demo assets. |
-| `outputs/` | Exported portfolio/report outputs that should not break the training pipeline. |
-| `dev/probes/` | One-off browser/CDP probes used while debugging Cars.com rendering. |
-| `tests/` | Unit tests for the preprocessing normalizers. |
-| `docs/dataset_profile_2026-07-01.md` | Point-in-time July 1 raw dataset profile and balancing diagnosis. |
-| `docs/portfolio_summary.md` | Point-in-time portfolio summary from the initial repository setup. |
-| `model_artifacts/` | Trained models + metrics. `eval/` holds the evaluation report + plots. |
-
-## Data collection principles
-
-The raw data collection policy is intentionally conservative:
-
-- only save values visible on loaded Cars.com pages;
-- leave unknown fields blank instead of inferring them;
-- deduplicate by Cars.com `listing_key`;
-- preserve timestamps and source URLs;
-- pause between page loads and stop rather than brute-force blocks or CAPTCHA.
-
-
-## Model design notes
-
-- **Target:** trained on `log1p(price)`; predictions inverse-transformed.
-- **Quantile band:** three models (q10/q50/q90) give a range; a listing above q90 reads as
-  overpriced, below q10 as a deal. The quantiles are **sorted per-prediction** so the band
-  never crosses.
-- **Point estimate:** a separate L2 model (better MAE/R² than q50 alone).
-- **Categoricals:** LightGBM handles them natively. The exact levels seen in training are
-  saved to `model_artifacts/category_levels.json`, and their per-value counts to
-  `category_counts.json`, so a make/model that is unseen **or too sparse** (e.g. a BMW M3
-  with only ~5 listings) is flagged as **low-confidence** rather than silently guessed.
-- **Leakage:** `price_per_mile` is engineered for analysis but dropped before training.
-- **Versioning:** every training run snapshots its artifacts into `model_artifacts/archive/vN/`
-  and appends a row to [`model_artifacts/MODEL_HISTORY.md`](model_artifacts/MODEL_HISTORY.md),
-  so improving the model never overwrites the one it replaced. The live model in
-  `model_artifacts/` is always the latest version.
-
-## Roadmap
-
-Done so far:
-
-- Scaled the data to ~12.6k cleaned listings with detail-page fields.
-- Confidence band: conformal (CQR) calibration to ~80% coverage, now group-conditional.
-- Local Streamlit web app: enter attributes, get a price band, verdict, and warnings.
-
-Planned next:
-
-1. **Close the luxury blind spot** - targeted collection of high-price listings (the
-   $80k+ segment is still the weakest, ~$32k MAE on few comparables).
-2. attribute entry - map plain-language vehicle details to the
-   model's schema (constrained by `category_levels.json`) and feeds the same web app.
-3. **Per-listing "why"** - surface SHAP contributions in the app, not just warnings.
-4. **External benchmark** vs KBB/Edmunds on a hand-collected sample.
-
-See `model_artifacts/eval/` for the full methodology and the limitations section.
+The exact training records are not distributed in the current checkout because they came from a third-party marketplace. A new dataset with the same fields can run through the code, but its results should be expected to differ from the saved results here.

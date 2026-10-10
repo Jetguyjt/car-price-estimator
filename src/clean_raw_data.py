@@ -1,14 +1,14 @@
 """
-Clean the raw Cars.com scrape into a trustworthy intermediate table.
+Clean raw vehicle listings into a trustworthy intermediate table.
 
 This is the *hygiene* stage of the pipeline and it sits deliberately between the
 scraper and the feature-engineering step:
 
-    data/raw/cars_com_raw.csv          (immutable scraper output)
+    data/raw/vehicle_listings_raw.csv          (collector output)
         -> clean_raw_data.py ->
-    data/interim/cars_com_clean.csv    (this file's output)
+    data/interim/vehicle_listings_clean.csv    (this file's output)
         -> preprocess_cars_data.py ->
-    data/processed/cars_com_processed.csv
+    data/processed/vehicle_listings_processed.csv
 
 Why a separate stage instead of folding it into preprocessing? Because these two
 jobs have different contracts. Cleaning removes rows that are *wrong* (missing
@@ -17,12 +17,10 @@ intact. Preprocessing then *transforms* what survives (normalization, feature
 engineering, rare-category grouping). Keeping them apart means the cleaning rules
 are auditable on their own and the intermediate CSV is still human-readable.
 
-The rule that earns this stage its keep: **payment-amount artifacts**. Cars.com
-cards sometimes surface a monthly/financing figure where the price should be, so a
-2027 Corvette shows up at $1,892 and a 2025 BMW X5 at $999. A flat "price > $500"
-floor (which preprocessing already applies) does not catch these - they are three
-and four digits. We catch them with a market-plausibility rule instead: a nearly
-new, low-mileage car cannot cost a few thousand dollars.
+The rule that earns this stage its keep is the check for payment-amount artifacts.
+Some listing cards can surface a monthly or down-payment figure where the full price
+should be. A flat minimum-price rule does not catch every case, so a second rule
+flags nearly new, low-mileage vehicles with implausibly low captured prices.
 
 Run:
     python3 src/clean_raw_data.py                 # raw -> interim (default paths)
@@ -70,12 +68,19 @@ def _recency_key(df: pd.DataFrame) -> pd.Series:
     """
     # utc=True normalizes the mix of tz-aware and tz-naive strings the scraper
     # emits into a single comparable, sortable dtype.
-    enriched = pd.to_datetime(df.get("enriched_at"), errors="coerce", utc=True)
-    scraped = pd.to_datetime(df.get("scraped_at"), errors="coerce", utc=True)
+    missing = pd.Series(pd.NaT, index=df.index, dtype="datetime64[ns, UTC]")
+    enriched_source = df["enriched_at"] if "enriched_at" in df.columns else missing
+    scraped_source = df["scraped_at"] if "scraped_at" in df.columns else missing
+    enriched = pd.to_datetime(enriched_source, errors="coerce", utc=True)
+    scraped = pd.to_datetime(scraped_source, errors="coerce", utc=True)
     return enriched.fillna(scraped).fillna(pd.Timestamp.min.tz_localize("UTC"))
 
 
-def clean_raw(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
+def clean_raw(
+    df: pd.DataFrame,
+    *,
+    reference_year: int | None = None,
+) -> tuple[pd.DataFrame, dict]:
     """Return (clean_df, report). The report counts rows dropped per reason."""
     report: dict = {"rows_in": len(df)}
     out = df.copy()
@@ -92,7 +97,7 @@ def clean_raw(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         if col in out.columns:
             out[col] = pd.to_numeric(out[col], errors="coerce")
 
-    current_year = datetime.now().year
+    current_year = int(reference_year or datetime.now().year)
     max_year = current_year + 1
 
     # --- 1. exact duplicate rows ---
@@ -104,11 +109,12 @@ def clean_raw(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     if "listing_key" in out.columns:
         before = len(out)
         out = out.assign(_recency=_recency_key(out))
-        out = (
-            out.sort_values("_recency")
-            .drop_duplicates(subset="listing_key", keep="last")
-            .drop(columns="_recency")
-        )
+        out = out.sort_values("_recency")
+        # Missing keys do not identify the same listing. Deduplicate only rows
+        # with an actual key, otherwise every keyless row would collapse to one.
+        populated_key = out["listing_key"].notna()
+        duplicate_key = populated_key & out.duplicated(subset="listing_key", keep="last")
+        out = out.loc[~duplicate_key].drop(columns="_recency")
         report["dropped_duplicate_listing_key"] = before - len(out)
 
     # --- 3. missing required fields ---
@@ -192,10 +198,11 @@ def main() -> None:
     log(f"Reading raw data: {input_path}")
     raw_df = pd.read_csv(input_path)
     if raw_df.empty:
-        log("Raw CSV is empty; nothing to clean.")
-        return
+        raise SystemExit("Raw CSV is empty; refusing to leave an older cleaned file in place.")
 
     clean_df, report = clean_raw(raw_df)
+    if clean_df.empty:
+        raise SystemExit("Cleaning removed every row; no output was written.")
     clean_df.to_csv(output_path, index=False)
     log(f"Saved cleaned data: {output_path}")
 

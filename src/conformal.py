@@ -15,13 +15,13 @@ finite-sample-corrected empirical quantile of those scores, and the calibrated b
 
     [ expm1(q10_log - delta),  expm1(q90_log + delta) ]
 
-By the CQR theorem this covers the target fraction (e.g. 80%) of future points, given
-exchangeability. `delta` may be negative if the raw band over-covers (it would tighten).
+Under the usual exchangeability assumptions, this targets the requested future
+coverage. `delta` may be negative if the raw band over-covers (it would tighten).
 
-Everything is stored in `model_artifacts/conformal.json` and applied identically at
-train-time evaluation, in `evaluate_model.py`, and in `predict_listing.py`, so reported
-coverage and served bands agree. If the artifact is absent, `load_delta` returns 0.0 and
-the pipeline behaves exactly as before (backward compatible with pre-v4 models).
+The global adjustment is stored in `model_artifacts/conformal.json`. Newer models
+prefer price-bin adjustments from `conformal_mondrian.json`; the global value remains
+the fallback for older artifacts. Training, evaluation, and serving use the same
+selected adjustment. If the global artifact is absent, `load_delta` returns 0.0.
 """
 
 import json
@@ -44,7 +44,11 @@ def compute_log_delta(lo_log, hi_log, y_log, target_coverage: float = 0.80) -> f
     hi_log = np.asarray(hi_log, dtype=float)
     y_log = np.asarray(y_log, dtype=float)
 
-    scores = np.maximum(lo_log - y_log, y_log - hi_log)
+    # Independently trained quantile models can cross. Their two predictions still
+    # define endpoints, so order them before computing conformity scores.
+    ordered_lo = np.minimum(lo_log, hi_log)
+    ordered_hi = np.maximum(lo_log, hi_log)
+    scores = np.maximum(ordered_lo - y_log, y_log - ordered_hi)
     n = scores.size
     if n == 0:
         return 0.0
@@ -55,6 +59,29 @@ def compute_log_delta(lo_log, hi_log, y_log, target_coverage: float = 0.80) -> f
     rank = math.ceil((n + 1) * target_coverage)
     rank = min(rank, n)
     return float(np.sort(scores)[rank - 1])
+
+
+def calibrated_band_logs(q10_log, q50_log, q90_log, lo_delta, hi_delta=None):
+    """Return ordered calibrated endpoints and a median clamped inside them.
+
+    q50 is displayed inside the interval but never allowed to expand it. This keeps
+    the served endpoints identical to the endpoints that conformal calibration
+    actually adjusted.
+    """
+    q10_log = np.asarray(q10_log, dtype=float)
+    q50_log = np.asarray(q50_log, dtype=float)
+    q90_log = np.asarray(q90_log, dtype=float)
+    lo_delta = np.asarray(lo_delta, dtype=float)
+    hi_delta = lo_delta if hi_delta is None else np.asarray(hi_delta, dtype=float)
+
+    raw_lo = np.minimum(q10_log, q90_log)
+    raw_hi = np.maximum(q10_log, q90_log)
+    adjusted_a = raw_lo - lo_delta
+    adjusted_b = raw_hi + hi_delta
+    band_lo = np.minimum(adjusted_a, adjusted_b)
+    band_hi = np.maximum(adjusted_a, adjusted_b)
+    median = np.clip(q50_log, band_lo, band_hi)
+    return band_lo, median, band_hi
 
 
 def load_delta(artifact_dir) -> float:

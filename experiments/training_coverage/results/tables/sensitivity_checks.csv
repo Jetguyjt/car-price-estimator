@@ -1,0 +1,10 @@
+modified_analysis,random_reference_mae,shifted_condition,shifted_mae,ratio_to_own_reference
+Alternate boundaries,3014.653472070212,Mileage ranges,4073.0737654362183,1.351091859536072
+Alternate boundaries,3014.653472070212,Age ranges,4430.793575020092,1.4697522007321768
+Remove make/model price encoding,3131.7832708043666,Make/model groups,6856.351472045693,2.1892803170523067
+Remove make/model price encoding,3131.7832708043666,Manufacturers,7165.326816565728,2.2879382757304874
+Remove mileage bucket and miles/year,3088.0202984130124,Mileage ranges,3836.964604376368,1.2425321835961542
+Remove 25 exact-content later copies,2972.40359887224,Make/model groups,7677.77976719875,2.583020613389035
+Remove 25 exact-content later copies,2972.40359887224,Manufacturers,7852.836679653231,2.6419146722311457
+Add manufacturer as a model input,2954.4903847372025,Make/model groups,7356.323565763912,2.48987900037395
+Add manufacturer as a model input,2954.4903847372025,Manufacturers,7878.147174061293,2.6664995136757037

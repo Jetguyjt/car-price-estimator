@@ -1,5 +1,5 @@
 {
-  "latest_version": 9,
+  "latest_version": 13,
   "versions": [
     {
       "version": 1,
@@ -186,8 +186,7 @@
         "test_predictions.csv",
         "metrics.json",
         "quick_model_writeup.md",
-        "conformal.json",
-        "make_model_price_enc.json"
+        "conformal.json"
       ],
       "metrics": {
         "rows_total": 12739,
@@ -201,7 +200,7 @@
     {
       "version": 8,
       "created_at": "2026-08-19T12:07:55",
-      "notes": "add predicted-price-bin (Mondrian) conformal adjustments, which reduced the measured coverage imbalance across price segments (conditional-coverage error 0.145->0.081, -44%). Point metrics identical to v7 (Mondrian only adjusts the band). Served by predict_listing with marginal-CQR fallback. See docs/paper_results.md + src/conformal_mondrian.py.",
+      "notes": "add predicted-price-bin (Mondrian) conformal adjustments, which reduced the measured coverage imbalance across price segments (conditional-coverage error 0.145->0.081, -44%). This is an empirical calibration improvement, not a guarantee for every segment. Point metrics are identical to v7.",
       "archive_path": "archive/v8",
       "artifacts": [
         "lgbm_q10.pkl",
@@ -216,9 +215,7 @@
         "test_predictions.csv",
         "metrics.json",
         "quick_model_writeup.md",
-        "conformal.json",
-        "make_model_price_enc.json",
-        "conformal_mondrian.json"
+        "conformal.json"
       ],
       "metrics": {
         "rows_total": 12739,
@@ -232,7 +229,7 @@
     {
       "version": 9,
       "created_at": "2026-08-19T13:03:47",
-      "notes": "add economic monotonicity constraints to the point model (price non-increasing in mileage & owner_count, non-decreasing in year). Eliminates ceteris-paribus violations (15.5%/17.4% -> 0) at no accuracy cost; MAE $2,947->$2,855. Band quantiles stay unconstrained (LightGBM forbids monotone+quantile). See src/experiments/run_monotonicity.py + docs/paper_results.md.",
+      "notes": "add economic monotonicity constraints to the point model (price non-increasing in mileage and owner_count, non-decreasing in year). Eliminates tested ceteris-paribus violations at no accuracy cost; MAE $2,947->$2,855. Band quantiles stay unconstrained because LightGBM does not combine monotone constraints with quantile loss.",
       "archive_path": "archive/v9",
       "artifacts": [
         "lgbm_q10.pkl",
@@ -247,9 +244,7 @@
         "test_predictions.csv",
         "metrics.json",
         "quick_model_writeup.md",
-        "conformal.json",
-        "make_model_price_enc.json",
-        "conformal_mondrian.json"
+        "conformal.json"
       ],
       "metrics": {
         "rows_total": 12739,
@@ -258,6 +253,127 @@
         "test_r2": 0.8587908406811269,
         "test_mape_percent": 12.240076305991131,
         "interval_coverage_q10_q90": 0.804160125588697
+      }
+    },
+    {
+      "version": 10,
+      "created_at": "2026-09-06T10:07:38",
+      "notes": "trained on 20801 rows",
+      "archive_path": "archive/v10",
+      "artifacts": [
+        "lgbm_q10.pkl",
+        "lgbm_q50.pkl",
+        "lgbm_q90.pkl",
+        "lgbm_mean.pkl",
+        "feature_names.json",
+        "cat_features.json",
+        "category_levels.json",
+        "category_counts.json",
+        "feature_importance.csv",
+        "test_predictions.csv",
+        "metrics.json",
+        "quick_model_writeup.md",
+        "conformal.json"
+      ],
+      "metrics": {
+        "rows_total": 20801,
+        "rows_test": 4161,
+        "test_mae": 3023.3992706850454,
+        "test_r2": 0.8807396837263979,
+        "test_mape_percent": 11.008171253046047,
+        "interval_coverage_q10_q90": 0.7935592405671713
+      }
+    },
+    {
+      "version": 11,
+      "created_at": "2026-09-06T10:45:40",
+      "notes": "retrain on the expanded 20,801-listing dataset (~1.6x v9's 12.7k) and remove the sparse `region` tag from the feature set (present on only ~7% of rows, a leftover of an abandoned geographic probe; it carried no usable signal). Best metrics to date: MAE $2,978, R2 0.885, MAPE 11.0% on a larger, harder test set (n=4,161). Dropping region also edged MAE below v10's $3,023. Monotonicity constraints and group-conditional (Mondrian) conformal calibration carry over from v8/v9.",
+      "archive_path": "archive/v11",
+      "artifacts": [
+        "lgbm_q10.pkl",
+        "lgbm_q50.pkl",
+        "lgbm_q90.pkl",
+        "lgbm_mean.pkl",
+        "feature_names.json",
+        "cat_features.json",
+        "category_levels.json",
+        "category_counts.json",
+        "feature_importance.csv",
+        "test_predictions.csv",
+        "metrics.json",
+        "quick_model_writeup.md",
+        "conformal.json"
+      ],
+      "metrics": {
+        "rows_total": 20801,
+        "rows_test": 4161,
+        "test_mae": 2978.0821400736186,
+        "test_r2": 0.8854441169486187,
+        "test_mape_percent": 11.00087104419928,
+        "interval_coverage_q10_q90": 0.7858687815428983
+      }
+    },
+    {
+      "version": 12,
+      "created_at": "2026-10-10T04:06:18",
+      "notes": "retrained on 20,801 rows with internal early-stopping validation; evaluation rows were untouched within this run, but the fixed split had been reviewed in earlier versions",
+      "archive_path": "archive/v12",
+      "artifacts": [
+        "lgbm_q10.pkl",
+        "lgbm_q50.pkl",
+        "lgbm_q90.pkl",
+        "lgbm_mean.pkl",
+        "feature_names.json",
+        "cat_features.json",
+        "category_levels.json",
+        "category_counts.json",
+        "feature_importance.csv",
+        "test_predictions.csv",
+        "metrics.json",
+        "quick_model_writeup.md",
+        "conformal.json",
+        "conformal_mondrian.json",
+        "make_model_price_enc.json"
+      ],
+      "metrics": {
+        "rows_total": 20801,
+        "rows_test": 4161,
+        "test_mae": 2973.07764145057,
+        "test_r2": 0.885474467504681,
+        "test_mape_percent": 10.993874322585745,
+        "interval_coverage_q10_q90": 0.7858687815428983
+      }
+    },
+    {
+      "version": 13,
+      "created_at": "2026-10-10T04:31:28",
+      "notes": "retrained on 20,801 rows with fold-local target encoding and internal early-stopping validation; evaluation rows were untouched within this run, but the fixed split had been reviewed during development",
+      "archive_path": "archive/v13",
+      "artifacts": [
+        "lgbm_q10.pkl",
+        "lgbm_q50.pkl",
+        "lgbm_q90.pkl",
+        "lgbm_mean.pkl",
+        "feature_names.json",
+        "cat_features.json",
+        "category_levels.json",
+        "category_counts.json",
+        "feature_importance.csv",
+        "test_predictions.csv",
+        "metrics.json",
+        "quick_model_writeup.md",
+        "conformal.json",
+        "conformal_mondrian.json",
+        "make_model_price_enc.json",
+        "model_metadata.json"
+      ],
+      "metrics": {
+        "rows_total": 20801,
+        "rows_test": 4161,
+        "test_mae": 2976.29827150794,
+        "test_r2": 0.8852830283905433,
+        "test_mape_percent": 11.022111475279988,
+        "interval_coverage_q10_q90": 0.7913962989665946
       }
     }
   ]

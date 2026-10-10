@@ -1,0 +1,106 @@
+{
+  "source_file": "private processed snapshot",
+  "source_sha256": "b07a357b239177c486779ad02c22ef4e29a98ab1bae6371b381c5872f7c91a6c",
+  "experiment_code_version": "1.0.0",
+  "experiment_code_sha256": "69d53705a0ce6ce51cc06907b0b206bdd7e54d5b40d5988ee4d95d74dcba11e4",
+  "reference_year": 2026,
+  "n_rows": 20801,
+  "n_input_features_before_price_encoding": 21,
+  "feature_order": [
+    "make_model",
+    "year",
+    "mileage",
+    "car_age",
+    "miles_per_year",
+    "mileage_bucket",
+    "is_luxury_make",
+    "is_new",
+    "trim",
+    "trim_tier",
+    "title_status",
+    "accident_history",
+    "owner_count",
+    "cpo",
+    "drivetrain",
+    "engine_size_l",
+    "transmission_type",
+    "fuel_type_group",
+    "mpg",
+    "car_color",
+    "body_style",
+    "make_model_price_enc"
+  ],
+  "categorical_features": [
+    "make_model",
+    "trim",
+    "body_style",
+    "mileage_bucket",
+    "drivetrain",
+    "fuel_type_group",
+    "transmission_type",
+    "car_color",
+    "title_status",
+    "accident_history"
+  ],
+  "model_parameters": {
+    "n_estimators": 2000,
+    "learning_rate": 0.05,
+    "num_leaves": 63,
+    "min_child_samples": 20,
+    "feature_fraction": 0.9,
+    "bagging_fraction": 0.9,
+    "bagging_freq": 1,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbose": -1,
+    "objective": "regression"
+  },
+  "monotone_directions": {
+    "year": 1,
+    "mileage": -1,
+    "owner_count": -1
+  },
+  "target": "log1p(price)",
+  "n_make_models": 641,
+  "n_makes": 48,
+  "price_min": 2300.0,
+  "price_max": 466326.0,
+  "exact_content_duplicate_rows_after_first": 25,
+  "versions": {
+    "python": "3.13.15",
+    "numpy": "2.4.2",
+    "pandas": "3.0.1",
+    "scikit_learn": "1.8.0",
+    "lightgbm": "4.6.0"
+  },
+  "band_counts": {
+    "age_primary": {
+      "0-1": 4731,
+      "2-3": 4020,
+      "4-5": 3188,
+      "6-8": 4041,
+      "9+": 4821
+    },
+    "age_sensitivity": {
+      "0": 2317,
+      "1-2": 4478,
+      "3-4": 3646,
+      "5-8": 5539,
+      "9+": 4821
+    },
+    "mileage_primary": {
+      "0-14,999": 3725,
+      "15,000-34,999": 4488,
+      "35,000-59,999": 4310,
+      "60,000-99,999": 4359,
+      "100,000+": 3919
+    },
+    "mileage_sensitivity": {
+      "0-9,999": 2655,
+      "10,000-24,999": 3367,
+      "25,000-49,999": 4926,
+      "50,000-99,999": 5934,
+      "100,000+": 3919
+    }
+  }
+}

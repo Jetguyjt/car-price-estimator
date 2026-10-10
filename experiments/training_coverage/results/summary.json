@@ -1,0 +1,96 @@
+{
+  "study_sample": {
+    "raw_records": 21745,
+    "records_after_primary_cleaning": 21219,
+    "model_ready_records": 20801,
+    "processed_make_model_categories": 641,
+    "manufacturers": 48
+  },
+  "primary_protocols": [
+    {
+      "condition": "random_listing_reference",
+      "mae_usd": 3014.653472070212,
+      "mape_percent": 10.90323433274763,
+      "mae_ratio": 1.0
+    },
+    {
+      "condition": "complete_mileage_ranges_withheld",
+      "mae_usd": 4171.36995202102,
+      "mape_percent": 18.39304940728154,
+      "mae_ratio": 1.3836979907201314,
+      "mae_ratio_interval_95": [
+        1.332063458108645,
+        1.4361578265314638
+      ]
+    },
+    {
+      "condition": "complete_vehicle_age_ranges_withheld",
+      "mae_usd": 4403.160086348827,
+      "mape_percent": 22.959352139832756,
+      "mae_ratio": 1.460585810987126,
+      "mae_ratio_interval_95": [
+        1.4042135350750795,
+        1.5216995680762435
+      ]
+    },
+    {
+      "condition": "processed_make_model_groups_withheld",
+      "mae_usd": 7676.434783056902,
+      "mape_percent": 25.367395236306933,
+      "mae_ratio": 2.5463738549642883,
+      "mae_ratio_interval_95": [
+        2.372780619101576,
+        2.7244127103438944
+      ]
+    },
+    {
+      "condition": "manufacturer_groups_withheld",
+      "mae_usd": 7921.103406134679,
+      "mape_percent": 25.663304546375574,
+      "mae_ratio": 2.627533638450036,
+      "mae_ratio_interval_95": [
+        2.3509765919226133,
+        2.863924064306878
+      ]
+    }
+  ],
+  "matched_ranges": [
+    {
+      "feature": "mileage",
+      "range": "35000-59999",
+      "region": "interior",
+      "records": 4310,
+      "represented_mae_usd": 2411.263215214782,
+      "absent_mae_usd": 2865.303224789786,
+      "mae_ratio": 1.1882996458910275
+    },
+    {
+      "feature": "mileage",
+      "range": "100000+",
+      "region": "upper_tail",
+      "records": 3919,
+      "represented_mae_usd": 1952.0930923934156,
+      "absent_mae_usd": 3558.6355418402763,
+      "mae_ratio": 1.8229845470520656
+    },
+    {
+      "feature": "vehicle_age",
+      "range": "4-5",
+      "region": "interior",
+      "records": 3188,
+      "represented_mae_usd": 2754.6456563030106,
+      "absent_mae_usd": 3166.0144159636825,
+      "mae_ratio": 1.149336361545959
+    },
+    {
+      "feature": "vehicle_age",
+      "range": "9+",
+      "region": "upper_tail",
+      "records": 4821,
+      "represented_mae_usd": 2523.798529966547,
+      "absent_mae_usd": 4781.959665056052,
+      "mae_ratio": 1.894746988825386
+    }
+  ],
+  "scope_note": "Aggregate results for one fixed model pipeline and one nonrandom marketplace sample. Asking prices are not completed-sale prices."
+}

@@ -1,10 +1,9 @@
 """
 Lightweight model version registry.
 
-`model_artifacts/` always holds the *current* model (so `predict_listing.py` and
-`evaluate_model.py` never need to know about versions). This module snapshots each
-trained model into `model_artifacts/archive/vN/` and records it in a registry, so
-improving the model never destroys the one it replaced.
+`model_artifacts/` always holds the current model, so prediction and evaluation do
+not need to know about versions. This module also keeps local snapshots under
+`model_artifacts/archive/vN/` and records each training run in a small registry.
 
 Layout:
 
@@ -13,7 +12,7 @@ Layout:
         registry.json                   <- machine-readable version list
         MODEL_HISTORY.md                <- human-readable changelog
         archive/
-            v1/ ...                      <- frozen copy of each past model
+            v1/ ...                      <- local copy of each past model
             v2/ ...
 
 Typical use from training (after the new artifacts are written):
@@ -40,6 +39,7 @@ ARTIFACT_FILE_NAMES = [
     "category_counts.json", "feature_importance.csv", "test_predictions.csv",
     "metrics.json", "quick_model_writeup.md", "conformal.json",
     "conformal_mondrian.json", "make_model_price_enc.json",
+    "model_metadata.json",
 ]
 
 REGISTRY_NAME = "registry.json"
@@ -144,9 +144,10 @@ def write_history_md(artifact_dir: Path, registry: Optional[Dict] = None) -> Non
     lines = [
         "# Model history",
         "",
-        "Every trained model is snapshotted into `archive/vN/` and listed here. The",
-        "live model in `model_artifacts/` is always the latest version. Lower test",
-        "MAE / MAPE and higher R² are better; interval coverage targets ~0.80.",
+        "Every trained model is listed here. Local training runs also save binary snapshots",
+        "under `archive/vN/`; those older binaries are not included in this checkout. The live",
+        f"files in `model_artifacts/` are version {registry.get('latest_version', 0)}. Lower test",
+        "MAE / MAPE and higher R² are better; interval coverage targets about 0.80.",
         "",
         "| Version | Date | Rows | Test MAE | R² | MAPE | q10-q90 coverage | Notes |",
         "|---|---|---|---|---|---|---|---|",

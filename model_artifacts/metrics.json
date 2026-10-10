@@ -1,6 +1,6 @@
 {
   "config": {
-    "data_path": "./data/processed/cars_com_processed.csv",
+    "data_path": "data/processed/vehicle_listings_processed.csv",
     "target": "price",
     "drop_columns": [
       "listing_id",
@@ -8,7 +8,8 @@
       "zip",
       "price_per_mile",
       "make",
-      "model"
+      "model",
+      "region"
     ],
     "cat_features": [
       "make_model",
@@ -20,12 +21,20 @@
       "transmission_type",
       "car_color",
       "title_status",
-      "accident_history",
-      "region"
+      "accident_history"
     ],
     "test_size": 0.2,
     "random_seed": 42,
     "cv_folds": 5,
+    "early_stop_validation_fraction": 0.15,
+    "early_stopping_rounds": 80,
+    "selected_iterations": {
+      "q10": 782,
+      "q50": 1911,
+      "q90": 633,
+      "mean": 1074
+    },
+    "reference_year": 2026,
     "best_hyperparameters": {
       "num_leaves": 127,
       "learning_rate": 0.03,
@@ -35,52 +44,53 @@
     "model": "lightgbm + quantile regression (q10/q50/q90) + mean point model"
   },
   "dataset": {
-    "rows_total": 12739,
-    "rows_train": 10191,
-    "rows_test": 2548,
-    "features_used": 23,
-    "categorical_features": 11
+    "rows_total": 20801,
+    "rows_train": 16640,
+    "rows_calibration": 3328,
+    "rows_test": 4161,
+    "features_used": 22,
+    "categorical_features": 10
   },
   "baseline": {
-    "baseline_mae": 11835.79945054945,
-    "baseline_rmse": 19792.704297606237,
-    "baseline_r2": -0.022140991539252308,
-    "baseline_mape_percent": 82.22436115658279
+    "baseline_mae": 12752.538091804854,
+    "baseline_rmse": 24098.791156363615,
+    "baseline_r2": -0.03238202263895196,
+    "baseline_mape_percent": 67.01145176457153
   },
   "hp_search_results": {
     "{\"num_leaves\": 63, \"learning_rate\": 0.05, \"min_child_samples\": 20}": {
-      "cv_mae_mean": 3381.610450606828,
-      "cv_mae_std": 130.2182024978796,
-      "cv_r2_mean": 0.7675979340110549
+      "cv_mae_mean": 3413.3102428001857,
+      "cv_mae_std": 60.424078874177056,
+      "cv_r2_mean": 0.7840823215748275
     },
     "{\"num_leaves\": 127, \"learning_rate\": 0.04, \"min_child_samples\": 20}": {
-      "cv_mae_mean": 3385.531167876508,
-      "cv_mae_std": 124.95964799924963,
-      "cv_r2_mean": 0.7662189828562692
+      "cv_mae_mean": 3412.6377578776023,
+      "cv_mae_std": 57.40161125214422,
+      "cv_r2_mean": 0.7839272127208875
     },
     "{\"num_leaves\": 255, \"learning_rate\": 0.03, \"min_child_samples\": 30}": {
-      "cv_mae_mean": 3393.9554547476255,
-      "cv_mae_std": 128.94588825206526,
-      "cv_r2_mean": 0.7697126053155937
+      "cv_mae_mean": 3442.1007433089085,
+      "cv_mae_std": 77.86818698875105,
+      "cv_r2_mean": 0.7780036368880795
     },
     "{\"num_leaves\": 127, \"learning_rate\": 0.03, \"min_child_samples\": 10}": {
-      "cv_mae_mean": 3337.050470045922,
-      "cv_mae_std": 145.64463807030037,
-      "cv_r2_mean": 0.7708602478884066
+      "cv_mae_mean": 3371.8533710361057,
+      "cv_mae_std": 38.518941913963495,
+      "cv_r2_mean": 0.7905488505448033
     }
   },
   "cv_with_best_params": {
-    "cv_mae_mean": 3156.067273093811,
-    "cv_mae_std": 203.88740817069706,
-    "cv_r2_mean": 0.7941617159594078
+    "cv_mae_mean": 3251.066121048042,
+    "cv_mae_std": 152.9211498743295,
+    "cv_r2_mean": 0.7977893890300776
   },
   "test_metrics": {
-    "test_mae": 2854.5880095505486,
-    "test_rmse": 7356.6681735647535,
-    "test_r2": 0.8587908406811269,
-    "test_mape_percent": 12.240076305991131,
-    "median_q50_mae": 2876.132048139202,
-    "interval_coverage_q10_q90": 0.804160125588697,
-    "interval_avg_width_dollars": 9959.803937721179
+    "test_mae": 2976.29827150794,
+    "test_rmse": 8033.205522916019,
+    "test_r2": 0.8852830283905433,
+    "test_mape_percent": 11.022111475279988,
+    "median_q50_mae": 3124.3893254053805,
+    "interval_coverage_q10_q90": 0.7913962989665946,
+    "interval_avg_width_dollars": 10338.00948939956
   }
 }

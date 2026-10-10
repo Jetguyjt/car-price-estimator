@@ -1,0 +1,5 @@
+feature,band,mean_exact_make_model_match_rate,mean_make_or_model_match_rate,unrestricted_fallback_matches
+car_age,4-5,0.9926808146491316,1.0,0.0
+car_age,9+,0.8209396138435945,0.9896287076254092,600.0
+mileage,"100,000+",0.9185166243530904,0.994386331087459,264.0
+mileage,"35,000-59,999",0.9913959783449343,1.0,0.0

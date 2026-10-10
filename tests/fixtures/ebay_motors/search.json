@@ -1,4 +1,0 @@
-{"itemSummaries":[
-{"itemId":"v1|3456789|0","legacyItemId":"3456789","title":"2019 Porsche 911 Carrera 4S","itemWebUrl":"https://www.ebay.com/itm/3456789","price":{"value":"98500.00","currency":"USD"},"buyingOptions":["FIXED_PRICE"],"itemLocation":{"stateOrProvince":"CA","postalCode":"94110"},"aspects":[{"name":"Year","value":"2019"},{"name":"Make","value":"Porsche"},{"name":"Model","value":"911"},{"name":"Trim","value":"Carrera 4S"},{"name":"Mileage","value":"24000"},{"name":"Vehicle Identification Number (VIN)","value":"WP0AB2A99KS123456"},{"name":"Fuel Type","value":"Gasoline"},{"name":"Body Type","value":"Coupe"}]},
-{"itemId":"v1|9999|0","title":"Parts lot","itemWebUrl":"https://ebay.com/itm/9999","buyingOptions":["AUCTION"],"aspects":[{"name":"Make","value":"Honda"}]}
-]}
